@@ -6,34 +6,18 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 18:48:25 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/07/02 16:12:34 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/07/03 13:37:44 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-int	ft_stlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != 0)
-	{
-		i++;
-	}
-	return (i);
-}
 
 int	ft_str_is_printable(char *str)
 {
 	int	i;
 
 	i = 0;
-	if (str[i] == 0)
-	{
-		return (0);
-	}
 	while (str[i] != 0)
 	{
-		if (str[i] < 32 || str[i] > 127)
+		if (str[i] < 32 || str[i] == 127)
 		{
 			return (0);
 		}
@@ -42,12 +26,11 @@ int	ft_str_is_printable(char *str)
 	return (1);
 }
 
-/*
-#include <stdio.h>
+/* #include <stdio.h>
 
 int	main(void)
 {
-	char str[] = "qwertyuiop";
+	char str[] = "";
 
 	if (ft_str_is_printable(str) == 0)
 	{
@@ -55,6 +38,6 @@ int	main(void)
 	}
 	else
 	{
-		printf("Wszysko dobje");
+		printf("Wszysko dobje || string maay be empty");
 	}
 } */

@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 18:21:20 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/07/02 16:11:32 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/07/03 13:07:49 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,12 @@ char	*ft_strcpy(char *dest, char *src)
 	return (dest);
 }
 
-/*
-#include <stdio.h>
+/* #include <stdio.h>
 
 int	main(void)
 {
 	char src[] = "bla bla";
-	char dest[20];
+	char dest[4];
 
 	ft_strcpy(dest, src);
 

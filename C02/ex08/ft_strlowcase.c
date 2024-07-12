@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 19:47:35 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/07/02 16:12:52 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/07/03 14:58:01 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,20 @@ char	*ft_strlowcase(char *str)
 	i = 0;
 	while (str[i] != 0)
 	{
-		if (str[i] > 65 && str[i] < 90)
+		if (str[i] >= 'A' && str[i] <= 'Z')
 		{
 			str[i] = str[i] + 32;
-			i++;
 		}
-		else
-		{
-			i++;
-		}
+		i++;
 	}
 	return (str);
 }
 
-/*
-#include <stdio.h>
+/* #include <stdio.h>
 
 int	main(void)
 {
-	char str[] = "QWERTYUIOP";
+	char str[] = "QWERTYUIOPASDFGHJKLZXCVBNM1234567890!@#$%^&*()_+-=";
 
 	ft_strlowcase(str);
 

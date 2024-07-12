@@ -6,36 +6,18 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 14:14:07 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/07/02 16:12:13 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/07/03 13:39:21 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
-
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != 0)
-	{
-		i++;
-	}
-	return (i);
-}
 
 int	ft_str_is_lowercase(char *str)
 {
 	int	i;
 
 	i = 0;
-	if (ft_strlen(str) == 0)
-	{
-		return (1);
-	}
 	while (str[i] != 0)
 	{
-		if (str[i] < 97 || str[i] > 122)
+		if (str[i] < 'a' || str[i] > 'z')
 		{
 			return (0);
 		}
@@ -44,12 +26,11 @@ int	ft_str_is_lowercase(char *str)
 	return (1);
 }
 
-/*
-#include <stdio.h>
+/* #include <stdio.h>
 
 int	main(void)
 {
-	char str[] = "qwertyuiop";
+	char str[] = "qwertyuiopasdfghjklzxcvbnm";
 	ft_str_is_lowercase(str);
 
 	if (ft_str_is_lowercase(str) == 0)
@@ -58,6 +39,6 @@ int	main(void)
 	}
 	else
 	{
-		printf("All guuuuud");
+		printf("All guuuuud || string may be empty");
 	}
 } */

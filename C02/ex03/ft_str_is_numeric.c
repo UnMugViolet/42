@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 17:40:47 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/07/02 16:11:59 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/07/03 13:07:31 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,11 @@ int	ft_str_is_numeric(char *str)
 	return (1);
 }
 
-/*
-#include <stdio.h>
+/* #include <stdio.h>
 
 int	main(void)
 {
-	char str[] = "02258742";
+	char str[] = "0123456789";
 
 	ft_str_is_numeric(str);
 

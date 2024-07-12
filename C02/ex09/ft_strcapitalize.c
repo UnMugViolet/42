@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 08:21:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/07/02 16:13:12 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/07/03 13:06:56 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,12 @@ char	*ft_strcapitalize(char *str)
 	return (str);
 }
 
-/*
-#include <stdio.h>
+/* #include <stdio.h>
 #include <unistd.h>
 
 int	main(void)
 {
-	char str[] = "1aMMMM";
+	char str[] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
 
 	ft_strcapitalize(str);
 

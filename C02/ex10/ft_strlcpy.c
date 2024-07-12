@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 10:52:53 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/07/02 16:13:24 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/07/03 13:07:05 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 	return (ft_strlen(src));
 }
 
-/*
-#include <stdio.h>
+/* #include <stdio.h>
 
 int	main(void)
 {

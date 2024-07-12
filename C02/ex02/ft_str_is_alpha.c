@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 11:48:30 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/07/02 16:11:55 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/07/03 13:07:38 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,11 @@ int	ft_str_is_alpha(char *str)
 	return (1);
 }
 
-/*
-#include <stdio.h>
+/* #include <stdio.h>
 
 int	main(void)
 {
-	char str[] = "";
+	char str[] = "qwertyuiop";
 	ft_str_is_alpha(str);
 
 	if (ft_str_is_alpha(str) == 0)
