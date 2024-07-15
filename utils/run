@@ -1,9 +1,8 @@
-#!/bin/zsh
-
 # Function to show usage
 usage() {
-    echo "Usage: $0 [-a] source_file [program_arguments...]"
+    echo "Usage: $0 [-a] [-v] source_file [program_arguments...]"
     echo "  -a: Compile with dependencies (*.c)"
+    echo "  -v: Compile with valgrind (cc -g3 && valgrind ./exec)"
     exit 1
 }
 
@@ -14,13 +13,17 @@ fi
 
 # Initialize variables
 compile_with_dependencies=false
+compile_with_valgrind=false
 source_file=""
 
 # Parse options
-while getopts ":a" opt; do
+while getopts ":a:v:" opt; do
     case ${opt} in
         a )
             compile_with_dependencies=true
+            ;;
+		v )
+            compile_with_valgrind=true
             ;;
         \? )
             usage
@@ -42,12 +45,18 @@ fi
 # Compile the source file
 if $compile_with_dependencies; then
     cc -Wall -Werror -Wextra -o exec *.c
+elif $compile_with_valgrind; then
+    cc -Wall -Werror -Wextra -o exec -g3 "$source_file"
 else
     cc -Wall -Werror -Wextra -o exec "$source_file"
 fi
 
 # Run the compiled program with the remaining arguments (if any)
+if $compile_with_valgrind; then
+    valgrind ./exec "$@"
+else
 ./exec "$@"
+fi
 
 # Clean up by removing the executable
 rm exec
