@@ -17,7 +17,7 @@ compile_with_valgrind=false
 source_file=""
 
 # Parse options
-while getopts ":a:v:" opt; do
+while getopts ":av" opt; do
     case ${opt} in
         a )
             compile_with_dependencies=true
