@@ -53,7 +53,7 @@ fi
 
 # Run the compiled program with the remaining arguments (if any)
 if $compile_with_valgrind; then
-    valgrind ./exec "$@"
+    valgrind --leak-check=full --show-leak-kinds=all ./exec "$@"
 else
 ./exec "$@"
 fi
