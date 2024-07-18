@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_params.c                                    :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rxue <rxue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/05 13:26:22 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/07/14 13:54:44 by pjaguin          ###   ########.fr       */
+/*   Created: 2024/07/14 18:13:18 by rxue              #+#    #+#             */
+/*   Updated: 2024/07/14 18:21:12 by rxue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "utils.h"
 #include <unistd.h>
 
-int	ft_strlen(char *str)
+void	ft_print_val(int n, t_dict *tab, int *first)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-int	main(int argc, char **argv)
-{
-	int	i;
-
-	i = argc - 1;
-	while (i > 0)
+	while (tab[i].val != 0)
 	{
-		write(1, argv[i], ft_strlen(argv[i]));
-		write(1, "\n", 1);
-		i--;
+		if (n == tab[i].nbr)
+		{
+			if (!*first)
+				write(1, " ", 1);
+			else
+				*first = 0;
+			ft_putstr(tab[i].val);
+			break ;
+		}
+		i++;
 	}
-	return (0);
 }

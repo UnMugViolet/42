@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_params.c                                    :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/05 13:26:22 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/07/14 13:54:44 by pjaguin          ###   ########.fr       */
+/*   Created: 2024/07/14 18:36:41 by pjaguin           #+#    #+#             */
+/*   Updated: 2024/07/14 19:20:52 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
 int	ft_strlen(char *str)
 {
@@ -22,16 +22,33 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
+char	*ft_strdup(char *src)
+{
+	char	*dest;
+	int		i;
+
+	i = 0;
+	dest = (char *)malloc(sizeof(char) * (ft_strlen(src) + 1));
+	if (!dest)
+		return (NULL);
+	while (src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
+
+/* #include <stdio.h>
+
 int	main(int argc, char **argv)
 {
-	int	i;
+	char	*result;
+	(void)argc;
 
-	i = argc - 1;
-	while (i > 0)
-	{
-		write(1, argv[i], ft_strlen(argv[i]));
-		write(1, "\n", 1);
-		i--;
-	}
-	return (0);
-}
+	result = ft_strdup(argv[1]);
+	printf("%s", result);
+
+	free(result);
+} */
