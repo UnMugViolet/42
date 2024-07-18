@@ -35,7 +35,7 @@ int	ft_atoi(char *str)
 	return (number * is_negative);
 }
 
-int ft_ultimate_range(int **range, int min, int max)
+int	ft_ultimate_range(int **range, int min, int max)
 {
 	int	i;
 
