@@ -1,0 +1,51 @@
+#!/bin/zsh
+
+# Function to show usage
+usage() {
+    echo "Usage: $0 [-a] source_file [program_arguments...]"
+    echo "  -a: Compile with dependencies (*.c)"
+    exit 1
+}
+
+# Check if no arguments are provided
+if [ $# -lt 1 ]; then
+    usage
+fi
+
+# Initialize variables
+compile_with_dependencies=false
+source_file=""
+
+# Parse options
+while getopts ":a" opt; do
+    case ${opt} in
+        a )
+            compile_with_dependencies=true
+            ;;
+        \? )
+            usage
+            ;;
+    esac
+done
+
+# Remove parsed options from positional parameters
+shift $((OPTIND -1))
+
+# Check if the source file is provided
+if [ $# -lt 1 ]; then
+    usage
+else
+    source_file=$1
+    shift
+fi
+
+# Compile the source file
+if $compile_with_dependencies; then
+    cc -Wall -Werror -Wextra -o exec -g *.c
+else
+    cc -Wall -Werror -Wextra -o exec -g "$source_file"
+fi
+
+# Exec with the args passed
+lldb ./exec "$@"
+

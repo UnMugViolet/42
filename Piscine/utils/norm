@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+c_formatter_42 < $1 | xsel -i
+xsel -o > $1
