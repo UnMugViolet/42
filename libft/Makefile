@@ -6,7 +6,7 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2024/11/08 14:33:24 by pjaguin          ###   ########.fr        #
+#    Updated: 2024/11/08 15:31:37 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,6 @@ re: fclean all
 go: 
 	./$(PROGRAM_NAME)
 
-# Specify that these arenot files to compile (just for safety)
-.PHONY: all clean fclean re
+# Specify that these are not files to compile (just for safety)
+.PHONY: all clean fclean re go
 	
