@@ -6,7 +6,7 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2024/11/08 15:31:37 by pjaguin          ###   ########.fr        #
+#    Updated: 2024/11/08 16:55:06 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ PROGRAM_NAME=main
 CC = cc
 AR = ar
 
-FILES = main.c ft_strlen.c ft_isalpha.c 
+FILES = main.c ft_isalpha.c ft_isalnum.c ft_tolower.c ft_strlen.c ft_isprint.c ft_isdigit.c ft_isascii.c ft_toupper.c
 SRC = $(FILES)
 OBJ = $(FILES:.c=.o)
 CFLAGS = -Wall -Werror -Wextra
