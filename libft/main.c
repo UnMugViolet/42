@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 14:11:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/12 09:44:54 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/11/12 10:22:56 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,17 @@ int	ft_check_func_is(int(ft)(int), int(oem)(int), char *ft_name)
 
 int	main(void)
 {
-	if (!ft_check_func_is(ft_isalnum, isalnum, "ft_isalnum"))
+/* 	if (!ft_check_func_is(ft_isalnum, isalnum, "ft_isalnum"))
 		return (0);
 	if (!ft_check_func_is(ft_isalpha, isalpha, "ft_isalpha"))
 		return (0);
 	if (!ft_check_func_is(ft_isascii, isascii, "ft_isascii"))
-		return (0);
+		return (0); */
+
+	char *str = "Yolo";
+	size_t  n = 1;
+
+	ft_bzero(str, n);
+
+	printf("%s", str);
 }
