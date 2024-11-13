@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 15:25:53 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/12 16:18:18 by pjaguin          ###   ########.fr       */
+/*   Created: 2024/11/13 14:06:29 by pjaguin           #+#    #+#             */
+/*   Updated: 2024/11/13 15:45:23 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stdlib.h"
+#include "libft.h"
 
-int	ft_isascii(int c)
+char	*ft_substr(char const *str, unsigned int start, size_t len)
 {
-	if (c < 0 || c > 127)
-		return (1);
-	return (0);
+	char	*ptr;
+
+	ptr = (char *)malloc(sizeof(char) * len + 1);
+	if (!ptr)
+		return (NULL);
+	ft_strlcpy(ptr, (str + start), len);
+	return (ptr);
 }

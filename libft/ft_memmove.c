@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 15:25:53 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/12 16:18:18 by pjaguin          ###   ########.fr       */
+/*   Created: 2024/11/12 12:28:54 by pjaguin           #+#    #+#             */
+/*   Updated: 2024/11/12 16:14:37 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stdlib.h"
+#include "libft.h"
 
-int	ft_isascii(int c)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	if (c < 0 || c > 127)
-		return (1);
-	return (0);
+	size_t	i;
+
+	i = n;
+	if (dest < src)
+		ft_memcpy(dest, src, n);
+	else
+	{
+		while (i > 0)
+		{
+			((unsigned char *)dest)[i - 1] = ((unsigned char *)src)[i - 1];
+			i--;
+		}
+	}
+	return (dest);
 }

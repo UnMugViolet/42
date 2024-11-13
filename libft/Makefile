@@ -6,7 +6,7 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2024/11/12 10:06:04 by pjaguin          ###   ########.fr        #
+#    Updated: 2024/11/13 16:12:54 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,13 @@ PROGRAM_NAME=main
 CC = cc
 AR = ar
 
-FILES = main.c ft_isalpha.c ft_isalnum.c ft_tolower.c ft_strlen.c ft_isprint.c ft_isdigit.c ft_isascii.c ft_toupper.c ft_bzero.c
+FILES = main.c ft_isalpha.c ft_isalnum.c ft_tolower.c ft_strlen.c ft_isprint.c ft_isdigit.c ft_isascii.c ft_toupper.c \
+		ft_bzero.c ft_memset.c ft_memcpy.c ft_memmove.c ft_strlcpy.c ft_strlcat.c ft_strchr.c ft_strrchr.c ft_strncmp.c \
+		ft_memchr.c ft_memcmp.c ft_strnstr.c ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c \
+		ft_strtrim.c 
 SRC = $(FILES)
 OBJ = $(FILES:.c=.o)
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g3
 
 all: $(NAME)
 
@@ -41,7 +44,7 @@ fclean: clean
 	
 re: fclean all
 
-go: 
+go: all
 	./$(PROGRAM_NAME)
 
 # Specify that these are not files to compile (just for safety)

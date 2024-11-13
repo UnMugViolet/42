@@ -6,13 +6,13 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 14:08:51 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/08 14:27:28 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/11/12 16:14:53 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 		return (1);

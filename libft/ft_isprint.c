@@ -6,13 +6,13 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 15:35:44 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/08 15:39:04 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/11/12 16:14:46 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isprint(int c)
+int	ft_isprint(int c)
 {
 	if (c < 32 || c == 127)
 		return (0);
