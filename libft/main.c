@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 14:11:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/15 15:00:21 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/11/15 16:21:18 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,14 @@
 	return (1);
 } */
 
+char f(unsigned int i, char c)
+{
+	char str;
+	i = 1;
+	str = c + i;
+	return (str);
+}
+
 int	main(void)
 {
 	/* 	if (!ft_check_func_is(ft_isalnum, isalnum, "ft_isalnum"))
@@ -51,7 +59,7 @@ int	main(void)
 			return (0); */
 
 	
-/* 	Test split 
+/* 	// Test split 
 	const char s1[] = "Lorem Ipsum is";
 	char s2 = ' ';
 	char **result = ft_split(s1, s2);
@@ -63,9 +71,33 @@ int	main(void)
 	}
 	return (0); */
 
-/* 	Test ft_itoa
+/* 	// Test ft_itoa
 	int	nbr = -214748364;
 	char *result = ft_itoa(nbr);
 
 	printf("%s\n", result); */
+
+
+/* 	// Test ft_strmapi
+	char str1[] = "abc";
+	char* str2;
+	str2 = ft_strmapi(str1, *f);
+	printf("%s\n", str2); 
+	for (size_t i = 0; i < 4; i++)
+		printf("%i\n", str2[i]);
+	 */
+
+/* 	// Test ft_putchar_fd
+	ft_putchar_fd('C', 1); */
+
+/* 	// Test ft_putstr_fd
+	ft_putstr_fd("Marmite, c'est un mot rigolo tout de même", 1); */
+
+/* 	// Test ft_putendl_fd
+	ft_putendl_fd("Chaussons aussi c'est marrant", 1); */
+
+	// Test de ft_putnbr_fd
+	int	n = -2147483648;
+	int fd = 1;
+	ft_putnbr_fd(n, fd);
 }
