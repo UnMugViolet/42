@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 14:11:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/15 09:11:38 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/11/15 15:00:21 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int	ft_check_func_is(int(ft)(int), int(oem)(int), char *ft_name)
+/* int	ft_check_func_is(int(ft)(int), int(oem)(int), char *ft_name)
 {
 	int	i;
 	int	end;
@@ -39,7 +39,7 @@ int	ft_check_func_is(int(ft)(int), int(oem)(int), char *ft_name)
 		i++;
 	}
 	return (1);
-}
+} */
 
 int	main(void)
 {
@@ -50,14 +50,22 @@ int	main(void)
 		if (!ft_check_func_is(ft_isascii, isascii, "ft_isascii"))
 			return (0); */
 
-	const char s1[] = "___Cornichons___?dwq__?";
-	char s2 = '_';
+	
+/* 	Test split 
+	const char s1[] = "Lorem Ipsum is";
+	char s2 = ' ';
 	char **result = ft_split(s1, s2);
-	size_t count = 3;
+	size_t count = 4;
 
 	for (size_t i = 0; i < count; i++)
 	{
 		printf("%s\n", result[i]);
 	}
-	return (0);
+	return (0); */
+
+/* 	Test ft_itoa
+	int	nbr = -214748364;
+	char *result = ft_itoa(nbr);
+
+	printf("%s\n", result); */
 }

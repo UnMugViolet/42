@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 13:07:27 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/15 09:04:03 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/11/15 14:39:08 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *str);
 char	*ft_substr(char const *str, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
-char 	*ft_strtrim(char const *s1, char const *set);
+char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *str, char c);
-
+char	*ft_itoa(int n);
+char	*ft_strmapi(char const *str, char (*f)(unsigned int, char));
 #endif

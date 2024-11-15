@@ -6,13 +6,13 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 08:43:12 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/15 10:23:03 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/11/15 15:02:15 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_words(const char *str, char c)
+size_t	count_words(const char *str, char c)
 {
 	size_t	i;
 	int		is_word;
@@ -35,7 +35,7 @@ int	count_words(const char *str, char c)
 	return (words_count);
 }
 
-int	ft_word_len(const char *str, char c)
+size_t	ft_word_len(const char *str, char c)
 {
 	size_t	i;
 	size_t	size;
@@ -58,31 +58,42 @@ int	ft_word_len(const char *str, char c)
 	return (size);
 }
 
-char	**ft_split(char const *str, char c)
+void	free_all(char **array)
 {
-	char	**array;
 	size_t	i;
-	size_t	words_count;
-	size_t	next_word;
 
 	i = 0;
-	next_word = 0;
-	words_count = count_words(str, c);
-	array = (char **)malloc(sizeof(char *) * words_count + 1);
-	if (!array)
-		return (NULL);
-	while (i < words_count)
+	while (array[i])
 	{
-		array[i] = (char *)malloc(sizeof(char) * ft_word_len(str + next_word, c) + 1);
-		if (!array[i])
-			return (NULL);
-		ft_strlcpy(array[i], (char *)str + next_word, ft_word_len(str + next_word, c));
-		next_word += ft_word_len(str + next_word, c);
-		while (str[next_word] == c)
-			next_word++;
+		free(array[i]);
 		i++;
 	}
-	array[i] = 0;
-	// free big & small
+	free(array);
+}
+
+char	**ft_split(char const *str, char c)
+{
+	char			**array;
+	size_t			i;
+	size_t			word_len;
+	const size_t	word_count = count_words(str, c);
+
+	i = 0;
+	array = (char **)malloc(sizeof(char *) * word_count + 1);
+	if (!array)
+		return (NULL);
+	while (i < word_count)
+	{
+		while (*str == c)
+			str++;
+		word_len = ft_word_len(str, c);
+		array[i] = (char *)malloc(sizeof(char) * (word_count + 1));
+		if (!array[i])
+			return (free_all(array), NULL);
+		ft_strlcpy(array[i], str, word_len);
+		str += word_len;
+		i++;
+	}
+	array[i] = NULL;
 	return (array);
 }
