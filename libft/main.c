@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 14:11:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/13 17:27:05 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/11/15 09:11:38 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,14 @@ int	main(void)
 		if (!ft_check_func_is(ft_isascii, isascii, "ft_isascii"))
 			return (0); */
 
-	char s1[] = "___Cornichons___?dwq__?";
-	char s2[] = "_?";
+	const char s1[] = "___Cornichons___?dwq__?";
+	char s2 = '_';
+	char **result = ft_split(s1, s2);
+	size_t count = 3;
 
-	printf("%s", ft_strtrim(s1, s2));
+	for (size_t i = 0; i < count; i++)
+	{
+		printf("%s\n", result[i]);
+	}
 	return (0);
 }
