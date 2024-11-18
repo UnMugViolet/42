@@ -1,0 +1,5 @@
+*.o
+*.a
+main.c
+prog
+.nfs*
