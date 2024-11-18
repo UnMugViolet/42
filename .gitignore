@@ -1,7 +1,6 @@
 # Common 
 .vscode
 
-# Libft 
-libft/*.o
+# Libft
 libft/*.a
 libft/main
