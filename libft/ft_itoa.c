@@ -6,13 +6,13 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:59:40 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/15 14:27:31 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/11/18 11:29:36 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_nbr_len(long nbr)
+static int	ft_nbr_len(long nbr)
 {
 	int	i;
 
@@ -25,7 +25,7 @@ int	ft_nbr_len(long nbr)
 	return (i + 1);
 }
 
-char	*ft_reverse(char *str)
+static char	*ft_reverse(char *str)
 {
 	int		i;
 	int		strlen;
@@ -43,7 +43,7 @@ char	*ft_reverse(char *str)
 	return (str);
 }
 
-char	*ft_fill_string(char *str, long nbr, int n)
+static char	*ft_fill_string(char *str, long nbr, int n)
 {
 	size_t	i;
 

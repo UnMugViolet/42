@@ -1,41 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 17:35:36 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/16 11:30:09 by pjaguin          ###   ########.fr       */
+/*   Created: 2024/11/18 10:55:39 by pjaguin           #+#    #+#             */
+/*   Updated: 2024/11/18 11:05:56 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *to_find, size_t len)
+int	ft_lstsize(t_list *lst)
 {
-	size_t	i;
-	size_t	j;
-	size_t	temp;
+	int	i;
 
 	i = 0;
-	if (!to_find[i])
-		return ((char *)str);
-	while (str[i] && i < len)
+	while (lst->next)
 	{
-		j = 0;
-		if (str[i] == to_find[j])
-		{
-			temp = i;
-			while (str[temp] && str[temp] == to_find[j] && temp < len)
-			{
-				temp++;
-				j++;
-				if (j == ft_strlen(to_find))
-					return ((char *)str + i);
-			}
-		}
+		lst = lst->next;
 		i++;
 	}
-	return (NULL);
+	return (i);
 }

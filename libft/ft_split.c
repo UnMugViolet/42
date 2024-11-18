@@ -6,13 +6,13 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 08:43:12 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/15 15:02:15 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/11/18 11:28:29 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	count_words(const char *str, char c)
+static size_t	count_words(const char *str, char c)
 {
 	size_t	i;
 	int		is_word;
@@ -35,7 +35,7 @@ size_t	count_words(const char *str, char c)
 	return (words_count);
 }
 
-size_t	ft_word_len(const char *str, char c)
+static size_t	ft_word_len(const char *str, char c)
 {
 	size_t	i;
 	size_t	size;
@@ -58,7 +58,7 @@ size_t	ft_word_len(const char *str, char c)
 	return (size);
 }
 
-void	free_all(char **array)
+static void	free_all(char **array)
 {
 	size_t	i;
 
@@ -79,7 +79,7 @@ char	**ft_split(char const *str, char c)
 	const size_t	word_count = count_words(str, c);
 
 	i = 0;
-	array = (char **)malloc(sizeof(char *) * word_count + 1);
+	array = (char **)malloc(sizeof(char *) * (word_count + 1));
 	if (!array)
 		return (NULL);
 	while (i < word_count)
@@ -87,10 +87,10 @@ char	**ft_split(char const *str, char c)
 		while (*str == c)
 			str++;
 		word_len = ft_word_len(str, c);
-		array[i] = (char *)malloc(sizeof(char) * (word_count + 1));
+		array[i] = (char *)malloc(sizeof(char) * word_len + 1);
 		if (!array[i])
 			return (free_all(array), NULL);
-		ft_strlcpy(array[i], str, word_len);
+		ft_strlcpy(array[i], str, word_len + 1);
 		str += word_len;
 		i++;
 	}

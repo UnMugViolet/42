@@ -1,41 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 17:35:36 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/16 11:30:09 by pjaguin          ###   ########.fr       */
+/*   Created: 2024/11/18 11:06:26 by pjaguin           #+#    #+#             */
+/*   Updated: 2024/11/18 11:12:26 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *to_find, size_t len)
+t_list	*ft_lstlast(t_list *lst)
 {
-	size_t	i;
-	size_t	j;
-	size_t	temp;
-
-	i = 0;
-	if (!to_find[i])
-		return ((char *)str);
-	while (str[i] && i < len)
-	{
-		j = 0;
-		if (str[i] == to_find[j])
-		{
-			temp = i;
-			while (str[temp] && str[temp] == to_find[j] && temp < len)
-			{
-				temp++;
-				j++;
-				if (j == ft_strlen(to_find))
-					return ((char *)str + i);
-			}
-		}
-		i++;
-	}
-	return (NULL);
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }

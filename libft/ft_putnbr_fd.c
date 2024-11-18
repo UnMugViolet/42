@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 16:11:42 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/15 16:23:52 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/11/16 13:17:27 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,15 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	ft_putstr_fd(ft_itoa(n), fd);
+	long	nbr;
+
+	nbr = n;
+	if (n < 0)
+	{
+		nbr *= -1;
+		ft_putchar_fd('-', fd);
+	}
+	if (nbr >= 10)
+		ft_putnbr_fd(nbr / 10, fd);
+	ft_putchar_fd(nbr % 10 + '0', fd);
 }

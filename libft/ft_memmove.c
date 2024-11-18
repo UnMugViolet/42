@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 12:28:54 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/12 16:14:37 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/11/16 16:11:11 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	size_t	i;
 
 	i = n;
+	if (!dest && !src && n)
+		return (NULL);
 	if (dest < src)
 		ft_memcpy(dest, src, n);
 	else

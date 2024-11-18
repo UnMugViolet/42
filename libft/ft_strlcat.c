@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:33:33 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/13 11:29:05 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/11/16 10:56:11 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,13 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	i = 0;
 	dest_len = ft_strlen(dest);
 	src_len = ft_strlen(src);
+	if (!size)
+		return (src_len);
 	if (size < dest_len)
 		return (src_len + size);
 	if (size)
 	{
-		while (src[i] && i < size)
+		while (src[i] && (dest_len + i) < (size - 1))
 		{
 			dest[dest_len + i] = src[i];
 			i++;

@@ -6,13 +6,13 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 09:58:04 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/13 11:36:05 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/11/18 11:29:16 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	is_whitespace(char c)
+static int	is_whitespace(char c)
 {
 	if ((c >= 9 && c <= 13) || c == ' ')
 		return (1);

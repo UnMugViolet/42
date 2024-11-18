@@ -1,41 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 17:35:36 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/16 11:30:09 by pjaguin          ###   ########.fr       */
+/*   Created: 2024/11/18 09:53:44 by pjaguin           #+#    #+#             */
+/*   Updated: 2024/11/18 11:31:00 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *to_find, size_t len)
+t_list	*ft_lstnew(void *content)
 {
-	size_t	i;
-	size_t	j;
-	size_t	temp;
+	t_list	*new_element;
 
-	i = 0;
-	if (!to_find[i])
-		return ((char *)str);
-	while (str[i] && i < len)
-	{
-		j = 0;
-		if (str[i] == to_find[j])
-		{
-			temp = i;
-			while (str[temp] && str[temp] == to_find[j] && temp < len)
-			{
-				temp++;
-				j++;
-				if (j == ft_strlen(to_find))
-					return ((char *)str + i);
-			}
-		}
-		i++;
-	}
-	return (NULL);
+	new_element = (t_list *)malloc(sizeof(t_list));
+	if (!new_element)
+		return (NULL);
+	new_element->content = content;
+	new_element->next = NULL;
+	return (new_element);
 }

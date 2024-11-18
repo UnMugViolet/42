@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 14:11:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/15 16:21:18 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/11/18 12:40:41 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,30 @@ int	main(void)
 		if (!ft_check_func_is(ft_isascii, isascii, "ft_isascii"))
 			return (0); */
 
+	// Test substr
+	printf ("%s", ft_substr("hola", 4294967295, 0));
+	return (0);
+/* 	// Test strtrim
+	char src[] = "";
+	char set[] = "";
+	
+	char *result = ft_strtrim(src, set);
+	printf("%s\n", result); */
+	
+
+	/* 	// Test strlcat
+	char src[] = "AAAAAAAAA";
+	char dest[] = "B";
+	
+	int result = ft_strlcat(dest, src, 1);
+	printf("%i", result);
+	 */
 	
 /* 	// Test split 
-	const char s1[] = "Lorem Ipsum is";
+	const char s1[] = "  tripouille  42  ";
 	char s2 = ' ';
 	char **result = ft_split(s1, s2);
-	size_t count = 4;
+	size_t count = 3;
 
 	for (size_t i = 0; i < count; i++)
 	{
@@ -91,13 +109,13 @@ int	main(void)
 	ft_putchar_fd('C', 1); */
 
 /* 	// Test ft_putstr_fd
-	ft_putstr_fd("Marmite, c'est un mot rigolo tout de même", 1); */
+	ft_putstr_fd("Marmite, c'est un mot rigolo tout de même", -1); */
 
 /* 	// Test ft_putendl_fd
 	ft_putendl_fd("Chaussons aussi c'est marrant", 1); */
 
-	// Test de ft_putnbr_fd
+/* 	// Test de ft_putnbr_fd
 	int	n = -2147483648;
 	int fd = 1;
-	ft_putnbr_fd(n, fd);
+	ft_putnbr_fd(n, fd); */
 }

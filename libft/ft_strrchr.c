@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:58:23 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/15 17:27:38 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/11/16 17:36:55 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strrchr(const char *str, int c)
 			last_find = (char *)(str + i);
 		i++;
 	}
-	if (c == 0)
-		return ((char *)(str + i));
+	if (str[i] == (unsigned char)c)
+		last_find = (char *)(str + i);
 	return (last_find);
 }
