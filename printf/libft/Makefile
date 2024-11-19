@@ -40,10 +40,10 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
 	
 clean: 
-	rm -f $(OBJ)
+	rm -rf $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -rf $(NAME)
 	
 re: fclean all
 

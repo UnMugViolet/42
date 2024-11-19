@@ -10,21 +10,24 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = printf.a
+NAME = libftprintf.a
 
 CC = cc
 AR = ar -rcs
 
+LIBFT_DIR = ./libft
+
 FILES = 
 BONUS_FILES = 
 OBJ = $(FILES:.c=.o)
-OBJ_BONUS = $(BONUS_FILES:.c=.o)
+MAKE = make
 CFLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
 
 $(NAME) : $(OBJ)
 	$(AR) $(NAME) $(OBJ)
+	$(MAKE) -C $(LIBFT_DIR)
 
 $(OBJ) : $(FILES)
 	# $< Get all the sources files one by one
@@ -32,20 +35,15 @@ $(OBJ) : $(FILES)
 	# $@ Get all the sources
 	$(CC) $(CFLAGS) -c $< $^
 	
-$(OBJ_BONUS) : $(BONUS_FILES)
-	$(CC) $(CFLAGS) -c $< $^
-	
 clean: 
-	rm -f $(OBJ) $(OBJ_BONUS)
+	rm -rf $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -rf $(NAME)
+	$(MAKE) fclean -C $(LIBFT_DIR)
 	
 re: fclean all
 
-bonus: all $(OBJ_BONUS)
-	$(AR) $(NAME) $(OBJ) $(OBJ_BONUS)
-
 # Specify that these are not files to compile (just for safety)
-.PHONY: all clean fclean re go
+.PHONY: all clean fclean re
 	
