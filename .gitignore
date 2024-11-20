@@ -5,3 +5,8 @@
 libft/*.a
 libft/*.o
 libft/main
+
+# Printf
+printf/*.a
+printf/*.o
+printf/main
