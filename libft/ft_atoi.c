@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 09:58:04 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/18 11:29:16 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/11/20 10:49:14 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_atoi(const char *str)
 {
 	size_t	i;
 	int		is_negative;
-	int		number;
+	long	number;
 
 	i = 0;
 	number = 0;
@@ -40,6 +40,8 @@ int	ft_atoi(const char *str)
 	{
 		number *= 10;
 		number += str[i] - '0';
+		if (number > 2147483647 || is_negative == -1 && number > 2147483648)
+			return (0);
 		i++;
 	}
 	return (number * is_negative);

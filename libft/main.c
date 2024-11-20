@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 14:11:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/20 10:21:39 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/11/20 10:42:18 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,10 @@ int	main(void)
 		if (!ft_check_func_is(ft_isascii, isascii, "ft_isascii"))
 			return (0); */
 
+	// Test atoi
+	char str[] = "-556455451555454514551";
+	printf("custom gives: %i\n", ft_atoi(str));
+	printf("atoi gives: %i", atoi(str));
 /* 	// Test substr
 	printf ("%s", ft_substr("hola", 4294967295, 0));
 	return (0); */
@@ -77,7 +81,7 @@ int	main(void)
 	printf("%i", result);
 	 */
 	
-	// Test split 
+/* 	// Test split 
 	const char s1[] = "  tripouille  42  ";
 	char s2 = ' ';
 	char **result = ft_split(s1, s2);
@@ -87,7 +91,7 @@ int	main(void)
 	{
 		printf("%s\n", result[i]);
 	}
-	return (0);
+	return (0); */
 
 /* 	// Test ft_itoa
 	int	nbr = -214748364;

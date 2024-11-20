@@ -54,7 +54,7 @@ bonus: all $(OBJ_BONUS)
 	$(AR) $(NAME) $(OBJ) $(OBJ_BONUS)
 
 go: all
-	valgrind --leak-check=full --show-leak-kinds=all ./$(PROGRAM)
+	./$(PROGRAM)
 
 # Specify that these are not files to compile (just for safety)
 .PHONY: all clean fclean re go
