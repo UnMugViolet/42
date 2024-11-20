@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 08:43:12 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/20 10:20:36 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/11/20 11:32:06 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,19 +71,13 @@ static void	free_all(char **array)
 	free(array);
 }
 
-char	**ft_split(char const *str, char c)
+static char	**write_split(char **array, const char *str, char c,
+		size_t word_count)
 {
-	char			**array;
-	size_t			i;
-	size_t			word_count;
-	size_t			word_len;
+	size_t	i;
+	size_t	word_len;
 
 	i = 0;
-	if (!str)
-		return (NULL);
-	word_count = count_words(str, c);
-	if (!(array = (char **)malloc(sizeof(char *) * (word_count + 1))))
-		return (NULL);
 	while (i < word_count)
 	{
 		word_len = ft_word_len(str, c);
@@ -98,4 +92,20 @@ char	**ft_split(char const *str, char c)
 	}
 	array[i] = NULL;
 	return (array);
+}
+
+char	**ft_split(char const *str, char c)
+{
+	char	**array;
+	size_t	i;
+	size_t	word_count;
+
+	i = 0;
+	if (!str)
+		return (NULL);
+	word_count = count_words(str, c);
+	array = (char **)malloc(sizeof(char *) * (word_count + 1));
+	if (!array)
+		return (NULL);
+	return (write_split(array, str, c, word_count));
 }
