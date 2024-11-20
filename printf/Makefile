@@ -11,6 +11,7 @@
 # **************************************************************************** #
 
 NAME = libftprintf.a
+PROGRAM = prog
 
 CC = cc
 AR = ar -rcs
@@ -20,7 +21,7 @@ SRC_DIR = ./pf_srcs/
 OBJ_DIR = ./pf_objects/
 INC_DIR = ./pf_includes/
 
-FILES = ft_isprint.c
+FILES = ft_printf.c
 
 SRC = $(addprefix $(SRC_DIR), $(FILES))
 OBJ = $(addprefix $(OBJ_DIR), $(FILES:.c=.o))
@@ -41,6 +42,7 @@ $(NAME) : $(OBJ)
 	@mv libft.a $(NAME)
 	@$(AR) $(NAME) $(OBJ)
 	@echo "$(GREEN)ft_printf compiled!$(DEF_COLOR)"
+	@$(CC) $(CFLAGS) $(OBJ) -I $(INC_DIR) -o $(PROGRAM)
 
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR)
@@ -61,6 +63,9 @@ fclean: clean
 	@echo "$(CYAN)libft executables and objects removed succesfully!$(DEF_COLOR)"
 	
 re: fclean all
+
+go: all
+	./$(PROGRAM)
 
 # Specify that these are not files to compile (just for safety)
 .PHONY: all clean fclean re
