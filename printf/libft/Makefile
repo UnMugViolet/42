@@ -1,4 +1,4 @@
- # **************************************************************************** #
+# **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
@@ -6,7 +6,7 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2024/11/18 10:54:54 by pjaguin          ###   ########.fr        #
+#    Updated: 2024/11/20 09:47:32 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,25 +31,24 @@ OBJ = $(addprefix $(OBJ_DIR), $(FILES:.c=.o))
 
 CFLAGS = -Wall -Werror -Wextra
 
-all: $(NAME)
+all: $(OBJ_DIR) $(NAME)
 
-$(NAME) : $(OBJ)
+$(NAME): $(OBJ)
 	$(AR) $(NAME) $(OBJ)
-
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
 	
-clean: 
+	
+# Compile .c files into .o files in $(OBJ_DIR)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+	mkdir -p $(OBJ_DIR)
+	$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
+
+clean:
 	rm -rf $(OBJ)
 
 fclean: clean
 	rm -rf $(NAME)
-	
+
 re: fclean all
 
-bonus: all
-	$(AR) $(NAME) $(OBJ)
-
 # Specify that these are not files to compile (just for safety)
-.PHONY: all clean fclean re go
-	
+.PHONY: all clean fclean re 
