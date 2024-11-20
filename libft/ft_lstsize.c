@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 10:55:39 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/18 11:05:56 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/11/20 12:23:14 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_lstsize(t_list *lst)
 	int	i;
 
 	i = 0;
-	while (lst->next)
+	while (lst)
 	{
 		lst = lst->next;
 		i++;

@@ -11,7 +11,6 @@
 # **************************************************************************** #
 
 NAME = libft.a
-# PROGRAM = prog
 
 CC = cc
 AR = ar -rcs
@@ -23,16 +22,14 @@ FILES = ft_isalpha.c ft_isalnum.c ft_tolower.c ft_strlen.c ft_isprint.c ft_isdig
 		ft_putendl_fd.c ft_putnbr_fd.c
 BONUS_FILES = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
 			  ft_lstclear.c ft_lstiter.c ft_lstmap.c 
-
 OBJ = $(FILES:.c=.o)
 OBJ_BONUS = $(BONUS_FILES:.c=.o)
-CFLAGS = -Wall -Werror -Wextra -g3
+CFLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
 
 $(NAME) : $(OBJ)
 	$(AR) $(NAME) $(OBJ)
-	# $(CC) $(CFLAGS) $(OBJ) -o $(PROGRAM)
 
 $(OBJ) : $(FILES)
 	# $< Get all the sources files one by one
@@ -53,9 +50,6 @@ re: fclean all
 
 bonus: all $(OBJ_BONUS)
 	$(AR) $(NAME) $(OBJ) $(OBJ_BONUS)
-
-# go: all
-# 	./$(PROGRAM)
 
 # Specify that these are not files to compile (just for safety)
 .PHONY: all clean fclean re go
