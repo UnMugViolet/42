@@ -3,4 +3,5 @@
 
 # Libft
 libft/*.a
+libft/*.o
 libft/main
