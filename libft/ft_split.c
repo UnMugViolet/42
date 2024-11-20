@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 08:43:12 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/18 11:28:29 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/11/20 10:20:36 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,18 +75,20 @@ char	**ft_split(char const *str, char c)
 {
 	char			**array;
 	size_t			i;
+	size_t			word_count;
 	size_t			word_len;
-	const size_t	word_count = count_words(str, c);
 
 	i = 0;
-	array = (char **)malloc(sizeof(char *) * (word_count + 1));
-	if (!array)
+	if (!str)
+		return (NULL);
+	word_count = count_words(str, c);
+	if (!(array = (char **)malloc(sizeof(char *) * (word_count + 1))))
 		return (NULL);
 	while (i < word_count)
 	{
+		word_len = ft_word_len(str, c);
 		while (*str == c)
 			str++;
-		word_len = ft_word_len(str, c);
 		array[i] = (char *)malloc(sizeof(char) * word_len + 1);
 		if (!array[i])
 			return (free_all(array), NULL);
