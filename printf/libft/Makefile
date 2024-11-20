@@ -6,7 +6,7 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2024/11/20 09:47:32 by pjaguin          ###   ########.fr        #
+#    Updated: 2024/11/20 15:27:54 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,24 +31,33 @@ OBJ = $(addprefix $(OBJ_DIR), $(FILES:.c=.o))
 
 CFLAGS = -Wall -Werror -Wextra
 
-all: $(OBJ_DIR) $(NAME)
+DEF_COLOR = \033[0;90m
+GREEN = \033[0;92m
+YELLOW = \033[0;93m
+CYAN = \033[0;96m
+
+all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(AR) $(NAME) $(OBJ)
+	@$(AR) $(NAME) $(OBJ)
+	@echo "$(GREEN)libft compiled!$(DEF_COLOR)"
+
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR)
+	@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
+	@$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
 	
-	
-# Compile .c files into .o files in $(OBJ_DIR)
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
 
 clean:
-	rm -rf $(OBJ)
+	@rm -rf $(OBJ)
+	@echo "$(BLUE)libft objects files cleaned!$(DEF_COLOR)"
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re: fclean all
+	@echo "$(GREEN)libft succesfully rebuilt!$(DEF_COLOR)"
 
 # Specify that these are not files to compile (just for safety)
-.PHONY: all clean fclean re 
+.PHONY: all clean fclean re
