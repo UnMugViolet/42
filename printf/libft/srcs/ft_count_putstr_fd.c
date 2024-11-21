@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_count_putstr_fd.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/20 12:49:30 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/21 11:22:45 by pjaguin          ###   ########.fr       */
+/*   Created: 2024/11/20 17:47:36 by pjaguin           #+#    #+#             */
+/*   Updated: 2024/11/21 10:52:20 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-#include <stdarg.h>
-# include "../libft/includes/libft.h"
+size_t	ft_count_putstr_fd(char *str, int fd)
+{
+	size_t	i;
 
-int	ft_printf(const char *str, ...);
-int	ft_print_number_count(int n);
-
-#endif
+	i = -1;
+	while (str[++i])
+		ft_putchar_fd(str[i], fd);
+	return (i);
+}

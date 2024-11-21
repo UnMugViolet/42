@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 13:07:27 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/20 17:58:50 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/11/21 10:53:14 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	ft_striteri(char *str, void (*f)(unsigned int, char *));
 void	ft_putchar_fd(char c, int fd);
 size_t	ft_count_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *str, int fd);
+size_t	ft_count_putstr_fd(char *str, int fd);
 void	ft_putendl_fd(char *str, int fd);
 void	ft_putnbr_fd(int n, int fd);
 t_list	*ft_lstnew(void *content);

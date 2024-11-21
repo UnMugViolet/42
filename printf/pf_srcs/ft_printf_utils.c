@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/20 12:49:30 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/21 11:22:45 by pjaguin          ###   ########.fr       */
+/*   Created: 2024/11/21 11:02:11 by pjaguin           #+#    #+#             */
+/*   Updated: 2024/11/21 11:28:58 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../pf_includes/ft_printf.h"
 
-#include <stdarg.h>
-# include "../libft/includes/libft.h"
+int	ft_print_number_count(int n)
+{
+	char	*nbr_str;
+	int		len;
 
-int	ft_printf(const char *str, ...);
-int	ft_print_number_count(int n);
-
-#endif
+	nbr_str = ft_itoa(n);
+	ft_count_putstr_fd(nbr_str, 1);
+	len = ft_strlen(nbr_str);
+	free(nbr_str);
+	return (len);
+}
