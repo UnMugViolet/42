@@ -23,7 +23,6 @@ INC_DIR = ./pf_includes/
 
 FILES = ft_printf.c ft_printf_utils.c
 
-SRC = $(addprefix $(SRC_DIR), $(FILES))
 OBJ = $(addprefix $(OBJ_DIR), $(FILES:.c=.o))
 
 MAKE = make
@@ -42,7 +41,7 @@ $(NAME) : $(OBJ)
 	@mv libft.a $(NAME)
 	@$(AR) $(NAME) $(OBJ)
 	@echo "$(GREEN)ft_printf compiled!$(DEF_COLOR)"
-	@$(CC) $(CFLAGS) $(OBJ) -L$(LIBFT_DIR) -lft -I $(INC_DIR) -o $(PROGRAM)
+	# @$(CC) $(CFLAGS) $(OBJ) -L$(LIBFT_DIR) -lft -I $(INC_DIR) -o $(PROGRAM)
 
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR)

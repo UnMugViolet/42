@@ -6,11 +6,18 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 11:02:11 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/22 10:36:00 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/11/22 12:21:28 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pf_includes/ft_printf.h"
+
+int	ft_print_string_count(char *str, int fd)
+{
+	if (!str)
+		return (ft_count_putstr_fd("(null)", fd));
+	return (ft_count_putstr_fd(str, fd));
+}
 
 int	ft_print_number_count(int n)
 {

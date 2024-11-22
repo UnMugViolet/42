@@ -6,13 +6,13 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 16:26:03 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/22 10:32:42 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/11/22 13:06:39 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bases.h"
 
-static char	*ft_fill_string(char *str, char *base, unsigned long long nbr)
+static char	*ft_fill_string(char *str, char *base, unsigned long int nbr)
 {
 	size_t	i;
 	size_t	base_size;
