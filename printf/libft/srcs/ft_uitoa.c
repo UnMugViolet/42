@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_uitoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/15 11:59:40 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/21 16:41:07 by pjaguin          ###   ########.fr       */
+/*   Created: 2024/11/21 13:14:48 by pjaguin           #+#    #+#             */
+/*   Updated: 2024/11/21 13:33:03 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_fill_string(char *str, unsigned long nbr, int n)
+static char	*ft_fill_string(char *str, unsigned long nbr)
 {
 	size_t	i;
 
@@ -24,27 +24,18 @@ static char	*ft_fill_string(char *str, unsigned long nbr, int n)
 		i++;
 	}
 	str[i++] = (nbr % 10) + '0';
-	if (n < 0)
-		str[i++] = '-';
 	str[i] = 0;
 	return (str);
 }
 
-char	*ft_itoa(int n)
+char	*ft_uitoa(unsigned int n)
 {
 	unsigned long	nbr;
 	char			*str;
-	int				buffer;
 
 	nbr = n;
-	buffer = 1;
-	if (n < 0)
-	{
-		buffer = 2;
-		nbr *= -1;
-	}
-	str = (char *)malloc(sizeof(char) * ft_nbr_len(nbr) + buffer);
+	str = (char *)malloc(sizeof(char) * ft_nbr_len(nbr) + 1);
 	if (!str)
 		return (NULL);
-	return (ft_reverse(ft_fill_string(str, nbr, n)));
+	return (ft_reverse(ft_fill_string(str, nbr)));
 }

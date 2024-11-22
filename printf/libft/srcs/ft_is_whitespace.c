@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_is_whitespace.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/20 12:49:30 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/21 17:52:29 by pjaguin          ###   ########.fr       */
+/*   Created: 2024/11/21 15:31:23 by pjaguin           #+#    #+#             */
+/*   Updated: 2024/11/21 15:32:21 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include "../libft/includes/libft.h"
-# include "../libft/includes/bases.h"
-
-int	ft_printf(const char *str, ...);
-int	ft_print_number_count(int n);
-int	ft_print_unsigned_count(unsigned int n);
-int	ft_count_putptr_fd(unsigned long ptr, int fd);
-int	ft_count_putnbr_base_fd(unsigned int nbr, char type, int fd);
-
-#endif
+int	ft_is_whitespace(int c)
+{
+	if (c == 32 || (c >= 9 && c <= 13))
+		return (1);
+	return (0);
+}

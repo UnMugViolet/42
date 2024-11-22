@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_nbr_len.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/20 12:49:30 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/21 17:52:29 by pjaguin          ###   ########.fr       */
+/*   Created: 2024/11/21 13:17:13 by pjaguin           #+#    #+#             */
+/*   Updated: 2024/11/21 13:22:10 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include "../libft/includes/libft.h"
-# include "../libft/includes/bases.h"
+size_t	ft_nbr_len(unsigned long nbr)
+{
+	size_t	i;
 
-int	ft_printf(const char *str, ...);
-int	ft_print_number_count(int n);
-int	ft_print_unsigned_count(unsigned int n);
-int	ft_count_putptr_fd(unsigned long ptr, int fd);
-int	ft_count_putnbr_base_fd(unsigned int nbr, char type, int fd);
-
-#endif
+	i = 0;
+	while (nbr / 10 > 0)
+	{
+		nbr /= 10;
+		i++;
+	}
+	return (i + 1);
+}

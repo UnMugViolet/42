@@ -1,50 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 09:58:04 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/21 15:34:36 by pjaguin          ###   ########.fr       */
+/*   Created: 2024/11/21 15:10:56 by pjaguin           #+#    #+#             */
+/*   Updated: 2024/11/21 15:44:02 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "bases.h"
 
-static int	is_overflowing(long number, int is_negative)
-{
-	if (is_negative == 1 && number > 2147483647)
-		return (1);
-	else if (is_negative == -1 && number > 2147483648)
-		return (1);
-	else
-		return (0);
-}
-
-int	ft_atoi(const char *str)
+int	ft_atoi_base(char *str, char *base)
 {
 	size_t			i;
 	int				is_negative;
-	unsigned long	number;
+	int				number;
+	const size_t	base_size = ft_check_base_size(base);
 
 	i = 0;
-	number = 0;
 	is_negative = 1;
+	number = 0;
+	if (base_size < 2)
+		return (0);
 	while (ft_is_whitespace(str[i]))
 		i++;
-	if (str[i] == '+' || str[i] == '-')
+	while (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
 			is_negative *= -1;
 		i++;
 	}
-	while (ft_isdigit(str[i]))
+	while (ft_get_in_base(str[i], base))
 	{
-		number *= 10;
-		number += str[i] - '0';
-		if (is_overflowing(number, is_negative))
-			return (0);
+		number = (number * base_size) + ft_get_in_base(str[i], base);
 		i++;
 	}
 	return (number * is_negative);

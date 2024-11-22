@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   bases.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/20 12:49:30 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/21 17:52:29 by pjaguin          ###   ########.fr       */
+/*   Created: 2024/11/21 15:08:16 by pjaguin           #+#    #+#             */
+/*   Updated: 2024/11/22 10:33:00 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef BASES_H
+# define BASES_H
 
-# include <stdarg.h>
-# include "../libft/includes/libft.h"
-# include "../libft/includes/bases.h"
+# include "libft.h"
 
-int	ft_printf(const char *str, ...);
-int	ft_print_number_count(int n);
-int	ft_print_unsigned_count(unsigned int n);
-int	ft_count_putptr_fd(unsigned long ptr, int fd);
-int	ft_count_putnbr_base_fd(unsigned int nbr, char type, int fd);
+int		ft_atoi_base(char *str, char *base);
+char	*ft_itoa_base(int n, char *base);
+char	*ft_uitoa_base(unsigned int n, char *base);
+char	*ft_ulitoa_base(unsigned long int n, char *base);
+size_t	ft_get_in_base(char c, char *str);
+size_t	ft_check_base_size(char *str);
+size_t	ft_nbrlen_base(size_t nbr, int base_len);
 
 #endif

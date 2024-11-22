@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_check_base_size.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/20 12:49:30 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/21 17:52:29 by pjaguin          ###   ########.fr       */
+/*   Created: 2024/11/21 15:16:43 by pjaguin           #+#    #+#             */
+/*   Updated: 2024/11/21 15:22:32 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "bases.h"
 
-# include <stdarg.h>
-# include "../libft/includes/libft.h"
-# include "../libft/includes/bases.h"
+size_t	ft_check_base_size(char *str)
+{
+	size_t	i;
+	size_t	j;
 
-int	ft_printf(const char *str, ...);
-int	ft_print_number_count(int n);
-int	ft_print_unsigned_count(unsigned int n);
-int	ft_count_putptr_fd(unsigned long ptr, int fd);
-int	ft_count_putnbr_base_fd(unsigned int nbr, char type, int fd);
-
-#endif
+	i = -1;
+	while (str[++i])
+	{
+		j = i + 1;
+		while (str[j])
+		{
+			if (str[j] == str[i])
+				return (0);
+			j++;
+		}
+	}
+	return (i);
+}

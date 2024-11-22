@@ -70,7 +70,7 @@ go: all
 debug: all
 	lldb ./$(PROGRAM)
 
-go -l: all
+gov: all
 	valgrind --leak-check=full --show-leak-kinds=all ./$(PROGRAM)
 
 # Specify that these are not files to compile (just for safety)

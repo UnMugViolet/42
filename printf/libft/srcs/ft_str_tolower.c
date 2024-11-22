@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_str_tolower.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/20 12:49:30 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/21 17:52:29 by pjaguin          ###   ########.fr       */
+/*   Created: 2024/11/21 17:43:12 by pjaguin           #+#    #+#             */
+/*   Updated: 2024/11/21 17:48:45 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include "../libft/includes/libft.h"
-# include "../libft/includes/bases.h"
+char	*ft_str_tolower(char *str)
+{
+	size_t	i;
+	char	*ptr;
 
-int	ft_printf(const char *str, ...);
-int	ft_print_number_count(int n);
-int	ft_print_unsigned_count(unsigned int n);
-int	ft_count_putptr_fd(unsigned long ptr, int fd);
-int	ft_count_putnbr_base_fd(unsigned int nbr, char type, int fd);
-
-#endif
+	i = -1;
+	if (!str)
+		return (NULL);
+	ptr = malloc(sizeof(char) * ft_strlen(str) + 1);
+	if (!ptr)
+		return (NULL);
+	while (str[++i])
+		ptr[i] = ft_tolower(str[i]);
+	ptr[i] = 0;
+	return (ptr);
+}
