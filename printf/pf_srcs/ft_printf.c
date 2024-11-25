@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 16:24:00 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/22 13:06:03 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/11/25 13:48:56 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int	ft_printf(const char *str, ...)
 	va_start (args, str);
 	i = -1;
 	print_len = 0;
+	if (!str)
+		return (0);
 	while (str[++i])
 	{
 		if (str[i] == '%')
