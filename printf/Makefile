@@ -21,7 +21,7 @@ SRC_DIR = ./pf_srcs/
 OBJ_DIR = ./pf_objects/
 INC_DIR = ./pf_includes/
 
-FILES = ft_printf.c ft_printf_utils.c
+FILES = main.c ft_printf.c ft_printf_utils.c
 
 OBJ = $(addprefix $(OBJ_DIR), $(FILES:.c=.o))
 
@@ -41,7 +41,7 @@ $(NAME) : $(OBJ)
 	@mv libft.a $(NAME)
 	@$(AR) $(NAME) $(OBJ)
 	@echo "$(GREEN)ft_printf compiled!$(DEF_COLOR)"
-	# @$(CC) $(CFLAGS) $(OBJ) -L$(LIBFT_DIR) -lft -I $(INC_DIR) -o $(PROGRAM)
+	@$(CC) $(CFLAGS) $(OBJ) -L$(LIBFT_DIR) -lft -I $(INC_DIR) -o $(PROGRAM)
 
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR)
