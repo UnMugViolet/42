@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 11:03:18 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/28 11:00:48 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/11/28 11:35:44 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_get_line(char *main_str)
 		str[i] = main_str[i];
 		i++;
 	}
-	str[i] = '\0';
+	str[i] = 0;
 	return (str);
 }
 
@@ -73,7 +73,6 @@ char	*read_file(int fd, char *main_str)
 	int		count;
 
 	count = 1;
-
 	buff = ft_calloc(sizeof(char), (BUFFER_SIZE + 1));
 	if (!buff)
 		return (NULL);

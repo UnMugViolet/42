@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 11:02:03 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/28 11:04:49 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/11/28 11:35:44 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_get_line(char *main_str)
 		str[i] = main_str[i];
 		i++;
 	}
-	str[i] = '\0';
+	str[i] = 0;
 	return (str);
 }
 
@@ -73,7 +73,6 @@ char	*read_file(int fd, char *main_str)
 	int		count;
 
 	count = 1;
-
 	buff = ft_calloc(sizeof(char), (BUFFER_SIZE + 1));
 	if (!buff)
 		return (NULL);
@@ -98,14 +97,14 @@ char	*read_file(int fd, char *main_str)
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*main_str = NULL;
+	static char	*main_str[4096];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	main_str = read_file(fd, main_str);
-	if (!main_str)
+	main_str[fd] = read_file(fd, main_str[fd]);
+	if (!main_str[fd])
 		return (NULL);
-	line = ft_get_line(main_str);
-	main_str = ft_get_next_content(main_str);
+	line = ft_get_line(main_str[fd]);
+	main_str[fd] = ft_get_next_content(main_str[fd]);
 	return (line);
 }
