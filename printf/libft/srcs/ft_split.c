@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: paul <paul@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 08:43:12 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/20 12:21:06 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/11/25 19:55:04 by paul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,10 +97,8 @@ static char	**write_split(char **array, const char *str, char c,
 char	**ft_split(char const *str, char c)
 {
 	char	**array;
-	size_t	i;
 	size_t	word_count;
 
-	i = 0;
 	if (!str)
 		return (NULL);
 	word_count = count_words(str, c);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: paul <paul@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 16:24:00 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/25 14:42:51 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/11/25 19:53:27 by paul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	ft_printf(const char *str, ...)
 	i = -1;
 	print_len = 0;
 	if (!str)
-		return (0);
+		return (-1);
 	while (str[++i])
 	{
 		if (str[i] == '%')
