@@ -6,7 +6,7 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2024/11/22 10:33:56 by pjaguin          ###   ########.fr        #
+#    Updated: 2024/12/05 18:29:17 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,9 @@ AR = ar -rcs
 
 SRC_DIR = ./srcs/
 BASES_DIR = ./srcs/bases/
+FT_PRINTF_DIR = ./srcs/ft_printf/
+GNL_DIR = ./srcs/gnl/
+
 INC_DIR = ./includes/
 OBJ_DIR = ./objects/
 
@@ -29,7 +32,14 @@ FILES = ft_isalpha.c ft_isalnum.c ft_is_whitespace.c ft_tolower.c ft_str_toupper
 
 BASE_FILES = ft_atoi_base.c ft_itoa_base.c ft_uitoa_base.c ft_ulitoa_base.c ft_check_base_size.c ft_nbrlen_base.c ft_get_in_base.c \
 
-OBJ = $(addprefix $(OBJ_DIR), $(FILES:.c=.o)) $(addprefix $(OBJ_DIR), $(BASE_FILES:.c=.o))
+GNL_FILES = get_next_line.c get_next_line_utils.c
+
+FT_PRINTF_FILES = 
+
+OBJ = $(addprefix $(OBJ_DIR), $(FILES:.c=.o)) \
+	  $(addprefix $(OBJ_DIR), $(BASE_FILES:.c=.o)) \
+	  $(addprefix $(OBJ_DIR), $(GNL_FILES:.c=.o)) \
+	  $(addprefix $(OBJ_DIR), $(FT_PRINTF_FILES:.c=.o)) \
 
 CFLAGS = -Wall -Werror -Wextra
 

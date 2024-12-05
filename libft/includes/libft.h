@@ -6,13 +6,14 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 13:07:27 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/21 17:44:59 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/12/05 18:17:12 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
 

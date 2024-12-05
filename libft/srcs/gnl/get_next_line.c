@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 15:42:38 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/12/05 18:13:12 by pjaguin          ###   ########.fr       */
+/*   Created: 2024/12/05 18:19:43 by pjaguin           #+#    #+#             */
+/*   Updated: 2024/12/05 18:26:55 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "get_next_line.h"
 
-char	*ft_strchr(const char *str, int c)
+char	*get_next_line(int fd)
 {
-	size_t	i;
+	char		*line;
+	static char	*main_str[4096];
 
-	i = 0;
-	if (!str)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	while (str[i])
-	{
-		if (str[i] == (char)c)
-			return ((char *)(str + i));
-		i++;
-	}
-	if (str[i] == (char)c)
-		return ((char *)(str + i));
-	return (NULL);
+	main_str[fd] = read_file(fd, main_str[fd]);
+	if (!main_str[fd])
+		return (NULL);
+	line = ft_get_line(main_str[fd]);
+	main_str[fd] = ft_get_next_content(main_str[fd]);
+	return (line);
 }
