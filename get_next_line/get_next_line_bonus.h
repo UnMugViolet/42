@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 11:02:12 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/28 11:02:43 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/12/05 10:38:39 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 #  define BUFFER_SIZE 25
 # endif
 
-size_t	ft_strlen(char *str);
 char	*get_next_line(int fd);
+size_t	ft_strlen(char *str);
 char	*ft_strchr(char *str, int c);
 char	*ft_strjoin(char *s1, char *s2);
 void	*ft_calloc(size_t nmemb, size_t size);

@@ -6,11 +6,11 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 11:02:03 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/28 11:35:44 by pjaguin          ###   ########.fr       */
+/*   Updated: 2024/12/05 10:42:36 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_get_line(char *main_str)
 {
