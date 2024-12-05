@@ -4,7 +4,6 @@
 *.o
 *.a
 
-
 # Libft
 libft/main
 
