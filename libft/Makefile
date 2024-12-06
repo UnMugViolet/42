@@ -6,7 +6,7 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2024/12/05 18:29:17 by pjaguin          ###   ########.fr        #
+#    Updated: 2024/12/06 15:06:18 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ BASE_FILES = ft_atoi_base.c ft_itoa_base.c ft_uitoa_base.c ft_ulitoa_base.c ft_c
 
 GNL_FILES = get_next_line.c get_next_line_utils.c
 
-FT_PRINTF_FILES = 
+FT_PRINTF_FILES = ft_printf.c ft_printf_utils.c
 
 OBJ = $(addprefix $(OBJ_DIR), $(FILES:.c=.o)) \
 	  $(addprefix $(OBJ_DIR), $(BASE_FILES:.c=.o)) \
@@ -59,6 +59,14 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR)
 	@$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
 
 $(OBJ_DIR)%.o: $(BASES_DIR)%.c | $(OBJ_DIR)
+	@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
+	@$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
+
+$(OBJ_DIR)%.o: $(FT_PRINTF_DIR)%.c | $(OBJ_DIR)
+	@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
+	@$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
+
+$(OBJ_DIR)%.o: $(GNL_DIR)%.c | $(OBJ_DIR)
 	@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
 	@$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
 	
