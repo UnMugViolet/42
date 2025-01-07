@@ -6,11 +6,11 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:10:44 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/06 14:42:07 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/07 10:10:09 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ps_includes/push_swap.h"
+#include "push_swap.h"
 
 bool	is_allowed_sign(char c)
 {

@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME = push_swap
-ARGS = 1 2
+ARGS = "1 2 4 3 76 90 348 -9 0 5"
 
 CC = cc
 
@@ -26,6 +26,7 @@ OBJ = $(addprefix $(OBJ_DIR), $(FILES:.c=.o))
 
 MAKE = make
 CFLAGS = -Wall -Werror -Wextra -g
+INC_H = -I $(INC_DIR) -I $(LIBFT_DIR)/includes
 
 DEFAULT = \033[0m
 DEF_COLOR = \033[0;90m
@@ -38,26 +39,23 @@ all: $(NAME)
 
 $(NAME) : $(OBJ)
 	@$(MAKE) -C $(LIBFT_DIR)
-	@cp ./libft/libft.a .
-	@mv libft.a $(NAME)
 	@echo "$(GREEN)$(NAME) compiled!$(DEFAULT)"
-	@$(CC) $(CFLAGS) $(OBJ) -L$(LIBFT_DIR) -lft -I $(INC_DIR) -o $(NAME)
-
+	@$(CC) $(CFLAGS) $(INC_H) $(OBJ) -L$(LIBFT_DIR) -lft -o $(NAME)
 
 $(OBJ_DIR)%.o: %.c | $(OBJ_DIR)
 	@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
-	@$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
+	@$(CC) $(CFLAGS) $(INC_H) -c $< -o $@
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR)
 	@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
-	@$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
+	@$(CC) $(CFLAGS) $(INC_H) -c $< -o $@
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
 clean: 
 	@rm -rf $(OBJ)
-	@echo "$(BLUE)$(NAME) object files cleaned!$(DEFAULT)"
+	@echo "$(GREEN)$(NAME) object files cleaned!$(DEFAULT)"
 
 fclean: clean
 	@rm -rf $(NAME)
@@ -68,13 +66,16 @@ fclean: clean
 re: fclean all
 
 go: all
-	./$(NAME) $(ARGS)
+	@echo "$(CYAN) ./$(NAME) $(WHITE)"
+	@./$(NAME) $(ARGS)
 
 debug: all
-	lldb ./$(NAME)
+	@echo "$(CYAN) lldb ./$(NAME) $(WHITE)"
+	@ lldb ./$(NAME) $(ARGS)
 
 gov: all
-	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
+	@echo "$(CYAN) valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) $(WHITE)"
+	@valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
 
 # Specify that these are not files to compile (just for safety)
 .PHONY: all clean fclean re go debug gov
