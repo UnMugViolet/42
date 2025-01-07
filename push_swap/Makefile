@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME = push_swap
-ARGS = "1 2 4 3 76 90 348 -9 0 5"
+ARGS = 10 0 2 48 1 -10 -0
 
 CC = cc
 
@@ -74,8 +74,8 @@ debug: all
 	@ lldb ./$(NAME) $(ARGS)
 
 gov: all
-	@echo "$(CYAN) valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) $(WHITE)"
-	@valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
+	@echo "$(CYAN) valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) $(ARGS)$(WHITE)"
+	@valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) $(ARGS)
 
 # Specify that these are not files to compile (just for safety)
 .PHONY: all clean fclean re go debug gov

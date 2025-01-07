@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/06 10:18:37 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/07 15:52:49 by pjaguin          ###   ########.fr       */
+/*   Created: 2025/01/07 15:31:56 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/01/07 15:50:37 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "ft_printf.h"
-# include "libft.h"
-# include <stdbool.h>
-
-typedef struct s_stack
+void	ft_clean_stack(t_stack **stack)
 {
-	int				value;
-	struct s_stack	*next;
-}					t_stack;
+	t_stack	*tmp;
+	t_stack	*begin;
 
-bool				is_correct_input(char **av, int ac);
-bool				is_allowed_sign(char c);
-
-t_stack				**ft_parse(char **av, int ac);
-void				ft_clean_stack(t_stack **stack);
-
-#endif
+	begin = *stack;
+	while ((*stack)->next != begin)
+	{
+		tmp = *stack;
+		*stack = (*stack)->next;
+		free(tmp);
+	}
+	free(*stack);
+	free(stack);
+}
