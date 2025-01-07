@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 10:18:37 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/07 15:52:49 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/07 17:42:39 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ bool				is_allowed_sign(char c);
 
 t_stack				**ft_parse(char **av, int ac);
 void				ft_clean_stack(t_stack **stack);
+void				ft_print_stack(t_stack **stack);
 
 #endif

@@ -6,11 +6,24 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:31:56 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/07 15:50:37 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/07 17:50:27 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_print_stack(t_stack **stack)
+{
+	t_stack	*begin;
+
+	begin = *stack;
+	while ((*stack)->next != begin)
+	{
+		ft_printf("Stack value: %i\naddress: %p\n", (*stack)->value, (*stack));
+		*stack = (*stack)->next;
+	}
+	ft_printf("Stack value: %i\naddress: %p\n", (*stack)->value, (*stack)->next);
+}
 
 void	ft_clean_stack(t_stack **stack)
 {

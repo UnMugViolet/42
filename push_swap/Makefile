@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME = push_swap
-ARGS = 10 0 2 48 1 -10 -0
+ARGS = 10 0 2 48 -10
 
 CC = cc
 
@@ -20,7 +20,7 @@ SRC_DIR = ./ps_srcs/
 OBJ_DIR = ./ps_objects/
 INC_DIR = ./ps_includes/
 
-FILES = main.c input_check.c utils.c
+FILES = main.c input_check.c utils.c parsing.c stack_utils.c
 
 OBJ = $(addprefix $(OBJ_DIR), $(FILES:.c=.o))
 
