@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 10:17:50 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/08 17:25:53 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/08 18:16:03 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static bool	ft_push_swap(char **av, int ac)
 	stack_b = (t_stack **)ft_calloc(sizeof(t_stack *), 1);
 	if (!stack_b)
 		return (ft_clean_stack(stack_a), 0);
-	return (ft_print_stack(stack_b) , pb(stack_a, stack_b),ft_print_stack(stack_a), 1);
+	return (ft_print_stack(stack_b) , pb(stack_a, stack_b), pb(stack_a, stack_b), pb(stack_a, stack_b), ft_print_stack(stack_b), 1);
 }
 
 int	main(int ac, char **av)
