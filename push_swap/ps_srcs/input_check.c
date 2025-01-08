@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:09:35 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/07 15:12:57 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/08 14:33:53 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static bool	is_all_unique(char **av, int ac)
 	i = 0;
 	while (i < ac - 1)
 	{
-		j = i + 1;
+		j = i;
 		while (++j < ac - 1)
 			if (array[i] == array[j])
 				return (free(array), 0);
