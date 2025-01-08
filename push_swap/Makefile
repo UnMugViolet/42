@@ -20,7 +20,7 @@ SRC_DIR = ./ps_srcs/
 OBJ_DIR = ./ps_objects/
 INC_DIR = ./ps_includes/
 
-FILES = main.c input_check.c utils.c parsing.c stack_utils.c swap.c
+FILES = main.c input_check.c utils.c parsing.c stack_utils.c swap.c push.c
 
 OBJ = $(addprefix $(OBJ_DIR), $(FILES:.c=.o))
 
