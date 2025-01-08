@@ -56,16 +56,16 @@ void	ft_stack_addback(t_stack **stack, t_stack *new)
 t_stack	**ft_parse(char **av, int ac)
 {
 	int		i;
-	t_stack **stack_a;
-	t_stack *curr_stack;
+	t_stack	**stack_a;
+	t_stack	*curr_stack;
 
 	i = 0;
-	stack_a = (t_stack**)ft_calloc(sizeof(t_stack *), 1);
+	stack_a = (t_stack **)ft_calloc(sizeof(t_stack *), 1);
 	if (!stack_a)
 		return (free(stack_a), NULL);
 	while (++i < ac)
 	{
-		curr_stack =  ft_stack_new(ft_atoi(av[i]));
+		curr_stack = ft_stack_new(ft_atoi(av[i]));
 		if (!curr_stack)
 			return (ft_clean_stack(stack_a), NULL);
 		ft_stack_addback(stack_a, curr_stack);

@@ -76,8 +76,7 @@ bool	is_correct_input(char **av, int ac)
 	if (ac < 2)
 		return (ft_putstr_fd("Error\n", 2), 0);
 	if (!is_all_digits(av, ac))
-		return (ft_putstr_fd("Error\n",
-				2), 0);
+		return (ft_putstr_fd("Error\n", 2), 0);
 	else if (!is_all_unique(av, ac))
 		return (ft_putstr_fd("Error\n", 2), 0);
 	else
