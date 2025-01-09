@@ -6,11 +6,25 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:31:56 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/08 16:23:45 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/09 10:49:58 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+bool	ft_issorted(t_stack *stack_a)
+{
+	t_stack	*begin;
+
+	begin = stack_a;
+	while (stack_a->next != begin)
+	{
+		if (stack_a->value > stack_a->next->value)
+			return (0);
+		stack_a = stack_a->next;
+	}
+	return (1);
+}
 
 size_t	ft_stacksize(t_stack *stack)
 {

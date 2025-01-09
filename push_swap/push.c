@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 16:31:44 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/08 18:14:42 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/09 11:17:23 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	pb(t_stack **stack_a, t_stack **stack_b)
 	ft_putstr_fd("pb\n", 1);
 }
 
-void	pa(t_stack **stack_b, t_stack **stack_a)
+void	pa(t_stack **stack_a, t_stack **stack_b)
 {
 	if (!(*stack_b) || !stack_b)
 		return ;

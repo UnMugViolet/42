@@ -6,6 +6,14 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 11:08:15 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/08 11:08:16 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/09 10:54:21 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
+
+void	sort(t_stack **stack_a, t_stack **stack_b)
+{
+	if (ft_issorted(*stack_a))
+		return ;
+}
