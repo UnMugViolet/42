@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 10:17:50 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/09 11:20:49 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/09 13:43:00 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,7 @@ static bool	ft_push_swap(char **av, int ac)
 	return (
 		ft_printf("Origin:\n"),
 		ft_print_stack(stack_a),
-		sa(stack_a),
-		ft_printf("\n\n\nStack B:\n"),
-		ft_print_stack(stack_b),
-		ft_printf("\n\n\nStack A:\n"),
+		sort(stack_a, stack_b),
 		ft_print_stack(stack_a), 1
 	);
 }

@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:31:56 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/09 10:49:58 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/09 12:15:39 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,15 @@ void	ft_clean_stack(t_stack **stack)
 	}
 	free(*stack);
 	free(stack);
+}
+
+t_stackinfo	ft_init_stackinfo(t_stack *stack)
+{
+	t_stackinfo	info;
+
+	info.total_size = ft_stacksize(stack);
+	info.actual_size = info.total_size;
+	info.min_b = 0;
+	info.max_b = 0;
+	return (info);
 }

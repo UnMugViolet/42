@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 10:56:36 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/09 11:03:47 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/09 15:05:23 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ static void	swap(t_stack **stack)
 	temp_third = (*stack)->next->next;
 	if ((*stack)->next != *stack)
 	{
+		if (ft_stacksize(*stack) == 2)
+		{
+			*stack = (*stack)->next;
+			return ;
+		}
 		ft_stacklast(*stack)->next = temp_second;
 		temp_second->next = temp_first;
 		temp_first->next = temp_third;

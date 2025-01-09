@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 10:18:37 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/09 11:21:58 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/09 13:21:05 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,19 @@
 # include "libft.h"
 # include <stdbool.h>
 
+typedef struct s_stackinfo
+{
+	size_t			total_size;
+	size_t			actual_size;
+	int				min_b;
+	int				max_b;
+}					t_stackinfo;
+
 typedef struct s_stack
 {
 	int				value;
 	struct s_stack	*next;
+	int				count;
 }					t_stack;
 
 bool				is_correct_input(char **av, int ac);
@@ -32,6 +41,7 @@ bool				ft_issorted(t_stack *stack_a);
 size_t				ft_stacksize(t_stack *stack);
 void				ft_clean_stack(t_stack **stack);
 void				ft_print_stack(t_stack **stack);
+t_stackinfo			ft_init_stackinfo(t_stack *stack_a);
 
 void				sa(t_stack **stack_a);
 void				sb(t_stack **stack_b);
@@ -47,5 +57,7 @@ void				rr(t_stack **stack_a, t_stack **stack_b);
 void				rra(t_stack **stack_a);
 void				rrb(t_stack **stack_b);
 void				rrr(t_stack **stack_a, t_stack **stack_b);
+
+void				sort(t_stack **stack_a, t_stack **stack_b);
 
 #endif
