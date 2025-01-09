@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 10:18:37 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/09 13:21:05 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/09 17:46:09 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ bool				ft_issorted(t_stack *stack_a);
 size_t				ft_stacksize(t_stack *stack);
 void				ft_clean_stack(t_stack **stack);
 void				ft_print_stack(t_stack **stack);
-t_stackinfo			ft_init_stackinfo(t_stack *stack_a);
+t_stackinfo			ft_init_stackinfo(t_stack *stack_a, t_stack *stack_b);
 
 void				sa(t_stack **stack_a);
 void				sb(t_stack **stack_b);
@@ -59,5 +59,7 @@ void				rrb(t_stack **stack_b);
 void				rrr(t_stack **stack_a, t_stack **stack_b);
 
 void				sort(t_stack **stack_a, t_stack **stack_b);
+void				ft_sort_three(t_stack **stack_a, t_stackinfo info);
+void				ft_sort_big(t_stack **stack_a, t_stack **stack_b, t_stackinfo info);
 
 #endif
