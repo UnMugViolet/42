@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:06:28 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/10 11:05:01 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/10 16:58:30 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_sclist	*ft_sclist_new(int content)
 	return (new_element);
 }
 
-t_sclist	*ft_sclistlast(t_sclist *stack)
+t_sclist	*ft_sclstlast(t_sclist *stack)
 {
 	t_sclist	*begin;
 
@@ -44,9 +44,9 @@ void	ft_sclist_addback(t_sclist **stack, t_sclist *new)
 		*stack = new;
 	else
 	{
-		if (ft_sclistlast(*stack))
+		if (ft_sclstlast(*stack))
 		{
-			ft_sclistlast(*stack)->next = new;
+			ft_sclstlast(*stack)->next = new;
 			if (new)
 				new->next = *stack;
 		}

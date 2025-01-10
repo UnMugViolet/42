@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 16:31:44 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/10 10:49:39 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/10 17:18:08 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	push(t_sclist **stack_from, t_sclist **stack_to)
 	temp = *stack_from;
 	if ((*stack_from)->next != *stack_from)
 	{
-		ft_sclistlast(*stack_from)->next = (*stack_from)->next;
+		ft_sclstlast(*stack_from)->next = (*stack_from)->next;
 		*stack_from = (*stack_from)->next;
 	}
 	else
@@ -27,8 +27,8 @@ static void	push(t_sclist **stack_from, t_sclist **stack_to)
 	if (!(*stack_to))
 		*stack_to = temp;
 	temp->next = (*stack_to);
-	ft_sclistlast(*stack_to)->next = temp;
-	*stack_to = ft_sclistlast(*stack_to)->next;
+	ft_sclstlast(*stack_to)->next = temp;
+	*stack_to = temp;
 }
 
 void	pb(t_sclist **stack_a, t_sclist **stack_b)

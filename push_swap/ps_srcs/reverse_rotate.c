@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 17:53:07 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/10 10:49:39 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/10 16:58:30 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	reverse_rotate(t_sclist **stack)
 {
-	*stack = ft_sclistlast(*stack);
+	*stack = ft_sclstlast(*stack);
 }
 
 void	rra(t_sclist **stack_a)

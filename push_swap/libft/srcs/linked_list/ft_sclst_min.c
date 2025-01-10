@@ -18,9 +18,9 @@ int	ft_sclst_min(t_sclist *sclist)
 	int			min;
 
 	begin = sclist;
-	min = sclist->value;
 	if (!sclist)
 		return (0);
+	min = sclist->value;
 	while (sclist->next != begin)
 	{
 		sclist = sclist->next;

@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 10:56:36 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/10 11:11:27 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/10 16:58:30 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	swap(t_sclist **stack)
 			*stack = (*stack)->next;
 			return ;
 		}
-		ft_sclistlast(*stack)->next = temp_second;
+		ft_sclstlast(*stack)->next = temp_second;
 		temp_second->next = temp_first;
 		temp_first->next = temp_third;
 		(*stack) = temp_second;
