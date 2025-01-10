@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   ft_sclst_size.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/08 11:08:15 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/10 10:49:39 by pjaguin          ###   ########.fr       */
+/*   Created: 2025/01/10 10:26:44 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/01/10 11:11:27 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "linked_list.h"
 
-void	sort(t_sclist **stack_a, t_sclist **stack_b)
+size_t	ft_sclst_size(t_sclist *sclist)
 {
-	t_sclistinfo	info;
+	t_sclist	*begin;
+	size_t		count;
 
-	info = ft_init_sclistinfo(*stack_a, *stack_b);
-	if (ft_issorted(*stack_a))
-		return ;
-	if (info.total_size <= 3)
+	begin = sclist;
+	if (!sclist)
+		return (0);
+	count = 1;
+	while (sclist->next != begin)
 	{
-		ft_sort_three(stack_a, info);
-		return ;
+		sclist = sclist->next;
+		count++;
 	}
-	else
-		ft_sort_big(stack_a, stack_b, info);
+	return (count);
 }

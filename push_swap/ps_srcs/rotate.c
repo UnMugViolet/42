@@ -6,18 +6,18 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 17:40:38 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/09 11:05:21 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/10 10:49:39 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rotate(t_stack **stack)
+static void	rotate(t_sclist **stack)
 {
 	*stack = (*stack)->next;
 }
 
-void	ra(t_stack **stack_a)
+void	ra(t_sclist **stack_a)
 {
 	if (stack_a && (*stack_a))
 	{
@@ -26,7 +26,7 @@ void	ra(t_stack **stack_a)
 	}
 }
 
-void	rb(t_stack **stack_b)
+void	rb(t_sclist **stack_b)
 {
 	if (stack_b && (*stack_b))
 	{
@@ -35,7 +35,7 @@ void	rb(t_stack **stack_b)
 	}
 }
 
-void	rr(t_stack **stack_a, t_stack **stack_b)
+void	rr(t_sclist **stack_a, t_sclist **stack_b)
 {
 	if ((stack_a && (*stack_a)) || (stack_b && (*stack_b)))
 		ft_putstr_fd("rr\n", 1);

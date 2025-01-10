@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/08 11:08:15 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/10 10:49:39 by pjaguin          ###   ########.fr       */
+/*   Created: 2024/11/18 09:53:44 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/01/10 10:42:56 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "linked_list.h"
 
-void	sort(t_sclist **stack_a, t_sclist **stack_b)
+t_list	*ft_lstnew(void *content)
 {
-	t_sclistinfo	info;
+	t_list	*new_element;
 
-	info = ft_init_sclistinfo(*stack_a, *stack_b);
-	if (ft_issorted(*stack_a))
-		return ;
-	if (info.total_size <= 3)
-	{
-		ft_sort_three(stack_a, info);
-		return ;
-	}
-	else
-		ft_sort_big(stack_a, stack_b, info);
+	new_element = (t_list *)malloc(sizeof(t_list));
+	if (!new_element)
+		return (NULL);
+	new_element->content = content;
+	new_element->next = NULL;
+	return (new_element);
 }

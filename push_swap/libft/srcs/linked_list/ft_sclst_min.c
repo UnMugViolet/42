@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   ft_sclst_min.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/08 11:08:15 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/10 10:49:39 by pjaguin          ###   ########.fr       */
+/*   Created: 2025/01/10 10:20:24 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/01/10 10:43:08 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "linked_list.h"
 
-void	sort(t_sclist **stack_a, t_sclist **stack_b)
+int	ft_sclst_min(t_sclist *sclist)
 {
-	t_sclistinfo	info;
+	t_sclist	*begin;
+	int			min;
 
-	info = ft_init_sclistinfo(*stack_a, *stack_b);
-	if (ft_issorted(*stack_a))
-		return ;
-	if (info.total_size <= 3)
+	begin = sclist;
+	min = sclist->value;
+	if (!sclist)
+		return (0);
+	while (sclist->next != begin)
 	{
-		ft_sort_three(stack_a, info);
-		return ;
+		sclist = sclist->next;
+		if (sclist->value < min)
+			min = sclist->value;
 	}
-	else
-		ft_sort_big(stack_a, stack_b, info);
+	return (min);
 }

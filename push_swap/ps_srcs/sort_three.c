@@ -6,13 +6,13 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 15:53:34 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/09 16:27:03 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/10 10:49:39 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sort_three(t_stack **stack_a, t_stackinfo info)
+void	ft_sort_three(t_sclist **stack_a, t_sclistinfo info)
 {
 	int	first_val;
 	int	second_val;
@@ -22,7 +22,7 @@ void	ft_sort_three(t_stack **stack_a, t_stackinfo info)
 		return ;
 	first_val = (*stack_a)->value;
 	second_val = (*stack_a)->next->value;
-	last_val = ft_stacklast(*stack_a)->value;
+	last_val = ft_sclistlast(*stack_a)->value;
 	if (info.total_size == 2)
 		return (ra(stack_a));
 	if (first_val > last_val && first_val > second_val && second_val > last_val)

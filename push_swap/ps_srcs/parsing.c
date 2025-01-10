@@ -6,17 +6,17 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:06:28 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/09 11:35:53 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/10 11:05:01 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*ft_stack_new(int content)
+t_sclist	*ft_sclist_new(int content)
 {
-	t_stack	*new_element;
+	t_sclist	*new_element;
 
-	new_element = (t_stack *)ft_calloc(sizeof(t_stack), 1);
+	new_element = (t_sclist *)ft_calloc(sizeof(t_sclist), 1);
 	if (!new_element)
 		return (NULL);
 	new_element->value = content;
@@ -24,9 +24,9 @@ t_stack	*ft_stack_new(int content)
 	return (new_element);
 }
 
-t_stack	*ft_stacklast(t_stack *stack)
+t_sclist	*ft_sclistlast(t_sclist *stack)
 {
-	t_stack	*begin;
+	t_sclist	*begin;
 
 	begin = stack;
 	if (!stack)
@@ -36,7 +36,7 @@ t_stack	*ft_stacklast(t_stack *stack)
 	return (stack);
 }
 
-void	ft_stack_addback(t_stack **stack, t_stack *new)
+void	ft_sclist_addback(t_sclist **stack, t_sclist *new)
 {
 	if (!stack)
 		return ;
@@ -44,31 +44,31 @@ void	ft_stack_addback(t_stack **stack, t_stack *new)
 		*stack = new;
 	else
 	{
-		if (ft_stacklast(*stack))
+		if (ft_sclistlast(*stack))
 		{
-			ft_stacklast(*stack)->next = new;
+			ft_sclistlast(*stack)->next = new;
 			if (new)
 				new->next = *stack;
 		}
 	}
 }
 
-t_stack	**ft_parse(char **av, int ac)
+t_sclist	**ft_parse(char **av, int ac)
 {
-	int		i;
-	t_stack	**stack_a;
-	t_stack	*curr_stack;
+	int			i;
+	t_sclist	**stack_a;
+	t_sclist	*curr_stack;
 
 	i = 0;
-	stack_a = (t_stack **)ft_calloc(sizeof(t_stack *), 1);
+	stack_a = (t_sclist **)ft_calloc(sizeof(t_sclist *), 1);
 	if (!stack_a)
 		return (free(stack_a), NULL);
 	while (++i < ac)
 	{
-		curr_stack = ft_stack_new(ft_atoi(av[i]));
+		curr_stack = ft_sclist_new(ft_atoi(av[i]));
 		if (!curr_stack)
-			return (ft_clean_stack(stack_a), NULL);
-		ft_stack_addback(stack_a, curr_stack);
+			return (ft_sclst_clean(stack_a), NULL);
+		ft_sclist_addback(stack_a, curr_stack);
 	}
 	return (stack_a);
 }
