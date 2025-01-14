@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 13:07:27 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/10 10:39:01 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/14 17:04:53 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdbool.h>
 
 int					ft_isalpha(int c);
 int					ft_isalnum(int c);
@@ -23,6 +24,7 @@ int					ft_isdigit(int c);
 int					ft_isascii(int c);
 int					ft_isprint(int c);
 int					ft_is_whitespace(int c);
+
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 char				*ft_str_tolower(char *str);

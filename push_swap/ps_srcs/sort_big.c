@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 16:06:44 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/14 11:27:26 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/14 16:55:17 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,29 +71,40 @@
 	return ;
 } */
 
-int	ft_sort_pb(t_sclist **stack_a, t_sclist **stack_b, t_sclistinfo info)
+// sort B and pb at the right time into A, stop when size == 3 or is_sorted(min(a))
+t_sclist	*sort_b(t_sclist **stack_a, t_sclist **stack_b)
+{
+	int			i;
+	t_sclist	*temp;
+
+	i = 0;
+	while (ft_sclst_size(*stack_a) > 3 && !ft_issorted(*stack_a))
+	{
+		temp = *stack_a;
+		ft_printf("sort b triggered\n");
+	}
+}
+
+int	ft_sort_b(t_sclist **stack_a, t_sclist **stack_b, t_sclistinfo info)
 {
 	if (ft_sclst_size(*stack_a) > 3 && !ft_issorted(ft_sclst_find_address((*stack_a), ft_sclst_min((*stack_a)))))
 		pb(stack_a, stack_b);
 	if (ft_sclst_size(*stack_a) > 3 && !ft_issorted(ft_sclst_find_address((*stack_a), ft_sclst_min((*stack_a)))))
 		pb(stack_a, stack_b);
-	ft_printf("Valeur de rotation : %i\n", ft_get_rotation_motion(*stack_a, *stack_b, (*stack_a)->next->value));
-/* 	if (ft_lstsize(*stack_a) > 3 && !ft_issorted(ft_sclst_min(stack_a)))
-		trierBetpb_au_bon_moment_jusqua3ouft_issorted(ft_sclst_min(stack_a))(stack_a, stack_b); */
+	if (ft_sclst_size(*stack_a) > 3 && !ft_issorted(ft_sclst_find_address((*stack_a), ft_sclst_min((*stack_a)))))
+		sort_b(stack_a, stack_b);
 	if (!ft_issorted((*stack_a)))
 		ft_sort_three(stack_a, info);
 	return (1);
 }
 
-/* t_sclist	*sort_b(t_sclist **stack_a, t_sclist **stack_b)
-{
-} */
 
 void	ft_sort_big(t_sclist **stack_a, t_sclist **stack_b, t_sclistinfo info)
 {
 	ft_sclst_print(stack_a, 'A');
 	ft_sclst_print(stack_b, 'B');
-	ft_sort_pb(stack_a, stack_b, info);
+	ft_sort_b(stack_a, stack_b, info);
+	ft_printf("Index de 2 dans A : %i\n", ft_find_value_place_a((*stack_a), 5));
 	ft_sclst_print(stack_a, 'A');
 	ft_sclst_print(stack_b, 'B');
 }

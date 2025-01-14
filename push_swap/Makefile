@@ -6,12 +6,12 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/01/14 11:28:59 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/01/14 17:03:41 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
-ARGS = 3 2 5 4 1
+ARGS = 3 2 1 6 5 4 
 
 
 CC = cc
@@ -21,7 +21,7 @@ SRC_DIR = ./ps_srcs/
 OBJ_DIR = ./ps_objects/
 INC_DIR = ./ps_includes/
 
-FILES = main.c input_check.c utils.c parsing.c stack_utils.c swap.c push.c rotate.c reverse_rotate.c sort.c sort_three.c sort_big.c
+FILES = main.c input_check.c utils.c parsing.c stack_utils.c stack_utils_find.c swap.c push.c rotate.c reverse_rotate.c sort.c sort_three.c sort_big.c
 
 OBJ = $(addprefix $(OBJ_DIR), $(FILES:.c=.o))
 

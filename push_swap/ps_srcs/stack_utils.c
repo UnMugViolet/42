@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:31:56 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/14 12:12:52 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/14 17:01:26 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,41 +30,6 @@ int	ft_get_rotation_motion(t_sclist *a, t_sclist *b, int val)
 	if (index_b && (i < size_b - index_b))
 		i = size_b - index_b;
 	return (i);
-}
-
-t_sclist	*ft_sclst_find_address(t_sclist *stack, int value)
-{
-	t_sclist	*temp;
-
-	temp = stack;
-	while (stack->next != temp)
-	{
-		if (stack->value == value)
-			return (stack);
-		stack = stack->next;
-	}
-	if (stack->value == value)
-		return (stack);
-	return (NULL);
-}
-
-int	ft_sclst_find_index(t_sclist *stack, int value)
-{
-	int			index;
-	t_sclist	*temp;
-
-	index = 0;
-	temp = stack;
-	while (stack->next != temp)
-	{
-		if (stack->value == value)
-			return (index);
-		stack = stack->next;
-		index++;
-	}
-	if (stack->value == value)
-		return (index);
-	return (-1);
 }
 
 bool	ft_issorted(t_sclist *stack_a)
@@ -96,7 +61,7 @@ t_sclistinfo	ft_init_sclistinfo(t_sclist *stack_a)
     info.total_size = ft_sclst_size(stack_a);
     info.current_size_a = info.total_size;
 
-	if (info.total_size == 0)
+	if (!info.total_size)
 	{
 		info.min = 0;
 		info.max = 0;
