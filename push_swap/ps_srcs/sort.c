@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 11:08:15 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/10 11:26:03 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/14 12:13:46 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	sort(t_sclist **stack_a, t_sclist **stack_b)
 {
 	t_sclistinfo	info;
 
-	info = ft_init_sclistinfo(*stack_a, *stack_b);
+	info = ft_init_sclistinfo(*stack_a);
 	if (ft_issorted(*stack_a))
 		return ;
 	if (info.total_size <= 3)

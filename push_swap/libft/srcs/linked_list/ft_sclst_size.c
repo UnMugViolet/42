@@ -6,16 +6,16 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 10:26:44 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/10 11:11:27 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/14 11:11:21 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_list.h"
 
-size_t	ft_sclst_size(t_sclist *sclist)
+int	ft_sclst_size(t_sclist *sclist)
 {
 	t_sclist	*begin;
-	size_t		count;
+	int		count;
 
 	begin = sclist;
 	if (!sclist)

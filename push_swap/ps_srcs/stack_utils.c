@@ -6,60 +6,30 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:31:56 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/10 15:34:49 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/14 12:12:52 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_get_rotation_motion(t_sclist *stack, t_sclist *target,
-		t_sclistinfo info, char c)
+int	ft_get_rotation_motion(t_sclist *a, t_sclist *b, int val)
 {
-	size_t	count;
+	int	i;
+	int	index_a;
+	int	index_b;
+	int	size_a;
+	int	size_b;
 
-	count = 0;
-	while (stack != target)
-	{
-		stack = stack->next;
-		count++;
-	}
-	if (c == 'a')
-	{
-		if (count < ft_sclst_size(stack) / 2)
-			info.motion_a = 1;
-		if (count > ft_sclst_size(stack) / 2)
-			info.motion_a = -1;
-		if (count == 0)
-			info.motion_a = 0;
-		return ;
-	}
-	if (count < ft_sclst_size(stack) / 2)
-		info.motion_b = 1;
-	if (count > ft_sclst_size(stack) / 2)
-		info.motion_b = -1;
-	else
-		info.motion_b = 0;
-}
-
-int	ft_get_final_motion(t_sclist *stack_a, t_sclist *target_a,
-		t_sclist *stack_b, t_sclist *target_b)
-{
-	size_t	count;
-
-	count = 0;
-	while (stack_a != target_a)
-	{
-		stack_a = stack_a->next;
-		count++;
-	}
-	while (stack_b != target_b)
-	{
-		stack_b = stack_b->next;
-		count++;
-	}
-	if (count <= (ft_sclst_size(stack_a)) + (ft_sclst_size(stack_b)) / 2)
-		return (1);
-	return (-1);
+	i = 0;
+	size_a = ft_sclst_size(a);
+	size_b = ft_sclst_size(b);
+	index_a = ft_sclst_find_index(a, val);
+	index_b = ft_sclst_find_index(b, val);
+	if (index_a)
+		i = size_a - index_a;
+	if (index_b && (i < size_b - index_b))
+		i = size_b - index_b;
+	return (i);
 }
 
 t_sclist	*ft_sclst_find_address(t_sclist *stack, int value)
@@ -111,14 +81,30 @@ bool	ft_issorted(t_sclist *stack_a)
 	return (1);
 }
 
-t_sclistinfo	ft_init_sclistinfo(t_sclist *stack_a, t_sclist *stack_b)
+t_sclistinfo	ft_init_sclistinfo(t_sclist *stack_a)
 {
 	t_sclistinfo	info;
 
-	(void)stack_b;
-	info.total_size = ft_sclst_size(stack_a);
-	info.current_size_a = info.total_size;
-	info.min = ft_sclst_min(stack_a);
-	info.max = ft_sclst_max(stack_a);
+	if (!stack_a)
+	{
+		info.total_size = 0;
+		info.current_size_a = 0;
+		info.min = 0;
+		info.max = 0;
+		return (info);
+	}
+    info.total_size = ft_sclst_size(stack_a);
+    info.current_size_a = info.total_size;
+
+	if (info.total_size == 0)
+	{
+		info.min = 0;
+		info.max = 0;
+	}
+	else
+	{
+		info.min = ft_sclst_min(stack_a);
+		info.max = ft_sclst_max(stack_a);
+	}
 	return (info);
 }
