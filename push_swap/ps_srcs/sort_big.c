@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 16:06:44 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/15 12:24:00 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/15 15:16:23 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void		ft_push_sort_a(t_sclist **a, t_sclist **b)
 	int			i;
 	t_sclist	*temp;
 
-	temp = *b;
-	i = ft_get_cheapest_ba((*a), (*b));
-	while (ft_sclst_size(*a) > 3 && !ft_issorted_from_min(*a))
+	while (*b)
 	{
+		temp = *b;
+		i = ft_get_cheapest_ba((*a), (*b));
 		while (i >= 0)
 		{
 			if (i == ft_case_rarb_ba(*a, *b, temp->value))
@@ -42,10 +42,10 @@ void	push_into_b(t_sclist **a, t_sclist **b)
 	int			i;
 	t_sclist	*temp;
 
-	temp = *a;
-	i = ft_get_cheapest_ab((*a), (*b));
 	while (ft_sclst_size(*a) > 3 && !ft_issorted_from_min(*a))
 	{
+		temp = *a;
+		i = ft_get_cheapest_ab((*a), (*b));
 		while (i >= 0)
 		{
 			if (i == ft_case_rarb_ab(*a, *b, temp->value))
@@ -74,8 +74,21 @@ void	ft_init_b(t_sclist **stack_a, t_sclist **stack_b)
 
 void	ft_sort_big(t_sclist **stack_a, t_sclist **stack_b)
 {
+	int	i;
 	ft_init_b(stack_a, stack_b);
-	if (!ft_issorted_from_min((*stack_a)))
+	if (!ft_issorted_from_min((*stack_a)) && ft_sclst_size(*stack_a) <= 3)
 		ft_sort_three(stack_a);
 	ft_push_sort_a(stack_a, stack_b);
+	i = ft_sclst_find_index(*stack_a, ft_sclst_min(*stack_a));
+	if (i < ft_sclst_size(*stack_a) / 2)
+	{
+		while ((*stack_a)->value != ft_sclst_min(*stack_a))
+			ra(stack_a);
+	}
+	else
+	{
+		while ((*stack_a)->value != ft_sclst_min((*stack_a)))
+			rra(stack_a);
+	}
+	ft_sclst_print(stack_a, 'A');
 }

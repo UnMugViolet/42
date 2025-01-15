@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 10:18:37 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/15 12:20:24 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/15 14:52:36 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ int				ft_apply_rrarrb_ab(t_sclist **a, t_sclist **b, int val);
 int				ft_apply_rrarb_ab(t_sclist **a, t_sclist **b, int val);
 int				ft_apply_rarrb_ab(t_sclist **a, t_sclist **b, int val);
 
-int	ft_get_rotation_motion(t_sclist *a, t_sclist *b, int val);
 int				ft_get_cheapest_ab(t_sclist *a, t_sclist *b);
 int				ft_get_cheapest_ba(t_sclist *a, t_sclist *b);
 

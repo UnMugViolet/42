@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 10:17:50 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/14 15:30:10 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/15 14:46:52 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ static bool	ft_push_swap(char **av, int ac)
 	t_sclist	**stack_b;
 
 	stack_a = ft_parse(av, ac);
-	ft_printf("SIZE: %i\n", ft_sclst_size((*stack_a)));
 	if (!stack_a)
 		return (0);
 	stack_b = (t_sclist **)ft_calloc(sizeof(t_sclist *), 1);
