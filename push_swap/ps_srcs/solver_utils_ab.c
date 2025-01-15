@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:51:22 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/14 17:34:18 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/15 08:39:20 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,3 @@ int	ft_case_rrarb_a(t_sclist *a, t_sclist *b, int val)
 	i += ft_sclst_find_index(b, val);
 	return (i);
 }
-1

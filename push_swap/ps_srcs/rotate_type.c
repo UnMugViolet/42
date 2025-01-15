@@ -22,7 +22,7 @@ int	ft_rotate_type_ba(t_sclist *a, t_sclist *b)
 	while (a->next != temp)
 	{
 		if ()
-		a->value;
+			a->value;
 	}
 	return (counter);
 }

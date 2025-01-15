@@ -58,9 +58,8 @@ t_sclistinfo	ft_init_sclistinfo(t_sclist *stack_a)
 		info.max = 0;
 		return (info);
 	}
-    info.total_size = ft_sclst_size(stack_a);
-    info.current_size_a = info.total_size;
-
+	info.total_size = ft_sclst_size(stack_a);
+	info.current_size_a = info.total_size;
 	if (!info.total_size)
 	{
 		info.min = 0;
