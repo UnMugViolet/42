@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:31:56 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/14 17:01:26 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/15 12:14:30 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,22 @@ int	ft_get_rotation_motion(t_sclist *a, t_sclist *b, int val)
 	return (i);
 }
 
+bool	ft_issorted_from_min(t_sclist *stack_a)
+{
+	t_sclist	*temp;
+	t_sclist	*begin;
+
+	begin = ft_sclst_find_address((stack_a), ft_sclst_min(stack_a));
+	temp = begin;
+	while (temp->next != begin)
+	{
+		if (temp->value > temp->next->value)
+			return (0);
+		temp = temp->next;
+	}
+	return (1);
+}
+
 bool	ft_issorted(t_sclist *stack_a)
 {
 	t_sclist	*begin;
@@ -46,29 +62,3 @@ bool	ft_issorted(t_sclist *stack_a)
 	return (1);
 }
 
-t_sclistinfo	ft_init_sclistinfo(t_sclist *stack_a)
-{
-	t_sclistinfo	info;
-
-	if (!stack_a)
-	{
-		info.total_size = 0;
-		info.current_size_a = 0;
-		info.min = 0;
-		info.max = 0;
-		return (info);
-	}
-	info.total_size = ft_sclst_size(stack_a);
-	info.current_size_a = info.total_size;
-	if (!info.total_size)
-	{
-		info.min = 0;
-		info.max = 0;
-	}
-	else
-	{
-		info.min = ft_sclst_min(stack_a);
-		info.max = ft_sclst_max(stack_a);
-	}
-	return (info);
-}

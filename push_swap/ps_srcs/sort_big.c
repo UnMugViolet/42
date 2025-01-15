@@ -6,109 +6,76 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 16:06:44 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/15 08:43:07 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/15 12:24:00 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* static bool	ft_is_between_two(t_sclist **stack_a, t_sclist **stack_b)
+void		ft_push_sort_a(t_sclist **a, t_sclist **b)
 {
-	int			curr_a_val;
-	int			curr_b_val;
-	int			last_a_val;
-	t_sclist	*temp;
-	size_t		counter;
-	int			index;
-	t_sclist	*temp;
 	int			i;
 	t_sclist	*temp;
 
-	curr_a_val = (*stack_a)->value;
-	curr_b_val = (*stack_b)->value;
-	last_a_val = ft_sclstlast(*stack_a)->value;
-	if (!(*stack_a) || !(*stack_b))
-		return (0);
-	return (curr_a_val < curr_b_val && last_a_val > curr_b_val);
-} */
-/* static size_t	ft_cheapest_index(t_sclist *stack_from, t_sclist *stack_to,
-		t_sclistinfo info)
-{
-	temp = stack_from;
-	counter = 0;
-	while (stack_from->next != temp)
+	temp = *b;
+	i = ft_get_cheapest_ba((*a), (*b));
+	while (ft_sclst_size(*a) > 3 && !ft_issorted_from_min(*a))
 	{
-		if ()
-		stack_from->value
-	}
-	return (counter);
-} */
-/* static void	ft_push_in_between(t_sclist **stack_a, t_sclist **stack_b,
-		t_sclistinfo info)
-{
-	temp = ft_sclst_find_address(*stack_a, info.min);
-	index = ft_sclst_find_index(*stack_a, info.min);
-	if (index <= ft_sclst_size(*stack_a) / 2)
-	{
-		while (*stack_a != temp)
+		while (i >= 0)
 		{
-			if (ft_is_between_two(stack_a, stack_b))
-				pa(stack_a, stack_b);
-			ra(stack_a);
+			if (i == ft_case_rarb_ba(*a, *b, temp->value))
+				i = ft_apply_rarb_ba(a, b, temp->value);
+			else if (i == ft_case_rrarrb_ba(*a, *b, temp->value))
+				i = ft_apply_rrarrb_ba(a, b, temp->value);
+			else if (i == ft_case_rarrb_ba(*a, *b, temp->value))
+				i = ft_apply_rarrb_ba(a, b, temp->value);
+			else if (i == ft_case_rrarb_ba(*a, *b, temp->value))
+				i = ft_apply_rrarb_ba(a, b, temp->value);
+			else
+				temp = temp->next;
 		}
-	}
-	else
-	{
-		while (*stack_a != temp)
-		{
-			if (ft_is_between_two(stack_a, stack_b))
-				pa(stack_a, stack_b);
-			rra(stack_a);
-		}
-	}
-	return ;
-} */
-
-// sort B and pb at the right time into A,
-// stop when size == 3 or is_sorted(min(a))
-t_sclist	*sort_b(t_sclist **stack_a, t_sclist **stack_b)
-{
-	int		i;
-	t_list	*temp;
-
-	i = 0;
-	while (ft_sclst_size(*stack_a) > 3 && !ft_issorted(*stack_a))
-	{
-		temp = *stack_a;
-		ft_printf("sort b triggered\n");
 	}
 }
 
-int	ft_sort_b(t_sclist **stack_a, t_sclist **stack_b, t_sclistinfo info)
+void	push_into_b(t_sclist **a, t_sclist **b)
 {
-	if (ft_sclst_size(*stack_a) > 3
-		&& !ft_issorted(ft_sclst_find_address((*stack_a),
-				ft_sclst_min((*stack_a)))))
-		pb(stack_a, stack_b);
-	if (ft_sclst_size(*stack_a) > 3
-		&& !ft_issorted(ft_sclst_find_address((*stack_a),
-				ft_sclst_min((*stack_a)))))
-		pb(stack_a, stack_b);
-	if (ft_sclst_size(*stack_a) > 3
-		&& !ft_issorted(ft_sclst_find_address((*stack_a),
-				ft_sclst_min((*stack_a)))))
-		sort_b(stack_a, stack_b);
-	if (!ft_issorted((*stack_a)))
-		ft_sort_three(stack_a, info);
-	return (1);
+	int			i;
+	t_sclist	*temp;
+
+	temp = *a;
+	i = ft_get_cheapest_ab((*a), (*b));
+	while (ft_sclst_size(*a) > 3 && !ft_issorted_from_min(*a))
+	{
+		while (i >= 0)
+		{
+			if (i == ft_case_rarb_ab(*a, *b, temp->value))
+				i = ft_apply_rarb_ab(a, b, temp->value);
+			else if (i == ft_case_rrarrb_ab(*a, *b, temp->value))
+				i = ft_apply_rrarrb_ab(a, b, temp->value);
+			else if (i == ft_case_rarrb_ab(*a, *b, temp->value))
+				i = ft_apply_rarrb_ab(a, b, temp->value);
+			else if (i == ft_case_rrarb_ab(*a, *b, temp->value))
+				i = ft_apply_rrarb_ab(a, b, temp->value);
+			else
+				temp = temp->next;
+		}
+	}
 }
 
-void	ft_sort_big(t_sclist **stack_a, t_sclist **stack_b, t_sclistinfo info)
+void	ft_init_b(t_sclist **stack_a, t_sclist **stack_b)
 {
-	ft_sclst_print(stack_a, 'A');
-	ft_sclst_print(stack_b, 'B');
-	ft_sort_b(stack_a, stack_b, info);
-	ft_printf("Index de 2 dans A : %i\n", ft_find_value_place_a((*stack_a), 5));
-	ft_sclst_print(stack_a, 'A');
-	ft_sclst_print(stack_b, 'B');
+	if (ft_sclst_size(*stack_a) > 3 && !ft_issorted_from_min(*stack_a))
+		pb(stack_a, stack_b);
+	if (ft_sclst_size(*stack_a) > 3 && !ft_issorted_from_min(*stack_a))
+		pb(stack_a, stack_b);
+	if (ft_sclst_size(*stack_a) > 3 && !ft_issorted_from_min(*stack_a))
+		push_into_b(stack_a, stack_b);
+}
+
+void	ft_sort_big(t_sclist **stack_a, t_sclist **stack_b)
+{
+	ft_init_b(stack_a, stack_b);
+	if (!ft_issorted_from_min((*stack_a)))
+		ft_sort_three(stack_a);
+	ft_push_sort_a(stack_a, stack_b);
 }
