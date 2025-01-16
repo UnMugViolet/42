@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:58:56 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/15 14:43:56 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/15 15:41:16 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	ft_find_value_place_a(t_sclist *stack_a, int to_push)
 	else
 	{
 		temp = stack_a->next;
-		while (to_push < stack_a->value && to_push > stack_a->value)
+		while (to_push < stack_a->value || to_push > temp->value)
 		{
 			stack_a = stack_a->next;
 			temp = stack_a->next;
@@ -83,7 +83,7 @@ int	ft_find_value_place_b(t_sclist *stack_b, int to_push)
 	else
 	{
 		temp = stack_b->next;
-		while (to_push > stack_b->value && to_push < stack_b->value)
+		while (to_push > stack_b->value || to_push < temp->value)
 		{
 			stack_b = stack_b->next;
 			temp = stack_b->next;

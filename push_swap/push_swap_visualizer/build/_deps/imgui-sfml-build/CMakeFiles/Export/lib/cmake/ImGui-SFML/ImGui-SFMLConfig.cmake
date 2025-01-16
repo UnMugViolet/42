@@ -51,7 +51,7 @@ if(_IMPORT_PREFIX STREQUAL "/")
 endif()
 
 # Create imported target ImGui-SFML::ImGui-SFML
-add_library(ImGui-SFML::ImGui-SFML STATIC IMPORTED)
+add_library(ImGui-SFML::ImGui-SFML SHARED IMPORTED)
 
 set_target_properties(ImGui-SFML::ImGui-SFML PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "IMGUI_USER_CONFIG=\"imconfig-SFML.h\""

@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 16:06:44 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/15 15:16:23 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/16 17:53:44 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,15 @@ void	push_into_b(t_sclist **a, t_sclist **b)
 
 void	ft_init_b(t_sclist **stack_a, t_sclist **stack_b)
 {
+	t_sclist	*temp;
+
+	temp = *stack_a;
+	while (temp->next != *stack_a)
+	{
+		ft_printf("tamere %i\n", temp->value);
+		temp = temp->next;
+	}
+	ft_printf("tamere %i\n", temp->value);
 	if (ft_sclst_size(*stack_a) > 3 && !ft_issorted_from_min(*stack_a))
 		pb(stack_a, stack_b);
 	if (ft_sclst_size(*stack_a) > 3 && !ft_issorted_from_min(*stack_a))
@@ -74,7 +83,8 @@ void	ft_init_b(t_sclist **stack_a, t_sclist **stack_b)
 
 void	ft_sort_big(t_sclist **stack_a, t_sclist **stack_b)
 {
-	int	i;
+	int			i;
+
 	ft_init_b(stack_a, stack_b);
 	if (!ft_issorted_from_min((*stack_a)) && ft_sclst_size(*stack_a) <= 3)
 		ft_sort_three(stack_a);
@@ -90,5 +100,4 @@ void	ft_sort_big(t_sclist **stack_a, t_sclist **stack_b)
 		while ((*stack_a)->value != ft_sclst_min((*stack_a)))
 			rra(stack_a);
 	}
-	ft_sclst_print(stack_a, 'A');
 }

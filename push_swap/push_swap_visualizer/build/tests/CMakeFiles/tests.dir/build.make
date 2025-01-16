@@ -109,7 +109,7 @@ bin/tests: tests/CMakeFiles/tests.dir/test_queues.cpp.o
 bin/tests: tests/CMakeFiles/tests.dir/test_pushswap.cpp.o
 bin/tests: tests/CMakeFiles/tests.dir/build.make
 bin/tests: src/libVisualizerLib.a
-bin/tests: _deps/imgui-sfml-build/libImGui-SFML.a
+bin/tests: _deps/imgui-sfml-build/libImGui-SFML.so
 bin/tests: _deps/sfml-build/lib/libsfml-graphics.so.2.5.1
 bin/tests: _deps/sfml-build/lib/libsfml-window.so.2.5.1
 bin/tests: _deps/sfml-build/lib/libsfml-system.so.2.5.1
