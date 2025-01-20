@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:31:56 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/15 14:52:32 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/20 12:20:11 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,3 @@ bool	ft_issorted(t_sclist *stack_a)
 	}
 	return (1);
 }
-

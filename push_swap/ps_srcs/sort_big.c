@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sort_big.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 16:06:44 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/16 17:53:44 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/20 12:20:38 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void		ft_push_sort_a(t_sclist **a, t_sclist **b)
+void	ft_push_sort_a(t_sclist **a, t_sclist **b)
 {
 	int			i;
 	t_sclist	*temp;
