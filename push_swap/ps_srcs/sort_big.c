@@ -64,9 +64,6 @@ void	push_into_b(t_sclist **a, t_sclist **b)
 
 void	ft_init_b(t_sclist **stack_a, t_sclist **stack_b)
 {
-	t_sclist	*temp;
-
-	temp = *stack_a;
 	if (ft_sclst_size(*stack_a) > 3 && !ft_issorted_from_min(*stack_a))
 		pb(stack_a, stack_b);
 	if (ft_sclst_size(*stack_a) > 3 && !ft_issorted_from_min(*stack_a))

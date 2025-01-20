@@ -62,12 +62,10 @@ int	ft_count_putptr_fd(unsigned long int ptr, int fd)
 int	ft_count_puthex_base_fd(unsigned int nbr, char type, int fd)
 {
 	size_t	len;
-	size_t	i;
 	char	*str;
 	char	*base;
 	int		base_modified;
 
-	i = 0;
 	base_modified = 0;
 	base = "0123456789abcdef";
 	if (type == 'X')
