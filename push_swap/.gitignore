@@ -1,4 +1,5 @@
 ./push_swap_visualizer/*
+./push_swap_visualizer/build/*
 push_swap
 case
 cheapest
