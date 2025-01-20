@@ -1,0 +1,14 @@
+# Target labels
+ sfml-populate
+# Source files and their labels
+/home/unmugviolet/Desktop/42/push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/CMakeFiles/sfml-populate
+/home/unmugviolet/Desktop/42/push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/CMakeFiles/sfml-populate.rule
+/home/unmugviolet/Desktop/42/push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/CMakeFiles/sfml-populate-complete.rule
+/home/unmugviolet/Desktop/42/push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-build.rule
+/home/unmugviolet/Desktop/42/push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-configure.rule
+/home/unmugviolet/Desktop/42/push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-download.rule
+/home/unmugviolet/Desktop/42/push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-install.rule
+/home/unmugviolet/Desktop/42/push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-mkdir.rule
+/home/unmugviolet/Desktop/42/push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-patch.rule
+/home/unmugviolet/Desktop/42/push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-test.rule
+/home/unmugviolet/Desktop/42/push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update.rule
