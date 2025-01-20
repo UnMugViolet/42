@@ -1,3 +1,0 @@
-/home/pjaguin/Desktop/Projects/push_swap/push_swap_visualizer/build/_deps/imgui-sfml-subbuild/CMakeFiles/imgui-sfml-populate.dir
-/home/pjaguin/Desktop/Projects/push_swap/push_swap_visualizer/build/_deps/imgui-sfml-subbuild/CMakeFiles/edit_cache.dir
-/home/pjaguin/Desktop/Projects/push_swap/push_swap_visualizer/build/_deps/imgui-sfml-subbuild/CMakeFiles/rebuild_cache.dir

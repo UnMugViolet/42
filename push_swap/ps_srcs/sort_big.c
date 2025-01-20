@@ -67,12 +67,6 @@ void	ft_init_b(t_sclist **stack_a, t_sclist **stack_b)
 	t_sclist	*temp;
 
 	temp = *stack_a;
-	while (temp->next != *stack_a)
-	{
-		ft_printf("tamere %i\n", temp->value);
-		temp = temp->next;
-	}
-	ft_printf("tamere %i\n", temp->value);
 	if (ft_sclst_size(*stack_a) > 3 && !ft_issorted_from_min(*stack_a))
 		pb(stack_a, stack_b);
 	if (ft_sclst_size(*stack_a) > 3 && !ft_issorted_from_min(*stack_a))
