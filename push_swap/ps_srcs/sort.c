@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 11:08:15 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/15 12:15:01 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/21 15:15:50 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,11 @@ void	sort(t_sclist **stack_a, t_sclist **stack_b)
 	}
 	else
 		ft_sort_big(stack_a, stack_b);
+	if (ft_issorted(*stack_a))
+		ft_printf("OK\n");
+	else
+	{
+		ft_printf("KO\n");
+		ft_sclst_print(stack_a, 'A');
+	}
 }

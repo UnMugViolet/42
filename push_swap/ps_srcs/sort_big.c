@@ -6,13 +6,26 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 16:06:44 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/20 12:20:38 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/01/21 16:11:54 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_push_sort_a(t_sclist **a, t_sclist **b)
+static void	rotate_to_min(t_sclist **stack_a)
+{
+	int	i;
+
+	i = ft_sclst_find_index(*stack_a, ft_sclst_min(*stack_a));
+	if (i < ft_sclst_size(*stack_a) - i)
+		while (i--)
+			ra(stack_a);
+	else
+		while (ft_sclst_size(*stack_a) - i++)
+			rra(stack_a);
+}
+
+static void	ft_push_sort_a(t_sclist **a, t_sclist **b)
 {
 	int			i;
 	t_sclist	*temp;
@@ -37,7 +50,7 @@ void	ft_push_sort_a(t_sclist **a, t_sclist **b)
 	}
 }
 
-void	push_into_b(t_sclist **a, t_sclist **b)
+static void	push_into_b(t_sclist **a, t_sclist **b)
 {
 	int			i;
 	t_sclist	*temp;
@@ -62,33 +75,23 @@ void	push_into_b(t_sclist **a, t_sclist **b)
 	}
 }
 
-void	ft_init_b(t_sclist **stack_a, t_sclist **stack_b)
+static void	ft_init_b(t_sclist **stack_a, t_sclist **stack_b)
 {
-	if (ft_sclst_size(*stack_a) > 3 && !ft_issorted_from_min(*stack_a))
+	while (ft_sclst_size(*stack_a) > 3)
 		pb(stack_a, stack_b);
-	if (ft_sclst_size(*stack_a) > 3 && !ft_issorted_from_min(*stack_a))
-		pb(stack_a, stack_b);
-	if (ft_sclst_size(*stack_a) > 3 && !ft_issorted_from_min(*stack_a))
-		push_into_b(stack_a, stack_b);
+	push_into_b(stack_a, stack_b);
 }
 
 void	ft_sort_big(t_sclist **stack_a, t_sclist **stack_b)
 {
-	int			i;
-
+	if (ft_issorted_from_min(*stack_a))
+	{
+		rotate_to_min(stack_a);
+		return ;
+	}
 	ft_init_b(stack_a, stack_b);
-	if (!ft_issorted_from_min((*stack_a)) && ft_sclst_size(*stack_a) <= 3)
+	if (ft_sclst_size(*stack_a) <= 3)
 		ft_sort_three(stack_a);
 	ft_push_sort_a(stack_a, stack_b);
-	i = ft_sclst_find_index(*stack_a, ft_sclst_min(*stack_a));
-	if (i < ft_sclst_size(*stack_a) / 2)
-	{
-		while ((*stack_a)->value != ft_sclst_min(*stack_a))
-			ra(stack_a);
-	}
-	else
-	{
-		while ((*stack_a)->value != ft_sclst_min((*stack_a)))
-			rra(stack_a);
-	}
+	rotate_to_min(stack_a);
 }
