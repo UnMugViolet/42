@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 16:06:44 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/21 16:22:00 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/01/21 16:32:15 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,14 +84,12 @@ static void	ft_init_b(t_sclist **stack_a, t_sclist **stack_b)
 
 void	ft_sort_big(t_sclist **stack_a, t_sclist **stack_b)
 {
-	if (ft_issorted_from_min(*stack_a))
+	if (!ft_issorted_from_min(*stack_a))
 	{
-		rotate_to_min(stack_a);
-		return ;
+		ft_init_b(stack_a, stack_b);
+		if (ft_sclst_size(*stack_a) <= 3)
+			ft_sort_three(stack_a);
+		ft_push_sort_a(stack_a, stack_b);
 	}
-	ft_init_b(stack_a, stack_b);
-	if (ft_sclst_size(*stack_a) <= 3)
-		ft_sort_three(stack_a);
-	ft_push_sort_a(stack_a, stack_b);
 	rotate_to_min(stack_a);
 }
