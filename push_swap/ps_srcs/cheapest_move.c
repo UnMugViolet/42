@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:58:47 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/21 18:19:37 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/01/21 19:02:00 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_get_cheapest_ba(t_sclist *a, t_sclist *b)
 
 	temp = b;
 	cheapest = ft_case_rrarrb_ba(a, b, temp->value);
-	do
+	while (true)
 	{
 		if (cheapest > ft_case_rarb_ba(a, b, temp->value))
 			cheapest = ft_case_rarb_ba(a, b, temp->value);
@@ -30,7 +30,9 @@ int	ft_get_cheapest_ba(t_sclist *a, t_sclist *b)
 		if (cheapest > ft_case_rrarb_ba(a, b, temp->value))
 			cheapest = ft_case_rrarb_ba(a, b, temp->value);
 		temp = temp->next;
-	} while (temp != b);
+		if (temp == b)
+			break ;
+	}
 	return (cheapest);
 }
 
@@ -41,7 +43,7 @@ int	ft_get_cheapest_ab(t_sclist *a, t_sclist *b)
 
 	temp = a;
 	cheapest = ft_case_rrarrb_ab(a, b, temp->value);
-	do
+	while (true)
 	{
 		if (cheapest > ft_case_rarb_ab(a, b, temp->value))
 			cheapest = ft_case_rarb_ab(a, b, temp->value);
@@ -52,6 +54,8 @@ int	ft_get_cheapest_ab(t_sclist *a, t_sclist *b)
 		if (cheapest > ft_case_rrarb_ab(a, b, temp->value))
 			cheapest = ft_case_rrarb_ab(a, b, temp->value);
 		temp = temp->next;
-	} while (temp != a);
+		if (temp == a)
+			break ;
+	}
 	return (cheapest);
 }
