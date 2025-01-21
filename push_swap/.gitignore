@@ -3,3 +3,4 @@ push_swap
 checker_linux
 push_swap
 test*
+*_old.c

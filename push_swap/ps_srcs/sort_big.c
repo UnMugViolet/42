@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 16:06:44 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/21 16:32:15 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/01/21 17:43:08 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,10 @@ static void	push_into_b(t_sclist **a, t_sclist **b)
 
 static void	ft_init_b(t_sclist **stack_a, t_sclist **stack_b)
 {
-	while (ft_sclst_size(*stack_a) > 3)
+	int	pb_amount;
+
+	pb_amount = 0;
+	while (++pb_amount < 2 && ft_sclst_size(*stack_a) > 3)
 		pb(stack_a, stack_b);
 	push_into_b(stack_a, stack_b);
 }
