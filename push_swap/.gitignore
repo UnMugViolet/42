@@ -1,8 +1,4 @@
-./push_swap_visualizer/*
-./push_swap_visualizer/build/*
+**/push_swap_visualizer/*
 push_swap
-case
-cheapest
-cheapest_en_face
-comp
+checker_linux
 push_swap
