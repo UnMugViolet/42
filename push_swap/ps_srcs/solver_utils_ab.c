@@ -56,4 +56,3 @@ int	ft_case_rarrb_ab(t_sclist *a, t_sclist *b, int val)
 	i += ft_sclst_find_index(a, val);
 	return (i);
 }
-
