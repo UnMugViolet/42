@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 16:06:44 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/21 16:11:54 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/01/21 16:22:00 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	rotate_to_min(t_sclist **stack_a)
 	int	i;
 
 	i = ft_sclst_find_index(*stack_a, ft_sclst_min(*stack_a));
-	if (i < ft_sclst_size(*stack_a) - i)
+	if (i < ft_sclst_size(*stack_a) / 2)
 		while (i--)
 			ra(stack_a);
 	else
