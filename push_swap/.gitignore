@@ -1,6 +1,9 @@
-**/push_swap_visualizer/*
+# PROGRAMS
 push_swap
+checker
 checker_linux
-push_swap
+
+# UTILS FILES 
+**/push_swap_visualizer/*
 test*
 *_old.c
