@@ -6,7 +6,7 @@
 #    By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/01/22 10:21:13 by unmugviolet      ###   ########.fr        #
+#    Updated: 2025/01/22 15:49:34 by unmugviolet      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,10 +48,10 @@ $(NAME) : $(OBJ)
 	@echo "$(GREEN)$(NAME) compiled!$(DEFAULT)"
 	@$(CC) $(CFLAGS) $(INC_H) $(OBJ) -L$(LIBFT_DIR) -lft -o $(NAME)
 
-$(BONUS) : $(BONUS_OBJ)
+$(BONUS) : $(BONUS_OBJ) $(filter-out $(OBJ_DIR)main.o, $(OBJ))
 	@$(MAKE) -C $(LIBFT_DIR)
-	@echo "$(GREEN)$(NAME) bonuses compiled!$(DEFAULT)"
-	@$(CC) $(CFLAGS) $(INC_H) $(BONUS_OBJ) -L$(LIBFT_DIR) -lft -o $(BONUS)
+	@echo "$(GREEN)$(BONUS) compiled!$(DEFAULT)"
+	@$(CC) $(CFLAGS) $(INC_H) $(BONUS_OBJ) $(filter-out $(OBJ_DIR)main.o, $(OBJ)) -L$(LIBFT_DIR) -lft -o $(BONUS)
 
 $(OBJ_DIR)%.o: %.c | $(OBJ_DIR)
 	@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
