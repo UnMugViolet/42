@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 11:03:38 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/12/06 14:15:03 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/22 11:40:49 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # include "libft.h"
 
 # ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 25
+# endif
+# if BUFFER_SIZE < 1
+#  undef BUFFER_SIZE
 #  define BUFFER_SIZE 25
 # endif
 
