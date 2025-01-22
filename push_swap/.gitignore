@@ -1,7 +1,7 @@
 # PROGRAMS
-push_swap
-checker
-checker_linux
+/push_swap
+/checker
+/checker_linux
 
 # UTILS FILES 
 **/push_swap_visualizer/*
