@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 10:18:37 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/20 16:42:42 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/01/22 13:50:40 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,20 @@ bool		ft_issorted_from_min(t_sclist *stack_a);
 int			ft_find_value_place_b(t_sclist *stack_b, int to_push);
 int			ft_find_value_place_a(t_sclist *stack_a, int to_push);
 
-void		sa(t_sclist **stack_a);
-void		sb(t_sclist **stack_b);
-void		ss(t_sclist **stack_a, t_sclist **stack_b);
+void		sa(t_sclist **stack_a, int is_quiet);
+void		sb(t_sclist **stack_b, int is_quiet);
+void		ss(t_sclist **stack_a, t_sclist **stack_b, int is_quiet);
 
-void		pa(t_sclist **stack_a, t_sclist **stack_b);
-void		pb(t_sclist **stack_a, t_sclist **stack_b);
+void		pa(t_sclist **stack_a, t_sclist **stack_b, int is_quiet);
+void		pb(t_sclist **stack_a, t_sclist **stack_b, int is_quiet);
 
-void		ra(t_sclist **stack_a);
-void		rb(t_sclist **stack_b);
-void		rr(t_sclist **stack_a, t_sclist **stack_b);
+void		ra(t_sclist **stack_a, int is_quiet);
+void		rb(t_sclist **stack_b, int is_quiet);
+void		rr(t_sclist **stack_a, t_sclist **stack_b, int is_quiet);
 
-void		rra(t_sclist **stack_a);
-void		rrb(t_sclist **stack_b);
-void		rrr(t_sclist **stack_a, t_sclist **stack_b);
+void		rra(t_sclist **stack_a, int is_quiet);
+void		rrb(t_sclist **stack_b, int is_quiet);
+void		rrr(t_sclist **stack_a, t_sclist **stack_b, int is_quiet);
 
 void		sort(t_sclist **stack_a, t_sclist **stack_b);
 void		ft_sort_three(t_sclist **stack_a);

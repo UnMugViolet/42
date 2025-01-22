@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 16:31:44 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/10 17:18:08 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/22 13:34:14 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,20 @@ static void	push(t_sclist **stack_from, t_sclist **stack_to)
 	*stack_to = temp;
 }
 
-void	pb(t_sclist **stack_a, t_sclist **stack_b)
+void	pb(t_sclist **stack_a, t_sclist **stack_b, int is_quiet)
 {
 	if (!(*stack_a) || !stack_a)
 		return ;
 	push(stack_a, stack_b);
-	ft_putstr_fd("pb\n", 1);
+	if (!is_quiet)
+		ft_putstr_fd("pb\n", 1);
 }
 
-void	pa(t_sclist **stack_a, t_sclist **stack_b)
+void	pa(t_sclist **stack_a, t_sclist **stack_b, int is_quiet)
 {
 	if (!(*stack_b) || !stack_b)
 		return ;
 	push(stack_b, stack_a);
-	ft_putstr_fd("pa\n", 1);
+	if (!is_quiet)
+		ft_putstr_fd("pa\n", 1);
 }

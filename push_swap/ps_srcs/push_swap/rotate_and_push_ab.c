@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_and_push_ab.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 09:49:40 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/15 13:49:46 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/22 13:51:30 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,43 +15,43 @@
 int	ft_apply_rarb_ab(t_sclist **a, t_sclist **b, int value)
 {
 	while ((*a)->value != value && ft_find_value_place_b(*b, value) > 0)
-		rr(a, b);
+		rr(a, b, 0);
 	while ((*a)->value != value)
-		ra(a);
+		ra(a, 0);
 	while (ft_find_value_place_b(*b, value) > 0)
-		rb(b);
-	pb(a, b);
+		rb(b, 0);
+	pb(a, b, 0);
 	return (-1);
 }
 
 int	ft_apply_rrarrb_ab(t_sclist **a, t_sclist **b, int value)
 {
 	while ((*a)->value != value && ft_find_value_place_b(*b, value) > 0)
-		rrr(a, b);
+		rrr(a, b, 0);
 	while ((*a)->value != value)
-		rra(a);
+		rra(a, 0);
 	while (ft_find_value_place_b(*b, value) > 0)
-		rrb(b);
-	pb(a, b);
+		rrb(b, 0);
+	pb(a, b, 0);
 	return (-1);
 }
 
 int	ft_apply_rrarb_ab(t_sclist **a, t_sclist **b, int value)
 {
 	while ((*a)->value != value)
-		rra(a);
+		rra(a, 0);
 	while (ft_find_value_place_b(*b, value) > 0)
-		rb(b);
-	pb(a, b);
+		rb(b, 0);
+	pb(a, b, 0);
 	return (-1);
 }
 
 int	ft_apply_rarrb_ab(t_sclist **a, t_sclist **b, int value)
 {
 	while ((*a)->value != value)
-		ra(a);
+		ra(a, 0);
 	while (ft_find_value_place_b(*b, value) > 0)
-		rrb(b);
-	pb(a, b);
+		rrb(b, 0);
+	pb(a, b, 0);
 	return (-1);
 }

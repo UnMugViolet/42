@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 16:06:44 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/21 17:43:08 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/01/22 13:52:47 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ static void	rotate_to_min(t_sclist **stack_a)
 	i = ft_sclst_find_index(*stack_a, ft_sclst_min(*stack_a));
 	if (i < ft_sclst_size(*stack_a) / 2)
 		while (i--)
-			ra(stack_a);
+			ra(stack_a, 0);
 	else
 		while (ft_sclst_size(*stack_a) - i++)
-			rra(stack_a);
+			rra(stack_a, 0);
 }
 
 static void	ft_push_sort_a(t_sclist **a, t_sclist **b)
@@ -81,7 +81,7 @@ static void	ft_init_b(t_sclist **stack_a, t_sclist **stack_b)
 
 	pb_amount = 0;
 	while (++pb_amount < 2 && ft_sclst_size(*stack_a) > 3)
-		pb(stack_a, stack_b);
+		pb(stack_a, stack_b, 0);
 	push_into_b(stack_a, stack_b);
 }
 
