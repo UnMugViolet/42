@@ -6,12 +6,13 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 09:25:15 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/01/22 17:15:11 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/01/22 17:15:42 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include "push_swap.h"
+#include <stdio.h> // For debug prints
 
 void	ft_checker_error(void)
 {
