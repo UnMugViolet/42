@@ -6,7 +6,7 @@
 #    By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/01/22 17:31:56 by unmugviolet      ###   ########.fr        #
+#    Updated: 2025/01/22 18:15:27 by unmugviolet      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,12 +75,13 @@ clean:
 
 fclean: clean
 	@rm -rf $(NAME)
-	@rm -rf $(BONUS)
 	@echo "$(CYAN)$(NAME) executables and objects removed succesfully!$(DEFAULT)"
+	@rm -rf $(BONUS)
+	@echo "$(CYAN)$(BONUS) executables and objects removed succesfully!$(DEFAULT)"
 	@$(MAKE) fclean -C $(LIBFT_DIR)
 	@echo "$(CYAN)libft executables and objects removed succesfully!$(DEFAULT)"
 	
-re: fclean all
+re: fclean all bonus
 
 bonus: all $(BONUS)
 

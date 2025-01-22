@@ -6,16 +6,21 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 09:25:15 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/01/22 17:34:42 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/01/22 18:16:31 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
 #include "push_swap.h"
-#include <stdio.h> // For debug prints
+#include "get_next_line.h"
 
-void	ft_checker_error(void)
+void	ft_checker_error(t_sclist **a, t_sclist **b)
 {
+	if (a)
+		ft_sclst_clean(a);
+	else if (b && *b)
+		ft_sclst_clean(b);
+	else if (b && !*b)
+		free(b);
 	ft_putstr_fd("Error\n", 2);
 	exit(-1);
 }
@@ -45,7 +50,7 @@ static char	*ft_resolve(char *cmd, t_sclist **a, t_sclist **b)
 	else if (!ft_strncmp(cmd, "rrr\n", 4))
 		rrr(a, b, 1);
 	else
-		ft_checker_error();
+		ft_checker_error(a, b);
 	return (get_next_line(0));
 }
 
@@ -76,10 +81,10 @@ int	main(int ac, char **av)
 		return (-1);
 	a = ft_parse(av, ac);
 	if (!a)
-		return (ft_sclst_clean(a), ft_checker_error(), -1);
+		return (ft_sclst_clean(a), ft_putstr_fd("Error\n", 2), exit(-1), -1);
 	b = ft_calloc(sizeof(t_sclist), 1);
 	if (!b)
-		return (ft_sclst_clean(a), ft_sclst_clean(b), ft_checker_error(), -1);
+		return (ft_checker_error(a, b), -1);
 	cmd = get_next_line(0);
 	if (!cmd && !ft_issorted(*a))
 		ft_printf("KO\n");
