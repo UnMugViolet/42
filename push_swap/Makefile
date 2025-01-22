@@ -6,7 +6,7 @@
 #    By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/01/22 15:49:34 by unmugviolet      ###   ########.fr        #
+#    Updated: 2025/01/22 17:31:56 by unmugviolet      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ BONUS_SRC_DIR = ./ps_srcs/checker/
 OBJ_DIR = ./ps_objects/
 INC_DIR = ./ps_includes/
 
-FILES = main.c input_check.c utils.c parsing.c stack_utils.c stack_utils_find.c move_counter_ab.c \
+FILES = main.c input_check.c parsing.c stack_utils.c stack_utils_find.c move_counter_ab.c \
 		move_counter_ba.c swap.c push.c rotate.c reverse_rotate.c sort.c sort_three.c sort_big.c \
 		rotate_and_push_ba.c rotate_and_push_ab.c cheapest_move.c
 

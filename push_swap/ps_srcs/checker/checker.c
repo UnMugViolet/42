@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 09:25:15 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/01/22 17:15:42 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/01/22 17:34:42 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ static void	checker_result(t_sclist **stack_a, t_sclist **stack_b, char *line)
 
 int	main(int ac, char **av)
 {
-	t_sclist **a;
-	t_sclist **b;
-	char *cmd;
+	char		*cmd;
+	t_sclist	**a;
+	t_sclist	**b;
 
 	if (!is_correct_input(av, ac) || ac < 2)
 		return (-1);
@@ -88,6 +88,6 @@ int	main(int ac, char **av)
 	else
 		checker_result(a, b, cmd);
 	ft_sclst_clean(a);
-	ft_sclst_clean(b);
+	free(b);
 	return (0);
 }

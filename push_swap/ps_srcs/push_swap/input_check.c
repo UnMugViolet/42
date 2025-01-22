@@ -3,14 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   input_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:09:35 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/08 14:33:53 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/22 17:31:40 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static bool	is_allowed_sign(char c)
+{
+	if (c == '+' || c == '-')
+		return (1);
+	return (0);
+}
 
 static bool	is_overflowing(char *str)
 {

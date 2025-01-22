@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 10:18:37 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/22 13:50:40 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/01/22 17:32:16 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include "linked_list.h"
 
 bool		is_correct_input(char **av, int ac);
-bool		is_allowed_sign(char c);
 t_sclist	**ft_parse(char **av, int ac);
 
 t_sclist	*ft_sclstlast(t_sclist *stack);
