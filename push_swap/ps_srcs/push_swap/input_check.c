@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:09:35 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/22 17:31:40 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/01/23 11:26:18 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ static bool	is_all_digits(char **av, int ac)
 				&& !is_allowed_sign(av[start][i]))
 				return (0);
 			if (is_allowed_sign(av[start][i]) && !ft_isdigit(av[start][i + 1]))
+				return (0);
+			if (is_allowed_sign(av[start][i]) && ft_isdigit(av[start][i - 1]))
 				return (0);
 			i++;
 		}
