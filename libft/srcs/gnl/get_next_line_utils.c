@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 18:14:26 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/12/06 12:20:44 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/01/22 12:34:56 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ char	*read_file(int fd, char *main_str)
 			return (NULL);
 		}
 		buff[count] = 0;
-		main_str = ft_strjoin(main_str, buff);
+		main_str = ft_strjoin_free(main_str, buff);
 	}
 	free(buff);
 	return (main_str);

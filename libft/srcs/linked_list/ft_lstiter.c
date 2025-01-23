@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/15 15:15:25 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/15 15:43:34 by pjaguin          ###   ########.fr       */
+/*   Created: 2024/11/18 14:21:42 by pjaguin           #+#    #+#             */
+/*   Updated: 2024/11/18 15:41:14 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "linked_list.h"
 
-void	ft_striteri(char *str, void (*f)(unsigned int, char *))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	size_t	i;
-
-	i = 0;
-	if (str && f)
+	while (lst)
 	{
-		while (str[i])
-		{
-			f(i, str + i);
-			i++;
-		}
+		f(lst->content);
+		lst = lst->next;
 	}
 }

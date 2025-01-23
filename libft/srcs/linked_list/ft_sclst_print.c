@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_sclst_print.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 10:55:39 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/20 12:23:44 by pjaguin          ###   ########.fr       */
+/*   Created: 2025/01/10 10:59:22 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/01/10 17:47:41 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "linked_list.h"
+#include "ft_printf.h"
 
-int	ft_lstsize(t_list *lst)
+void	ft_sclst_print(t_sclist **sclst, char c)
 {
-	int	i;
+	t_sclist	*temp;
 
-	i = 0;
-	while (lst)
+	temp = *sclst;
+	if (!sclst || !(*sclst))
+		return ;
+	while (temp->next != (*sclst))
 	{
-		lst = lst->next;
-		i++;
+		ft_printf("%c: value: %i\n", c, temp->value);
+		temp = temp->next;
 	}
-	return (i);
+	ft_printf("%c: value: %i\n\n", c, temp->value);
 }

@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_sclst_min.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/15 15:15:25 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/15 15:43:34 by pjaguin          ###   ########.fr       */
+/*   Created: 2025/01/10 10:20:24 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/01/14 14:48:31 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "linked_list.h"
 
-void	ft_striteri(char *str, void (*f)(unsigned int, char *))
+int	ft_sclst_min(t_sclist *sclist)
 {
-	size_t	i;
+	t_sclist	*begin;
+	int			min;
 
-	i = 0;
-	if (str && f)
+	begin = sclist;
+	if (!sclist)
+		return (0);
+	min = sclist->value;
+	while (sclist->next != begin)
 	{
-		while (str[i])
-		{
-			f(i, str + i);
-			i++;
-		}
+		sclist = sclist->next;
+		if (sclist->value < min)
+			min = sclist->value;
 	}
+	return (min);
 }

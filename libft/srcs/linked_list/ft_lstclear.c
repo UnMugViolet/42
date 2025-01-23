@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/15 15:15:25 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/15 15:43:34 by pjaguin          ###   ########.fr       */
+/*   Created: 2024/11/18 14:06:36 by pjaguin           #+#    #+#             */
+/*   Updated: 2024/11/18 15:43:06 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "linked_list.h"
 
-void	ft_striteri(char *str, void (*f)(unsigned int, char *))
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	size_t	i;
+	t_list	*temp;
 
-	i = 0;
-	if (str && f)
+	while (*lst)
 	{
-		while (str[i])
-		{
-			f(i, str + i);
-			i++;
-		}
+		temp = (*lst)->next;
+		ft_lstdelone(*lst, *del);
+		*lst = temp;
 	}
+	*lst = NULL;
 }
