@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "linked_list.h"
 
 static	void	free_all_list(t_list *new_list, void (*del)(void *))
 {

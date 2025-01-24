@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_sclst_max.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/15 15:15:25 by pjaguin           #+#    #+#             */
-/*   Updated: 2024/11/15 15:43:34 by pjaguin          ###   ########.fr       */
+/*   Created: 2025/01/10 10:20:17 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/01/10 11:33:58 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "linked_list.h"
 
-void	ft_striteri(char *str, void (*f)(unsigned int, char *))
+int	ft_sclst_max(t_sclist *sclist)
 {
-	size_t	i;
+	t_sclist	*begin;
+	int			max;
 
-	i = 0;
-	if (str && f)
+	begin = sclist;
+	if (!sclist)
+		return (0);
+	max = sclist->value;
+	while (sclist->next != begin)
 	{
-		while (str[i])
-		{
-			f(i, str + i);
-			i++;
-		}
+		sclist = sclist->next;
+		if (sclist->value > max)
+			max = sclist->value;
 	}
+	return (max);
 }

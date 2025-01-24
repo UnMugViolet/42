@@ -3,7 +3,12 @@
 /checker
 /checker_linux
 
+# PROGRAM FILES
+*.a
+*.o
+
 # UTILS FILES 
 **/push_swap_visualizer/*
+**/*.vscode/*
 test*
 *_old.c
