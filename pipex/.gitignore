@@ -1,0 +1,11 @@
+# PROGRAMS
+/pipex
+
+# PROGRAM FILES AND LIBRARIES
+*.a
+*.o
+
+# UTILS FILES 
+**/*.vscode/*
+test*
+*_old.c
