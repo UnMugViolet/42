@@ -6,7 +6,7 @@
 #    By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/01/24 11:17:39 by unmugviolet      ###   ########.fr        #
+#    Updated: 2025/01/24 12:32:50 by unmugviolet      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,10 @@ CC = cc
 
 LIBFT_DIR = ./libft
 SRC_DIR = ./ppx_src/
-OBJ_DIR = ./ps_objects/
-INC_DIR = ./ps_includes/
+OBJ_DIR = ./ppx_objects/
+INC_DIR = ./ppx_includes/
 
-FILES = 
+FILES = pipex.c
 
 OBJ = $(addprefix $(OBJ_DIR), $(FILES:.c=.o))
 
@@ -47,6 +47,7 @@ $(OBJ_DIR)%.o: %.c | $(OBJ_DIR)
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR)
 	@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
 	@$(CC) $(CFLAGS) $(INC_H) -c $< -o $@
+	
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
