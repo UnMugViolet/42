@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:09:35 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/22 17:31:40 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/01/24 10:08:22 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ static bool	is_all_digits(char **av, int ac)
 bool	is_correct_input(char **av, int ac)
 {
 	if (ac < 2)
-		return (ft_putstr_fd("Error\n", 2), 0);
+		return (0);
 	if (!is_all_digits(av, ac))
 		return (ft_putstr_fd("Error\n", 2), 0);
 	else if (!is_all_unique(av, ac))
