@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_check.c                                      :+:      :+:    :+:   */
+/*   clean.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/28 17:06:47 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/01/28 18:47:44 by unmugviolet      ###   ########.fr       */
+/*   Created: 2025/01/28 18:54:54 by unmugviolet       #+#    #+#             */
+/*   Updated: 2025/01/28 19:01:12 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	ft_check_access_create(int ac, char **av)
+void	exit_all(t_pipex *pipex)
 {
-	if (access(av[1], R_OK) == -1)
-		return (perror("Error file 1 : "), 0);
-	if (access(av[ac - 1], F_OK) == -1)
-		return (1);
-	if (access(av[ac - 1], R_OK | W_OK) == -1)
-		return (perror("Error file 2 : "), 0);
-	return (1);
+	if (pipex->in_fd != -1)
+		close(pipex->in_fd);
+	if (pipex->out_fd != -1)
+		close(pipex->out_fd);
+	if (pipex->pipefd[0] != -1)
+		close(pipex->pipefd[0]);
+	if (pipex->pipefd[1] != -1)
+		close(pipex->pipefd[1]);
+	exit(EXIT_FAILURE);
 }

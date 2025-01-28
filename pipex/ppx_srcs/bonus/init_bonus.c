@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   init_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/28 17:06:25 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/01/28 19:01:41 by unmugviolet      ###   ########.fr       */
+/*   Created: 2025/01/28 19:00:29 by unmugviolet       #+#    #+#             */
+/*   Updated: 2025/01/28 19:01:07 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ bool	is_struct_init(t_pipex pipex, int ac, char **av, char **env)
 	}
 	if (pipe(pipex.pipefd) == -1)
 		return (perror("Error creating pipe : "), 0);
-	pipex.here_doc = 0;
+	if (!ft_strncmp(av[1], "here_doc", 9))
+		pipex.here_doc = 1;
 	pipex.cmd_count = ac - 3;
 	pipex.env = env;
 	return (1);
