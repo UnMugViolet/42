@@ -17,15 +17,4 @@
 #include "libft.h"
 #include <stdbool.h>
 
-typedef struct s_pipex
-{
-	int		in_fd;
-	int		out_fd;
-	bool	here_doc;
-	bool	is_invalid_infile;
-	char	**cmd_paths;
-	char	***cmd_args;
-	int		*cmd_count;
-}			t_pipex;
-
 #endif
