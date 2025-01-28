@@ -4,6 +4,7 @@
 # PROGRAM FILES AND LIBRARIES
 *.a
 *.o
+libft
 
 # UTILS FILES 
 **/*.vscode/*

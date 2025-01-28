@@ -6,22 +6,23 @@
 #    By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/01/24 12:32:50 by unmugviolet      ###   ########.fr        #
+#    Updated: 2025/01/28 17:09:58 by unmugviolet      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = pipex
-CC = cc
+ARGS = test \"ls -l\" \"wc\" test2
 
 LIBFT_DIR = ./libft
-SRC_DIR = ./ppx_src/
+SRC_DIR = ./ppx_srcs/
 OBJ_DIR = ./ppx_objects/
 INC_DIR = ./ppx_includes/
 
-FILES = pipex.c
+FILES = pipex.c init.c input_check.c
 
 OBJ = $(addprefix $(OBJ_DIR), $(FILES:.c=.o))
 
+CC = cc
 MAKE = make
 CFLAGS = -Wall -Werror -Wextra -g
 INC_H = -I $(INC_DIR) -I $(LIBFT_DIR)/includes
@@ -65,11 +66,11 @@ fclean: clean
 re: fclean all 
 
 go: all
-	@echo "$(CYAN) ./$(NAME) $(WHITE)"
+	@echo "$(CYAN) ./$(NAME) $(ARGS) $(WHITE)"
 	@./$(NAME) $(ARGS)
 
 debug: all
-	@echo "$(CYAN) lldb ./$(NAME) $(WHITE)"
+	@echo "$(CYAN) lldb ./$(NAME) $(ARGS) $(WHITE)"
 	@ lldb ./$(NAME) $(ARGS)
 
 gov: all
