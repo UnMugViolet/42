@@ -1,5 +1,5 @@
 # Common 
-.vscode
+.vscode/*
 *.out
 *.o
 *.a
@@ -8,4 +8,4 @@
 libft/main
 
 # Printf
-printf/prog
+
