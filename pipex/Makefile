@@ -6,12 +6,11 @@
 #    By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/01/29 14:31:51 by unmugviolet      ###   ########.fr        #
+#    Updated: 2025/01/29 16:58:58 by unmugviolet      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = pipex
-ARGS = test \"ls -l\" \"wc\" test2
 
 LIBFT_DIR = ./libft
 SRC_DIR = ./ppx_srcs/
@@ -65,18 +64,6 @@ fclean: clean
 	
 re: fclean all 
 
-go: all
-	@echo "$(CYAN) ./$(NAME) $(ARGS) $(WHITE)"
-	@./$(NAME) $(ARGS)
-
-debug: all
-	@echo "$(CYAN) lldb ./$(NAME) $(ARGS) $(WHITE)"
-	@ lldb ./$(NAME) $(ARGS)
-
-gov: all
-	@echo "$(CYAN) valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) $(ARGS)$(WHITE)"
-	@valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) $(ARGS)
-
 # Specify that these are not files to compile (just for safety)
-.PHONY: all clean fclean re go debug gov
+.PHONY: all clean fclean re 
 	

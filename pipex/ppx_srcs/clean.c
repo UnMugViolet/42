@@ -6,15 +6,14 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 18:54:54 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/01/29 14:31:26 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/01/29 18:20:40 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	ft_exit_error(t_pipex pipex, char *str)
+void	ft_close_all(t_pipex pipex, char *curr_str)
 {
-	perror(str);
 	if (pipex.in_fd != -1)
 		close(pipex.in_fd);
 	if (pipex.out_fd != -1)
@@ -23,8 +22,14 @@ void	ft_exit_error(t_pipex pipex, char *str)
 		close(pipex.pipefd[0]);
 	if (pipex.pipefd[1] != -1)
 		close(pipex.pipefd[1]);
-	if (pipex.processes)
-		free(pipex.processes);
+	if (curr_str)
+		free(curr_str);
+}
+
+void	ft_exit_error(t_pipex pipex, char *str)
+{
+	perror(str);
+	ft_close_all(pipex, NULL);
 	if (pipex.current_cmd)
 		ft_free_split(pipex.current_cmd);
 	exit(EXIT_FAILURE);
