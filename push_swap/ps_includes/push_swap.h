@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 10:18:37 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/22 17:32:16 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/01/29 15:40:24 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "ft_printf.h"
 # include "libft.h"
-# include "linked_list.h"
 
 bool		is_correct_input(char **av, int ac);
 t_sclist	**ft_parse(char **av, int ac);
