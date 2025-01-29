@@ -6,7 +6,7 @@
 #    By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/01/28 17:09:58 by unmugviolet      ###   ########.fr        #
+#    Updated: 2025/01/29 14:31:51 by unmugviolet      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC_DIR = ./ppx_srcs/
 OBJ_DIR = ./ppx_objects/
 INC_DIR = ./ppx_includes/
 
-FILES = pipex.c init.c input_check.c
+FILES = pipex.c init.c input_check.c clean.c 
 
 OBJ = $(addprefix $(OBJ_DIR), $(FILES:.c=.o))
 

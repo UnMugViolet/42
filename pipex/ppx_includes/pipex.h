@@ -6,15 +6,15 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:44:49 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/01/28 19:23:34 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/01/29 14:32:36 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
 # define PIPEX_H
 
-#include "ft_printf.h"
-#include "libft.h"
+# include "libft.h"
+# include "ft_printf.h"
 
 # include <fcntl.h>
 # include <stdio.h>
@@ -27,11 +27,12 @@ typedef struct s_pipex
 	int		pipefd[2];
 	int		cmd_count;
 	char	**env;
-	bool	here_doc;
+	char	**current_cmd;
+	pid_t	*processes;
 }			t_pipex;
 
-int		is_files_accessible(int ac, char **av);
-void	exit_all(t_pipex *pipex);
-bool	is_struct_init(t_pipex pipex, int ac, char **av, char **env);
+void	ft_check_access(int ac, char **av);
+void	ft_struct_init(t_pipex pipex, int ac, char **av, char **env);
+void	ft_exit_error(t_pipex pipex, char *str);
 
 #endif
