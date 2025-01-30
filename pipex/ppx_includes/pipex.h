@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:44:49 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/01/29 18:21:03 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/01/30 15:57:41 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft.h"
 # include "ft_printf.h"
+# include "get_next_line.h"
 
 # include <fcntl.h>
 # include <stdio.h>
@@ -28,6 +29,7 @@ typedef struct s_pipex
 	int		out_fd;
 	int		cmd_count;
 	int		pipefd[2];
+	int		here_doc;
 	char	**env;
 	char	**current_cmd;
 }			t_pipex;
@@ -38,4 +40,3 @@ void	ft_exit_error(t_pipex pipex, char *str);
 void	ft_close_all(t_pipex pipex, char *curr_str);
 
 #endif
-
