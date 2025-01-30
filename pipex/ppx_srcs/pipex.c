@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:43:22 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/01/30 15:56:40 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/01/30 16:02:14 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_exec_child(t_pipex *pipex, int in_fd, int out_fd, char *command)
 {
-	pid_t	pid;
+	pid_t		pid;
 
 	pid = fork();
 	if (pid < 0)
@@ -41,29 +41,26 @@ void	ft_exec_child(t_pipex *pipex, int in_fd, int out_fd, char *command)
 
 void	ft_heredoc(t_pipex *pipex, char *limiter)
 {
-	char	*line;
+    char	*line;
 	size_t	limiter_len;
 
 	limiter_len = ft_strlen(limiter);
-	if (pipe(pipex->pipefd) == -1)
-		ft_exit_error(*pipex, "pipe error");
-	while (true)
-	{
-		ft_putstr_fd("heredoc> ", 1);
-		line = get_next_line(0);
-		ft_printf("line: %s -> limiter %s, result : %i\n", line, limiter,
-			ft_strncmp(line, limiter, limiter_len));
-		if (!line || (!ft_strncmp(line, limiter, limiter_len)
-				&& line[limiter_len] == '\n'))
-		{
+    if (pipe(pipex->pipefd) == -1)
+        ft_exit_error(*pipex, "pipe error");
+    while (true)
+    {
+        ft_putstr_fd("heredoc> ", 1);
+        line = get_next_line(0);
+        if (!line || (!ft_strncmp(line, limiter, ft_strlen(limiter)) && line[limiter_len] == '\n'))
+        {
 			free(line);
-			break ;
-		}
-		ft_putstr_fd(line, pipex->pipefd[1]);
-		free(line);
-	}
-	close(pipex->pipefd[1]);
-	pipex->in_fd = pipex->pipefd[0];
+            break ;
+        }
+        ft_putstr_fd(line, pipex->pipefd[1]);
+        free(line);
+    }
+    close(pipex->pipefd[1]);
+    pipex->in_fd = pipex->pipefd[0];
 }
 
 void	ft_exec_commands(t_pipex *pipex, int ac, char **av)
