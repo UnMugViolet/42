@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:44:49 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/01/30 15:57:41 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/01/31 10:38:51 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 # include <fcntl.h>
 # include <stdio.h>
+# include <string.h>
 # include <errno.h>
 # include <sys/types.h>
 # include <sys/wait.h>

@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:43:22 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/01/30 16:28:53 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/01/31 11:29:57 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_exec_child(t_pipex *pipex, int in_fd, int out_fd, char *command)
 			close(out_fd);
 		}
 		execve(command, pipex->current_cmd, pipex->env);
-		perror("Exec");
+		perror(command);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -57,7 +57,7 @@ void	ft_heredoc(t_pipex *pipex, char *limiter)
 			free(line);
 			break ;
 		}
-		ft_putstr_fd(line, pipex->pipefd[1]);\
+		ft_putstr_fd(line, pipex->pipefd[1]);
 		free(line);
 	}
 	close(pipex->pipefd[1]);
@@ -72,7 +72,7 @@ void	ft_exec_commands(t_pipex *pipex, int ac, char **av)
 	i = 1 + pipex->here_doc;
 	while (++i < ac - 2)
 	{
-		pipex->current_cmd = ft_split(av[i], ' ');
+		pipex->current_cmd = ft_split_quote(av[i], ' ', '\'');
 		command = ft_strjoin("/bin/", pipex->current_cmd[0]);
 		if (pipe(pipex->pipefd) == -1)
 			ft_exit_error(*pipex, "pipe error");
@@ -83,7 +83,7 @@ void	ft_exec_commands(t_pipex *pipex, int ac, char **av)
 		ft_free_split(pipex->current_cmd);
 		free(command);
 	}
-	pipex->current_cmd = ft_split(av[i], ' ');
+	pipex->current_cmd = ft_split_quote(av[i], ' ', '\'');
 	command = ft_strjoin("/bin/", pipex->current_cmd[0]);
 	ft_exec_child(pipex, pipex->in_fd, pipex->out_fd, command);
 	ft_free_split(pipex->current_cmd);
