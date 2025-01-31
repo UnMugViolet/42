@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:43:22 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/01/31 11:29:57 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/01/31 16:27:19 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ void	ft_exec_child(t_pipex *pipex, int in_fd, int out_fd, char *command)
 	{
 		if (in_fd != STDIN_FILENO)
 		{
-			if (dup2(in_fd, STDIN_FILENO) == -1)
-				ft_exit_error(*pipex, "dup2 in");
+			dup2(in_fd, STDIN_FILENO);
 			close(in_fd);
 		}
 		if (out_fd != STDOUT_FILENO)
@@ -87,8 +86,8 @@ void	ft_exec_commands(t_pipex *pipex, int ac, char **av)
 	command = ft_strjoin("/bin/", pipex->current_cmd[0]);
 	ft_exec_child(pipex, pipex->in_fd, pipex->out_fd, command);
 	ft_free_split(pipex->current_cmd);
-	i = 1;
-	while (++i < ac - 1)
+	i = 0;
+	while (++i < pipex->cmd_count)
 		wait(NULL);
 	ft_close_all(*pipex, command);
 }

@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:44:49 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/01/31 10:38:51 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/01/31 16:11:40 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_pipex
 }			t_pipex;
 
 void	ft_check_access(int ac, char **av);
+void	ft_exec_child(t_pipex *pipex, int in_fd, int out_fd, char *command);
 void	ft_struct_init(t_pipex *pipex, int ac, char **av, char **env);
 void	ft_exit_error(t_pipex pipex, char *str);
 void	ft_close_all(t_pipex pipex, char *curr_str);
