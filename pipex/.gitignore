@@ -8,5 +8,6 @@ libft
 
 # UTILS FILES 
 **/*.vscode/*
+42_pipex_tester
 test*
 *_old.c
