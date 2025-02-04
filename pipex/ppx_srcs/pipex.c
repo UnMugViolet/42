@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:43:22 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/02/04 18:43:55 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/02/04 19:25:54 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_exec_child(t_pipex *pipex, int in_fd, int out_fd, char *command)
 		if (in_fd != STDIN_FILENO)
 		{
 			if (dup2(in_fd, STDIN_FILENO) == -1)
-				ft_exit_error(*pipex, "dup2 in");
+				in_fd = STDIN_FILENO;
 			close(in_fd);
 		}
 		if (out_fd != STDOUT_FILENO)
