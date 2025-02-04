@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 18:44:50 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/02/04 18:49:57 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/02/04 19:00:55 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_command_path(char *cmd)
 		dup2(pipe_fd[1], STDOUT_FILENO);
 		close(pipe_fd[1]);
 		execve("/usr/bin/which", which_cmd, NULL);
-	}	
+	}
 	wait(NULL);
 	path = get_next_line(pipe_fd[0]);
 	if (path[ft_strlen(path) - 1] == '\n')
