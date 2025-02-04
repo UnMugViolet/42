@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:43:22 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/01/31 16:27:19 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/02/04 18:43:55 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	ft_exec_child(t_pipex *pipex, int in_fd, int out_fd, char *command)
 	{
 		if (in_fd != STDIN_FILENO)
 		{
-			dup2(in_fd, STDIN_FILENO);
+			if (dup2(in_fd, STDIN_FILENO) == -1)
+				ft_exit_error(*pipex, "dup2 in");
 			close(in_fd);
 		}
 		if (out_fd != STDOUT_FILENO)
@@ -68,11 +69,11 @@ void	ft_exec_commands(t_pipex *pipex, int ac, char **av)
 	int		i;
 	char	*command;
 
-	i = 1 + pipex->here_doc;
+	ft_first_cmd(*pipex, &i);
 	while (++i < ac - 2)
 	{
 		pipex->current_cmd = ft_split_quote(av[i], ' ', '\'');
-		command = ft_strjoin("/bin/", pipex->current_cmd[0]);
+		command = ft_command_path(pipex->current_cmd[0]);
 		if (pipe(pipex->pipefd) == -1)
 			ft_exit_error(*pipex, "pipe error");
 		ft_exec_child(pipex, pipex->in_fd, pipex->pipefd[1], command);
@@ -83,11 +84,11 @@ void	ft_exec_commands(t_pipex *pipex, int ac, char **av)
 		free(command);
 	}
 	pipex->current_cmd = ft_split_quote(av[i], ' ', '\'');
-	command = ft_strjoin("/bin/", pipex->current_cmd[0]);
+	command = ft_command_path(pipex->current_cmd[0]);
 	ft_exec_child(pipex, pipex->in_fd, pipex->out_fd, command);
 	ft_free_split(pipex->current_cmd);
-	i = 0;
-	while (++i < pipex->cmd_count)
+	i = 1;
+	while (++i < ac - 1)
 		wait(NULL);
 	ft_close_all(*pipex, command);
 }
@@ -96,12 +97,7 @@ int	main(int ac, char **av, char **env)
 {
 	t_pipex	pipex;
 
-	if (ac < 5)
-	{
-		ft_putstr_fd("Not enough arguments. ", 2);
-		ft_putstr_fd("Usage: ./pipex file1 cmd1 cmd2 ..cmd[n] file2\n", 2);
-		return (EXIT_FAILURE);
-	}
+	ft_arg_check(ac, av);
 	ft_check_access(ac, av);
 	ft_struct_init(&pipex, ac, av, env);
 	if (pipex.here_doc)
