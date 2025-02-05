@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 17:53:07 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/22 13:49:11 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/02/05 11:03:40 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	reverse_rotate(t_sclist **stack)
 {
-	*stack = ft_sclstlast(*stack);
+	*stack = ft_sclst_last(*stack);
 }
 
 void	rra(t_sclist **stack_a, int is_quiet)

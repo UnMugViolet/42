@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 10:18:37 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/29 15:40:24 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/02/05 11:03:40 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 bool		is_correct_input(char **av, int ac);
 t_sclist	**ft_parse(char **av, int ac);
 
-t_sclist	*ft_sclstlast(t_sclist *stack);
+t_sclist	*ft_sclst_last(t_sclist *stack);
 t_sclist	*ft_sclst_find_address(t_sclist *stack, int value);
 int			ft_sclst_find_index(t_sclist *stack, int value);
 bool		ft_issorted(t_sclist *stack_a);
