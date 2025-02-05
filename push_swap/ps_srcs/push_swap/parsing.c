@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:06:28 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/10 16:58:30 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/02/05 10:54:15 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ t_sclist	**ft_parse(char **av, int ac)
 	i = 0;
 	stack_a = (t_sclist **)ft_calloc(sizeof(t_sclist *), 1);
 	if (!stack_a)
-		return (free(stack_a), NULL);
+		return (NULL);
 	while (++i < ac)
 	{
 		curr_stack = ft_sclist_new(ft_atoi(av[i]));

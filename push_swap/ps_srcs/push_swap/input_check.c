@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:09:35 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/24 10:09:10 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/02/05 10:55:00 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static bool	is_all_unique(char **av, int ac)
 	i = 0;
 	array = (int *)ft_calloc(sizeof(int), (ac - 1));
 	if (!array)
-		return (free(array), 0);
+		return (0);
 	while (++i < ac)
 	{
 		if (is_overflowing(av[i]))
