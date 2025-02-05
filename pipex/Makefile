@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+         #
+#    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/02/04 18:45:05 by unmugviolet      ###   ########.fr        #
+#    Updated: 2025/02/05 17:31:39 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRC_DIR = ./ppx_srcs/
 OBJ_DIR = ./ppx_objects/
 INC_DIR = ./ppx_includes/
 
-FILES = pipex.c init.c input_check.c clean.c  env.c
+FILES = pipex.c init.c input_check.c clean.c
 
 OBJ = $(addprefix $(OBJ_DIR), $(FILES:.c=.o))
 

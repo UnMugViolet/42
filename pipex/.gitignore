@@ -10,4 +10,5 @@ libft
 **/*.vscode/*
 42_pipex_tester
 test*
+output
 *_old.c

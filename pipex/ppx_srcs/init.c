@@ -3,28 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 17:06:25 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/02/04 19:21:31 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/02/05 18:24:59 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-char	**ft_get_path_from_env(char **env)
+void	ft_get_paths_from_env(t_pipex *pipex, char **env)
 {
-	char	**path;
 	int		i;
 
 	i = 0;
 	while (ft_strncmp(env[i], "PATH=", 5))
 		i++;
-	path = ft_split(env[i] + 5, ':');
+	pipex->paths = ft_split(env[i] + 5, ':');
 	i = -1;
-	while (path[++i])
-		path[i] = ft_strjoin_free(path[i], "/");
-	return (path);
+	while (pipex->paths[++i])
+		pipex->paths[i] = ft_strjoin_free(pipex->paths[i], "/");
 }
 
 void	ft_struct_init(t_pipex *pipex, int ac, char **av, char **env)
@@ -45,8 +43,9 @@ void	ft_struct_init(t_pipex *pipex, int ac, char **av, char **env)
 		if (pipex->out_fd == -1)
 			ft_exit_error(*pipex, "Error opening file 2");
 	}
-	pipex->cmd_count = ac - 3;
+	ft_get_paths_from_env(pipex, env);
 	pipex->env = env;
+	pipex->cmd_count = ac - 3;
 	pipex->current_cmd = NULL;
 }
 
@@ -55,4 +54,36 @@ void	ft_first_cmd(t_pipex pipex, int *i)
 	*i = 1 + pipex.here_doc;
 	if (pipex.in_fd < 0)
 		*i = 2;
+}
+
+void	ft_cmd_paths(t_pipex *pipex)
+{
+	int	i;
+	char **cmd;
+
+	i = 0;
+	while (pipex->paths[i])
+		i++;
+	cmd = (char **)ft_calloc(sizeof(char *), i);
+	if (!cmd)
+		exit (EXIT_FAILURE);
+	i = 0;
+	while (pipex->paths[i])
+	{
+		cmd[i] = ft_strjoin(pipex->paths[i], pipex->current_cmd[0]);
+		if (!cmd[i])
+		{
+			ft_free_array_str(cmd);
+			exit(EXIT_FAILURE);
+		}
+		i++;
+	}
+	cmd[i] = 0;
+	pipex->paths_cmd = cmd;
+}
+
+void	ft_init_cmd(t_pipex *pipex, char *cmd)
+{
+	pipex->current_cmd = ft_split_quote(cmd, ' ', '\'');
+	ft_cmd_paths(pipex);
 }
