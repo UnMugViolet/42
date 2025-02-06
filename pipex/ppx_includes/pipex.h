@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:44:49 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/02/06 10:15:32 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/02/06 14:59:36 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void	ft_arg_check(int ac, char **av);
 void	ft_check_access(int ac, char **av);
 void	ft_get_paths_from_env(t_pipex *pipex, char **env);
 void	ft_struct_init(t_pipex *pipex, int ac, char **av, char **env);
-void	ft_exit_error(t_pipex pipex, char *str);
-void	ft_close_all(t_pipex pipex);
+void	ft_exit_error(t_pipex *pipex, char *str);
+void	ft_close_all(t_pipex *pipex);
 
 void	ft_free_arrays_str(char **first, char **second);
 

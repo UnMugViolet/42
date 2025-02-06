@@ -6,13 +6,13 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:43:22 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/02/06 12:38:43 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/02/06 15:26:24 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	ft_get_path_for_command(t_pipex *pipex, char *cmd)
+void	ft_get_path_for_command(t_pipex *pipex)
 {
 	int		i;
 	char	*path;
@@ -20,7 +20,7 @@ void	ft_get_path_for_command(t_pipex *pipex, char *cmd)
 	i = -1;
 	while (pipex->paths[++i])
 	{
-		path = ft_strjoin(pipex->paths[i], cmd);
+		path = ft_strjoin(pipex->paths[i], pipex->current_cmd[0]);
 		if (access(path, F_OK | X_OK) == 0)
 		{
 			pipex->cmd_path = path;
@@ -37,7 +37,7 @@ void	ft_exec_child(t_pipex *pipex, int in_fd, int out_fd)
 
 	pid = fork();
 	if (pid < 0)
-		ft_exit_error(*pipex, "fork");
+		ft_exit_error(pipex, "fork\n");
 	if (pid == 0)
 	{
 		if (in_fd != STDIN_FILENO)
@@ -49,7 +49,7 @@ void	ft_exec_child(t_pipex *pipex, int in_fd, int out_fd)
 		if (out_fd != STDOUT_FILENO)
 		{
 			if (dup2(out_fd, STDOUT_FILENO) == -1)
-				ft_exit_error(*pipex, "dup2 out");
+				ft_exit_error(pipex, "dup2 out\n");
 			close(out_fd);
 		}
 		if (pipex->cmd_path)
@@ -67,7 +67,7 @@ void	ft_heredoc(t_pipex *pipex, char *limiter)
 
 	limiter_len = ft_strlen(limiter);
 	if (pipe(pipex->pipefd) == -1)
-		ft_exit_error(*pipex, "pipe error");
+		ft_exit_error(pipex, "pipe error\n");
 	while (true)
 	{
 		ft_putstr_fd("heredoc> ", 1);
@@ -92,10 +92,10 @@ void	ft_exec_commands(t_pipex *pipex, int ac, char **av)
 	ft_first_cmd(*pipex, &i);
 	while (++i < ac - 2)
 	{
-		ft_get_path_for_command(pipex, av[i]);
 		pipex->current_cmd = ft_split_quote(av[i], ' ', '\'');
+		ft_get_path_for_command(pipex);
 		if (pipe(pipex->pipefd) == -1)
-			ft_exit_error(*pipex, "pipe error");
+			ft_exit_error(pipex, "pipe error\n");
 		ft_exec_child(pipex, pipex->in_fd, pipex->pipefd[1]);
 		wait(NULL);
 		free(pipex->cmd_path);
@@ -104,13 +104,13 @@ void	ft_exec_commands(t_pipex *pipex, int ac, char **av)
 		pipex->in_fd = pipex->pipefd[0];
 		ft_free_array_str(pipex->current_cmd);
 	}
-	ft_get_path_for_command(pipex, av[i]);
 	pipex->current_cmd = ft_split_quote(av[i], ' ', '\'');
+	ft_get_path_for_command(pipex);
 	ft_exec_child(pipex, pipex->in_fd, pipex->out_fd);
 	wait(NULL);
 	free(pipex->cmd_path);
 	ft_free_array_str(pipex->current_cmd);
-	ft_close_all(*pipex);
+	ft_close_all(pipex);
 }
 
 int	main(int ac, char **av, char **env)
