@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 17:06:25 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/02/05 18:24:59 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/02/06 10:12:46 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,36 +54,4 @@ void	ft_first_cmd(t_pipex pipex, int *i)
 	*i = 1 + pipex.here_doc;
 	if (pipex.in_fd < 0)
 		*i = 2;
-}
-
-void	ft_cmd_paths(t_pipex *pipex)
-{
-	int	i;
-	char **cmd;
-
-	i = 0;
-	while (pipex->paths[i])
-		i++;
-	cmd = (char **)ft_calloc(sizeof(char *), i);
-	if (!cmd)
-		exit (EXIT_FAILURE);
-	i = 0;
-	while (pipex->paths[i])
-	{
-		cmd[i] = ft_strjoin(pipex->paths[i], pipex->current_cmd[0]);
-		if (!cmd[i])
-		{
-			ft_free_array_str(cmd);
-			exit(EXIT_FAILURE);
-		}
-		i++;
-	}
-	cmd[i] = 0;
-	pipex->paths_cmd = cmd;
-}
-
-void	ft_init_cmd(t_pipex *pipex, char *cmd)
-{
-	pipex->current_cmd = ft_split_quote(cmd, ' ', '\'');
-	ft_cmd_paths(pipex);
 }
