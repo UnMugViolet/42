@@ -6,19 +6,11 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 18:54:54 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/02/06 14:59:47 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/02/06 16:01:21 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
-
-void	ft_free_arrays_str(char **first, char **second)
-{
-	if (first)
-		ft_free_array_str(first);
-	if (second)
-		ft_free_array_str(second);
-}
 
 void	ft_close_all(t_pipex *pipex)
 {
