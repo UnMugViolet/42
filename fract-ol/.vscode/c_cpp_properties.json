@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/includes",
+                "${workspaceFolder}/libft/includes",
+                "${workspaceFolder}/minilibx_linux"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/cc",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}

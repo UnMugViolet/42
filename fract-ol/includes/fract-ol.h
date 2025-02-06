@@ -6,7 +6,10 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 12:52:11 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/02/05 12:52:12 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/02/06 16:21:11 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+#include "ft_printf.h"
+#include "mlx.h"
