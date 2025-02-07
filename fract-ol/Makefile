@@ -6,7 +6,7 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/02/06 16:47:37 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/02/07 10:57:05 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,14 +29,14 @@ OS = $(shell uname -s)
 # handle the different OS
 ifeq ($(OS), Linux)
 	MLX_DIR = ./minilibx_linux/
-	LDLIBS += -lmlx -lm -lz -lXext -lX11 -lft
+	LDLIBS = -lmlx -lm -lz -lXext -lX11 -lft
 else
 	MLX_DIR = ./minilibx_opengl/
-	LDFLAGS += -lft -lmlx -lm -framework OpenGl -framework AppKit
+	LDFLAGS = -lft -lmlx -lm -framework OpenGl -framework AppKit
 endif
 
 LDFLAGS = -L$(MLX_DIR) -L$(LIBFT_DIR)
-INC_H = -I $(INC_DIR) -I $(LIBFT_DIR)/includes  -I $(MLX_DIR)
+INC_H = -I $(INC_DIR) -I $(LIBFT_DIR)/includes -I $(MLX_DIR)
 
 DEFAULT = \033[0m
 DEF_COLOR = \033[0;90m
@@ -45,14 +45,14 @@ GREEN = \033[0;92m
 YELLOW = \033[0;93m
 CYAN = \033[0;96m
 
-
 all: $(NAME)
 
 $(NAME) : $(OBJ)
 	@$(MAKE) -C $(LIBFT_DIR)
-	@$(MAKE) -C $(MLX_DIR) > /dev/null
+	@$(MAKE) -C $(MLX_DIR)
+	@cp $(MLX_DIR)/libmlx.a .
 	@echo "$(GREEN)minilibx compiled!$(DEFAULT)"
-	@$(CC) $(CFLAGS) $(INC_H) $(OBJ) $(LDFLAGS) $(LDLIBS)  -o $(NAME)
+	@$(CC) $(CFLAGS) $(INC_H) $(OBJ) $(LDFLAGS) $(LDLIBS) -o $(NAME)
 	@echo "$(GREEN)$(NAME) compiled!$(DEFAULT)"
 
 $(OBJ_DIR)%.o: %.c | $(OBJ_DIR)

@@ -1,2 +1,7 @@
+# Executables
 libft
 minilibx_linux
+fractol
+
+# Settings
+.vscode/*

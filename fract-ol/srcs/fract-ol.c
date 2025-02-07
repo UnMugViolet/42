@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 12:50:04 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/02/06 16:58:50 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/02/07 11:04:37 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,10 @@
 
 int	main()
 {
+	void	*mlx;
+	void	*win;
 
+	mlx = mlx_init();
+	win = mlx_new_window(mlx, 500, 500, "Fract-ol");
+	mlx_loop(mlx);
 }
