@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:43:22 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/02/06 15:26:24 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/02/07 14:50:34 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ int	main(int ac, char **av, char **env)
 {
 	t_pipex	pipex;
 
-	if (!env)
+	if (!env[0])
 		return (ft_putstr_fd("Env is missing\n", 2), EXIT_FAILURE);
 	ft_arg_check(ac, av);
 	ft_check_access(ac, av);
