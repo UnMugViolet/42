@@ -1,15 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fract-ol.h                                         :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/05 12:52:11 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/02/06 16:21:11 by pjaguin          ###   ########.fr       */
+/*   Created: 2025/02/07 15:09:44 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/02/07 15:11:16 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "ft_printf.h"
-#include "mlx.h"
+#include "fract_ol.h"
+
+void	ft_exit_free(t_engine *engine)
+{
+	if (engine->win)
+		free(engine->win);
+	exit(EXIT_FAILURE);
+}

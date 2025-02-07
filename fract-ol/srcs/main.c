@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fract-ol.c                                         :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 12:50:04 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/02/07 11:18:03 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/02/07 13:59:53 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract-ol.h"
+#include "fract_ol.h"
 
-int	main()
+int	main(int ac, char **av)
 {
-	void	*mlx;
-	void	*win;
+	t_engine	engine;
 
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 750, 500, "Fract-ol");
-	mlx_loop(mlx);
+	(void)av;
+	if (ac != 2)
+		return (ft_display_usage(), EXIT_FAILURE);
+	ft_init_engine(&engine, av[1]);
 }
