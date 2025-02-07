@@ -6,7 +6,7 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/02/07 10:57:05 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/02/07 11:18:14 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ all: $(NAME)
 
 $(NAME) : $(OBJ)
 	@$(MAKE) -C $(LIBFT_DIR)
-	@$(MAKE) -C $(MLX_DIR)
+	@$(MAKE) -C $(MLX_DIR) >> /dev/null
 	@cp $(MLX_DIR)/libmlx.a .
 	@echo "$(GREEN)minilibx compiled!$(DEFAULT)"
 	@$(CC) $(CFLAGS) $(INC_H) $(OBJ) $(LDFLAGS) $(LDLIBS) -o $(NAME)
