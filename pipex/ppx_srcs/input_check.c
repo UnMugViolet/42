@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 17:06:47 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/02/05 16:05:49 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/02/07 11:38:01 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 void	ft_arg_check(int ac, char **av)
 {
-	if (ac < 2 || (ac < 6 && !ft_strncmp("here_doc", av[1], 10)))
-	{
-		ft_putstr_fd("Not enough arguments. ", 2);
-		ft_putstr_fd("Usage: ./pipex here_doc LIMITER cmd1 cmd2 file2\n", 2);
-		exit(EXIT_FAILURE);
-	}
-	else if (ac < 5 && ft_strncmp("here_doc", av[1], 10))
+	if (ac < 2 || (ac < 5 && ft_strncmp("here_doc", av[1], 10)))
 	{
 		ft_putstr_fd("Not enough arguments. ", 2);
 		ft_putstr_fd("Usage: ./pipex file1 cmd1 cmd2 ..cmd[n] file2\n", 2);
+		exit(EXIT_FAILURE);
+	}
+	else if (ac < 6 && !ft_strncmp("here_doc", av[1], 10))
+	{
+		ft_putstr_fd("Not enough arguments. ", 2);
+		ft_putstr_fd("Usage: ./pipex here_doc LIMITER cmd1 cmd2 file2\n", 2);
 		exit(EXIT_FAILURE);
 	}
 }
