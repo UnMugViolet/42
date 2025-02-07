@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 12:52:11 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/02/07 15:13:26 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/02/07 15:35:34 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "ft_printf.h"
 # include "libft.h"
 # include "mlx.h"
+# include <X11/keysym.h>
+# include <X11/X.h>
 
 typedef struct s_data
 {
@@ -35,7 +37,7 @@ typedef struct s_engine
 
 void		ft_display_usage(void);
 
-void		ft_exit_free(t_engine *engine);
+int			ft_exit_free(t_engine *engine);
 
 void		ft_init_engine(t_engine *engine, char *fractal);
 
