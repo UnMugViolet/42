@@ -28,7 +28,8 @@ void	ft_init_engine(t_engine *engine, char *fractal)
 	engine->mlx = mlx_init();
 	if (!engine->mlx)
 		exit(EXIT_FAILURE);
-	engine->win = mlx_new_window(engine->mlx, WIN_WIDTH, WIN_HEIGHT, "fract_ol");
+	engine->win = mlx_new_window(engine->mlx, WIN_WIDTH, WIN_HEIGHT,
+			"fract_ol");
 	if (!engine->win)
 		free(engine->mlx);
 	ft_init_image(&engine->data, fractal, engine->mlx);
