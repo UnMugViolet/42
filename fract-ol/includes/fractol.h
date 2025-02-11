@@ -51,7 +51,7 @@ typedef struct s_engine
 	t_fractal	fractal;
 }				t_engine;
 
-bool			ft_is_correct_input(int ac, char *str);
+bool			is_valid_input(int ac, char *str);
 
 void			ft_display_usage(void);
 
