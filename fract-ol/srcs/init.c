@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 11:24:23 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/02/11 15:06:31 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/02/11 16:06:11 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	ft_init_fractal(t_fractal *fractal, char *name)
 {
 	fractal->name = name;
 	fractal->esc_value = 4;
-	fractal->max_iter = MAX_ITER;
+	fractal->max_iter = RESOLUTION;
 }
 
 static void	ft_init_image(t_data *data, void *mlx)

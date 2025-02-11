@@ -6,16 +6,22 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:39:22 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/02/11 12:17:09 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/02/11 16:04:16 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+int	ft_mouse_handle(void)
+{
+	return (EXIT_SUCCESS);
+}
+
 int	ft_key_press(int keycode, t_engine *engine)
 {
 	if (keycode == XK_Escape)
 		ft_destroy_event(engine);
+	
 	return (EXIT_SUCCESS);
 }
 

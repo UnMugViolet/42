@@ -25,9 +25,12 @@
 # define BLACK 0x000000
 # define WHITE 0xFFFFFF
 
-# ifndef MAX_ITER
-# define MAX_ITER 100
-#endif
+# if RESOLUTION < 1 || RESOLUTION > 1000
+# undef RESOLUTION
+# endif
+# ifndef DEFINITION1
+# define RESOLUTION 100
+# endif
 
 typedef struct s_complex
 {
@@ -65,6 +68,7 @@ void			ft_display_usage(void);
 
 void			ft_init_engine(t_engine *engine, char *fractal);
 
+int				ft_mouse_handle(void);
 int				ft_key_press(int keycode, t_engine *engine);
 int				ft_destroy_event(t_engine *engine);
 
