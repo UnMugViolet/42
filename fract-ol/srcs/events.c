@@ -6,11 +6,11 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:39:22 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/02/10 11:25:47 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/02/11 12:17:09 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract_ol.h"
+#include "fractol.h"
 
 int	ft_key_press(int keycode, t_engine *engine)
 {

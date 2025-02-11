@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fract_ol.h                                         :+:      :+:    :+:   */
+/*   fractol.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 12:52:11 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/02/10 11:30:58 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/02/11 12:15:50 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACT_OL_H
-# define FRACT_OL_H
+#ifndef FRACTOL_H
+# define FRACTOL_H
 
 # include "ft_printf.h"
 # include "libft.h"
 # include "mlx.h"
 # include <X11/X.h>
 # include <X11/keysym.h>
+# include <math.h>
 
 # define WIN_WIDTH 750
 # define WIN_HEIGHT 500
+
+typedef struct s_complex
+{
+	double		real;
+	double		i;
+}				t_complex;
 
 typedef struct s_fractal
 {
@@ -43,6 +50,8 @@ typedef struct s_engine
 	t_data		data;
 	t_fractal	fractal;
 }				t_engine;
+
+bool			ft_is_correct_input(int ac, char *str);
 
 void			ft_display_usage(void);
 

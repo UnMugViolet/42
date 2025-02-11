@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   checks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/07 11:24:23 by pjaguin           #+#    #+#             */
+/*   Created: 2025/02/11 10:43:31 by pjaguin           #+#    #+#             */
 /*   Updated: 2025/02/11 12:17:09 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void	 ft_init_image(t_data *data, void *mlx)
+bool	ft_is_correct_input(int ac, char *str)
 {
-	data->img = mlx_new_image(mlx, WIN_WIDTH, WIN_HEIGHT);
-	data->addr = mlx_get_data_addr(data->img, &data->bpp, &data->line_len,
-			&data->endian);
-	data->bpp = 0;
-	data->line_len = 0;
-	data->endian = 0;
-}
-
-void	ft_init_engine(t_engine *engine, char *fractal)
-{
-	engine->mlx = mlx_init();
-	if (!engine->mlx)
-		exit(EXIT_FAILURE);
-	engine->win = mlx_new_window(engine->mlx, WIN_WIDTH, WIN_HEIGHT,
-			"fract_ol");
-	if (!engine->win)
-		free(engine->mlx);
-	engine->fractal.name = fractal;
-	ft_init_image(&engine->data, engine->mlx);
+	if (ac != 2 && ac != 4)
+		return (0);
+	else if (ft_strncmp(str, "mandelbrot", 11) && ft_strncmp(str,
+			"burning_ship", 13) && ft_strncmp(str, "julia", 6))
+		return (0);
+	else if (ac == 4 && ft_strncmp(str, "julia", 6))
+		return (0);
+	return (1);
 }

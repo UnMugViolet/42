@@ -6,11 +6,11 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 15:09:44 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/02/07 15:35:06 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/02/11 12:17:09 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract_ol.h"
+#include "fractol.h"
 
 int	ft_exit_free(t_engine *engine)
 {
