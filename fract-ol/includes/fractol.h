@@ -21,17 +21,25 @@
 # include <math.h>
 
 # define WIN_WIDTH 750
-# define WIN_HEIGHT 500
+# define WIN_HEIGHT 750
+# define BLACK 0x000000
+# define WHITE 0xFFFFFF
+
+# ifndef MAX_ITER
+# define MAX_ITER 100
+#endif
 
 typedef struct s_complex
 {
-	double		real;
-	double		i;
+	double		x;
+	double		y;
 }				t_complex;
 
 typedef struct s_fractal
 {
 	char		*name;
+	double		esc_value;
+	int			max_iter;
 }				t_fractal;
 
 typedef struct s_data
@@ -59,5 +67,11 @@ void			ft_init_engine(t_engine *engine, char *fractal);
 
 int				ft_key_press(int keycode, t_engine *engine);
 int				ft_destroy_event(t_engine *engine);
+
+t_complex		complex_square(t_complex z);
+t_complex		complex_sum(t_complex z1, t_complex z2);
+double			map(double unsc_nb, double n_min, double n_max, double o_max);
+
+void			fractal_render(t_engine *engine);
 
 #endif

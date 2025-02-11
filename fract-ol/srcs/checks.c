@@ -24,7 +24,8 @@ bool	is_valid_input(int ac, char *str)
 	}
 	if (ac == 2)
 	{
-		if (ft_strncmp(str, "mandelbrot", 11) && ft_strncmp(str, "burningship", 12))
+		if (ft_strncmp(str, "mandelbrot", 11) && ft_strncmp(str, "burningship",
+				12))
 			return (false);
 	}
 	return (true);

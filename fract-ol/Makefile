@@ -6,7 +6,7 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/02/11 10:51:10 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/02/11 14:36:41 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRC_DIR = ./srcs/
 OBJ_DIR = ./objects/
 INC_DIR = ./includes/
 
-FILES = main.c checks.c utils.c init.c events.c exit.c
+FILES = main.c checks.c utils.c init.c events.c render.c math_utils.c
 
 OBJ = $(addprefix $(OBJ_DIR), $(FILES:.c=.o))
 
