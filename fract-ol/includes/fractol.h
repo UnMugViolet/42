@@ -16,12 +16,13 @@
 # include "ft_printf.h"
 # include "libft.h"
 # include "mlx.h"
+# include <stdio.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include <math.h>
 
-# define WIN_WIDTH 750
-# define WIN_HEIGHT 750
+# define WIN_WIDTH 550
+# define WIN_HEIGHT 550
 # define MAX_ITER 320
 # define MIN_ITER 10
 

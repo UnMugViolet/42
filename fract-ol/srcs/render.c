@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 12:46:03 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/02/12 16:13:26 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/02/12 17:24:14 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	fractal_render(t_engine *engine)
 			handle_pixel(engine, x, y);
 	}
 	mlx_put_image_to_window(engine->mlx, engine->win, engine->data.img, 0, 0);
-	mlx_string_put(engine->mlx, engine->win, 10, 10, 0xFFFFFF, "Iterations:");
-	mlx_string_put(engine->mlx, engine->win, 80, 10, 0xFFFFFF,
+	mlx_string_put(engine->mlx, engine->win, 10, 10, WHITE, "Iterations:");
+	mlx_string_put(engine->mlx, engine->win, 80, 10, WHITE,
 		ft_itoa(engine->fractal.iter_nbr));
 }
