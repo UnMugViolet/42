@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:39:22 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/02/12 16:09:36 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/02/12 16:49:23 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,16 @@ int	ft_key_press(int keycode, t_engine *engine)
 		engine->fractal.iter_nbr += 10;
 	if (keycode == XK_KP_Subtract && engine->fractal.iter_nbr > MIN_ITER)
 		engine->fractal.iter_nbr -= 10;
-	ft_printf("iter_nbr = %d, Keycode: %i\n", engine->fractal.iter_nbr, keycode);
+	if (keycode == XK_Up)
+		engine->fractal.shift_y += 0.1 * (engine->fractal.zoom * 2);
+	if (keycode == XK_Down)
+		engine->fractal.shift_y -= 0.1 * (engine->fractal.zoom * 2);
+	if (keycode == XK_Left)
+		engine->fractal.shift_x -= 0.1 * (engine->fractal.zoom * 2);
+	if (keycode == XK_Right)
+		engine->fractal.shift_x += 0.1 * (engine->fractal.zoom * 2);
+	if (keycode == XK_r)
+		ft_init_fractal(&engine->fractal, engine->fractal.name);
 	fractal_render(engine);
 	return (EXIT_SUCCESS);
 }

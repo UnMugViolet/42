@@ -6,13 +6,13 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 11:24:23 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/02/12 16:09:10 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/02/12 16:20:59 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void	ft_init_fractal(t_fractal *fractal, char *name)
+void	ft_init_fractal(t_fractal *fractal, char *name)
 {
 	fractal->name = name;
 	fractal->esc_value = 4;

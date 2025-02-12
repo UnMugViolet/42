@@ -20,8 +20,8 @@
 # include <X11/keysym.h>
 # include <math.h>
 
-# define WIN_WIDTH 450
-# define WIN_HEIGHT 450
+# define WIN_WIDTH 750
+# define WIN_HEIGHT 750
 # define MAX_ITER 320
 # define MIN_ITER 10
 
@@ -66,6 +66,7 @@ bool			is_valid_input(int ac, char *str);
 void			ft_display_usage(void);
 
 void			ft_init_engine(t_engine *engine, char *fractal);
+void			ft_init_fractal(t_fractal *fractal, char *name);
 
 int				ft_mouse_handle(int button, int x, int y, t_engine *engine);
 int				ft_key_press(int keycode, t_engine *engine);
