@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 12:46:03 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/02/11 15:00:54 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/02/12 16:13:26 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,16 @@ static void	handle_pixel(t_engine *engine, int x, int y)
 	i = 0;
 	z.x = 0.0;
 	z.y = 0.0;
-	c.x = map(x, -2.0, +2.0, WIN_WIDTH);
-	c.y = map(y, +2.0, -2.0, WIN_HEIGHT);
-	while (++i < engine->fractal.max_iter)
+	c.x = (map(x, -2.0, +2.0, WIN_WIDTH) * engine->fractal.zoom
+			+ engine->fractal.shift_x);
+	c.y = (map(y, +2.0, -2.0, WIN_HEIGHT) * engine->fractal.zoom
+			+ engine->fractal.shift_y);
+	while (++i < engine->fractal.iter_nbr)
 	{
 		z = complex_sum(complex_square(z), c);
 		if (z.x * z.x + z.y * z.y > engine->fractal.esc_value)
 		{
-			color = map(i, BLACK, WHITE, engine->fractal.max_iter);
+			color = map(i, BLACK, WHITE, engine->fractal.iter_nbr);
 			ft_put_pixel(engine, x, y, color);
 			return ;
 		}
@@ -58,4 +60,7 @@ void	fractal_render(t_engine *engine)
 			handle_pixel(engine, x, y);
 	}
 	mlx_put_image_to_window(engine->mlx, engine->win, engine->data.img, 0, 0);
+	mlx_string_put(engine->mlx, engine->win, 10, 10, 0xFFFFFF, "Iterations:");
+	mlx_string_put(engine->mlx, engine->win, 80, 10, 0xFFFFFF,
+		ft_itoa(engine->fractal.iter_nbr));
 }

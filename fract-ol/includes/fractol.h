@@ -20,11 +20,13 @@
 # include <X11/keysym.h>
 # include <math.h>
 
-# define WIN_WIDTH 750
-# define WIN_HEIGHT 750
+# define WIN_WIDTH 450
+# define WIN_HEIGHT 450
+# define MAX_ITER 320
+# define MIN_ITER 10
+
 # define BLACK 0x000000
 # define WHITE 0xFFFFFF
-
 
 typedef struct s_complex
 {
@@ -36,7 +38,10 @@ typedef struct s_fractal
 {
 	char		*name;
 	double		esc_value;
-	int			max_iter;
+	int			iter_nbr;
+	double		shift_x;
+	double		shift_y;
+	double		zoom;
 }				t_fractal;
 
 typedef struct s_data
@@ -62,7 +67,7 @@ void			ft_display_usage(void);
 
 void			ft_init_engine(t_engine *engine, char *fractal);
 
-int				ft_mouse_handle(void);
+int				ft_mouse_handle(int button, int x, int y, t_engine *engine);
 int				ft_key_press(int keycode, t_engine *engine);
 int				ft_destroy_event(t_engine *engine);
 
