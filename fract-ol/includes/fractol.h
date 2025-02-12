@@ -25,12 +25,6 @@
 # define BLACK 0x000000
 # define WHITE 0xFFFFFF
 
-# if RESOLUTION < 1 || RESOLUTION > 1000
-# undef RESOLUTION
-# endif
-# ifndef DEFINITION1
-# define RESOLUTION 100
-# endif
 
 typedef struct s_complex
 {

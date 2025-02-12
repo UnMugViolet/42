@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:39:22 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/02/11 16:04:16 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/02/12 11:51:13 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,11 @@ int	ft_key_press(int keycode, t_engine *engine)
 {
 	if (keycode == XK_Escape)
 		ft_destroy_event(engine);
-	
+	if (keycode == XK_KP_Add && engine->fractal.max_iter < 1000)
+		engine->fractal.max_iter += 10;
+	if (keycode == XK_KP_Subtract && engine->fractal.max_iter > 10)
+		engine->fractal.max_iter -= 10;
+	ft_printf("Keypressed: %i\nesc_value: %i\n", keycode ,engine->fractal.max_iter);
 	return (EXIT_SUCCESS);
 }
 
