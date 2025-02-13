@@ -23,7 +23,7 @@
 
 # define WIN_WIDTH 750
 # define WIN_HEIGHT 750
-# define MAX_ITER 320
+# define MAX_ITER 500
 # define MIN_ITER 10
 
 # define BLACK 0x000000
@@ -43,6 +43,8 @@ typedef struct s_fractal
 	double		shift_x;
 	double		shift_y;
 	double		zoom;
+	double		julia_x;
+	double		julia_y;
 }				t_fractal;
 
 typedef struct s_data
@@ -62,7 +64,7 @@ typedef struct s_engine
 	t_fractal	fractal;
 }				t_engine;
 
-bool			is_valid_input(int ac, char *str);
+bool			is_valid_input(int ac, char **av, t_engine *engine);
 
 void			ft_display_usage(void);
 
@@ -72,6 +74,7 @@ void			ft_init_fractal(t_fractal *fractal, char *name);
 int				ft_mouse_handle(int button, int x, int y, t_engine *engine);
 int				ft_key_press(int keycode, t_engine *engine);
 int				ft_destroy_event(t_engine *engine);
+int				ft_track_julia(int x, int y, t_engine *engine);
 
 t_complex		complex_square(t_complex z);
 t_complex		complex_sum(t_complex z1, t_complex z2);

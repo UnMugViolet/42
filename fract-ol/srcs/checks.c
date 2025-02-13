@@ -3,28 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   checks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 10:43:31 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/02/11 12:35:47 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/02/13 18:31:39 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 #include <stdbool.h>
 
-bool	is_valid_input(int ac, char *str)
+bool	is_valid_input(int ac, char **av, t_engine *engine)
 {
 	if (ac < 2 || ac > 4 || ac == 3)
 		return (false);
 	if (ac == 4)
 	{
-		if (ft_strncmp(str, "julia", 6))
+		if (ft_strncmp(av[1], "julia", 6))
 			return (false);
+		engine->fractal.julia_x = ft_atodbl(av[2]);
+		engine->fractal.julia_y = ft_atodbl(av[3]);
 	}
 	if (ac == 2)
 	{
-		if (ft_strncmp(str, "mandelbrot", 11) && ft_strncmp(str, "burningship",
+		if (ft_strncmp(av[1], "mandelbrot", 11) && ft_strncmp(av[1], "burningship",
 				12))
 			return (false);
 	}

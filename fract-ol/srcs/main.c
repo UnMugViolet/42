@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 12:50:04 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/02/12 15:55:05 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/02/13 19:00:25 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int ac, char **av)
 	t_engine	engine;
 
 	(void)av;
-	if (!is_valid_input(ac, av[1]))
+	if (!is_valid_input(ac, av, &engine))
 		return (ft_display_usage(), EXIT_FAILURE);
 	ft_init_engine(&engine, av[1]);
 	fractal_render(&engine);

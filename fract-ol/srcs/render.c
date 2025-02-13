@@ -3,14 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 12:46:03 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/02/12 18:17:09 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/02/13 18:52:48 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+static void	ft_mandel_vs_julia(t_complex *z, t_complex *c, t_engine *engine)
+{
+	if (!ft_strncmp(engine->fractal.name, "mandelbrot", 11))
+	{
+		c->x = z->x;
+		c->y = z->y;
+	}
+	else
+	{
+		c->x = engine->fractal.julia_x;
+		c->y = engine->fractal.julia_y;
+	}
+}
 
 static void	ft_put_pixel(t_engine *engine, int x, int y, int color)
 {
@@ -28,12 +42,11 @@ static void	handle_pixel(t_engine *engine, int x, int y)
 	t_complex	c;
 
 	i = 0;
-	z.x = 0.0;
-	z.y = 0.0;
-	c.x = (map(x, -2.0, +2.0, WIN_WIDTH) * engine->fractal.zoom
+	z.x = (map(x, -2.0, +2.0, WIN_WIDTH) * engine->fractal.zoom
 			+ engine->fractal.shift_x);
-	c.y = (map(y, +2.0, -2.0, WIN_HEIGHT) * engine->fractal.zoom
+	z.y = (map(y, +2.0, -2.0, WIN_HEIGHT) * engine->fractal.zoom
 			+ engine->fractal.shift_y);
+	ft_mandel_vs_julia(&z, &c, engine);
 	while (++i < engine->fractal.iter_nbr)
 	{
 		z = complex_sum(complex_square(z), c);
