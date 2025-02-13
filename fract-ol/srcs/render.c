@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 12:46:03 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/02/13 18:52:48 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/02/13 21:07:36 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,10 @@ void	fractal_render(t_engine *engine)
 {
 	int	x;
 	int	y;
+	char *iter_nbr;
 
 	y = -1;
+	iter_nbr = ft_itoa(engine->fractal.iter_nbr);
 	while (++y < WIN_HEIGHT)
 	{
 		x = -1;
@@ -74,6 +76,6 @@ void	fractal_render(t_engine *engine)
 	}
 	mlx_put_image_to_window(engine->mlx, engine->win, engine->data.img, 0, 0);
 	mlx_string_put(engine->mlx, engine->win, 10, 10, WHITE, "Iterations:");
-	mlx_string_put(engine->mlx, engine->win, 80, 10, WHITE,
-		ft_itoa(engine->fractal.iter_nbr));
+	mlx_string_put(engine->mlx, engine->win, 80, 10, WHITE, iter_nbr);
+	free(iter_nbr);
 }
