@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:39:22 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/02/12 17:35:38 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/02/13 09:33:02 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ int	ft_key_press(int keycode, t_engine *engine)
 {
 	if (keycode == XK_Escape)
 		ft_destroy_event(engine);
-	if (keycode == XK_KP_Add && engine->fractal.iter_nbr < MAX_ITER)
+	if (keycode == XK_a && engine->fractal.iter_nbr < MAX_ITER)
 		engine->fractal.iter_nbr += 10;
-	if (keycode == XK_KP_Subtract && engine->fractal.iter_nbr > MIN_ITER)
+	if (keycode == XK_z && engine->fractal.iter_nbr > MIN_ITER)
 		engine->fractal.iter_nbr -= 10;
 	if (keycode == XK_Up)
 		engine->fractal.shift_y += (0.1 * engine->fractal.zoom);
@@ -59,6 +59,7 @@ int	ft_key_press(int keycode, t_engine *engine)
 		engine->fractal.shift_x += (0.1 * engine->fractal.zoom);
 	if (keycode == XK_r)
 		ft_init_fractal(&engine->fractal, engine->fractal.name);
+	ft_printf("keycode: %i, XK_value: %i\n", keycode, XK_q);
 	fractal_render(engine);
 	return (EXIT_SUCCESS);
 }

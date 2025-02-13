@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
+#    By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/02/11 14:36:41 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/02/12 19:36:48 by unmugviolet      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ OS = $(shell uname -s)
 
 # handle the different OS
 ifeq ($(OS), Linux)
-	MLX_DIR = ./minilibx_linux/
+	MLX_DIR = ./minilibx-linux/
 	LDLIBS = -lmlx -lm -lz -lXext -lX11 -lft
 else
 	MLX_DIR = ./minilibx_opengl/
