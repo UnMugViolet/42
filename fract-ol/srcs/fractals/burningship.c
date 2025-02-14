@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 12:22:35 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/02/14 15:23:50 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/02/14 18:44:13 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	ft_display_burningship(t_engine *engine, int x, int y)
 	handle_complex(&z, &c);
 	while (++i < engine->fractal.iter_nbr)
 	{
-		z.x = fabs(z.x);
-		z.y = fabs(z.y);
+		z.x = ft_fabs(z.x);
+		z.y = ft_fabs(z.y);
 		z = complex_sum(complex_square(z), c);
 		if (z.x * z.x + z.y * z.y > engine->fractal.esc_value)
 		{

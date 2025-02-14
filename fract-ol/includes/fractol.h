@@ -18,7 +18,6 @@
 # include "mlx.h"
 # include <X11/X.h>
 # include <X11/keysym.h>
-# include <math.h>
 
 # define WIN_WIDTH 750
 # define WIN_HEIGHT 750
