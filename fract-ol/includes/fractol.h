@@ -16,7 +16,6 @@
 # include "ft_printf.h"
 # include "libft.h"
 # include "mlx.h"
-# include <stdio.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include <math.h>
@@ -68,7 +67,8 @@ typedef struct s_engine
 bool			is_valid_input(int ac, char **av, t_engine *engine);
 
 void			ft_display_usage(void);
-void			ft_clean_displayed_string(char *iter_nbr, char *julia_x, char *julia_y);
+void			ft_clean_displayed_string(char *iter_nbr, char *julia_x,
+					char *julia_y);
 
 void			ft_init_engine(t_engine *engine, char *fractal);
 void			ft_init_fractal(t_fractal *fractal, char *name);

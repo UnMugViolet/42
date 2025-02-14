@@ -12,7 +12,7 @@
 
 #include "fractol.h"
 
-static void ft_display_text(t_engine *engine)
+static void	ft_display_text(t_engine *engine)
 {
 	char	*iter_nbr;
 	char	*julia_x;

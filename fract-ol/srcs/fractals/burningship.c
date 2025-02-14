@@ -12,7 +12,7 @@
 
 #include "fractol.h"
 
-static void handle_complex(t_complex *z, t_complex *c)
+static void	handle_complex(t_complex *z, t_complex *c)
 {
 	c->x = z->x;
 	c->y = -z->y;
