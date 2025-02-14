@@ -28,6 +28,7 @@
 
 # define BLACK 0x000000
 # define WHITE 0xFFFFFF
+# define RED 0xFF0000
 
 typedef struct s_complex
 {
@@ -67,6 +68,7 @@ typedef struct s_engine
 bool			is_valid_input(int ac, char **av, t_engine *engine);
 
 void			ft_display_usage(void);
+void			ft_clean_displayed_string(char *iter_nbr, char *julia_x, char *julia_y);
 
 void			ft_init_engine(t_engine *engine, char *fractal);
 void			ft_init_fractal(t_fractal *fractal, char *name);
@@ -80,6 +82,11 @@ t_complex		complex_square(t_complex z);
 t_complex		complex_sum(t_complex z1, t_complex z2);
 double			map(double unsc_nb, double n_min, double n_max, double o_max);
 
+void			ft_put_pixel(t_engine *engine, int x, int y, int color);
 void			fractal_render(t_engine *engine);
+
+void			ft_display_mandelbrot(t_engine *engine, int x, int y);
+void			ft_display_julia(t_engine *engine, int x, int y);
+void			ft_display_burningship(t_engine *engine, int x, int y);
 
 #endif

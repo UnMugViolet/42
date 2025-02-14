@@ -26,8 +26,8 @@ bool	is_valid_input(int ac, char **av, t_engine *engine)
 	}
 	if (ac == 2)
 	{
-		if (ft_strncmp(av[1], "mandelbrot", 11) && ft_strncmp(av[1], "burningship",
-				12))
+		if (ft_strncmp(av[1], "mandelbrot", 11) && ft_strncmp(av[1],
+				"burningship", 12))
 			return (false);
 	}
 	return (true);

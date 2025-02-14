@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+         #
+#    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/02/12 19:36:48 by unmugviolet      ###   ########.fr        #
+#    Updated: 2025/02/14 12:35:39 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,12 @@ NAME = fractol
 
 LIBFT_DIR = ./libft
 SRC_DIR = ./srcs/
+FRACT_DIR = ./srcs/fractals/
 OBJ_DIR = ./objects/
 INC_DIR = ./includes/
 
-FILES = main.c checks.c utils.c init.c events.c render.c math_utils.c
+FILES = main.c checks.c utils.c init.c events.c mouse_events.c render.c math_utils.c clean.c \
+		mandelbrot.c julia.c burningship.c
 
 OBJ = $(addprefix $(OBJ_DIR), $(FILES:.c=.o))
 
@@ -62,7 +64,10 @@ $(OBJ_DIR)%.o: %.c | $(OBJ_DIR)
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR)
 	@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
 	@$(CC) $(CFLAGS) $(INC_H) -c $< -o $@
-	
+
+$(OBJ_DIR)%.o: $(FRACT_DIR)%.c | $(OBJ_DIR)
+	@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
+	@$(CC) $(CFLAGS) $(INC_H) -c $< -o $@
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)

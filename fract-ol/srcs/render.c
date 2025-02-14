@@ -3,30 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 12:46:03 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/02/13 21:07:36 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/02/14 12:35:15 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void	ft_mandel_vs_julia(t_complex *z, t_complex *c, t_engine *engine)
+static void ft_display_text(t_engine *engine)
 {
-	if (!ft_strncmp(engine->fractal.name, "mandelbrot", 11))
+	char	*iter_nbr;
+	char	*julia_x;
+	char	*julia_y;
+
+	iter_nbr = ft_itoa(engine->fractal.iter_nbr);
+	julia_x = ft_dtoa(engine->fractal.julia_x, 4);
+	julia_y = ft_dtoa(engine->fractal.julia_y, 4);
+	mlx_string_put(engine->mlx, engine->win, 10, 15, WHITE, "Iterations:");
+	mlx_string_put(engine->mlx, engine->win, 80, 15, WHITE, iter_nbr);
+	if (!ft_strncmp(engine->fractal.name, "julia", 6))
 	{
-		c->x = z->x;
-		c->y = z->y;
+		mlx_string_put(engine->mlx, engine->win, 680, 15, WHITE, "X:");
+		mlx_string_put(engine->mlx, engine->win, 700, 15, WHITE, julia_x);
+		mlx_string_put(engine->mlx, engine->win, 680, 30, WHITE, "Y:");
+		mlx_string_put(engine->mlx, engine->win, 700, 30, WHITE, julia_y);
 	}
-	else
-	{
-		c->x = engine->fractal.julia_x;
-		c->y = engine->fractal.julia_y;
-	}
+	ft_clean_displayed_string(iter_nbr, julia_x, julia_y);
 }
 
-static void	ft_put_pixel(t_engine *engine, int x, int y, int color)
+void	ft_put_pixel(t_engine *engine, int x, int y, int color)
 {
 	int	offset;
 
@@ -36,38 +43,20 @@ static void	ft_put_pixel(t_engine *engine, int x, int y, int color)
 
 static void	handle_pixel(t_engine *engine, int x, int y)
 {
-	int			i;
-	int			color;
-	t_complex	z;
-	t_complex	c;
-
-	i = 0;
-	z.x = (map(x, -2.0, +2.0, WIN_WIDTH) * engine->fractal.zoom
-			+ engine->fractal.shift_x);
-	z.y = (map(y, +2.0, -2.0, WIN_HEIGHT) * engine->fractal.zoom
-			+ engine->fractal.shift_y);
-	ft_mandel_vs_julia(&z, &c, engine);
-	while (++i < engine->fractal.iter_nbr)
-	{
-		z = complex_sum(complex_square(z), c);
-		if (z.x * z.x + z.y * z.y > engine->fractal.esc_value)
-		{
-			color = map(i, BLACK, WHITE, engine->fractal.iter_nbr);
-			ft_put_pixel(engine, x, y, color);
-			return ;
-		}
-	}
-	ft_put_pixel(engine, x, y, BLACK);
+	if (!ft_strncmp(engine->fractal.name, "mandelbrot", 11))
+		ft_display_mandelbrot(engine, x, y);
+	if (!ft_strncmp(engine->fractal.name, "julia", 6))
+		ft_display_julia(engine, x, y);
+	if (!ft_strncmp(engine->fractal.name, "burningship", 12))
+		ft_display_burningship(engine, x, y);
 }
 
 void	fractal_render(t_engine *engine)
 {
 	int	x;
 	int	y;
-	char *iter_nbr;
 
 	y = -1;
-	iter_nbr = ft_itoa(engine->fractal.iter_nbr);
 	while (++y < WIN_HEIGHT)
 	{
 		x = -1;
@@ -75,7 +64,5 @@ void	fractal_render(t_engine *engine)
 			handle_pixel(engine, x, y);
 	}
 	mlx_put_image_to_window(engine->mlx, engine->win, engine->data.img, 0, 0);
-	mlx_string_put(engine->mlx, engine->win, 10, 10, WHITE, "Iterations:");
-	mlx_string_put(engine->mlx, engine->win, 80, 10, WHITE, iter_nbr);
-	free(iter_nbr);
+	ft_display_text(engine);
 }
