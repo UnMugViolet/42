@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 10:43:31 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/02/13 19:09:26 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/02/20 16:19:30 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ bool	is_valid_input(int ac, char **av, t_engine *engine)
 		if (ft_strncmp(av[1], "mandelbrot", 11) && ft_strncmp(av[1],
 				"burningship", 12))
 			return (false);
+		engine->fractal.julia_x = 0;
+		engine->fractal.julia_y = 0;
 	}
 	return (true);
 }
