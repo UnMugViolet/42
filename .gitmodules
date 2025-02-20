@@ -13,3 +13,7 @@
 [submodule "libft_pipex"]
     path = ./pipex/libft
     url = https://github.com/UnMugViolet/libft
+
+[submodule "libft_minishell"]
+    path = ./minishell/libft
+    url = https://github.com/UnMugViolet/libft
