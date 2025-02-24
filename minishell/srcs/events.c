@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/20 17:39:19 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/02/24 13:47:19 by unmugviolet      ###   ########.fr       */
+/*   Created: 2025/02/24 12:52:21 by unmugviolet       #+#    #+#             */
+/*   Updated: 2025/02/24 13:55:52 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+# include "minishell.h"
 
-# include "libft.h"
-# include "ft_printf.h"
-# include <X11/X.h>
-# include <X11/keysym.h>
-# include <signal.h>
+void ft_handle_signal(int signal)
+{
+	if (signal == SIGINT || signal == SIGQUIT)
+	{
+		ft_printf("\n");
+		rl_on_new_line();
+		rl_replace_line("", 0);
+		rl_redisplay();
+	}
+	else if (signal == SIGTERM)
+		ft_exit_clean(NULL);
+}
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <readline/readline.h>
-# include <readline/history.h>
-
-int		ft_key_press(int keycode);
-void	ft_handle_input();
-void	ft_exit_clean(char *prompt);
-void	ft_handle_signal(int signal);
-
-#endif
+int	ft_key_press(int keycode)
+{
+	(void)keycode;
+	return (0);
+}

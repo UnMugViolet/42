@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
+#    By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/02/20 17:36:23 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/02/24 13:47:38 by unmugviolet      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,13 +17,13 @@ SRC_DIR = ./srcs/
 OBJ_DIR = ./objects/
 INC_DIR = ./includes/
 
-FILES = minishell.c
+FILES = minishell.c parsing.c events.c exit.c 
 
 OBJ = $(addprefix $(OBJ_DIR), $(FILES:.c=.o))
 
 CC = cc
 MAKE = make
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra -g 
 INC_H = -I $(INC_DIR) -I $(LIBFT_DIR)/includes
 
 DEFAULT = \033[0m
@@ -38,7 +38,7 @@ all: $(NAME)
 $(NAME) : $(OBJ)
 	@$(MAKE) -C $(LIBFT_DIR)
 	@echo "$(GREEN)$(NAME) compiled!$(DEFAULT)"
-	@$(CC) $(CFLAGS) $(INC_H) $(OBJ) -L$(LIBFT_DIR) -lft -o $(NAME)
+	@$(CC) $(CFLAGS) $(INC_H) $(OBJ) -L$(LIBFT_DIR) -lft -o $(NAME) -lreadline
 
 $(OBJ_DIR)%.o: %.c | $(OBJ_DIR)
 	@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
@@ -62,8 +62,16 @@ fclean: clean
 	@$(MAKE) fclean -C $(LIBFT_DIR)
 	@echo "$(CYAN)libft executables and objects removed succesfully!$(DEFAULT)"
 	
-re: fclean all 
+re: fclean all
+
+go: all
+	@./$(NAME)
+	@rm -rf $(NAME)
+
+gov: all
+	@valgrind --leak-check=full ./$(NAME)
+	@rm -rf $(NAME)
 
 # Specify that these are not files to compile (just for safety)
-.PHONY: all clean fclean re 
+.PHONY: all clean fclean re go gov
 	
