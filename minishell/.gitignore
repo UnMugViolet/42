@@ -1,3 +1,5 @@
 # Programs
-./minishell
+minishell
+
+# Vscode utils files
 .vscode/*
