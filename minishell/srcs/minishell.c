@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:38:07 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/02/24 14:31:26 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/03/05 16:16:46 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 void	ft_start_minishell(void)
 {
-	int		run;
 	char	*str;
 
-	run = 1;
-	while (run)
+	while (true)
 	{
 		str = readline("$");
 		if (str && *str == '\0')
@@ -29,7 +27,7 @@ void	ft_start_minishell(void)
 			add_history(str);
 		}
 		else
-			run = 0;
+			break;
 		free(str);
 	}
 	ft_exit_clean(str);
