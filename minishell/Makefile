@@ -6,7 +6,7 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/03/06 14:25:27 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/03/06 16:37:42 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ SRC_DIR = ./srcs/
 OBJ_DIR = ./objects/
 INC_DIR = ./includes/
 
-FILES = minishell.c parsing.c signals.c exit.c history.c events.c parse.c exec.c
+FILES = minishell.c parsing.c signals.c exit.c history.c events.c parse.c exec.c \
+		init.c 
 
 OBJ = $(addprefix $(OBJ_DIR), $(FILES:.c=.o))
 
