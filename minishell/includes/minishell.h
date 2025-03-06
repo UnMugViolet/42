@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:39:19 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/03/05 15:53:23 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/03/06 14:26:08 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,7 @@ int							ft_key_press(int keycode);
 void						ft_handle_input(void);
 void						ft_exit_clean(char *prompt);
 void						ft_setup_signals(void);
+void						ft_parse_prompt(char *str);
+void						ft_exec_prompt(char *str);
 
 #endif

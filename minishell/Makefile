@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+         #
+#    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/02/27 09:49:43 by unmugviolet      ###   ########.fr        #
+#    Updated: 2025/03/06 14:25:27 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRC_DIR = ./srcs/
 OBJ_DIR = ./objects/
 INC_DIR = ./includes/
 
-FILES = minishell.c parsing.c signals.c exit.c history.c
+FILES = minishell.c parsing.c signals.c exit.c history.c events.c parse.c exec.c
 
 OBJ = $(addprefix $(OBJ_DIR), $(FILES:.c=.o))
 

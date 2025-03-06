@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   signals.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 12:52:21 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/02/27 10:19:04 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/03/06 10:57:21 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_setup_signals(void)
 {
 	t_sigaction	sa;
 
-	sigemptyset(&sa.sa_mask);
+	ft_bzero(&sa, sizeof(sa));
 	sa.sa_flags = SA_RESTART;
 	sa.sa_handler = ft_handle_signal;
 	sigaction(SIGINT, &sa, NULL);

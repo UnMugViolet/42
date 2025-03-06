@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:38:07 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/03/05 16:16:46 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/03/06 14:21:05 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,19 @@ void	ft_start_minishell(void)
 			continue ;
 		else if (str)
 		{
-			ft_printf("You entered: %s\n", str);
+			ft_parse_prompt(str);
+			ft_exec_prompt(str);
 			add_history(str);
 		}
-		else
-			break;
+		else if (EOF)
+		{
+			write(STDOUT_FILENO, "exit\n", 5);
+			break ;
+		}
+		else if (!ft_strncmp(str, "history", 7))
+		{
+			ft_printf("History handle later\n");
+		}
 		free(str);
 	}
 	ft_exit_clean(str);
