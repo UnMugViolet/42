@@ -6,16 +6,21 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:38:07 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/03/06 16:35:17 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/03/07 18:06:39 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	ft_start_minishell(char **env)
+/* Starts the engine, inifinte while loop to handle the input.
+closes when encounter an unexpected input or exit case
+@param env
+@return void */
+void	ft_start_minishell(t_data *data, char **env)
 {
 	char	*str;
 
+	ft_init_data(data, NULL, env);
 	while (true)
 	{
 		str = readline(CYN "minishell> "BLK);
@@ -23,7 +28,7 @@ void	ft_start_minishell(char **env)
 			continue ;
 		else if (str)
 		{
-			ft_parse_prompt(str, env);
+			ft_parse_prompt(str, data);
 			ft_exec_prompt(str);
 			add_history(str);
 		}
@@ -31,15 +36,16 @@ void	ft_start_minishell(char **env)
 			break ;
 		free(str);
 	}
-	ft_exit_clean(str);
+	ft_exit_clean(str, data);
 }
 
 int	main(int ac, char **av, char **env)
 {
+	t_data	data;
+
 	(void)ac;
 	(void)av;
-	(void)env;
 	ft_setup_signals();
-	ft_start_minishell(env);
+	ft_start_minishell(&data, env);
 	return (EXIT_SUCCESS);
 }
