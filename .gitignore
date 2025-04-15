@@ -7,7 +7,12 @@
 # Libft
 libft/main
 
-# Printf
-
 # Pipex
 ./pipex/42_pipex_tester/*
+
+# Global 
+out
+in
+outfile
+infile 
+test*
