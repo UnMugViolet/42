@@ -14,6 +14,14 @@
     path = ./pipex/libft
     url = https://github.com/UnMugViolet/libft
 
+[submodule "libft_fractol"]
+    path = ./fract-ol/libft
+    url = https://github.com/UnMugViolet/libft
+
+[submodule "minilibx_fractol"]
+    path = ./fract-ol/minilibx-linux
+    url = https://github.com/42paris/minilibx-linux.git
+
 [submodule "libft_minishell"]
     path = ./minishell/libft
     url = https://github.com/UnMugViolet/libft
