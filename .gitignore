@@ -1,6 +1,11 @@
 # Common 
 .vscode/*
 *.out
+out
+in
+outfile
+infile 
+test*
 *.o
 *.a
 
@@ -10,9 +15,5 @@ libft/main
 # Pipex
 ./pipex/42_pipex_tester/*
 
-# Global 
-out
-in
-outfile
-infile 
-test*
+# Philo
+philo
