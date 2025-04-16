@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philosophers.c                                     :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/16 11:14:38 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/16 11:33:50 by pjaguin          ###   ########.fr       */
+/*   Created: 2025/04/16 12:01:49 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/04/16 12:02:32 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#ifndef UTILS_H
+# define UTILS_H
 
-int	main(void)
-{
-	printf("Hello, World!\n");
-	return (0);
-}
+void	print_usage(void);
+void	ft_putstr_fd(char *str, int fd);
+
+#endif

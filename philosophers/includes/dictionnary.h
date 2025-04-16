@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   dictionnary.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/16 11:22:09 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/16 12:11:27 by pjaguin          ###   ########.fr       */
+/*   Created: 2025/04/16 12:06:41 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/04/16 12:12:52 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#ifndef DICTIONNARY_H
+# define DICTIONNARY_H
 
-void	print_usage(void)
-{
-	ft_putstr_fd(ERR_USAGE, ERR_OUT);
-}
+# define ERR_OUT STDERR_FILENO
+# define ERR_USAGE "Usage: ./philo [number_of_philosophers] [time_to_die] \
+[time_to_eat] [time_to_sleep]\n"
+
+#endif

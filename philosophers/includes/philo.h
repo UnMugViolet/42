@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/16 11:22:09 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/16 12:11:27 by pjaguin          ###   ########.fr       */
+/*   Created: 2025/04/16 11:14:36 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/04/16 12:08:39 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#ifndef PHILO_H
+# define PHILO_H
 
-void	print_usage(void)
-{
-	ft_putstr_fd(ERR_USAGE, ERR_OUT);
-}
+# include "dictionnary.h"
+# include "utils.h"
+# include <pthread.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <sys/time.h>
+# include <unistd.h>
+
+#endif

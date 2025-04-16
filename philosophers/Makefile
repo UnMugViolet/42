@@ -6,7 +6,7 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/04/16 11:32:49 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/04/16 12:09:25 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,9 @@ INC_DIR = 		./includes/
 DIRS = 			utils
 
 # Source files for each directory
-FILES = 		philosophers.c
+FILES = 		philo.c init.c
 
-UTILS_FILES = 	utils.c
+UTILS_FILES = 	utils.c ft_pustr_fd.c
 
 SRC_FILES = 	$(FILES) \
 				$(addprefix utils/, $(UTILS_FILES)) \
@@ -75,6 +75,12 @@ gov: all
 debug: all
 	@lldb $(NAME)
 	@rm -rf $(NAME)
+
+norm:
+	@norm -d srcs
+	@norm -d srcs/utils
+	@norm -d includes
+	@norminette
 	
 
 # Specify that these are not files to compile (just for safety)
