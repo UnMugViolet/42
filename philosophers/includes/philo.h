@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:14:36 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/16 16:14:56 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/04/16 20:40:24 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,21 @@ typedef struct s_philo
 	pthread_mutex_t	*l_fork;
 	pthread_mutex_t	*write_lock;
 	pthread_mutex_t	*dead_lock;
-	struct timeval	*meal_lock;
+	pthread_mutex_t	*meal_lock;
 }					t_philo;
 
 typedef struct s_prog
 {
 	int				dead_flag;
+	pthread_mutex_t	write_lock;
 	pthread_mutex_t	dead_lock;
 	pthread_mutex_t	meal_lock;
-	pthread_mutex_t	print_lock;
 	t_philo			*philos;
 }					t_prog;
+
+/* ----------------------------------INIT---------------------------------- */
+
+void	ft_init_program(t_prog *program, t_philo *philos);
+void	ft_init_forks(pthread_mutex_t *forks, int philo_count);
 
 #endif
