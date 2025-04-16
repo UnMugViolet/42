@@ -37,7 +37,7 @@
 
 3. Include `libftprintf.a` in your project:
 	 ```bash
-	 gcc -Wall -Wextra -Werror your_file.c -L. -lftprintf
+	 cc -Wall -Wextra -Werror your_file.c -L. -lftprintf
 	 ```
 
 4. Use `ft_printf` in your code:

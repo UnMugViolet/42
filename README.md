@@ -4,6 +4,14 @@ Welcome to my 42 Main Repository! This repository contains all the projects I ha
 
 ---
 
+## 🖨️ Clone the repo
+```bash
+	gcl --recursive https://github.com/UnMugViolet/42.git 42_pjaguin
+	cd 42_pjaguin
+```
+---
+
+
 ## 🚀 Core Projects
 - **Libft**: Custom implementation of standard C library functions.
 - **Get Next Line**: Function to read a line from a file descriptor.
