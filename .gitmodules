@@ -1,19 +1,27 @@
 [submodule "libft_main"]
-    path = ./libft
+    path = libft
     url = https://github.com/UnMugViolet/libft
 
 [submodule "libft_printf"]
-    path = ./printf/libft
+    path = printf/libft
     url = https://github.com/UnMugViolet/libft
 
 [submodule "libft_push_swap"]
-    path = ./push_swap/libft
+    path = push_swap/libft
     url = https://github.com/UnMugViolet/libft
 
 [submodule "libft_pipex"]
-    path = ./pipex/libft
+    path = pipex/libft
     url = https://github.com/UnMugViolet/libft
 
+[submodule "libft_fractol"]
+    path = fract-ol/libft
+    url = https://github.com/UnMugViolet/libft
+
+[submodule "minilibx_fractol"]
+    path = fract-ol/minilibx-linux
+    url = https://github.com/42paris/minilibx-linux
+
 [submodule "libft_minishell"]
-    path = ./minishell/libft
+    path = minishell/libft
     url = https://github.com/UnMugViolet/libft

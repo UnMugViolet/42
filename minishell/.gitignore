@@ -5,3 +5,5 @@ minishell
 .vscode/*
 test
 outfile
+infile
+modif.txt

@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exec.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/06 14:22:15 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/03/06 14:23:47 by pjaguin          ###   ########.fr       */
+/*   Created: 2024/11/08 13:16:59 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/04/16 15:12:14 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* That function execute the prompt given by the readline
-@param str
-@return void */
-void	ft_exec_prompt(char *str)
+#include "utils.h"
+
+size_t	ft_strlen(const char *str)
 {
-	(void)str;
+	int	i;
+
+	i = 0;
+	while (str && str[i])
+		i++;
+	return (i);
 }

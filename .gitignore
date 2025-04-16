@@ -1,13 +1,19 @@
 # Common 
 .vscode/*
 *.out
+out
+in
+outfile
+infile 
+test*
 *.o
 *.a
 
 # Libft
 libft/main
 
-# Printf
-
 # Pipex
 ./pipex/42_pipex_tester/*
+
+# Philo
+philo

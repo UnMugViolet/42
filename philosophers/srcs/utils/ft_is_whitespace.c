@@ -1,12 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   history.c                                          :+:      :+:    :+:   */
+/*   ft_is_whitespace.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 09:49:23 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/02/27 10:13:30 by unmugviolet      ###   ########.fr       */
+/*   Created: 2024/11/21 15:31:23 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/04/16 15:58:48 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "utils.h"
+
+int	ft_is_whitespace(int c)
+{
+	if (c == 32 || (c >= 9 && c <= 13))
+		return (1);
+	return (0);
+}
