@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:14:38 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/16 12:10:39 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/04/16 16:19:30 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,7 @@
 
 int	main(int ac, char **av)
 {
-	(void)av;
-	if (ac != 4 && ac != 5)
-	{
-		print_usage();
+	if (!ft_is_valid_args(ac, av))
 		return (1);
-	}
 	return (0);
 }
