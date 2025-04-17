@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:14:38 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/16 20:00:55 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/04/17 12:12:01 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,11 @@ int	main(int ac, char **av)
 	pthread_mutex_t	forks[PHILO_MAX];
 
 	if (!ft_is_valid_args(ac, av))
-		return (1);
+		return (print_usage(), 1);
 	ft_init_program(&program, philos);
 	ft_init_forks(forks, ft_atoi(av[1]));
+	ft_init_philos(philos, &program, forks, av);
+	if (ft_create_threads(&program, forks) == -1)
+		return (ft_putstr_fd(ERR_MALLOC, ERR_OUT), 1);
 	return (0);
 }

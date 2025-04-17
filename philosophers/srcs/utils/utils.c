@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:22:09 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/16 15:59:37 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/04/17 12:20:10 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ void	ft_usleep(size_t ms)
 
 void	print_usage(void)
 {
-	ft_putstr_fd(ERR_USAGE, ERR_OUT);
+	ft_putstr_fd(ERR_USAGE, STDOUT_FILENO);
 }

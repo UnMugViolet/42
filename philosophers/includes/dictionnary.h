@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 12:06:41 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/16 16:43:17 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/04/17 12:20:37 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 # define ERR_OUT STDERR_FILENO
 # define PHILO_MAX 200
+
+# define RED "\033[31m"
+# define RESET "\033[0m"
+# define BOLD "\033[1m"
+
 
 # define ERR_ARGS "Error: Invalid arguments\n"
 # define ERR_MALLOC "Error: Malloc failed\n"
