@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:22:09 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/17 12:20:10 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/04/17 17:35:06 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,20 @@ void	ft_usleep(size_t ms)
 	start = ft_get_time();
 	while (ft_get_time() - start < ms)
 		usleep(500);
+}
+
+void	ft_destroy_all(t_prog *program, pthread_mutex_t *forks, char *str)
+{
+	size_t	i;
+
+	i = 0;
+	if (str)
+		ft_putstr_fd(str, ERR_OUT);
+	while (i < program->philos[0].nb_philo)
+		pthread_mutex_destroy(&forks[i++]);
+	pthread_mutex_destroy(&program->write_lock);
+	pthread_mutex_destroy(&program->dead_lock);
+	pthread_mutex_destroy(&program->meal_lock);
 }
 
 void	print_usage(void)

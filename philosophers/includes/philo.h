@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:14:36 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/17 12:04:39 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/04/17 17:48:27 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_philo
 	size_t			time_to_eat;
 	size_t			time_to_sleep;
 	size_t			start_time;
-	int				nb_philo;
+	size_t			nb_philo;
 	int				nb_times_to_eat;
 	int				*dead;
 	pthread_mutex_t	*r_fork;
@@ -60,11 +60,20 @@ void	ft_init_forks(pthread_mutex_t *forks, int philo_count);
 void	ft_init_philos(t_philo *philos, t_prog *program, pthread_mutex_t *forks,
 			char **av);
 
-/* -------------------------------THREADS---------------------------------- */
+/* ----------------------------------THREADS------------------------------- */
 
 int		ft_create_threads(t_prog *program, pthread_mutex_t *forks);
 bool	ft_is_philo_dead(t_philo *philo);
+
+/* ----------------------------------ACTIONS------------------------------- */
+
+void	ft_eat(t_philo *philo);
+void	ft_dream(t_philo *philo);
 void	ft_think(t_philo *philo);
+
+/* ----------------------------------MONITOR------------------------------- */
+
+void	*monitor_philos(void *ptr);
 
 
 #endif

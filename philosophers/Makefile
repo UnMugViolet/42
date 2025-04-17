@@ -6,7 +6,7 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/04/17 12:09:57 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/04/17 17:54:14 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,16 +17,19 @@ OBJ_DIR = 		./objects/
 INC_DIR = 		./includes/
 
 # Directories for categorized source files
-DIRS = 			utils parsing
+DIRS = 			utils parsing libft
 
 # Source files for each directory
-FILES = 		philo.c init.c threads.c actions.c
+FILES = 		philo.c init.c threads.c actions.c monitor.c
 
-UTILS_FILES = 	utils.c ft_pustr_fd.c ft_atoi.c ft_isdigit.c ft_strlen.c ft_is_whitespace.c print_message.c
+LIBFT_FILES = 	ft_putstr_fd.c ft_atoi.c ft_isdigit.c ft_strlen.c ft_is_whitespace.c 
+
+UTILS_FILES = 	utils.c print_message.c
 
 PARSING_FILES = parsing.c
 
 SRC_FILES = 	$(FILES) \
+				$(addprefix libft/, $(LIBFT_FILES)) \
 				$(addprefix utils/, $(UTILS_FILES)) \
 				$(addprefix parsing/, $(PARSING_FILES)) \
 

@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 12:06:41 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/17 12:20:37 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/04/17 18:14:17 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@
 # define ERR_NB_SLEEP "Error: Invalid number time to sleep\n"
 # define ERR_NB_TIME "Error: Invalid time before dying value\n"
 # define ERR_NB_MEALS "Error: Invalid number of meals\n"
+# define ERR_CREATE_THREAD "Error: Failed to create thread\n"
+# define ERR_JOIN_THREAD "Error: Failed to join threads\n"
 
 #endif
