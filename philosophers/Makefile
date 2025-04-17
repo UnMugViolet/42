@@ -6,7 +6,7 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/04/16 16:38:00 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/04/17 12:09:57 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,9 @@ INC_DIR = 		./includes/
 DIRS = 			utils parsing
 
 # Source files for each directory
-FILES = 		philo.c init.c 
+FILES = 		philo.c init.c threads.c actions.c
 
-UTILS_FILES = 	utils.c ft_pustr_fd.c ft_atoi.c ft_isdigit.c ft_strlen.c ft_is_whitespace.c
+UTILS_FILES = 	utils.c ft_pustr_fd.c ft_atoi.c ft_isdigit.c ft_strlen.c ft_is_whitespace.c print_message.c
 
 PARSING_FILES = parsing.c
 
