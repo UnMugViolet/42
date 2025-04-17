@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:51:25 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/16 20:37:01 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/04/17 11:26:09 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+/*  
+	
+*/
 static void ft_init_inputs(t_philo *philo, char **av)
 {
 	philo->time_to_die = ft_atoi(av[2]);
@@ -24,7 +27,17 @@ static void ft_init_inputs(t_philo *philo, char **av)
 		philo->nb_times_to_eat = -1;
 }
 
-void	ft_init_philos(t_philo *philo, t_prog *prog, pthread_mutex_t *forks, char **av)
+/*
+	Initialize the philosophers structure, it will create a philosopher
+	structure for each philosopher. With default values for the
+	attributes, and the forks mutexes.
+	@param philos: the philosophers structure
+	@param program: the program structure
+	@param forks: the forks mutexes
+	@param av: the arguments passed to the program
+	@return: void
+*/
+void	ft_init_philos(t_philo *philo, t_prog *program, pthread_mutex_t *forks, char **av)
 {
 	int	i;
 
@@ -37,10 +50,10 @@ void	ft_init_philos(t_philo *philo, t_prog *prog, pthread_mutex_t *forks, char *
 		ft_init_inputs(&philo[i], av);
 		philo[i].start_time = ft_get_time();
 		philo[i].last_meal = ft_get_time();
-		philo[i].write_lock = &prog->write_lock;
-		philo[i].dead_lock = &prog->dead_lock;
-		philo[i].meal_lock = &prog->meal_lock;
-		philo[i].dead = &prog->dead_flag;
+		philo[i].write_lock = &program->write_lock;
+		philo[i].dead_lock = &program->dead_lock;
+		philo[i].meal_lock = &program->meal_lock;
+		philo[i].dead = &program->dead_flag;
 		philo[i].l_fork = &forks[i];
 		if (i == 0)
 			philo[i].r_fork = &forks[philo[i].nb_philo - 1];
@@ -49,6 +62,15 @@ void	ft_init_philos(t_philo *philo, t_prog *prog, pthread_mutex_t *forks, char *
 	}
 }
 
+/* 
+	Initialize the forks mutexes, it will create a mutex for each fork
+	(there is one fork per philosopher).
+	We use a mutex to protect the access to the fork, so that only one
+	philosopher can use it at a time.
+	@param forks: the array of mutexes
+	@param philo_count: the number of philosophers
+	@return: void
+*/
 void	ft_init_forks(pthread_mutex_t *forks, int philo_count)
 {
 	int	i;
@@ -58,11 +80,18 @@ void	ft_init_forks(pthread_mutex_t *forks, int philo_count)
 		pthread_mutex_init(&forks[i], NULL);
 }
 
-void	ft_init_program(t_prog *prog, t_philo *philos)
+/*
+	Initialize the program structure, it will create the mutexes
+	for the write, dead and meal locks.
+	@param program: the program structure
+	@param philos: the philosophers structure
+	@return: void
+*/
+void	ft_init_program(t_prog *program, t_philo *philos)
 {
-	prog->dead_flag = 0;
-	prog->philos = philos;
-	pthread_mutex_init(&prog->write_lock, NULL);
-	pthread_mutex_init(&prog->dead_lock, NULL);
-	pthread_mutex_init(&prog->meal_lock, NULL);
+	program->dead_flag = 0;
+	program->philos = philos;
+	pthread_mutex_init(&program->write_lock, NULL);
+	pthread_mutex_init(&program->dead_lock, NULL);
+	pthread_mutex_init(&program->meal_lock, NULL);
 }
