@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:51:25 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/17 11:26:09 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/04/17 18:20:33 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	ft_init_forks(pthread_mutex_t *forks, int philo_count)
 
 	i = -1;
 	while (i++ < philo_count)
-		pthread_mutex_init(&forks[i], NULL);
+		pthread_mutex_init(&forks[i], NULL); 
 }
 
 /*

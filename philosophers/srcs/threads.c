@@ -6,11 +6,19 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 10:16:42 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/17 18:18:27 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/04/17 18:56:07 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "philo.h"
+
+static bool	ft_is_dead_flag(t_philo *philo)
+{
+	pthread_mutex_lock(philo->dead_lock);
+	if (*philo->dead)
+		return (pthread_mutex_unlock(philo->dead_lock), true);
+	return (pthread_mutex_unlock(philo->dead_lock), false);
+}
 
 static void	*start_routine(void *ptr)
 {
@@ -19,7 +27,7 @@ static void	*start_routine(void *ptr)
 	philo = (t_philo *)ptr;
 	if (philo->id % 2 == 0)
 		ft_usleep(1);
-	while (!ft_is_philo_dead(philo))
+	while (!ft_is_dead_flag(philo))
 	{
 		ft_eat(philo);
 		ft_dream(philo);

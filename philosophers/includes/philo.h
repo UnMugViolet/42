@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:14:36 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/17 17:48:27 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/04/17 18:45:51 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void	ft_init_philos(t_philo *philos, t_prog *program, pthread_mutex_t *forks,
 
 int		ft_create_threads(t_prog *program, pthread_mutex_t *forks);
 bool	ft_is_philo_dead(t_philo *philo);
+bool	ft_is_any_philo_dead(t_philo *philo);
 
 /* ----------------------------------ACTIONS------------------------------- */
 

@@ -6,26 +6,44 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 16:40:06 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/17 17:27:43 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/04/17 19:07:36 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "philo.h"
 
 /*
-	That function will be called into a loop in the thread function.
-	It will check if the philosopher is dead, and if so, it will
-	print the message and return true.
-	`mutex` are used to protect the access to the shared data.
+	Checks if the philosopher is dead by comparing the `current time`
+	and the `last meal time` of the philosopher.
 	@param philo: the philosopher structure
 	@return: true if the philosopher is dead, false otherwise
 */
 bool	ft_is_philo_dead(t_philo *philo)
 {
-	pthread_mutex_lock(philo->dead_lock);
-	if (*philo->dead)
-		return (pthread_mutex_unlock(philo->dead_lock), true);
-	pthread_mutex_unlock(philo->dead_lock);
+	printf("%zu %zu %zu\n", ft_get_time(), philo->last_meal, philo->time_to_die);
+	pthread_mutex_lock(philo->meal_lock);
+	if (ft_get_time() - philo->last_meal >= philo->time_to_die && !philo->is_eating)
+		return (pthread_mutex_unlock(philo->meal_lock), true);
+	pthread_mutex_unlock(philo->meal_lock);
+	return (false);
+}
+
+bool	ft_is_any_philo_dead(t_philo * philo)
+{
+	size_t	i;
+
+	i = -1;
+	while (i++ < philo[0].nb_philo)
+	{
+		if (ft_is_philo_dead(&philo[i]))
+		{
+			print_message(&philo[i], "died");
+			pthread_mutex_lock(philo[0].dead_lock);
+			*philo->dead = true;
+			pthread_mutex_unlock(philo[0].dead_lock);
+			return (true);
+		}
+	}
 	return (false);
 }
 
@@ -67,7 +85,7 @@ bool	ft_all_philos_ate(t_philo *philo)
 
 /*
 	Used in the `pthread_create` function to create the thread
-	It will call the `ft_is_philo_dead` function to check if the
+	It will call the `ft_is_any_philo_dead` function to check if the
 	the philosopher is dead or if all the philosophers have eaten.
 	If so, it will break the loop and return.
 	@param ptr: the philosopher structure
@@ -79,7 +97,7 @@ void	*monitor_philos(void *ptr)
 
 	philo = (t_philo *)ptr;
 	while (true)
-		if (ft_is_philo_dead(philo) || ft_all_philos_ate(philo))
+		if (ft_is_any_philo_dead(philo) || ft_all_philos_ate(philo))
 			break ;
 	return (ptr);
 }
