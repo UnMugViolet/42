@@ -6,35 +6,12 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 11:38:11 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/18 16:44:58 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/04/18 17:20:51 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 #include "utils.h"
-
-/*
-	Sleeps for a given time in milliseconds. Perform a separations of sleeps
-	and checks if something occurs in between.
-	@param philo: the philosopher structure
-	@param time: the time to sleep in milliseconds
-*/
-void	ft_do_micro_action(t_philo *philo, size_t time)
-{
-	size_t	segmented_sleep;
-
-	segmented_sleep = time / 50;
-	while (time > 0)
-	{
-		if (ft_is_dead_flag(philo))
-			break ;
-		if (time > segmented_sleep)
-			ft_usleep(segmented_sleep);
-		else
-			ft_usleep(time);
-		time -= segmented_sleep;
-	}
-}
 
 /*
 	Get the order of the forks for the philosopher in order to avoid deadlocks.
@@ -66,7 +43,7 @@ void	ft_think(t_philo *philo)
 void	ft_dream(t_philo *philo)
 {
 	print_message(philo, "is sleeping");
-	ft_do_micro_action(philo, philo->time_to_sleep);
+	ft_usleep(philo->time_to_sleep);
 }
 
 void	ft_eat(t_philo *philo)
@@ -78,7 +55,7 @@ void	ft_eat(t_philo *philo)
 	print_message(philo, "has taken a fork");
 	if (philo->nb_philo == 1)
 	{
-		ft_do_micro_action(philo, philo->time_to_die);
+		ft_usleep(philo->time_to_die);
 		pthread_mutex_unlock(forks[0]);
 		return ;
 	}
@@ -90,7 +67,7 @@ void	ft_eat(t_philo *philo)
 	philo->last_meal = ft_get_time();
 	philo->meals_eaten++;
 	pthread_mutex_unlock(philo->meal_lock);
-	ft_do_micro_action(philo, philo->time_to_eat);
+	ft_usleep(philo->time_to_eat);
 	philo->is_eating = false;
 	pthread_mutex_unlock(forks[1]);
 	pthread_mutex_unlock(forks[0]);
