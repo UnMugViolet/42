@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 16:40:06 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/18 12:23:22 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/04/18 12:25:31 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,6 @@ void	*monitor_philos(void *ptr)
     {
         if (ft_is_any_philo_dead(philo) || ft_all_philos_ate(philo))
             break ;
-        usleep(500);
     }
     return (ptr);
 }
