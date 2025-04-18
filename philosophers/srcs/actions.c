@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 11:38:11 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/18 17:20:51 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/04/18 18:09:30 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@
 */
 void	ft_get_forks_order(t_philo *philo, pthread_mutex_t **forks)
 {
-	if (!philo->r_fork || !philo->l_fork)
-		return ;
 	if (philo->r_fork < philo->l_fork)
     {
         forks[0] = philo->r_fork;

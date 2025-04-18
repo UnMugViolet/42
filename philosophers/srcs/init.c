@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:51:25 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/18 14:13:34 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/04/18 17:58:56 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	ft_init_philos(t_philo *philo, t_prog *program, pthread_mutex_t *forks,
 {
 	int	i;
 
-	i = -1;
-	while (i++ < ft_atoi(av[1]))
+	i = 0;
+	while (i < ft_atoi(av[1]))
 	{
 		philo[i].id = i + 1;
 		philo[i].is_eating = false;
@@ -58,6 +58,7 @@ void	ft_init_philos(t_philo *philo, t_prog *program, pthread_mutex_t *forks,
 			philo[i].r_fork = &forks[philo[i].nb_philo - 1];
 		else
 			philo[i].r_fork = &forks[i - 1];
+		i++;
 	}
 }
 
@@ -74,9 +75,12 @@ void	ft_init_forks(pthread_mutex_t *forks, int philo_count)
 {
 	int	i;
 
-	i = -1;
-	while (i++ < philo_count)
+	i = 0;
+	while (i < philo_count)
+	{
 		pthread_mutex_init(&forks[i], NULL);
+		i++;
+	}
 }
 
 /*
