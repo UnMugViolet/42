@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 10:16:42 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/18 16:09:46 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/04/18 17:38:53 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void	*start_routine(void *ptr)
 
 	philo = (t_philo *)ptr;
 	if (philo->id % 2 == 0)
-		ft_usleep(1);
+		ft_usleep(20);
 	while (!ft_is_dead_flag(philo))
 	{
 		ft_eat(philo);

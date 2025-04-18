@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:14:38 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/18 09:59:14 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/04/18 17:24:19 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int ac, char **av)
 	ft_init_forks(forks, ft_atoi(av[1]));
 	ft_init_philos(philos, &program, forks, av);
 	if (ft_create_threads(&program, forks) == -1)
-		return (1);
+		return (EXIT_FAILURE);
 	ft_destroy_all(&program, forks, NULL);
 	return (0);
 }
