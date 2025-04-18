@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:51:25 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/18 09:59:27 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/04/18 14:13:34 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	ft_init_philos(t_philo *philo, t_prog *program, pthread_mutex_t *forks,
 		philo[i].write_lock = &program->write_lock;
 		philo[i].dead_lock = &program->dead_lock;
 		philo[i].meal_lock = &program->meal_lock;
-		philo[i].dead = &program->dead_flag;
+		philo[i].dead = &program->simu_off;
 		philo[i].l_fork = &forks[i];
 		if (i == 0)
 			philo[i].r_fork = &forks[philo[i].nb_philo - 1];
@@ -88,7 +88,7 @@ void	ft_init_forks(pthread_mutex_t *forks, int philo_count)
 */
 void	ft_init_program(t_prog *program, t_philo *philos)
 {
-	program->dead_flag = 0;
+	program->simu_off = 0;
 	program->philos = philos;
 	pthread_mutex_init(&program->write_lock, NULL);
 	pthread_mutex_init(&program->dead_lock, NULL);

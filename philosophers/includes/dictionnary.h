@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 12:06:41 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/18 11:41:52 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/04/18 13:52:12 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define DICTIONNARY_H
 
 # define ERR_OUT STDERR_FILENO
-# define PHILO_MAX 200
+# define PHILO_MAX 250
 
 # define RED "\033[31m"
 # define RESET "\033[0m"

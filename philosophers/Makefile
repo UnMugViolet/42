@@ -6,7 +6,7 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/04/17 17:54:14 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/04/18 15:13:39 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.c=.o))
 
 CC = cc
 MAKE = make
-CFLAGS = -Wall -Werror -Wextra -g 
+CFLAGS = -Wall -Werror -Wextra -g3
 INC_H = -I $(INC_DIR)
 
 DEFAULT = \033[0m

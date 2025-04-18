@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:14:36 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/18 11:52:25 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/04/18 14:13:27 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct s_philo
 
 typedef struct s_prog
 {
-	int				dead_flag;
+	int				simu_off;
 	pthread_mutex_t	write_lock;
 	pthread_mutex_t	dead_lock;
 	pthread_mutex_t	meal_lock;
