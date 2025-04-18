@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:22:09 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/18 10:09:30 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/04/18 11:47:16 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,21 @@
 
 size_t	ft_get_time(void)
 {
-	struct timeval	tv;
+	struct timeval	time;
 
-	if (gettimeofday(&tv, NULL) == -1)
+	if (gettimeofday(&time, NULL) == -1)
 		ft_putstr_fd("Error: gettimeofday()\n", ERR_OUT);
-	return ((tv.tv_sec * 1000 + tv.tv_usec / 1000));
+	return ((time.tv_sec * 1000 + time.tv_usec / 1000));
 }
 
-void	ft_usleep(size_t ms)
+int	ft_usleep(size_t ms)
 {
 	size_t	start;
 
 	start = ft_get_time();
-	while ((ft_get_time() - start ) < ms)
+	while ((ft_get_time() - start) < ms)
 		usleep(500);
+	return (0);
 }
 
 void	ft_destroy_all(t_prog *program, pthread_mutex_t *forks, char *str)

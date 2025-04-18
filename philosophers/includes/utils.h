@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 12:01:49 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/18 09:58:56 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/04/18 11:47:26 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ size_t	ft_strlen(const char *str);
 void	print_usage(void);
 void	print_message(t_philo *philo, char *msg);
 size_t	ft_get_time(void);
-void	ft_usleep(size_t ms);
+int		ft_usleep(size_t ms);
 void	ft_destroy_all(t_prog *program, pthread_mutex_t *forks, char *str);
 
 /* ----------------------------------CHECKS---------------------------------- */

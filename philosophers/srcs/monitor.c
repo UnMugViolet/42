@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 16:40:06 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/18 11:12:53 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/04/18 12:23:22 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,21 @@ bool	ft_is_philo_dead(t_philo *philo)
 	size_t	current_time;
 	size_t	time_since_last_meal;
 
+	pthread_mutex_lock(philo->meal_lock);
 	current_time = ft_get_time();
 	time_since_last_meal = current_time - philo->last_meal;
-	pthread_mutex_lock(philo->meal_lock);
-	if (time_since_last_meal >= philo->time_to_die && !philo->is_eating)
+	if (time_since_last_meal >= philo->time_to_die)
 		return (pthread_mutex_unlock(philo->meal_lock), true);
 	pthread_mutex_unlock(philo->meal_lock);
 	return (false);
 }
 
-bool	ft_is_any_philo_dead(t_philo *philo)
+static bool	ft_is_any_philo_dead(t_philo *philo)
 {
 	size_t	i;
 
-	i = -1;
-	while (i++ < philo[0].nb_philo)
+	i = 0;
+	while (i < philo[0].nb_philo)
 	{
 		if (ft_is_philo_dead(&philo[i]))
 		{
@@ -48,6 +48,7 @@ bool	ft_is_any_philo_dead(t_philo *philo)
 			pthread_mutex_unlock(philo[0].dead_lock);
 			return (true);
 		}
+		i++;
 	}
 	return (false);
 }
@@ -97,13 +98,14 @@ bool	ft_all_philos_ate(t_philo *philo)
 */
 void	*monitor_philos(void *ptr)
 {
-	t_philo	*philo;
+    t_philo	*philo;
 
-	philo = (t_philo *)ptr;
-	while (true)
-	{
-		if (ft_is_any_philo_dead(philo) || ft_all_philos_ate(philo))
-			break ;
-	}
-	return (ptr);
+    philo = (t_philo *)ptr;
+    while (true)
+    {
+        if (ft_is_any_philo_dead(philo) || ft_all_philos_ate(philo))
+            break ;
+        usleep(500);
+    }
+    return (ptr);
 }

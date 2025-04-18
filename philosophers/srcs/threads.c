@@ -6,14 +6,14 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 10:16:42 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/18 09:59:38 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/04/18 12:20:15 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 #include "utils.h"
 
-static bool	ft_is_dead_flag(t_philo *philo)
+bool	ft_is_dead_flag(t_philo *philo)
 {
 	pthread_mutex_lock(philo->dead_lock);
 	if (*philo->dead)

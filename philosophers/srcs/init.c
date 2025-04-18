@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "philo.h"
-# include "utils.h"
+#include "utils.h"
 
 static void	ft_init_inputs(t_philo *philo, char **av)
 {

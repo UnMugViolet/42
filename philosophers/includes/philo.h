@@ -6,20 +6,20 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:14:36 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/18 09:59:03 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/04/18 11:52:25 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
 
+# include "dictionnary.h"
 # include <pthread.h>
 # include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <sys/time.h>
 # include <unistd.h>
-# include "dictionnary.h"
 
 typedef struct s_philo
 {
@@ -51,7 +51,6 @@ typedef struct s_prog
 	t_philo			*philos;
 }					t_prog;
 
-
 /* ----------------------------------INIT---------------------------------- */
 
 void				ft_init_program(t_prog *program, t_philo *philos);
@@ -63,7 +62,6 @@ void				ft_init_philos(t_philo *philos, t_prog *program,
 
 int					ft_create_threads(t_prog *program, pthread_mutex_t *forks);
 bool				ft_is_philo_dead(t_philo *philo);
-bool				ft_is_any_philo_dead(t_philo *philo);
 
 /* ----------------------------------ACTIONS------------------------------- */
 
@@ -74,5 +72,6 @@ void				ft_think(t_philo *philo);
 /* ----------------------------------MONITOR------------------------------- */
 
 void				*monitor_philos(void *ptr);
+bool				ft_is_dead_flag(t_philo *philo);
 
 #endif
