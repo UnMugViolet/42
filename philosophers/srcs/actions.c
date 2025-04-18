@@ -6,11 +6,12 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 11:38:11 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/17 12:08:00 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/04/18 10:12:51 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "philo.h"
+#include "philo.h"
+#include "utils.h"
 
 void	ft_think(t_philo *philo)
 {
@@ -36,8 +37,8 @@ void	ft_eat(t_philo *philo)
 	pthread_mutex_lock(philo->l_fork);
 	print_message(philo, "has taken a fork");
 	philo->is_eating = true;
-	print_message(philo, "is eating");
 	philo->last_meal = ft_get_time();
+	print_message(philo, "is eating");
 	ft_usleep(philo->time_to_eat);
 	philo->is_eating = false;
 	pthread_mutex_unlock(philo->l_fork);

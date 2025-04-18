@@ -1,0 +1,8 @@
+{
+	"files.associations": {
+		"dictionnary.h": "c",
+		"utils.h": "c",
+		"stdbool.h": "c",
+		"philo.h": "c"
+	}
+}

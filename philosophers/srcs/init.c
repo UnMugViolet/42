@@ -6,16 +6,14 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:51:25 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/17 18:20:33 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/04/18 09:59:27 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+# include "utils.h"
 
-/*  
-	
-*/
-static void ft_init_inputs(t_philo *philo, char **av)
+static void	ft_init_inputs(t_philo *philo, char **av)
 {
 	philo->time_to_die = ft_atoi(av[2]);
 	philo->time_to_eat = ft_atoi(av[3]);
@@ -37,7 +35,8 @@ static void ft_init_inputs(t_philo *philo, char **av)
 	@param av: the arguments passed to the program
 	@return: void
 */
-void	ft_init_philos(t_philo *philo, t_prog *program, pthread_mutex_t *forks, char **av)
+void	ft_init_philos(t_philo *philo, t_prog *program, pthread_mutex_t *forks,
+		char **av)
 {
 	int	i;
 
@@ -62,7 +61,7 @@ void	ft_init_philos(t_philo *philo, t_prog *program, pthread_mutex_t *forks, cha
 	}
 }
 
-/* 
+/*
 	Initialize the forks mutexes, it will create a mutex for each fork
 	(there is one fork per philosopher).
 	We use a mutex to protect the access to the fork, so that only one
@@ -77,7 +76,7 @@ void	ft_init_forks(pthread_mutex_t *forks, int philo_count)
 
 	i = -1;
 	while (i++ < philo_count)
-		pthread_mutex_init(&forks[i], NULL); 
+		pthread_mutex_init(&forks[i], NULL);
 }
 
 /*

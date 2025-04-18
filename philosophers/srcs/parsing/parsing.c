@@ -6,11 +6,12 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 16:10:51 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/16 16:36:10 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/04/18 10:00:24 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include "utils.h"
 
 bool	ft_check_isdigit(char *str)
 {

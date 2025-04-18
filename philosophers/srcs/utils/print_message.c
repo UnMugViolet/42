@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "philo.h"
+#include "utils.h"
 
 void	print_message(t_philo *philo, char *msg)
 {

@@ -6,11 +6,12 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:14:38 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/17 18:18:35 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/04/18 09:59:14 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+# include "utils.h"
 
 int	main(int ac, char **av)
 {
