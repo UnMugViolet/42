@@ -6,12 +6,14 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 11:38:11 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/18 19:47:02 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/04/18 19:49:09 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 #include "utils.h"
+
+// TODO add the function to do tiny usleeps instead of one large
 
 /*
 	Get the order of the forks for the philosopher in order to avoid deadlocks.
