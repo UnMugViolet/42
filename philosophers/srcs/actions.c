@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   actions.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 11:38:11 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/19 11:09:02 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/04/22 10:08:11 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,14 @@ void ft_tiny_usleep(t_philo *philo, size_t time)
     }
 }
 
+void ft_get_forks(t_philo *philo, pthread_mutex_t **forks)
+{
+    if (!philo->l_fork || !philo->r_fork)
+        return ;
+    forks[0] = philo->r_fork;
+    forks[1] = philo->l_fork;
+}
+
 void	ft_think(t_philo *philo)
 {
 	print_message(philo, "is thinking");
@@ -50,15 +58,18 @@ void	ft_dream(t_philo *philo)
 
 void	ft_eat(t_philo *philo)
 {
-    pthread_mutex_lock(philo->r_fork);
+    pthread_mutex_t    *forks[2];
+    
+    ft_get_forks(philo, forks);
+    pthread_mutex_lock(forks[0]);
     print_message(philo, "has taken a fork");
     if (philo->nb_philo == 1)
     {
-        ft_usleep(philo->time_to_die);
-        pthread_mutex_unlock(philo->r_fork);
+        ft_tiny_usleep(philo, philo->time_to_die);
+        pthread_mutex_unlock(forks[0]);
         return ;
     }
-    pthread_mutex_lock(philo->l_fork);
+    pthread_mutex_lock(forks[1]);
     print_message(philo, "has taken a fork");
     philo->is_eating = true;
     print_message(philo, "is eating");
@@ -66,8 +77,8 @@ void	ft_eat(t_philo *philo)
     philo->last_meal = ft_get_time();
     philo->meals_eaten++;
     pthread_mutex_unlock(philo->meal_lock);
-    ft_usleep(philo->time_to_eat);
+    ft_tiny_usleep(philo, philo->time_to_eat);
     philo->is_eating = false;
-    pthread_mutex_unlock(philo->l_fork);
-    pthread_mutex_unlock(philo->r_fork);
+    pthread_mutex_unlock(forks[1]);
+    pthread_mutex_unlock(forks[0]);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   threads.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 10:16:42 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/04/19 11:12:16 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/04/22 09:50:07 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,16 @@ static void	*start_routine(void *ptr)
 	philo = (t_philo *)ptr;
 	if (philo->id % 2 == 0)
 		ft_usleep(philo->time_to_eat / 2);
-	while (!ft_is_dead_flag(philo))
+	while (true)
 	{
+		if (ft_is_dead_flag(philo))
+			break;
 		ft_eat(philo);
+		if (ft_is_dead_flag(philo))
+			break;
 		ft_dream(philo);
+		if (ft_is_dead_flag(philo))
+			break;
 		ft_think(philo);
 	}
 	return (ptr);
