@@ -47,6 +47,6 @@ ARGS=$(shuf -i 0-499); ./push_swap $ARGS | ./checkers/checker_linux $ARGS
 - [Sorting Algorithm Basics](https://en.wikipedia.org/wiki/Sorting_algorithm)
 
 
-## License
+## ⚖️ License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

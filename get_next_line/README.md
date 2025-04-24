@@ -52,6 +52,6 @@ int main(void)
 ## Testing
 Use the provided test files or create your own to validate the function's behavior with various edge cases.
 
-## License
+## ⚖️ License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

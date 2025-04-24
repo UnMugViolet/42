@@ -89,5 +89,5 @@ Your implementation will be evaluated based on:
 
 The **Pipex** project is an excellent opportunity to dive deeper into UNIX programming and understand the inner workings of shell pipelines.
 
-## License
+## ⚖️ License
 This project is licensed under the MIT License.

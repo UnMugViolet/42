@@ -32,6 +32,6 @@ To set up the required dependencies for `minishell`, follow these steps:
 After installing the dependencies, compile the project using `make`:
 
 
-## License
+## ⚖️ License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

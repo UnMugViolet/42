@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
+#    By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/04/18 15:13:39 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/04/24 11:30:01 by unmugviolet      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,13 +81,6 @@ gov: all
 debug: all
 	@lldb $(NAME)
 	@rm -rf $(NAME)
-
-norm:
-	@norm -d srcs
-	@norm -d srcs/utils
-	@norm -d includes
-	@norminette
-	
 
 # Specify that these are not files to compile (just for safety)
 .PHONY: all clean fclean re go gov debug

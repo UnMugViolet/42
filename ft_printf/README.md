@@ -65,7 +65,7 @@ You can test the functionality of `ft_printf` by comparing its output to the sta
 
 This project was completed as part of the 42 curriculum. For more information, visit [42 Network](https://www.42.fr/).
 
-## License
+## ⚖️ License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
