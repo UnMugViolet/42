@@ -34,8 +34,8 @@ This project is an excellent opportunity to learn about:
 
 1. Clone the repository:
 	```bash
-	git clone https://github.com/yourusername/fract-ol.git
-	cd fract-ol
+	git clone https://github.com/UnMugViolet/42.git 42_pjaguin
+	cd 42_pjaguin/fract-ol
 	```
 
 2. Compile the project:
