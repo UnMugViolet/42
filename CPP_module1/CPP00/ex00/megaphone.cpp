@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 11:23:13 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/04/24 11:26:05 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/04/30 17:02:00 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <iostream>
 
 int	main(int ac, char **av)
 {
 	(void)ac;
 	(void)av;
+	std::cout << "Hello World!" << std::endl;
 }
