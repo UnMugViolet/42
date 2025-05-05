@@ -6,7 +6,7 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 11:06:17 by unmugviolet       #+#    #+#              #
-#    Updated: 2025/05/05 12:53:43 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/05/05 13:56:37 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJ = $(patsubst $(SRC_DIR)%.cpp, $(OBJ_DIR)%.o, $(SRC_FILES))
 CC = c++
 MAKE = make
 CFLAGS = -Wall -Werror -Wextra -g3 -std=c++98
-INC_H = -I $(INC_DIR)
+INC_H = -I $(INC_DIR) 
 
 DEFAULT = \033[0m
 DEF_COLOR = \033[0;90m
@@ -35,7 +35,7 @@ all: $(NAME)
 
 $(NAME) : $(OBJ) 
 	@echo "$(GREEN)$(NAME) compiled!$(DEFAULT)"
-	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) $(INC_H) -o $(NAME)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp | $(OBJ_DIR)
 	@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
