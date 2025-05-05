@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 12:14:28 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/05 15:37:39 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/05 18:07:04 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ private:
 	int oldest_index;
 public:
 	PhoneBook();
+	void	create_contact(const Contact &contact);
+	void	print_contact_list();
 };
 
-void	print_contact_list(PhoneBook *phone_book, int size);
-void exit_program();
 
 #endif

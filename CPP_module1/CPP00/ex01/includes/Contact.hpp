@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 12:18:09 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/05 16:12:38 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/05 18:04:37 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define CONTACT_HPP
 
 #include <iostream>
+
+class PhoneBook;
 
 class Contact {
 	private:
@@ -29,7 +31,7 @@ class Contact {
 		void	print_header(int index);
 };
 
-void	add_contact();
+void	add_contact(PhoneBook &phone_book);
 void	search_contact();
 
 #endif 
