@@ -6,21 +6,23 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 11:06:17 by unmugviolet       #+#    #+#              #
-#    Updated: 2025/05/05 12:38:12 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/05/05 12:53:43 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+NAME = phonebook
 
-FILES = 		megaphone.cpp
+SRC_DIR = 		./srcs/
+OBJ_DIR = 		./objects/
+INC_DIR = 		./includes/
 
-SRC_FILES = 	$(FILES) 
-
-OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.c=.o))
+SRC_FILES = $(shell find -type f -name "*.cpp")
+OBJ = $(patsubst $(SRC_DIR)%.cpp, $(OBJ_DIR)%.o, $(SRC_FILES))
 
 CC = c++
 MAKE = make
 CFLAGS = -Wall -Werror -Wextra -g3 -std=c++98
+INC_H = -I $(INC_DIR)
 
 DEFAULT = \033[0m
 DEF_COLOR = \033[0;90m
@@ -31,9 +33,16 @@ CYAN = \033[0;96m
 
 all: $(NAME)
 
-$(NAME) : $(OBJ)
+$(NAME) : $(OBJ) 
 	@echo "$(GREEN)$(NAME) compiled!$(DEFAULT)"
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp | $(OBJ_DIR)
+	@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
+	@$(CC) $(CFLAGS) $(INC_H) -c $< -o $@
+
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
 
 clean: 
 	@rm -rf $(OBJ)
