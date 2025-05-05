@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 12:18:09 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/05 12:50:18 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/05 16:12:38 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ class Contact {
 		std::string darkest_secret;
 	public:
 		Contact();
+		void	set_field(std::string field, std::string value);
+		void 	print_contact(int index);
+		void	print_header(int index);
 };
+
+void	add_contact();
+void	search_contact();
 
 #endif 

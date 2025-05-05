@@ -6,17 +6,15 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 12:31:23 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/05 13:59:41 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/05 15:40:13 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "PhoneBook.hpp"
 
-int main(int ac, char **av)
+int main(void)
 {
-	(void)ac;
-	(void)av;
 	while (true)
 	{
 		std::cout << "Enter a command: ";
