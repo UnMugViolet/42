@@ -6,22 +6,14 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 14:33:04 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/05 16:14:55 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/06 09:23:09 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <sstream>
-#include "Contact.hpp"
+#include "PhoneBook.hpp"
 
 Contact::Contact() {}
-
-std::string int_to_str(int number)
-{
-	std::stringstream ss;
-	ss << number;
-	return ss.str();
-}
 
 void	Contact::set_field(std::string field, std::string value)
 {

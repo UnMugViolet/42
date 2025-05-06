@@ -6,12 +6,13 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 12:31:23 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/05 18:11:00 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/06 09:16:21 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "PhoneBook.hpp"
+#include "Seeder.hpp"
 
 int main(void)
 {
@@ -25,6 +26,8 @@ int main(void)
 			break;
 		else if (command == "ADD")
 			add_contact(phone_book);
+		else if (command == "SEED")
+			contact_seeder(phone_book); // REMOVE LATER
 		else if (command == "PRINT")
 			phone_book.print_contact_list();
 		else if (command == "SEARCH")

@@ -1,32 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Conversions.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/05 12:14:28 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/06 09:22:42 by pjaguin          ###   ########.fr       */
+/*   Created: 2025/05/06 09:20:28 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/05/06 09:22:04 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
-#include "Contact.hpp"
-#include "Conversions.hpp"
+#ifndef CONVERSIONS_HPP
+#define CONVERSIONS_HPP
 
-class PhoneBook
-{
-private:
-	Contact contacts[8];
-	int size;
-	int oldest_index;
-public:
-	PhoneBook();
-	void	create_contact(const Contact &contact);
-	void	print_contact_list();
-};
-
-
+std::string	int_to_str(int nbr);
 
 #endif

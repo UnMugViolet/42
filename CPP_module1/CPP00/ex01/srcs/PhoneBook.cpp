@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 12:13:53 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/05 18:12:23 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/06 10:52:57 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	PhoneBook::create_contact(const Contact &contact)
 void	PhoneBook::print_contact_list()
 {
 	std::cout << "---------------------------------------------" << std::endl;
-	std::cout << "|    Index |First name| Last Name| Nickname |" << std::endl;
+	std::cout << "|     Index|First name| Last Name|  Nickname|" << std::endl;
 	std::cout << "---------------------------------------------" << std::endl;
 	for (int i = 0; i < this->size; i++)
 	{
