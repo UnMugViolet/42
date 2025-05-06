@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 12:13:53 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/06 15:52:57 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/06 17:05:59 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,15 +65,15 @@ void PhoneBook::search_contact()
     if (std::cin.eof())
     {
         std::cout << "Error: Input stream closed." << std::endl;
-        return;
+        return ;
     }
     try
     {
         size_t index = std::atoi(input.c_str());
-        if (index >= this->size)
+        if (index >= this->size || !str_is_digit(input))
         {
             std::cout << "Error: Invalid index. Please enter a valid index." << std::endl;
-            return;
+            return ;
         }
         this->contacts[index].print_contact_single(formatted_field);
     }

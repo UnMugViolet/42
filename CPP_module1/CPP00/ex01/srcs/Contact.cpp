@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 14:33:04 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/06 16:17:42 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/06 16:59:19 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,16 @@ void	Contact::print_header(int index)
 
 void	Contact::print_contact_single(std::string formatted_fields[])
 {
+	std::cout << "---------------------------------------------------------------------------------" << std::endl;
 	for (size_t i = 0; i < this->get_inputs_number(); i++)
 		std::cout << "|" << format_string(formatted_fields[i], 15);
 	std::cout << "|" << std::endl;
+	std::cout << "---------------------------------------------------------------------------------" << std::endl;
 	std::cout << "|" << format_string(this->first_name, 15);
 	std::cout << "|" << format_string(this->last_name, 15);
 	std::cout << "|" << format_string(this->nickname, 15);
 	std::cout << "|" << format_string(this->phone_number, 15);
 	std::cout << "|" << format_string(this->darkest_secret, 15);
 	std::cout << "|" << std::endl;
+	std::cout << "---------------------------------------------------------------------------------" << std::endl;
 }

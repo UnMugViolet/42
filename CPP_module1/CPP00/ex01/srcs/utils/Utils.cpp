@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 09:20:16 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/06 12:41:21 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/06 17:06:05 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,16 @@ std::string int_to_str(int number)
 	std::stringstream ss;
 	ss << number;
 	return (ss.str());
+}
+
+bool str_is_digit(const std::string &str)
+{
+	for (size_t i = 0; i < str.length(); i++)
+	{
+		if (!isdigit(str[i]))
+			return false;
+	}
+	return true;
 }
 
 std::string format_string(std::string str, int len)
