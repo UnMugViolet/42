@@ -6,29 +6,27 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 09:01:17 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/06 14:06:37 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/06 16:16:40 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <iostream>
 #include <sstream>
+#include "Contact.hpp"
 
-void create_contact_form_seeded(Contact *contact, const std::string &seeded_input = "")
+void Contact::create_contact_form_seeded(const std::string &seeded_input = "")
 {
-	std::string fields[] = {"first_name", "last_name", "nickname", "phone_number", "darkest_secret"};
-	size_t field_count = sizeof(fields)/sizeof(fields[0]);
-
 	std::istringstream input_stream(seeded_input);
-	for (size_t i = 0; i < field_count ; i++)
+	for (size_t i = 0; i < this->nbr_inputs; i++)
 	{
 		std::string input;
 		if (!std::getline(input_stream, input))
 		{
-			std::cerr << "Error: Not enough data in seeded input for field " << fields[i] << std::endl;
+			std::cerr << "Error: Not enough data in seeded input for field " << this->fields[i] << std::endl;
             return;
 		}
-		contact->set_field(fields[i], input);
+		this->set_field(this->fields[i], input);
 	}
 }
 
@@ -40,7 +38,7 @@ void contact_seeder(PhoneBook &phone_book)
 	{
 		Contact contact;
 		std::string seeded_input = first_names[i] + "Doe\n" + nickname[i] + int_to_str(i + 1) +"0000000000000\nLoves pizza\n";
-		create_contact_form_seeded(&contact, seeded_input);
+		contact.create_contact_form_seeded(seeded_input);
 		phone_book.create_contact(contact);		
 	}
 }

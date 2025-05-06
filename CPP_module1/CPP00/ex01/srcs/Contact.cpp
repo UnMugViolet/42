@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 14:33:04 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/06 14:48:22 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/06 16:17:42 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,13 @@
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
-Contact::Contact() {}
+Contact::Contact() 
+{
+	const std::string fields[] = {"first_name", "last_name", "nickname", "phone_number", "darkest_secret"};
+	this->nbr_inputs = sizeof(this->fields)/sizeof(this->fields[0]);
+	for (size_t i = 0; i < this->nbr_inputs; i++)
+		this->fields[i] = fields[i];
+}
 
 size_t	Contact::get_inputs_number()
 {
@@ -52,13 +58,15 @@ void	Contact::print_header(int index)
 				<< "|" << std::endl;
 }
 
-void	Contact::print_contact_single(int index,std::string formatted_fields[])
+void	Contact::print_contact_single(std::string formatted_fields[])
 {
-	(void)index;
-	for (size_t i = 0; i < this->get_inputs_number() ; i++)
-		std::cout << "|" << format_string(formatted_fields[i], 25);
-	std::cout << std::endl;
 	for (size_t i = 0; i < this->get_inputs_number(); i++)
-		std::cout << "|" << format_string(this->fields[i], 25);
-				
-} 
+		std::cout << "|" << format_string(formatted_fields[i], 15);
+	std::cout << "|" << std::endl;
+	std::cout << "|" << format_string(this->first_name, 15);
+	std::cout << "|" << format_string(this->last_name, 15);
+	std::cout << "|" << format_string(this->nickname, 15);
+	std::cout << "|" << format_string(this->phone_number, 15);
+	std::cout << "|" << format_string(this->darkest_secret, 15);
+	std::cout << "|" << std::endl;
+}

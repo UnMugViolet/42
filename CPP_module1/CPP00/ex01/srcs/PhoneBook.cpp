@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 12:13:53 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/06 14:46:36 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/06 15:52:57 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,25 +53,20 @@ void PhoneBook::search_contact()
         std::cout << "PhoneBook is empty. No contacts to search." << std::endl;
         return;
     }
-
     size_t array_len = this->contacts[0].get_inputs_number();
     std::string formatted_field[array_len];
     const std::string* fields = this->contacts[0].get_input_fields();
-
     for (size_t i = 0; i < array_len; i++)
         formatted_field[i] = format_field(fields[i], '_');
-
     this->print_contact_list();
     std::cout << "Enter the index of the contact to view details: ";
     std::string input;
     std::getline(std::cin, input);
-
     if (std::cin.eof())
     {
         std::cout << "Error: Input stream closed." << std::endl;
         return;
     }
-
     try
     {
         size_t index = std::atoi(input.c_str());
@@ -80,7 +75,7 @@ void PhoneBook::search_contact()
             std::cout << "Error: Invalid index. Please enter a valid index." << std::endl;
             return;
         }
-        this->contacts[index].print_contact_single(index, formatted_field);
+        this->contacts[index].print_contact_single(formatted_field);
     }
     catch (const std::exception &e)
     {
