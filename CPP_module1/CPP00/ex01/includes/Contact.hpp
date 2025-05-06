@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 12:18:09 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/05 18:04:37 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/06 14:46:57 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,18 @@ class Contact {
 		std::string nickname;
 		std::string phone_number;
 		std::string darkest_secret;
+		size_t		nbr_inputs;
+		std::string fields[4];
 	public:
 		Contact();
-		void	set_field(std::string field, std::string value);
-		void 	print_contact(int index);
-		void	print_header(int index);
+		size_t 				get_inputs_number();
+		const std::string 	*get_input_fields();
+		void 				set_field(std::string field, std::string value);
+		void 				print_contact_single(int index, std::string formatted_fields[]);
+		void				create_contact_form(Contact *contact);
+		void				print_header(int index);
 };
 
 void	add_contact(PhoneBook &phone_book);
-void	search_contact();
 
 #endif 

@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 09:01:17 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/06 10:56:05 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/06 14:06:37 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void create_contact_form_seeded(Contact *contact, const std::string &seeded_inpu
 void contact_seeder(PhoneBook &phone_book)
 {
 	std::string first_names[9] = {"John\n", "Jack\n", "Billy\n", "Eliott\n", "Vadim\n", "Colette\n", "Dididier\n", "Lucien\n", "Maxime\n"};
-	std::string nickname[9] = {"Johnny\n", "Jacky\n", "Bad boy\n", "Snitch\n", "Vad\n", "Col\n", "DIDIDIDIIDIDID\n", "ludac\n", "Max\n"};
+	std::string nickname[9] = {"Johnny\n", "Jacky\n", "Bad boy\n", "Snitch\n", "Vad\n", "Col\n", "DIDIDIDIDIDID\n", "ludac\n", "Max\n"};
 	for (int i = 0; i < 9; i++)
 	{
 		Contact contact;

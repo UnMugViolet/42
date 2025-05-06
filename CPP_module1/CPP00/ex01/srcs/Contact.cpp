@@ -6,14 +6,26 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 14:33:04 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/06 09:23:09 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/06 14:48:22 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "PhoneBook.hpp"
+#include "Contact.hpp"
 
 Contact::Contact() {}
+
+size_t	Contact::get_inputs_number()
+{
+	return this->nbr_inputs;
+}
+
+const std::string* Contact::get_input_fields()
+{
+    static const std::string fields[] = {"first_name", "last_name", "nickname", "phone_number", "darkest_secret"};
+    return fields;
+}
 
 void	Contact::set_field(std::string field, std::string value)
 {
@@ -31,28 +43,22 @@ void	Contact::set_field(std::string field, std::string value)
 		std::cerr << "Error: Unknown field '" << field << "'" << std::endl;
 }
 
-std::string format_string(std::string str)
-{
-	if (str.length() > 10)
-		str = str.substr(0, 9) + ".";
-	else
-		str.insert(0, 10 - str.length(), ' ');
-	return str;
-}
-
 void	Contact::print_header(int index)
 {
-	std::cout	<< "|" << format_string(int_to_str(index))
-				<< "|" << format_string(this->first_name)
-				<< "|" << format_string(this->last_name) 
-				<< "|" << format_string(this->nickname)
+	std::cout	<< "|" << format_string(int_to_str(index), 10)
+				<< "|" << format_string(this->first_name, 10)
+				<< "|" << format_string(this->last_name, 10) 
+				<< "|" << format_string(this->nickname, 10)
 				<< "|" << std::endl;
 }
 
-void	Contact::print_contact(int index)
+void	Contact::print_contact_single(int index,std::string formatted_fields[])
 {
-	std::cout	<< "Index [" << int_to_str(index) << "]:" << std::endl
-				<< "First Name: " << this->first_name << std::endl
-				<< "Last Name: " << this->last_name << std::endl
-				<< "Nickname: " << this->nickname << std::endl;
-}
+	(void)index;
+	for (size_t i = 0; i < this->get_inputs_number() ; i++)
+		std::cout << "|" << format_string(formatted_fields[i], 25);
+	std::cout << std::endl;
+	for (size_t i = 0; i < this->get_inputs_number(); i++)
+		std::cout << "|" << format_string(this->fields[i], 25);
+				
+} 
