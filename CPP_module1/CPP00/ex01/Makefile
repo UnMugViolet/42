@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
+#    By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 11:06:17 by unmugviolet       #+#    #+#              #
-#    Updated: 2025/05/06 09:25:12 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/05/07 09:18:35 by unmugviolet      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,13 @@ INC_DIR = 		./includes/
 
 DIRS = utils
 
-SRC_FILES = $(shell find -type f -name "*.cpp")
+SRC_FILES = main.cpp \
+            $(SRC_DIR)Contact.cpp \
+            $(SRC_DIR)PhoneBook.cpp \
+            $(SRC_DIR)utils/Seeder.cpp \
+			$(SRC_DIR)utils/Utils.cpp
+
+
 OBJ = $(patsubst $(SRC_DIR)%.cpp, $(OBJ_DIR)%.o, $(SRC_FILES))
 
 CC = c++
