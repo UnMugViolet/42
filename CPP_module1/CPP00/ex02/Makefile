@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
+#    By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 11:06:17 by unmugviolet       #+#    #+#              #
-#    Updated: 2025/05/06 18:01:53 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/05/07 08:49:30 by unmugviolet      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = account
 
-FILES = 		Account.cpp
+FILES = 		tests.cpp Account.cpp
 
 SRC_FILES = 	$(FILES) 
 
