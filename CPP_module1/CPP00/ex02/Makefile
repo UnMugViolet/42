@@ -6,13 +6,13 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 11:06:17 by unmugviolet       #+#    #+#              #
-#    Updated: 2025/05/05 12:38:12 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/05/06 18:01:53 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+NAME = account
 
-FILES = 		megaphone.cpp
+FILES = 		Account.cpp
 
 SRC_FILES = 	$(FILES) 
 
@@ -21,6 +21,7 @@ OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.c=.o))
 CC = c++
 MAKE = make
 CFLAGS = -Wall -Werror -Wextra -g3 -std=c++98
+INC_H = -I $(INC_DIR)
 
 DEFAULT = \033[0m
 DEF_COLOR = \033[0;90m

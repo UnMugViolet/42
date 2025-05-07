@@ -31,8 +31,9 @@ Welcome to my 42 Main Repository! This repository contains all the projects I ha
 ---
 
 ## 🛠️ System and Low-Level Programming
-<!-- - **Philosophers**: Multithreading and synchronization problem. -->
+- **Philosophers**: Multithreading and synchronization problem.
 - **Minishell**: Building a simple Unix shell.
+- **NetPractice**: Introduction to networking.
 
 ---
 

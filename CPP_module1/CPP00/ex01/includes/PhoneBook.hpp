@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/24 11:23:13 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/05/05 09:35:01 by pjaguin          ###   ########.fr       */
+/*   Created: 2025/05/05 12:14:28 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/05/06 15:25:27 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
+#include "Contact.hpp"
+#include "Utils.hpp"
 
-int	main(int ac, char **av)
+class PhoneBook
 {
-	(void)ac;
-	if (ac < 2)
-	{
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-		return (1);
-	}
-	for (int i = 1; i < ac; i++)
-	{
-		for (int j = 0; av[i][j]; j++)
-			std::cout << (char)toupper(av[i][j]);
-	}
-	std::cout << std::endl;
-	return (0);
-}
+	private:
+		Contact contacts[8];
+		size_t size;
+		size_t oldest_index;
+	public:
+		PhoneBook();
+		void	create_contact(const Contact &contact);
+		void	create_contact_form(Contact *contact);
+		void	print_contact_list();
+		void	search_contact();
+};
+
+#endif

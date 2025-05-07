@@ -19,8 +19,8 @@ Push Swap is a sorting algorithm project designed to sort a stack of integers us
 ## Usage
 1. Clone the repository:
 	 ```bash
-	 git clone https://github.com/yourusername/push_swap.git
-	 cd push_swap
+		git clone https://github.com/UnMugViolet/42.git 42_pjaguin
+		cd 42_pjaguin/push_swap
 	 ```
 2. Compile the program:
 	 ```bash

@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Utils.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/24 11:23:13 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/05/05 09:35:01 by pjaguin          ###   ########.fr       */
+/*   Created: 2025/05/06 09:20:28 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/05/06 16:50:53 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef UTILS_HPP
+#define UTILS_HPP
 
-int	main(int ac, char **av)
-{
-	(void)ac;
-	if (ac < 2)
-	{
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-		return (1);
-	}
-	for (int i = 1; i < ac; i++)
-	{
-		for (int j = 0; av[i][j]; j++)
-			std::cout << (char)toupper(av[i][j]);
-	}
-	std::cout << std::endl;
-	return (0);
-}
+#include <sstream>\
+
+std::string					int_to_str(int nbr);
+bool						str_is_digit(const std::string &str);
+std::string					format_string(std::string str, int len);
+std::string					format_field(std::string field, char c);
+
+#endif
