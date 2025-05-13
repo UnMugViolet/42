@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 20:22:50 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/05/13 21:20:16 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/05/13 21:14:48 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,14 @@ void	Harl::complain(std::string level)
 	{
 		if (levels[i] == level)
 		{
-			(this->*functions[i])();
+			while (i < lvl_count)
+			{
+				(this->*functions[i])();
+				i++;
+			}
 			return ;
 		}
 		else if (i >= lvl_count - 1)
-			std::cout << "Invalid input" << std::endl;
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 	}
 }
