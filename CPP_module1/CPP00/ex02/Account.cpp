@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 17:20:50 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/07 08:56:28 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/05/13 09:34:01 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	Account::getNbWithdrawals(void)
 
 void	Account::_displayTimestamp(void)
 {
-	std::time_t time = std::time(0);
+	std::time_t time = std::time(0); 
 	std::tm *now = std::localtime(&time);
 	std::cout << "[" << (now->tm_year + 1900) << std::setfill('0') << std::setw(2) << (now->tm_mon + 1)
 			  << std::setfill('0') << std::setw(2) << now->tm_mday << "_"

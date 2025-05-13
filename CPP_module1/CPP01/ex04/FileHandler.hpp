@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   FileHandler.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/24 11:23:13 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/05/13 14:31:27 by pjaguin          ###   ########.fr       */
+/*   Created: 2025/05/13 14:59:26 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/05/13 17:56:53 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef MAIN_HPP
+#define MAIN_HPP
 
-int	main(int ac, char **av)
+#include "dictionnary.hpp"
+
+class FileHandler
 {
-	if (ac < 2)
-	{
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-		return (1);
-	}
-	for (int i = 1; i < ac; i++)
-	{
-		for (int j = 0; av[i][j]; j++)
-			std::cout << (char)toupper(av[i][j]);
-	}
-	std::cout << std::endl;
-	return (0);
-}
+	private:
+		std::fstream src;
+		std::fstream dst;
+	public:
+		FileHandler();
+		~FileHandler();
+		void	open(char *file);
+		void	replace(char *file, char *to_replace, char *replacer);
+};
+
+#endif

@@ -8,6 +8,7 @@ infile
 test*
 *.o
 *.a
+*.pdf
 
 # Libft
 libft/main
