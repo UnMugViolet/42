@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 20:22:50 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/05/13 21:14:48 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/05/14 10:23:41 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,21 +40,31 @@ void	Harl::complain(std::string level)
 {
 	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	size_t lvl_count = sizeof(levels) / sizeof(levels[0]);
+	size_t lvl_index = 0;
 
 	void (Harl::*functions[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
-	for (size_t i = 0; i < lvl_count; i++)
+	for (size_t i = 0; i < lvl_count; ++i)
 	{
 		if (levels[i] == level)
 		{
-			while (i < lvl_count)
-			{
-				(this->*functions[i])();
-				i++;
-			}
-			return ;
+			lvl_index = i;
+			break;
 		}
-		else if (i >= lvl_count - 1)
+	}
+	switch (lvl_index)
+	{
+		case 0:
+			(this->*functions[0])();
+		case 1:
+			(this->*functions[1])();
+		case 2:
+			(this->*functions[2])();
+		case 3:
+			(this->*functions[3])();
+			break;
+		default:
 			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+			break;
 	}
 }
