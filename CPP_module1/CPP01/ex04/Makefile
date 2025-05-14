@@ -6,11 +6,11 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 11:06:17 by unmugviolet       #+#    #+#              #
-#    Updated: 2025/05/13 18:29:59 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/05/14 10:24:30 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = replace_in_file
+NAME = 			replace_in_file
 
 FILES = 		main.cpp FileHandler.cpp
 

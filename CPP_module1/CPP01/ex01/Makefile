@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+         #
+#    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 11:06:17 by unmugviolet       #+#    #+#              #
-#    Updated: 2025/05/07 11:52:37 by unmugviolet      ###   ########.fr        #
+#    Updated: 2025/05/14 10:24:44 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = more_brainz
+NAME = 			more_brainz
 
 FILES = 		main.cpp Zombie.cpp Zombie.hpp ZombieHorde.cpp
 
