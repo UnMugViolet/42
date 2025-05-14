@@ -5,10 +5,10 @@ out
 in
 outfile
 infile 
-test*
 *.o
 *.a
 *.pdf
+*.json
 
 # Libft
 libft/main
@@ -22,3 +22,12 @@ philo
 # CPP00
 CPP_module1/CPP00/ex00/megaphone
 CPP_module1/CPP00/ex01/phonebook
+CPP_module1/CPP00/ex02/account
+
+# CPP01
+CPP_module1/CPP01/ex00/BraiiiiiiinnnzzzZ
+CPP_module1/CPP01/ex01/more_brainz
+CPP_module1/CPP01/ex02/brain
+CPP_module1/CPP01/ex04/replace_in_file
+CPP_module1/CPP01/ex05/harl
+CPP_module1/CPP01/ex06/harlFitler

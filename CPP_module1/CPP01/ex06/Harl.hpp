@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 20:21:03 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/05/13 20:31:47 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/05/14 10:26:25 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef HARL_HPP
 # define HARL_HPP
+
 #include <iostream>
 
 class Harl

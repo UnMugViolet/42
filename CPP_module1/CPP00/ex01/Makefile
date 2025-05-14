@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+         #
+#    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 11:06:17 by unmugviolet       #+#    #+#              #
-#    Updated: 2025/05/07 09:18:35 by unmugviolet      ###   ########.fr        #
+#    Updated: 2025/05/14 11:26:06 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ $(OBJ_DIR):
 
 clean: 
 	@rm -rf $(OBJ_DIR)
-	@echo "$(GREEN)$(NAME) object files cleaned!$(DEFAULT)"
+	@echo "$(GREEN)$(NAME) object directory cleaned!$(DEFAULT)"
 
 fclean: clean
 	@rm -rf $(NAME)

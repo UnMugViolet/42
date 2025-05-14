@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 20:22:50 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/05/14 10:23:41 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/14 10:35:25 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,28 +38,31 @@ void Harl::error(void)
 
 void	Harl::complain(std::string level)
 {
-	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	size_t lvl_count = sizeof(levels) / sizeof(levels[0]);
-	size_t lvl_index = 0;
-
 	void (Harl::*functions[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	
+	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	size_t 		lvl_count = sizeof(levels) / sizeof(levels[0]);
+	int			lvl_index = -1;
 
 	for (size_t i = 0; i < lvl_count; ++i)
 	{
 		if (levels[i] == level)
 		{
 			lvl_index = i;
-			break;
+			break ;
 		}
 	}
 	switch (lvl_index)
 	{
 		case 0:
 			(this->*functions[0])();
+			std::cout << std::endl;
 		case 1:
 			(this->*functions[1])();
+			std::cout << std::endl;
 		case 2:
 			(this->*functions[2])();
+			std::cout << std::endl;
 		case 3:
 			(this->*functions[3])();
 			break;

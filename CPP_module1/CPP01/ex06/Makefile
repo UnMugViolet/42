@@ -6,17 +6,18 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 11:06:17 by unmugviolet       #+#    #+#              #
-#    Updated: 2025/05/14 10:22:47 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/05/14 12:23:25 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 			harlFitler
 
-FILES = 		main.cpp Harl.cpp Harl.hpp
+SRC_FILES = 	main.cpp Harl.cpp
 
-SRC_FILES = 	$(FILES) 
+SRC_DIR =		./
+OBJ_DIR =		./objects/
 
-OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.c=.o))
+OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
 
 CC = c++
 MAKE = make
@@ -35,9 +36,16 @@ $(NAME) : $(OBJ)
 	@echo "$(GREEN)$(NAME) compiled!$(DEFAULT)"
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
+$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp | $(OBJ_DIR)
+	@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
+	@$(CC) $(CFLAGS) $(INC_H) -c $< -o $@
+
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
+
 clean: 
 	@rm -rf $(OBJ)
-	@echo "$(GREEN)$(NAME) object files cleaned!$(DEFAULT)"
+	@echo "$(GREEN)$(NAME) object directory cleaned!$(DEFAULT)"
 
 fclean: clean
 	@rm -rf $(NAME)
@@ -45,9 +53,4 @@ fclean: clean
 	
 re: fclean all
 
-go: all
-	@./$(NAME)
-	@rm -rf $(NAME)
-
-.PHONY: all clean fclean re go gov
-	
+.PHONY: all clean fclean re
