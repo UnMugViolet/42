@@ -9,6 +9,7 @@ infile
 *.a
 *.pdf
 *.json
+*.test
 
 # Libft
 libft/main

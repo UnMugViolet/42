@@ -6,7 +6,7 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 11:06:17 by unmugviolet       #+#    #+#              #
-#    Updated: 2025/05/14 12:23:25 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/05/15 12:07:42 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,11 @@ clean:
 fclean: clean
 	@rm -rf $(NAME)
 	@echo "$(CYAN)$(NAME) executables and objects removed succesfully!$(DEFAULT)"
+
+go: all
+	@./$(NAME)
+	@rm -rf $(NAME)
 	
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re go
