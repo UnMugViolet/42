@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 16:42:22 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/16 11:07:35 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/16 11:13:27 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ Fixed::Fixed() : _fixedPointValue(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
-
 
 Fixed::~Fixed()
 {
