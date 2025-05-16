@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 16:42:22 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/16 10:30:09 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/16 11:07:35 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,19 @@ Fixed::Fixed() : _fixedPointValue(0)
 	std::cout << "Default constructor called" << std::endl;
 }
 
+
+Fixed::~Fixed()
+{
+	std::cout << "Destructor called" << std::endl;
+}
+
+Fixed::Fixed(Fixed const &copy)
+{
+	std::cout << "Copy constructor called" << std::endl;
+	*this = copy;
+}
+
+// Conversion functions
 Fixed::Fixed(const float nbr)
 {
 	std::cout << "Float constructor called" << std::endl;
@@ -29,22 +42,32 @@ Fixed::Fixed(const int nbr)
 	this->_fixedPointValue = nbr << this->_fractionalBits;
 }
 
-Fixed::~Fixed()
+int Fixed::toInt(void) const
 {
-	std::cout << "Destructor called" << std::endl;
+	return this->_fixedPointValue >> this->_fractionalBits;
 }
 
-Fixed::Fixed(Fixed const &other)
+float Fixed::toFloat(void) const
 {
-	std::cout << "Default constructor called" << std::endl;
-	*this = other;
+	return (float)this->_fixedPointValue / (1 << this->_fractionalBits);
+}
+
+// Getters and Setters
+int Fixed::getRawBits(void) const
+{
+	return this->_fixedPointValue;
 }
 
 Fixed &Fixed::operator=(Fixed const &other)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
-		this->_fixedPointValue = other._fixedPointValue;
+		this->_fixedPointValue = other.getRawBits();
 	return *this;
 }
 
+std::ostream &operator<<(std::ostream &o, Fixed const &fixed)
+{
+	o << fixed.toFloat();
+	return o;
+}
