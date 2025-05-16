@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 20:30:05 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/05/15 17:12:20 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/16 10:34:50 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 #include <iostream>
 #include <cmath>
-#include <string>
 
 class Fixed
 {
@@ -26,10 +25,13 @@ class Fixed
 		static const int _fractionalBits = 8;
 	public:
 		Fixed();
-		Fixed(const Fixed &other);
 		~Fixed();
-		int		getRawBits(void) const;
-		int		setRawBits(int const raw);
+		Fixed(float const nbr);
+		Fixed(int const nbr);
+		Fixed(const Fixed &other);
+		Fixed 	&operator=(Fixed const &other);
+		float	toFloat(void) const;
+		int		toInt(void) const;
 };
 
 #endif

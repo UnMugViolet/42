@@ -6,7 +6,7 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 11:06:17 by unmugviolet       #+#    #+#              #
-#    Updated: 2025/05/15 12:07:42 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/05/16 10:27:55 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,9 @@ NAME = 			a.out
 
 SRC_FILES = 	main.cpp Fixed.cpp
 
-SRC_DIR =		./
+SRC_DIR =		./srcs/
 OBJ_DIR =		./objects/
+INC_DIR =		./includes/
 
 OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
 
@@ -38,7 +39,7 @@ $(NAME) : $(OBJ)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp | $(OBJ_DIR)
 	@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
-	@$(CC) $(CFLAGS) $(INC_H) -c $< -o $@
+	@$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
