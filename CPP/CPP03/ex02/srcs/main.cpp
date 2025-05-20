@@ -6,24 +6,24 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:20:36 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/20 12:48:16 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/20 13:04:19 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main(void)
 {
 	std::cout << "______________________Classic________________________" << std::endl;
 	{	
-		ScavTrap a("A");
-		ScavTrap b("A-Clone");
-		ScavTrap c("C");
+		FragTrap a("A");
+		FragTrap b("A-Clone");
+		FragTrap c("C");
 
 		b = a;
 
-		a.guardGate();
-		a.guardGate();
+		a.highFivesGuys();
+		a.highFivesGuys();
 		a.attack("C");
 		c.takeDamage(9);
 		c.attack("A");
@@ -41,8 +41,8 @@ int main(void)
 	}
 /* 	std::cout << "______________________For loop________________________" << std::endl;
 	{
-		ScavTrap a("A");
-		ScavTrap c("C");
+		FragTrap a("A");
+		FragTrap c("C");
 
 		for (int i = 0; i <= 50; i++)
 		{			
