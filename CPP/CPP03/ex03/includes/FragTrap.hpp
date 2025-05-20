@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 12:31:55 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/20 14:31:12 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/20 16:03:46 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,5 @@ class FragTrap : virtual public ClapTrap
 		
 		void	highFivesGuys(void);
 };
-
 
 #endif

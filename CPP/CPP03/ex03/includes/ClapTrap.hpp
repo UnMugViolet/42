@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:25:48 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/20 14:44:47 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/20 16:04:05 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class ClapTrap
 	public:
 		ClapTrap();
 		ClapTrap(std::string name);
-		virtual ~ClapTrap();
+		~ClapTrap();
 		
 		ClapTrap	&operator=(ClapTrap const &other);
 

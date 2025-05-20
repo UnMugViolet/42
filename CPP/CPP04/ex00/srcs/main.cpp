@@ -6,25 +6,47 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:20:36 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/20 16:03:55 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/20 10:41:51 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "DiamondTrap.hpp"
+#include "ClapTrap.hpp"
 
 int main(void)
 {
 	std::cout << "______________________Classic________________________" << std::endl;
+	{	
+		ClapTrap a("A");
+		ClapTrap b("A-Clone");
+		ClapTrap c("C");
 
-	DiamondTrap a("A");
-	DiamondTrap b("A-Clone");
-	DiamondTrap *c = new DiamondTrap("C");
+		b = a;
 
-	b.whoAmI();
-	b = a;
-	b.whoAmI();
-	a.attack("C");
-	c->takeDamage(90);
-	std::cout << std::endl;
-	delete c;
+		a.attack("C");
+		c.takeDamage(9);
+		c.attack("A");
+		a.takeDamage(10);
+		// a A just died cannot perform any other action
+		a.attack("C");
+		c.takeDamage(0);
+		a.beRepaired(1);
+		c.beRepaired(9);
+		
+		// a is dead b is kepping up
+		b.attack("C");
+		c.takeDamage(11);
+		b.beRepaired(1);		
+	}
+	std::cout << "______________________For loop________________________" << std::endl;
+	{
+		ClapTrap a("A");
+		ClapTrap c("C");
+
+		for (int i = 0; i <= 10; i++)
+		{			
+			a.attack("C");
+			c.takeDamage(9);
+			c.beRepaired(9);
+		}
+	}
 }
