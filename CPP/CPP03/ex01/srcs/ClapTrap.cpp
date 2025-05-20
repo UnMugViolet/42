@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:21:12 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/20 11:25:43 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/20 11:36:38 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,19 +126,21 @@ size_t ClapTrap::getAttackDamage() const
 }
 
 // Setters
-
 void ClapTrap::setName(std::string name)
 {
 	this->_name = name;
 }
+
 void ClapTrap::setHealthPoints(size_t health_points)
 {
 	this->_health_points = health_points;
 }
+
 void ClapTrap::setEnergyPoints(size_t energy_points)
 {
 	this->_energy_points = energy_points;
 }
+
 void ClapTrap::setAttackDamage(size_t attack_damage)
 {
 	this->_attack_damage = attack_damage;
