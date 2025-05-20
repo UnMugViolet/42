@@ -6,47 +6,33 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:20:36 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/20 10:41:51 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/20 17:06:08 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "Cat.hpp"
+#include "WrongCat.hpp"
+#include "Dog.hpp"
 
-int main(void)
+int	main(void)
 {
-	std::cout << "______________________Classic________________________" << std::endl;
-	{	
-		ClapTrap a("A");
-		ClapTrap b("A-Clone");
-		ClapTrap c("C");
+	const Animal	*meta = new Animal();
+	const Animal	*j = new Dog();
+	const Animal	*i = new Cat();
+	const WrongAnimal	*k = new WrongCat();
 
-		b = a;
+	std::cout << j->getType() << " " << std::endl;
+	std::cout << i->getType() << " " << std::endl;
+	std::cout << k->getType() << " " << std::endl;
+	i->makeSound(); // will output the cat sound!
+	j->makeSound();
+	meta->makeSound();
+	k->makeSound(); // will output the wrong cat sound!
 
-		a.attack("C");
-		c.takeDamage(9);
-		c.attack("A");
-		a.takeDamage(10);
-		// a A just died cannot perform any other action
-		a.attack("C");
-		c.takeDamage(0);
-		a.beRepaired(1);
-		c.beRepaired(9);
-		
-		// a is dead b is kepping up
-		b.attack("C");
-		c.takeDamage(11);
-		b.beRepaired(1);		
-	}
-	std::cout << "______________________For loop________________________" << std::endl;
-	{
-		ClapTrap a("A");
-		ClapTrap c("C");
+	delete meta;
+	delete i;
+	delete j;
+	delete k;
 
-		for (int i = 0; i <= 10; i++)
-		{			
-			a.attack("C");
-			c.takeDamage(9);
-			c.beRepaired(9);
-		}
-	}
+	return (0);
 }
