@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:20:36 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/20 17:06:08 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/20 17:33:17 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int	main(void)
 	std::cout << k->getType() << " " << std::endl;
 	i->makeSound(); // will output the cat sound!
 	j->makeSound();
-	meta->makeSound();
 	k->makeSound(); // will output the wrong cat sound!
+	meta->makeSound();
 
 	delete meta;
 	delete i;

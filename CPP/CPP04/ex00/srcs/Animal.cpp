@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 16:20:46 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/20 17:12:42 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/20 17:32:42 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ std::string Animal::getType() const
 
 void Animal::makeSound() const
 {
-	std::cout << "* Unrecognized animal sound *" << std::endl;
+	std::cout << "* Unrecognized Animal sound *" << std::endl;
 }
 
