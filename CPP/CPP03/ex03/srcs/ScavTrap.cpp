@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 10:42:59 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/20 12:28:39 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/20 14:53:25 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 ScavTrap::ScavTrap(): ClapTrap()
 {
-	this->ClapTrap::setHealthPoints(100);
-	this->ClapTrap::setEnergyPoints(50);
-	this->ClapTrap::setAttackDamage(20);
+	this->_health_points = 100;
+	this->_energy_points = 50;
+	this->_attack_damage = 20;
 	this->_guarding_mode = false;
 	std::cout << GREEN << "Default constructor called" << NEUTRAL << std::endl; 
 }
 
 ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {
-	this->ClapTrap::setHealthPoints(100);
-	this->ClapTrap::setEnergyPoints(50);
-	this->ClapTrap::setAttackDamage(20);
+	this->_health_points = 100;
+	this->_energy_points = 50;
+	this->_attack_damage = 20;
 	this->_guarding_mode = false;
-	std::cout << GREEN << "ScavTrap constructor with name: " << this->ClapTrap::getName() << " called" << NEUTRAL << std::endl;
+	std::cout << GREEN << "ScavTrap constructor with name: " << this->_name << " called" << NEUTRAL << std::endl;
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << RED << "ScavTrap destructor called for " << this->ClapTrap::getName() << NEUTRAL << std::endl;
+	std::cout << RED << "ScavTrap destructor called for " << this->_name << NEUTRAL << std::endl;
 }
 
 ScavTrap	&ScavTrap::operator=(ScavTrap const &other) 
@@ -48,36 +48,34 @@ ScavTrap	&ScavTrap::operator=(ScavTrap const &other)
 
 void	ScavTrap::guardGate()
 {
-	if (this->ClapTrap::getHealthPoints() == 0)
+	if (this->_health_points == 0)
 	{
-		std::cout << "🪦 ScavTrap " << this->ClapTrap::getName() << " cannot guard, already dead" << std::endl; 
+		std::cout << "🪦 ScavTrap " << this->_name << " cannot guard, already dead" << std::endl; 
 		return ;
 	}
 	else if (this->_guarding_mode)
 	{
-		std::cout << "ScavTrap " << this->ClapTrap::getName() << " is already guarding the gate" << std::endl; 
+		std::cout << "ScavTrap " << this->_name << " is already guarding the gate" << std::endl; 
 		return ;
 	}
-	std::cout << " 🛡️ ScavTrap " << this->ClapTrap::getName() << " is now guarding the gate" << std::endl;
+	std::cout << " 🛡️ ScavTrap " << this->_name << " is now guarding the gate" << std::endl;
 	this->_guarding_mode = true;
 }
 
 void	ScavTrap::attack(const std::string &target)
 {
-	size_t energy_points = this->ClapTrap::getEnergyPoints();
-
-	if (this->ClapTrap::getHealthPoints() == 0)
+	if (this->_health_points == 0)
 	{
-		std::cout << "🪦 ScavTrap " << this->ClapTrap::getName() << " cannot be attacked, already dead" << std::endl; 
+		std::cout << "🪦 ScavTrap " << this->_name << " cannot be attacked, already dead" << std::endl; 
 		return ;
 	}
-	else if (this->ClapTrap::getEnergyPoints() == 0)
+	else if (this->_energy_points == 0)
 	{
-		std::cout << "🪫 ScavTrap " << this->ClapTrap::getName() << " cannot attack, not enough energy" << std::endl; 
+		std::cout << "🪫 ScavTrap " << this->_name << " cannot attack, not enough energy" << std::endl; 
 		return ;
 	}
-	std::cout	<< "🗡️ ScavTrap " << this->ClapTrap::getName() 
+	std::cout	<< "🗡️ ScavTrap " << this->_name 
 				<< " attacks " << target
 				<< std::endl;
-	this->ClapTrap::setEnergyPoints(energy_points--);
+	this->_energy_points--;
 }

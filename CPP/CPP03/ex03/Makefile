@@ -6,13 +6,13 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 11:06:17 by unmugviolet       #+#    #+#              #
-#    Updated: 2025/05/20 13:10:36 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/05/20 15:52:12 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 			a.out
 
-SRC_FILES = 	main.cpp ClapTrap.cpp FragTrap.cpp DiamondTrap.cpp
+SRC_FILES = 	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
 SRC_DIR =		./srcs/
 OBJ_DIR =		./objects/
@@ -22,7 +22,7 @@ OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
 
 CC = c++
 MAKE = make
-CFLAGS = -Wall -Werror -Wextra -g3 -std=c++98
+CFLAGS = -Wall -Werror -Wextra -g3 -Wshadow -Wno-shadow -std=c++98
 
 DEFAULT = \033[0m
 DEF_COLOR = \033[0;90m
@@ -55,7 +55,11 @@ fclean: clean
 go: all
 	@./$(NAME)
 	@rm -rf $(NAME)
+
+gov: all
+	@ valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
+	@rm -rf $(NAME)
 	
 re: fclean all
 
-.PHONY: all clean fclean re go
+.PHONY: all clean fclean re go gov

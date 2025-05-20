@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 12:31:55 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/20 13:04:50 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/20 14:31:26 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ class FragTrap : public ClapTrap
 		FragTrap();
 		FragTrap(const FragTrap &other);
 		FragTrap(std::string name);
-		virtual ~FragTrap();
+	
+		~FragTrap();
 		
 		FragTrap	&operator=(FragTrap const &other);
 		

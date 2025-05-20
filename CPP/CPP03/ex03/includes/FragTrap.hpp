@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 12:31:55 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/20 13:11:35 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/20 14:31:12 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 # include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 	private:
 		
@@ -26,8 +26,9 @@ class FragTrap : public ClapTrap
 		FragTrap();
 		FragTrap(const FragTrap &other);
 		FragTrap(std::string name);
-		virtual ~FragTrap();
 		
+		~FragTrap();
+
 		FragTrap	&operator=(FragTrap const &other);
 		
 		void	highFivesGuys(void);

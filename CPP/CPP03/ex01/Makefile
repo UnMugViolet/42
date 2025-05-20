@@ -6,7 +6,7 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 11:06:17 by unmugviolet       #+#    #+#              #
-#    Updated: 2025/05/20 10:43:34 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/05/20 15:52:29 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,11 @@ fclean: clean
 go: all
 	@./$(NAME)
 	@rm -rf $(NAME)
+
+gov: all
+	@ valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
+	@rm -rf $(NAME)
 	
 re: fclean all
 
-.PHONY: all clean fclean re go
+.PHONY: all clean fclean re go gov

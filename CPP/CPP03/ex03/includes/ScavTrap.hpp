@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 10:42:34 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/20 13:11:38 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/20 14:30:59 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 # include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
 	private:
 		bool _guarding_mode;
@@ -27,7 +27,7 @@ class ScavTrap : public ClapTrap
 		ScavTrap(const ScavTrap &other);
 		ScavTrap(std::string name);
 		
-		virtual ~ScavTrap();
+		~ScavTrap();
 		
 		ScavTrap	&operator=(ScavTrap const &other);
 

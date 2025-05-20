@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:21:12 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/20 11:36:38 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/20 14:44:56 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,46 +102,4 @@ void	ClapTrap::beRepaired(unsigned int amount)
 				<< " has been repaired of " << amount
 				<< ", now has " << this->_health_points << std::endl;
 	this->_energy_points--;
-}
-
-// Getters
-std::string ClapTrap::getName() const
-{
-	return this->_name;
-}
-
-size_t ClapTrap::getHealthPoints() const
-{
-	return this->_health_points;
-}
-
-size_t ClapTrap::getEnergyPoints() const
-{
-	return this->_energy_points;
-}
-
-size_t ClapTrap::getAttackDamage() const
-{
-	return this->_attack_damage;
-}
-
-// Setters
-void ClapTrap::setName(std::string name)
-{
-	this->_name = name;
-}
-
-void ClapTrap::setHealthPoints(size_t health_points)
-{
-	this->_health_points = health_points;
-}
-
-void ClapTrap::setEnergyPoints(size_t energy_points)
-{
-	this->_energy_points = energy_points;
-}
-
-void ClapTrap::setAttackDamage(size_t attack_damage)
-{
-	this->_attack_damage = attack_damage;
 }

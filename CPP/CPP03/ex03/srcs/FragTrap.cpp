@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 12:50:44 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/20 13:06:37 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/20 14:49:35 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 FragTrap::FragTrap(): ClapTrap()
 {
-	this->ClapTrap::setHealthPoints(100);
-	this->ClapTrap::setEnergyPoints(100);
-	this->ClapTrap::setAttackDamage(30);
+	this->_health_points = 100;
+	this->_energy_points = 100;
+	this->_attack_damage = 30;
 	std::cout << GREEN << "Default constructor called" << NEUTRAL << std::endl; 
 }
 
 FragTrap::FragTrap(std::string name): ClapTrap(name)
 {
-	this->ClapTrap::setHealthPoints(100);
-	this->ClapTrap::setEnergyPoints(100);
-	this->ClapTrap::setAttackDamage(30);
-	std::cout << GREEN << "FragTrap constructor with name: " << this->ClapTrap::getName() << " called" << NEUTRAL << std::endl;
+	this->_health_points = 100;
+	this->_energy_points = 100;
+	this->_attack_damage = 30;
+	std::cout << GREEN << "FragTrap constructor with name: " << this->_name  << " called" << NEUTRAL << std::endl;
 }
 
 FragTrap::~FragTrap()
 {
-	std::cout << RED << "FragTrap destructor called for " << this->ClapTrap::getName() << NEUTRAL << std::endl;
+	std::cout << RED << "FragTrap destructor called for " << this->_name  << NEUTRAL << std::endl;
 }
 
 FragTrap	&FragTrap::operator=(FragTrap const &other) 
@@ -45,5 +45,5 @@ FragTrap	&FragTrap::operator=(FragTrap const &other)
 
 void	FragTrap::highFivesGuys(void)
 {
-	std::cout << "🤚 FragTrap " << this->ClapTrap::getName() << " is asking for a high five!" << std::endl;
+	std::cout << "🤚 FragTrap " << this->_name  << " is asking for a high five!" << std::endl;
 }

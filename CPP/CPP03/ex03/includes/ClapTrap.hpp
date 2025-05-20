@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:25:48 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/20 13:11:29 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/20 14:44:47 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 class ClapTrap
 {
-	private:
+	protected:
 		std::string _name;
 		size_t	_health_points;
 		size_t	_energy_points;
@@ -38,18 +38,6 @@ class ClapTrap
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
-
-		// Getters
-		std::string getName() const;
-		size_t getHealthPoints() const;
-		size_t getEnergyPoints() const;
-		size_t getAttackDamage() const;
-
-		// Setters
-		void setName(std::string name);
-		void setHealthPoints(size_t health_points);
-		void setEnergyPoints(size_t energy_points);
-		void setAttackDamage(size_t attack_damage);
 };
 
 # endif
