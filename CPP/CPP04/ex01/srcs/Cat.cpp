@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 16:43:27 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/21 16:31:58 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/21 17:00:02 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,9 @@ Cat	&Cat::operator=(Cat const &other)
 	}
 	std::cout << GREEN << "Cat deep copy constructor called" << NEUTRAL << std::endl;
 	return *this;
+}
+
+Brain *Cat::getBrain() const
+{
+	return this->_brain;
 }

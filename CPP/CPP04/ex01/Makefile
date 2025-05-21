@@ -6,14 +6,13 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 11:06:17 by unmugviolet       #+#    #+#              #
-#    Updated: 2025/05/21 15:17:18 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/05/21 17:46:24 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 			a.out
 
-SRC_FILES = 	main.cpp Cat.cpp Dog.cpp Animal.cpp \
-				WrongAnimal.cpp WrongCat.cpp Brain.cpp \
+SRC_FILES = 	main.cpp Cat.cpp Dog.cpp Animal.cpp Brain.cpp \
 
 SRC_DIR =		./srcs/
 OBJ_DIR =		./objects/

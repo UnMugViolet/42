@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 16:20:19 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/21 16:20:59 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/21 17:48:44 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 # include <iostream>
 # include <string>
+# include "Brain.hpp"
 # include "dict.hpp"
 
 class Animal

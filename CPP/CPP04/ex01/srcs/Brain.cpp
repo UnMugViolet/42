@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 17:35:21 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/21 16:20:14 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/21 17:45:10 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,13 @@ Brain &Brain::operator=(Brain const &other)
 }
 
 // Getters and Setters
-std::string Brain::getIdeas() const
+std::string Brain::getIdeas(int index)
 {
-	return this->ideas[0];
+	if (index >= 0 && index < 100)
+		return (this->ideas[index]);
+	else
+		std::cout << RED << "Not valid index to set idea." << NEUTRAL << std::endl;
+	return ("");
 }
 
 void	Brain::setIdeas(std::string const &idea, size_t index)

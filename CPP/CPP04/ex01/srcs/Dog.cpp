@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 16:43:27 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/21 16:30:39 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/21 17:04:24 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,9 @@ Dog	&Dog::operator=(Dog const &other)
 	}
 	std::cout << GREEN << "Dog deep copy constructor called" << NEUTRAL << std::endl;
 	return *this;
+}
+
+Brain *Dog::getBrain() const
+{
+	return this->_brain;
 }

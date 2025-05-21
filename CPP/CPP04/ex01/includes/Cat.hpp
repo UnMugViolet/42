@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 16:23:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/21 14:21:07 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/21 17:00:24 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ class Cat: public Animal
 		void makeSound() const;
 
 		Cat &operator=(Cat const &other);
+
+		Brain *getBrain() const;
 };
 
 #endif

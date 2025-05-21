@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 16:22:07 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/21 14:20:55 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/21 17:00:38 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ class Dog: public Animal
 		void makeSound() const;
 
 		Dog &operator=(Dog const &other);
+
+		Brain *getBrain() const;
 };
 
 #endif
