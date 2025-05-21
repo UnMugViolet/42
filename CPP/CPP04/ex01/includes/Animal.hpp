@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 16:20:19 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/20 17:12:05 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/21 16:20:59 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <string>
 # include "dict.hpp"
 
-
 class Animal
 {
 	protected:
@@ -27,9 +26,12 @@ class Animal
 	public:
 		Animal();
 		virtual ~Animal();
+	
+		Animal(Animal const &other);
+		Animal &operator=(Animal const &other);
+	
 		std::string getType() const;
 		virtual void makeSound() const;
 };
-
 
 #endif

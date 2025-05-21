@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:20:36 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/20 17:40:25 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/21 16:31:25 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,20 @@
 
 int	main(void)
 {
-	const Animal	*j = new Dog();
-	const Animal	*i = new Cat();
+	size_t const 	N = 2;
+	Animal const	*animals[N];
 
-	for (int i = 0; i <= 100; i++)
+	for (size_t i = 0; i < N; i++)
 	{
-		Cat *cat = new Cat();
-		Dog *dog = new Dog();
-		
+		if (i % 2 == 0)
+			animals[i] = new Dog();
+		else
+			animals[i] = new Cat();
 	}
-	delete	j; // should not create a leak
-	delete	i;
+	
+	// Delete loop
+	for (size_t i = 0; i < N; i++)
+		delete animals[i];
 
-	return (0);
+	return 0;
 }
