@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/20 16:23:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/21 18:03:07 by pjaguin          ###   ########.fr       */
+/*   Created: 2025/05/20 17:35:37 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/05/21 17:47:22 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-# include "Animal.hpp"
-# include "Brain.hpp"
-# include "dict.hpp"
+#include "dict.hpp"
+#include <iostream>
+#include <string>
 
-class Cat: public Animal
+class Brain
 {
 	private:
-		std::string _sound;
-		Brain *_brain;
+		std::string ideas[100];
 	public:
-		Cat();
-		virtual ~Cat();
-		void makeSound() const;
-
-		Cat &operator=(Cat const &other);
-
-		Brain *getBrain() const;
+		Brain();
+		virtual ~Brain();
+		Brain(Brain const &other);
+		
+		Brain &operator=(Brain const &other);
+	
+		std::string getIdeas(int index);
+		void setIdeas(std::string const &idea, size_t index);
 };
 
-#endif
+# endif

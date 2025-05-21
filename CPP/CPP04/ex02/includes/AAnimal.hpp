@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/20 16:23:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/21 18:03:07 by pjaguin          ###   ########.fr       */
+/*   Created: 2025/05/20 16:20:19 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/05/21 17:58:43 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
-# include "Animal.hpp"
+# include <iostream>
+# include <string>
 # include "Brain.hpp"
 # include "dict.hpp"
 
-class Cat: public Animal
+class AAnimal
 {
-	private:
-		std::string _sound;
-		Brain *_brain;
+	protected:
+		std::string type;
 	public:
-		Cat();
-		virtual ~Cat();
-		void makeSound() const;
-
-		Cat &operator=(Cat const &other);
-
-		Brain *getBrain() const;
+		AAnimal();
+		virtual ~AAnimal();
+	
+		AAnimal(AAnimal const &other);
+		AAnimal &operator=(AAnimal const &other);
+	
+		virtual std::string getType() = 0;
+		virtual void makeSound() const = 0;
 };
 
 #endif
