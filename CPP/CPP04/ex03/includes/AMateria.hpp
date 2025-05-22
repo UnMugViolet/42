@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 11:34:57 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/22 12:09:36 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/22 14:30:10 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 
 # include "ICharacter.hpp"
 # include "dict.hpp"
+
+class ICharacter;
 
 class AMateria
 {

@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 11:45:18 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/22 13:14:54 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/22 14:26:58 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ class IMateriaSource
 {
 	public:
 		virtual ~IMateriaSource();
-		virtual void learnMateria(AMateria*) = 0;
-		virtual AMateria* createMateria(std::string const & type) = 0;
+		virtual void learnMateria(AMateria *src) = 0;
+		virtual AMateria* createMateria(std::string const &type) = 0;
 };
 
 #endif

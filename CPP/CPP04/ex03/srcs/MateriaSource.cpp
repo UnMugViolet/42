@@ -1,27 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dict.hpp                                           :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/20 17:11:35 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/22 14:25:36 by pjaguin          ###   ########.fr       */
+/*   Created: 2025/05/22 15:08:11 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/05/22 15:08:19 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "MateriaSource.hpp"
 
-#ifndef DICT_HPP
-# define DICT_HPP
 
-# define BOLD "\033[1m"
-# define ITALIC "\033[3m"
-# define UNDERLINE "\033[4m"
-# define RESET "\033[0m"
-
-#define GREEN "\033[0;92m"
-#define RED "\033[0;31m"
-#define NEUTRAL "\033[0m"
-
-#endif

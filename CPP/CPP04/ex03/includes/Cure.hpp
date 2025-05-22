@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dict.hpp                                           :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/20 17:11:35 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/22 14:25:36 by pjaguin          ###   ########.fr       */
+/*   Created: 2025/05/22 11:53:14 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/05/22 14:05:33 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#ifndef DICT_HPP
-# define DICT_HPP
+#ifndef CURE_HPP
+# define CURE_HPP
 
-# define BOLD "\033[1m"
-# define ITALIC "\033[3m"
-# define UNDERLINE "\033[4m"
-# define RESET "\033[0m"
+# include "AMateria.hpp"
 
-#define GREEN "\033[0;92m"
-#define RED "\033[0;31m"
-#define NEUTRAL "\033[0m"
+class Cure: public AMateria
+{
+	protected:
+		std::string type;
+		std::string effect;
+		std::string target;
+	public:
+		Cure();
+		Cure(Cure const &other);
+		~Cure();
+
+		Cure &operator=(Cure const &other);
+
+		Cure *clone() const;
+		void use(ICharacter& target);
+};
 
 #endif

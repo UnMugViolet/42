@@ -6,11 +6,15 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:20:36 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/22 11:47:54 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/22 15:14:45 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
+#include "Character.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
+#include "MateriaSource.hpp"
 
 int main()
 {
@@ -34,5 +38,5 @@ int main()
     delete bob;
     delete me;
     delete src;
-    return 0
+    return 0;
 }

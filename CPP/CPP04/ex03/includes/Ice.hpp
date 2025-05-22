@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 11:53:14 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/22 11:55:51 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/22 14:04:49 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ class Ice: public AMateria
 
 		Ice &operator=(Ice const &other);
 
-		// Getters
-		std::string const &getType() const;
+		Ice *clone() const;
+		void use(ICharacter& target);
 };
 
 #endif

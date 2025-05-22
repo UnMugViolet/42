@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 11:41:51 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/22 12:10:05 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/22 14:58:37 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +19,30 @@
 # include "AMateria.hpp"
 # include "dict.hpp"
 
+#define INVENTORY_SIZE 4
+
+class ICharacter;
 
 class Character: virtual public ICharacter
 {
 	private:
 		std::string _name;
-		AMateria *_inventory[4];
-		
+		AMateria *_inventory[INVENTORY_SIZE];
 	public:
 		Character();
-		Character(std::string const & name);
+		Character(std::string const &name);
 		Character(Character const &other);
 
 		~Character();
 
 		Character &operator=(Character const &other);
 
-		std::string const & getName() const;
+		std::string const &getName() const;
 		void equip(AMateria* m);
 		void unequip(int idx);
 		void use(int idx, ICharacter& target);
+
+		size_t getInventorySize() const;
 };
 
 #endif
