@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 16:43:27 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/21 18:03:28 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/22 12:18:31 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,14 @@ Cat::Cat(): AAnimal(), _sound("Meow")
 	this->type = "Cat";
 	this->_brain = new Brain();
 	std::cout << GREEN << "Cat default constructor called" << NEUTRAL << std::endl;
+}
+
+Cat::Cat(Cat const &other): AAnimal(other)
+{
+	this->type = other.type;
+	this->_sound = other._sound;
+	this->_brain = new Brain(*other._brain);
+	std::cout << GREEN << "Cat copy constructor called" << NEUTRAL << std::endl;
 }
 
 Cat::~Cat()
@@ -48,4 +56,10 @@ Cat	&Cat::operator=(Cat const &other)
 Brain *Cat::getBrain() const
 {
 	return this->_brain;
+}
+
+std::string Cat::getType()
+{
+	std::cout << "Cat getType called" << std::endl;
+	return this->type;
 }

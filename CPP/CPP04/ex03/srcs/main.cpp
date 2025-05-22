@@ -6,42 +6,33 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:20:36 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/22 12:19:18 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/22 11:47:54 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include "Dog.hpp"
+#include "AMateria.hpp"
 
-/* static void crash()
+int main()
 {
-	AAnimal* meta = new AAnimal();
-	std::cout << meta->getType() << " " << std::endl;
-	meta->makeSound();
-	delete meta;
-} */
+    IMateriaSource *src = new MateriaSource();
+    src->learnMateria(new Ice());
+    src->learnMateria(new Cure());
 
-int main(void)
-{
-    Cat *h = new Cat();
-    Cat *i = (h);
-    Dog *j = new Dog();
-    AAnimal *k = new Cat();
+    ICharacter *me = new Character("me");
 
-    i = h;
+    AMateria *tmp;
+    tmp = src->createMateria("ice");
+    me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
 
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    std::cout << k->getType() << " " << std::endl;
-    i->makeSound(); // will output the cat sound!
-    j->makeSound();
-    k->makeSound();
+    ICharacter *bob = new Character("bob");
 
-    // crash();
+    me->use(0, *bob);
+    me->use(1, *bob);
 
-    delete i;
-    delete j;
-    delete k;
-
-    return 0;
+    delete bob;
+    delete me;
+    delete src;
+    return 0
 }

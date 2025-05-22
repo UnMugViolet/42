@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 16:23:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/21 18:01:49 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/22 10:57:13 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,17 @@ class Cat: public AAnimal
 		Brain *_brain;
 	public:
 		Cat();
-		virtual ~Cat();
-		void makeSound() const;
+		Cat(Cat const &other);
+	
+		~Cat();
 
 		Cat &operator=(Cat const &other);
+		
+		void makeSound() const;
 
+		// Getters
 		Brain *getBrain() const;
+		virtual std::string getType();
 };
 
 #endif

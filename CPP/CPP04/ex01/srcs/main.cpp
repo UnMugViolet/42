@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:20:36 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/21 17:50:04 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/22 11:13:34 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "Dog.hpp"
 #include <sstream>
 
-#define N 1
+#define N 10
 
 std::string to_str(int number)
 {
@@ -36,7 +36,14 @@ int	main(void)
 			animals[i] = new Cat();
 	}		
 	
-	std::cout << "_______________________Animal sound_______________________" << std::endl;
+	std::cout << "____________________Animal sound and type____________________" << std::endl;
+	for (size_t i = 0; i < N; i++)
+	{
+		std::cout << "Animal " << to_str(i) << ": ";
+		animals[i]->makeSound();
+		std::cout << "His type is: " << animals[i]->getType() << std::endl;
+	}
+	
 	// Delete loop
 	for (size_t i = 0; i < N; i++)
 		delete animals[i];

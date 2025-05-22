@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/20 16:23:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/22 10:58:27 by pjaguin          ###   ########.fr       */
+/*   Created: 2025/05/22 12:03:34 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/05/22 12:17:31 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "AMateria.hpp"
 
-#ifndef CAT_HPP
-# define CAT_HPP
-
-# include "Animal.hpp"
-# include "dict.hpp"
-
-class Cat: public Animal
+AMateria::AMateria(): type("No type")
 {
-	private:
-		std::string _sound;
-	public:
-		Cat();
-		~Cat();
+}
 
-		Cat(Cat const &other);
+AMateria::AMateria(std::string const &type): type(type)
+{
+}
 
-		Cat &operator=(Cat const &other);
+AMateria &AMateria::operator=(AMateria const &other)
+{
+	if (this != &other)
+		this->type = other.type;
+	return *this;
+}
 
-		void makeSound() const;
-};
+AMateria::AMateria(AMateria const &other)
+{
+	if (this != &other)
+		this->type = other.type;
+	return *this;
+}
 
-#endif
+AMateria::~AMateria()
+{
+}

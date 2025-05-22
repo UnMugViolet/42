@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 16:22:07 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/21 17:00:38 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/22 10:58:01 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,15 @@ class Dog: public Animal
 		Brain *_brain;
 	public:
 		Dog();
-		virtual ~Dog();
-		void makeSound() const;
+		Dog(Dog const &other);
 
+		~Dog();
+	
 		Dog &operator=(Dog const &other);
 
+		void makeSound() const;
+		
+		// Getters
 		Brain *getBrain() const;
 };
 

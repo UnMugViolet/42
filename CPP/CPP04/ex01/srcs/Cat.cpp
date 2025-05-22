@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 16:43:27 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/21 17:00:02 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/22 11:04:01 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,19 @@ Cat::Cat():  Animal(), _sound("Meow")
 	this->type = "Cat";
 	this->_brain = new Brain();
 	std::cout << GREEN << "Cat default constructor called" << NEUTRAL << std::endl;
+}
+
+Cat::Cat(Cat const &other): Animal(other), _sound(other._sound)
+{
+	if (this != &other)
+	{
+		this->_sound = other._sound;
+		this->type = other.type;
+		if (this->_brain)
+			delete this->_brain;
+		this->_brain = new Brain(*other._brain);
+	}
+	std::cout << GREEN << "Cat deep copy constructor called" << NEUTRAL << std::endl;
 }
 
 Cat::~Cat()
@@ -41,7 +54,7 @@ Cat	&Cat::operator=(Cat const &other)
 			delete this->_brain;
 		this->_brain = new Brain();
 	}
-	std::cout << GREEN << "Cat deep copy constructor called" << NEUTRAL << std::endl;
+	std::cout << GREEN << "Cat deep copy operator called" << NEUTRAL << std::endl;
 	return *this;
 }
 

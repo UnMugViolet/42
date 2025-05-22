@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 16:20:46 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/21 18:08:06 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/22 10:46:37 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,6 @@ AAnimal::AAnimal(AAnimal const &other)
 AAnimal::~AAnimal()
 {
 	std::cout << RED << "AAnimal destructor called" << NEUTRAL << std::endl;
-}
-
-std::string AAnimal::getType()
-{
-	return this->type;
 }
 
 AAnimal &AAnimal::operator=(AAnimal const &other)

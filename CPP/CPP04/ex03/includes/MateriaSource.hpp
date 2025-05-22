@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/20 16:23:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/22 10:58:27 by pjaguin          ###   ########.fr       */
+/*   Created: 2025/05/22 13:17:32 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/05/22 13:18:12 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
 
-# include "Animal.hpp"
-# include "dict.hpp"
+# include "IMateriaSource.hpp"
+# include "AMateria.hpp"
 
-class Cat: public Animal
+class MateriaSource: public IMateriaSource
 {
 	private:
-		std::string _sound;
+		AMateria *_inventory[4];
 	public:
-		Cat();
-		~Cat();
+		MateriaSource();
+		MateriaSource(MateriaSource const &other);
 
-		Cat(Cat const &other);
+		~MateriaSource();
 
-		Cat &operator=(Cat const &other);
+		MateriaSource &operator=(MateriaSource const &other);
 
-		void makeSound() const;
+		void learnMateria(AMateria*);
+		AMateria* createMateria(std::string const & type);
 };
 
 #endif

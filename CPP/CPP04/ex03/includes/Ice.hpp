@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/20 16:23:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/22 10:58:27 by pjaguin          ###   ########.fr       */
+/*   Created: 2025/05/22 11:53:14 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/05/22 11:55:51 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef ICE_HPP
+# define ICE_HPP
 
-# include "Animal.hpp"
-# include "dict.hpp"
+# include "AMateria.hpp"
 
-class Cat: public Animal
+class Ice: public AMateria
 {
-	private:
-		std::string _sound;
+	protected:
+		std::string type;
+		std::string effect;
+		std::string target;
 	public:
-		Cat();
-		~Cat();
+		Ice();
+		Ice(Ice const &other);
+		~Ice();
 
-		Cat(Cat const &other);
+		Ice &operator=(Ice const &other);
 
-		Cat &operator=(Cat const &other);
-
-		void makeSound() const;
+		// Getters
+		std::string const &getType() const;
 };
 
 #endif
