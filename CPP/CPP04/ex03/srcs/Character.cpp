@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 13:44:47 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/22 15:06:40 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/22 15:55:53 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ Character &Character::operator=(Character const &other)
 	return *this;
 }
 
-
 void Character::equip(AMateria *m)
 {
 	if (m == NULL)
@@ -110,4 +109,21 @@ void	Character::use(int idx, ICharacter &target)
 		return ;
 	}
 	std::cout << RED << "No materia to use at index " << BOLD << UNDERLINE << idx << NEUTRAL << std::endl;
+}
+
+// Getters
+
+const std::string &Character::getName() const
+{
+	return this->_name;
+}
+
+AMateria *Character::getMateria(int idx) const
+{
+	if (idx < 0 || idx >= INVENTORY_SIZE)
+	{
+		std::cout << RED << "No materia to get at index " << BOLD << UNDERLINE << idx << NEUTRAL << std::endl;
+		return NULL;
+	}
+	return this->_inventory[idx];
 }

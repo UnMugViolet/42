@@ -1,48 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/22 12:03:34 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/22 15:30:46 by pjaguin          ###   ########.fr       */
+/*   Created: 2025/05/22 15:23:24 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/05/22 15:37:34 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "Ice.hpp"
 
-AMateria::AMateria(): type("No type")
+Ice::Ice(): AMateria("ice")
+{	
+}
+
+Ice::Ice(Ice const &other): AMateria(other)
+{
+	*this = other;
+}
+
+Ice::~Ice()
 {
 }
 
-AMateria::AMateria(std::string const &type): type(type)
-{
-}
-
-AMateria::AMateria(AMateria const &other)
-{
-	if (this != &other)
-		this->type = other.type;
-}
-
-AMateria::~AMateria()
-{
-}
-
-AMateria &AMateria::operator=(AMateria const &other)
+Ice &Ice::operator=(Ice const &other)
 {
 	if (this != &other)
 		this->type = other.type;
 	return *this;
 }
 
-void	AMateria::use(ICharacter &target)
+Ice *Ice::clone() const
 {
-	std::cout << "Default attack (no type) on " << target.getName() << std::endl;
+	return new Ice(*this);
 }
 
- const std::string &AMateria::getType() const
+void Ice::use(ICharacter& target)
 {
-	return this->type;
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

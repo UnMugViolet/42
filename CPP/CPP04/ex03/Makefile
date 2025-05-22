@@ -6,13 +6,14 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 11:06:17 by unmugviolet       #+#    #+#              #
-#    Updated: 2025/05/22 15:02:11 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/05/22 15:57:18 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 			a.out
 
-SRC_FILES = 	main.cpp Character.cpp AMateria.cpp \
+SRC_FILES = 	main.cpp Character.cpp AMateria.cpp Cure.cpp Ice.cpp \
+				MateriaSource.cpp\
 
 SRC_DIR =		./srcs/
 OBJ_DIR =		./objects/

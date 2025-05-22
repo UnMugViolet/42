@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 11:41:51 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/22 14:58:37 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/22 16:43:38 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,13 @@ class Character: virtual public ICharacter
 		~Character();
 
 		Character &operator=(Character const &other);
-
-		std::string const &getName() const;
+		
 		void equip(AMateria* m);
 		void unequip(int idx);
 		void use(int idx, ICharacter& target);
+		
+		std::string const &getName() const;
+		AMateria*	getMateria(int idx) const;
 
 		size_t getInventorySize() const;
 };

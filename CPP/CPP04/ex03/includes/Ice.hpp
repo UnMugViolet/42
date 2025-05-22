@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 11:53:14 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/22 14:04:49 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/22 15:52:18 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,8 @@
 
 # include "AMateria.hpp"
 
-class Ice: public AMateria
+class Ice: virtual public AMateria
 {
-	protected:
-		std::string type;
-		std::string effect;
-		std::string target;
 	public:
 		Ice();
 		Ice(Ice const &other);
@@ -31,7 +27,7 @@ class Ice: public AMateria
 		Ice &operator=(Ice const &other);
 
 		Ice *clone() const;
-		void use(ICharacter& target);
+		void use(ICharacter &target);
 };
 
 #endif

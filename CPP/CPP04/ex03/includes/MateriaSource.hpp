@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 13:17:32 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/22 15:14:10 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/22 16:45:25 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include "Character.hpp"
 
 # define MAX_MATERIA INVENTORY_SIZE
+
 class	IMateriaSource;
 
 class MateriaSource: public IMateriaSource
@@ -35,7 +36,7 @@ class MateriaSource: public IMateriaSource
 		MateriaSource &operator=(MateriaSource const &other);
 
 		void learnMateria(AMateria*);
-		AMateria* createMateria(std::string const & type);
+		AMateria* createMateria(std::string const &type);
 };
 
 #endif
