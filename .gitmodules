@@ -25,3 +25,11 @@
 [submodule "libft_minishell"]
     path = minishell/libft
     url = https://github.com/UnMugViolet/libft
+
+[submodule "libft_cube3d"]
+    path = cube3d/libft
+    url = https://github.com/UnMugViolet/libft
+
+[submodule "minilibx_cube3d"]
+    path = cube3d/minilibx-linux
+    url = https://github.com/42paris/minilibx-linux
