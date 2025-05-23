@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 16:22:07 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/22 11:09:21 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/23 10:39:13 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ class Dog: public Animal
 		std::string _sound;
 	public:
 		Dog();
-		~Dog();
-
 		Dog(Dog const &other);
-		
+	
+		~Dog();
+	
 		Dog &operator=(Dog const &other);
 		
 		void makeSound() const;

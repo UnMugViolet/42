@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 16:23:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/22 10:58:27 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/23 10:47:54 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ class Cat: public Animal
 		std::string _sound;
 	public:
 		Cat();
-		~Cat();
-
 		Cat(Cat const &other);
+	
+		~Cat();
 
 		Cat &operator=(Cat const &other);
 

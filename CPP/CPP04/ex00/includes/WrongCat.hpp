@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 16:56:51 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/20 17:12:17 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/23 10:37:28 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ class WrongCat: public WrongAnimal
 	public:
 		WrongCat();
 		~WrongCat();
+
+		WrongCat(WrongCat const &other);
+
+		WrongCat &operator=(WrongCat const &other);
+
 		void makeSound() const;
 };
 
