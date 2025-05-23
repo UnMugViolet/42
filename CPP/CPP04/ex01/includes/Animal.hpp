@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 16:20:19 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/21 17:48:44 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/23 12:00:06 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,16 @@ class Animal
 		std::string type;
 	public:
 		Animal();
+		Animal(Animal const &other);
+
 		virtual ~Animal();
 	
-		Animal(Animal const &other);
 		Animal &operator=(Animal const &other);
 	
-		std::string getType() const;
 		virtual void makeSound() const;
+
+		// Getters
+		std::string getType() const;
 };
 
 #endif

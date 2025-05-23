@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:20:36 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/23 11:12:09 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/23 15:04:01 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ int	main(void)
 	const Animal		*nd_animal = new Cat();
 	const Animal		*copy_nd_animal = new Cat();
 	const WrongAnimal	*wrong_cat = new WrongCat();
-
-	copy_nd_animal = nd_animal;
 
 	std::cout << std::endl << YELLOW << "Tests for getting type:" << NEUTRAL << std::endl;
 	std::cout << "Animal type: " << UNDERLINE << animal->getType() << NEUTRAL << std::endl;

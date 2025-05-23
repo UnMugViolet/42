@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 17:35:37 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/21 17:47:22 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/23 14:47:39 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,17 @@
 #include <iostream>
 #include <string>
 
+#define BRAIN_SIZE 100
+
 class Brain
 {
 	private:
-		std::string ideas[100];
+		std::string ideas[BRAIN_SIZE];
 	public:
 		Brain();
-		virtual ~Brain();
 		Brain(Brain const &other);
+
+		virtual ~Brain();
 		
 		Brain &operator=(Brain const &other);
 	
