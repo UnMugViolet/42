@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 10:42:59 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/20 12:28:39 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/23 07:14:16 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 	this->ClapTrap::setAttackDamage(20);
 	this->_guarding_mode = false;
 	std::cout << GREEN << "ScavTrap constructor with name: " << this->ClapTrap::getName() << " called" << NEUTRAL << std::endl;
+}
+
+ScavTrap::ScavTrap(const ScavTrap &other): ClapTrap(other)
+{
+	std::cout << GREEN << "ScavTrap copy constructor called" << NEUTRAL << std::endl;
+	*this = other;
 }
 
 ScavTrap::~ScavTrap()

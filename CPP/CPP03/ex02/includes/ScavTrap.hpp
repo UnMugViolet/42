@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 10:42:34 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/20 14:31:22 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/23 07:16:27 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class ScavTrap : public ClapTrap
 		ScavTrap(const ScavTrap &other);
 		ScavTrap(std::string name);
 		
-		~ScavTrap();
+		virtual ~ScavTrap();
 		
 		ScavTrap	&operator=(ScavTrap const &other);
 

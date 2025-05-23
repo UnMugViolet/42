@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:20:36 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/20 10:41:51 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/23 07:06:00 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int main(void)
 		ClapTrap a("A");
 		ClapTrap b("A-Clone");
 		ClapTrap c("C");
+		ClapTrap d(c);
 
 		b = a;
 
@@ -40,13 +41,13 @@ int main(void)
 	std::cout << "______________________For loop________________________" << std::endl;
 	{
 		ClapTrap a("A");
-		ClapTrap c("C");
+		ClapTrap b("B");
 
 		for (int i = 0; i <= 10; i++)
 		{			
 			a.attack("C");
-			c.takeDamage(9);
-			c.beRepaired(9);
+			b.takeDamage(9);
+			b.beRepaired(9);
 		}
 	}
 }

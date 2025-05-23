@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:21:12 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/20 11:36:38 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/23 07:11:22 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ ClapTrap::ClapTrap(std::string name): _name(name), _health_points(10), _energy_p
 	std::cout << GREEN << "ClapTrap constructor with name: " << _name << " called" << NEUTRAL << std::endl;
 }
 
+ClapTrap::ClapTrap(ClapTrap const &other)
+{
+	std::cout << GREEN << "ClapTrap copy constructor called" << NEUTRAL << std::endl;
+	*this = other;
+}
+
 ClapTrap::~ClapTrap()
 {
 	std::cout << RED << "ClapTrap destructor called for " << _name << NEUTRAL << std::endl;
@@ -31,7 +37,7 @@ ClapTrap	&ClapTrap::operator=(ClapTrap const &other)
 {
 	if (this != &other)
 	{
-		std::cout << "ClapTrap Assignation operator called" << std::endl;
+		std::cout  << GREEN << "ClapTrap Assignation operator called" << NEUTRAL << std::endl;
 		this->_name = other._name;
 		this->_health_points = other._health_points;
 		this->_energy_points = other._energy_points;

@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 10:42:59 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/20 12:28:39 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/23 07:11:57 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 	std::cout << GREEN << "ScavTrap constructor with name: " << this->ClapTrap::getName() << " called" << NEUTRAL << std::endl;
 }
 
+ScavTrap::ScavTrap(const ScavTrap &other): ClapTrap(other)
+{
+	std::cout << GREEN << "ScavTrap copy constructor called" << NEUTRAL << std::endl;
+	*this = other;
+}
+
 ScavTrap::~ScavTrap()
 {
 	std::cout << RED << "ScavTrap destructor called for " << this->ClapTrap::getName() << NEUTRAL << std::endl;
@@ -39,7 +45,7 @@ ScavTrap	&ScavTrap::operator=(ScavTrap const &other)
 {
 	if (this != &other)
 	{
-		std::cout << "ScavTrap Assignation operator called" << std::endl;
+		std::cout << GREEN << "ScavTrap Assignation operator called" << NEUTRAL << std::endl;
 		this->ClapTrap::operator=(other);
 		this->_guarding_mode = other._guarding_mode;
 	}

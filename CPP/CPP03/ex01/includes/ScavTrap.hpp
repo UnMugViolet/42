@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 10:42:34 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/20 13:11:48 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/23 07:09:54 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class ScavTrap : public ClapTrap
 		bool _guarding_mode;
 	public:
 		ScavTrap();
-		ScavTrap(const ScavTrap &other);
 		ScavTrap(std::string name);
+		ScavTrap(const ScavTrap &other);
 		
 		~ScavTrap();
 		

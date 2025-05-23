@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 12:50:44 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/20 13:06:37 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/23 07:14:07 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ FragTrap::FragTrap(std::string name): ClapTrap(name)
 	this->ClapTrap::setEnergyPoints(100);
 	this->ClapTrap::setAttackDamage(30);
 	std::cout << GREEN << "FragTrap constructor with name: " << this->ClapTrap::getName() << " called" << NEUTRAL << std::endl;
+}
+
+FragTrap::FragTrap(const FragTrap &other): ClapTrap(other)
+{
+	std::cout << GREEN << "FragTrap copy constructor called" << NEUTRAL << std::endl;
+	*this = other;
 }
 
 FragTrap::~FragTrap()

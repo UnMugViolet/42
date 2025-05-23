@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:20:36 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/20 12:48:16 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/23 07:07:02 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int main(void)
 		ScavTrap a("A");
 		ScavTrap b("A-Clone");
 		ScavTrap c("C");
+		ScavTrap d(c);
 
 		b = a;
 
@@ -39,7 +40,7 @@ int main(void)
 		c.takeDamage(11);
 		b.beRepaired(1);		
 	}
-/* 	std::cout << "______________________For loop________________________" << std::endl;
+	std::cout << "______________________For loop________________________" << std::endl;
 	{
 		ScavTrap a("A");
 		ScavTrap c("C");
@@ -50,5 +51,5 @@ int main(void)
 			c.takeDamage(90);
 			c.beRepaired(90);
 		}
-	} */
+	}
 }

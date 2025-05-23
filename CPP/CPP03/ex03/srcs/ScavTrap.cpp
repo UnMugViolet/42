@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 10:42:59 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/20 14:53:25 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/23 08:12:07 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 	this->_attack_damage = 20;
 	this->_guarding_mode = false;
 	std::cout << GREEN << "ScavTrap constructor with name: " << this->_name << " called" << NEUTRAL << std::endl;
+}
+
+ScavTrap::ScavTrap(const ScavTrap &other): ClapTrap(other)
+{
+	std::cout << GREEN << "ScavTrap copy constructor called" << NEUTRAL << std::endl;
+	*this = other;
 }
 
 ScavTrap::~ScavTrap()
@@ -55,10 +61,10 @@ void	ScavTrap::guardGate()
 	}
 	else if (this->_guarding_mode)
 	{
-		std::cout << "ScavTrap " << this->_name << " is already guarding the gate" << std::endl; 
+		std::cout  << RED BOLD << "ScavTrap " << this->_name << " is already guarding the gate" << NEUTRAL << std::endl; 
 		return ;
 	}
-	std::cout << " 🛡️ ScavTrap " << this->_name << " is now guarding the gate" << std::endl;
+	std::cout << "🛡️ ScavTrap " << this->_name << " is now guarding the gate" << std::endl;
 	this->_guarding_mode = true;
 }
 

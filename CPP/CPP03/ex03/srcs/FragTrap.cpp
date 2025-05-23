@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 12:50:44 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/20 14:49:35 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/23 07:22:41 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ FragTrap::FragTrap(std::string name): ClapTrap(name)
 	std::cout << GREEN << "FragTrap constructor with name: " << this->_name  << " called" << NEUTRAL << std::endl;
 }
 
+FragTrap::FragTrap(const FragTrap &other): ClapTrap(other)
+{
+	std::cout << GREEN << "FragTrap copy constructor called" << NEUTRAL << std::endl;
+	*this = other;
+}
+
 FragTrap::~FragTrap()
 {
 	std::cout << RED << "FragTrap destructor called for " << this->_name  << NEUTRAL << std::endl;
@@ -37,7 +43,7 @@ FragTrap	&FragTrap::operator=(FragTrap const &other)
 {
 	if (this != &other)
 	{
-		std::cout << "FragTrap Assignation operator called" << std::endl;
+		std::cout << GREEN << "FragTrap Assignation operator called" << NEUTRAL << std::endl;
 		this->ClapTrap::operator=(other);
 	}
 	return *this;

@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:21:12 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/20 11:36:38 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/23 07:14:01 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ ClapTrap::ClapTrap(): _name("Default"), _health_points(10), _energy_points(10), 
 ClapTrap::ClapTrap(std::string name): _name(name), _health_points(10), _energy_points(10), _attack_damage(0)
 {
 	std::cout << GREEN << "ClapTrap constructor with name: " << _name << " called" << NEUTRAL << std::endl;
+}
+
+ClapTrap::ClapTrap(ClapTrap const &other)
+{
+	std::cout << GREEN << "ClapTrap copy constructor called" << NEUTRAL << std::endl;
+	*this = other;
 }
 
 ClapTrap::~ClapTrap()
