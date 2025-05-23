@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 13:15:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/23 08:08:19 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/23 10:47:04 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	DiamondTrap::attack(std::string const &other)
  
 void	DiamondTrap::whoAmI()
 {
-	std::cout << "DiamondTrap name: " << this->_name << std::endl;
+	std::cout << "DiamondTrap name: " << this->_name << " OG name: " << this->ClapTrap::_name << std::endl;
 }
 
 size_t	DiamondTrap::getHealthPoints() const
