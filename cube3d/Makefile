@@ -6,7 +6,7 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/05/27 12:12:58 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/05/27 12:42:27 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,8 +54,10 @@ WHITE = \033[1;37m
 GREEN = \033[0;92m
 YELLOW = \033[0;93m
 CYAN = \033[0;96m
+UNDERLINE = \033[4m
 
-all: $(NAME)
+## —— Compiling ——————————————————————————————————————————————————————————————
+all: $(NAME) ## Launch the project
 
 $(NAME): $(OBJ)
 	@$(MAKE) -C $(LIBFT_DIR)
@@ -72,11 +74,12 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR)
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR) $(addprefix $(OBJ_DIR), $(DIRS))
 
-clean: 
+## —— Cleaning ——————————————————————————————————————————————————————————————
+clean: ## Delete the objects files only for cube3d
 	@rm -rf $(OBJ_DIR)
 	@echo "$(GREEN)$(NAME) object files cleaned!$(DEFAULT)"
 
-fclean: clean
+fclean: clean ## Delete all the objects and libraries 
 	@rm -rf $(NAME)
 	@echo "$(CYAN)$(NAME) executables and objects removed succesfully!$(DEFAULT)"
 	@$(MAKE) fclean -C $(LIBFT_DIR)
@@ -86,17 +89,22 @@ fclean: clean
 	
 re: fclean all
 
-go: all
+## —— Production ——————————————————————————————————————————————————————————————
+go: all ## 
 	@./$(NAME) $(ARGS)
 	@rm -rf $(NAME)
 
-gov: all
-	@valgrind --suppressions=valgrind-readline.supp --leak-check=full --track-fds=yes --show-leak-kinds=all ./$(NAME) $(ARGS)
+gov: all ## Launch the projects with valgrind 
+	@valgrind --leak-check=full --track-fds=yes --show-leak-kinds=all ./$(NAME) $(ARGS)
 	@rm -rf $(NAME)
 
-debug: all
+debug: all ## Launch the projects with lldb
 	@lldb $(NAME) $(ARGS)
 	@rm -rf $(NAME)
-	
+
+help: ## Outputs this help screen
+	@grep -E '(^[a-zA-Z0-9_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}{printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
+
 # Specify that these are not files to compile (just for safety)
-.PHONY: all clean fclean re go gov debug
+.PHONY: all clean fclean re go gov debug help
+
