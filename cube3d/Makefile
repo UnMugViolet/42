@@ -6,7 +6,11 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
+<<<<<<< HEAD
 #    Updated: 2025/05/27 12:10:18 by pjaguin          ###   ########.fr        #
+=======
+#    Updated: 2025/05/27 11:59:48 by pjaguin          ###   ########.fr        #
+>>>>>>> refs/remotes/origin/main
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,9 +100,5 @@ debug: all
 	@lldb $(NAME) $(ARGS)
 	@rm -rf $(NAME)
 	
-test: all
-	@cd ./minishell_tester && ./tester $(args)
-	@rm -rf $(NAME)
-
 # Specify that these are not files to compile (just for safety)
 .PHONY: all clean fclean re go gov debug
