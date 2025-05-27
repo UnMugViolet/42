@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/23 18:29:51 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/27 12:00:55 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 
-# define WIN_WIDTH 750
-# define WIN_HEIGHT 750
+# define WIN_WIDTH 1080
+# define WIN_HEIGHT 790
 
 typedef struct s_data
 {
