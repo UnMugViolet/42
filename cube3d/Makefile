@@ -6,7 +6,7 @@
 #    By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/05/27 14:03:55 by yguinio          ###   ########.fr        #
+#    Updated: 2025/05/27 14:10:33 by yguinio          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,7 +91,7 @@ fclean: clean ## Delete all the objects and libraries
 re: fclean all
 
 ## —— Production ——————————————————————————————————————————————————————————————
-go: all ## 
+go: all ## Launch the projects
 	@./$(NAME) $(ARGS)
 	@rm -rf $(NAME)
 
