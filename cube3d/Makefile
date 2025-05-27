@@ -6,8 +6,10 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/05/27 12:12:05 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/05/27 12:12:58 by pjaguin          ###   ########.fr        #
 #                                                                              #
+# **************************************************************************** #
+
 # **************************************************************************** #
 
 NAME = 			cube3d
@@ -89,7 +91,7 @@ go: all
 	@rm -rf $(NAME)
 
 gov: all
-	@valgrind --leak-check=full --track-fds=yes --show-leak-kinds=all ./$(NAME) $(ARGS)
+	@valgrind --suppressions=valgrind-readline.supp --leak-check=full --track-fds=yes --show-leak-kinds=all ./$(NAME) $(ARGS)
 	@rm -rf $(NAME)
 
 debug: all
