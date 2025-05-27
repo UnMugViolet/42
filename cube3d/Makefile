@@ -6,11 +6,13 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/05/23 18:30:58 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/05/27 11:59:48 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 			cube3d
+
+ARGS = 			map_test.cub
 
 LIBFT_DIR = 	./libft
 MLX_DIR =		./minilibx-linux/
@@ -83,15 +85,15 @@ fclean: clean
 re: fclean all
 
 go: all
-	@./$(NAME)
+	@./$(NAME) $(ARGS)
 	@rm -rf $(NAME)
 
 gov: all
-	@valgrind --suppressions=valgrind-readline.supp --leak-check=full --track-fds=yes --show-leak-kinds=all ./$(NAME)
+	@valgrind --suppressions=valgrind-readline.supp --leak-check=full --track-fds=yes --show-leak-kinds=all ./$(NAME) $(ARGS)
 	@rm -rf $(NAME)
 
 debug: all
-	@lldb $(NAME)
+	@lldb $(NAME) $(ARGS)
 	@rm -rf $(NAME)
 	
 test: all
