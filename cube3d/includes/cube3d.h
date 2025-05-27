@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/27 12:00:55 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/27 14:04:43 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,21 +38,21 @@ typedef struct s_engine
 	t_data		data;
 }				t_engine;
 
-/* ----------------------------------EVENTS------------------------------------ */
+/* ----------------------------------EVENTS--------------------------------- */
 
-int	ft_key_press(int keycode, t_engine *engine);
-int	ft_destroy_event(t_engine *engine);
+int		ft_key_press(int keycode, t_engine *engine);
+int		ft_destroy_event(t_engine *engine);
 
-/* ----------------------------------INIT-------------------------------------- */
+/* ----------------------------------INIT----------------------------------- */
 
 void	ft_init_image(t_data *data, void *mlx);
 void	ft_init_window(t_engine *engine, char *fractal);
 void	ft_init_engine(t_engine *engine, char *fractal);
 
-/* ----------------------------------PARSING----------------------------------- */
+/* ----------------------------------PARSING-------------------------------- */
 bool	is_valid_input(int ac, char **av, t_engine *engine);
 
-/* ----------------------------------UTILS------------------------------------- */
+/* ----------------------------------UTILS---------------------------------- */
 void	ft_display_usage(void);
 
 #endif

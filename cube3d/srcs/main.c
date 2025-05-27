@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:02:14 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/23 18:27:49 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/26 12:05:04 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,3 @@ int	main(int ac, char **av)
 	mlx_loop(engine.mlx);
 	return (EXIT_SUCCESS);
 }
-

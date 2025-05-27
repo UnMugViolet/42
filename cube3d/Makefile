@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
+#    By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/05/27 12:42:27 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/05/27 14:03:55 by yguinio          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,20 +24,21 @@ OBJ_DIR = 		./objects/
 INC_DIR = 		./includes/
 
 # Directories for categorized source files
-DIRS = 			utils init parsing
+DIRS = 			utils init parsing check
 
 # Source files for each directory
 FILES = 		main.c events.c
 INIT_FILES = 	init.c
 UTILS_FILES = 	utils.c
 PARSE_FILES = 	parsing.c
+CHECK_FILES = 	check_map.c
 
 SRC_FILES = 	$(FILES) \
                 $(addprefix utils/, $(UTILS_FILES)) \
                 $(addprefix init/, $(INIT_FILES)) \
                 $(addprefix parsing/, $(PARSE_FILES)) \
+				$(addprefix check/, $(CHECK_FILES)) 
 				
-
 OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.c=.o))
 
 CC = cc
