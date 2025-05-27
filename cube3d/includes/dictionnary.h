@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:59:05 by yguinio           #+#    #+#             */
-/*   Updated: 2025/05/26 14:10:39 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/05/27 14:47:24 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@
 # define C_ERR "CEILING color error.<R,G,B range [0-255]>\n"
 # define OPEN_MAP_ERR "Map error : Map not closed.\n"
 # define START_ERR "Map error : No starting point.\n"
+# define FILE_ERR "File error : "
 
 #endif

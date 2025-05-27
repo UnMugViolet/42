@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/27 14:04:43 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/05/27 15:17:19 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,30 @@
 
 # include "ft_printf.h"
 # include "libft.h"
+# include "get_next_line.h"
 # include "mlx.h"
 # include <X11/X.h>
 # include <X11/keysym.h>
+# include "dictionnary.h"
 
 # define WIN_WIDTH 1080
 # define WIN_HEIGHT 790
 
+typedef struct s_img
+{
+	void	*img_ptr;
+	char	*addr;
+	int		h;
+	int		w;
+	int		bpp;
+	int		endian;
+	int		line_len;
+}		t_img;
+
 typedef struct s_data
 {
-	void	*img;
-	char	*addr;
-	int		bpp;
-	int		line_len;
-	int		endian;
-}				t_data;
+	t_img	textures[4];	
+}			t_data;
 
 typedef struct s_engine
 {
@@ -51,8 +60,13 @@ void	ft_init_engine(t_engine *engine, char *fractal);
 
 /* ----------------------------------PARSING-------------------------------- */
 bool	is_valid_input(int ac, char **av, t_engine *engine);
+char	**get_map_file(char *filename);
 
 /* ----------------------------------UTILS---------------------------------- */
 void	ft_display_usage(void);
+void	print_err_exit(char *err_msg, char *arg, bool exiting);
+
+/* ----------------------------------CHECKS--------------------------------- */
+bool	check_map_file(char *map_filename);
 
 #endif

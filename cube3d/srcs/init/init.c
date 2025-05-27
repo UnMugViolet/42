@@ -3,21 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:57:13 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/23 18:25:03 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/05/27 15:18:14 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
-
+/* 
 void	ft_init_image(t_data *data, void *mlx)
 {
 	data->img = mlx_new_image(mlx, WIN_WIDTH, WIN_HEIGHT);
 	data->addr = mlx_get_data_addr(data->img, &data->bpp, &data->line_len,
 			&data->endian);
 }
+ */
 
 void	ft_init_window(t_engine *engine, char *fractal)
 {
