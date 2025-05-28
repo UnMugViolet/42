@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:57:13 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/27 15:18:14 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/05/28 14:47:15 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,4 @@ void	ft_init_window(t_engine *engine, char *fractal)
 		free(engine->mlx);
 		exit(EXIT_FAILURE);
 	}
-	ft_init_image(&engine->data, engine->mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/27 15:17:19 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/05/28 15:17:25 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include "dictionnary.h"
+# include <string.h>
+# include <errno.h>
 
 # define WIN_WIDTH 1080
 # define WIN_HEIGHT 790
@@ -57,16 +59,22 @@ int		ft_destroy_event(t_engine *engine);
 void	ft_init_image(t_data *data, void *mlx);
 void	ft_init_window(t_engine *engine, char *fractal);
 void	ft_init_engine(t_engine *engine, char *fractal);
+bool	get_textures(t_engine *cube, char **file);
 
 /* ----------------------------------PARSING-------------------------------- */
-bool	is_valid_input(int ac, char **av, t_engine *engine);
+bool	is_valid_input(int ac, char **av, t_engine *cube);
 char	**get_map_file(char *filename);
 
 /* ----------------------------------UTILS---------------------------------- */
 void	ft_display_usage(void);
-void	print_err_exit(char *err_msg, char *arg, bool exiting);
+void	print_err_exit(char *err_msg, char *arg, t_engine *cube);
+void	destroy_textures(t_engine *cube);
+char 	*get_surface_value(char **file, char *orientation);
+void	ft_free(void *ptr);
+void	clean_all(t_engine *cube);
 
 /* ----------------------------------CHECKS--------------------------------- */
 bool	check_map_file(char *map_filename);
+bool	check_textures(char **file);
 
 #endif

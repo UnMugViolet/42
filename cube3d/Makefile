@@ -6,7 +6,7 @@
 #    By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/05/27 15:06:21 by yguinio          ###   ########.fr        #
+#    Updated: 2025/05/28 14:40:10 by yguinio          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,14 +24,14 @@ OBJ_DIR = 		./objects/
 INC_DIR = 		./includes/
 
 # Directories for categorized source files
-DIRS = 			utils init parsing check
+DIRS = 			utils init parsing check display
 
 # Source files for each directory
 FILES = 		main.c events.c
 INIT_FILES = 	init.c
 UTILS_FILES = 	utils.c
 PARSE_FILES = 	parsing.c
-CHECK_FILES = 	check_map.c
+CHECK_FILES = 	check_map.c check_textures.c
 DISPLAY_FILES = display_utils.c
 
 SRC_FILES = 	$(FILES) \
@@ -39,7 +39,7 @@ SRC_FILES = 	$(FILES) \
                 $(addprefix init/, $(INIT_FILES)) \
                 $(addprefix parsing/, $(PARSE_FILES)) \
 				$(addprefix check/, $(CHECK_FILES)) \
-				$(addprefix display/, $(DISPLAY_FILES))
+				$(addprefix display/, $(DISPLAY_FILES)) 
 				
 OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.c=.o))
 
