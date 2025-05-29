@@ -6,26 +6,52 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 12:40:08 by yguinio           #+#    #+#             */
-/*   Updated: 2025/05/28 15:22:04 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/05/29 12:39:16 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
+static bool	rgb_format(char *rgb_color)
+{
+	char	**temp;
+	int		i;
+	int		j;
+
+	i = 0;
+	temp = ft_split(rgb_color, ',');
+	while (temp[i])
+	{
+		if (!(0 <= ft_atoi(temp[i]) && ft_atoi(temp[i]) <= 255))
+			return (ft_free_array_str(temp), false);
+		j = 0;
+		while (temp[i][j])
+		{
+			if (!ft_isdigit(temp[i][j]))
+				return (ft_free_array_str(temp), false);
+			j++;
+		}
+		i++;
+	}
+	if (i != 3)
+		return (ft_free_array_str(temp), false);
+	return (ft_free_array_str(temp), true);
+}
+
 bool	check_color(char **file)
 {	
-	int			i;
-	char		*surfaces[] = {"F", "C"};
-	char 		*rgb_color;
-	
+	int				i;
+	char const		*surfaces[2] = {"F", "C"};
+	char			*rgb_color;
+
 	i = 0;
 	while (i < 2)
 	{
 		rgb_color = get_surface_value(file, surfaces[i]);
-		if (!rgb_color)
+		if (!rgb_color || !rgb_format(rgb_color))
 		{
 			ft_free(rgb_color);
-			return false;
+			return (false);
 		}
 		ft_free(rgb_color);
 		i++;
@@ -35,10 +61,10 @@ bool	check_color(char **file)
 
 bool	check_textures(char **file)
 {
-	int			i;
-	char		*orientations[] = {"NO", "SO", "EA", "WE"};
-	char 		*path;
-	
+	int				i;
+	char const		*orientations[] = {"NO", "SO", "EA", "WE"};
+	char			*path;
+
 	i = 0;
 	while (i < 4)
 	{
@@ -51,5 +77,7 @@ bool	check_textures(char **file)
 		ft_free(path);
 		i++;
 	}
+	if (!check_color(file))
+		return (print_err_exit(COLOR_ERR, NULL, NULL), false);
 	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:57:13 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/28 14:47:15 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/05/29 14:49:30 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,17 @@ void	ft_init_image(t_data *data, void *mlx)
 }
  */
 
-void	ft_init_window(t_engine *engine, char *fractal)
+void	ft_init_window(t_engine *engine, char *file)
 {
 	engine->mlx = mlx_init();
 	if (!engine->mlx)
 		exit(EXIT_FAILURE);
 	engine->win = mlx_new_window(engine->mlx, WIN_WIDTH, WIN_HEIGHT,
-			fractal);
+			file);
 	if (!engine->win)
 	{
 		free(engine->mlx);
 		exit(EXIT_FAILURE);
 	}
+	get_textures(engine, file);
 }

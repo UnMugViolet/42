@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:57:20 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/28 15:20:10 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/05/29 14:45:08 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ bool	is_valid_input(int ac, char **av, t_engine *engine)
 }
 
 /*
-	Returns the map file as a char**. Exit if it cannot access the file or if the malloc fails.
+	Returns the map file as a char**.
+	Exit if it cannot access the file or if the malloc fails.
 	@param char*filename
 	@return char**
 */
@@ -33,7 +34,8 @@ char	**get_map_file(char *filename)
 	char	*file;
 	char	*line;
 	int		fd;
-	
+
+	file = NULL;
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 		return (print_err_exit(strerror(errno), filename, NULL), NULL);

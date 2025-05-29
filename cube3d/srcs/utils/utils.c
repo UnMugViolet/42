@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:57:30 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/28 14:53:29 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/05/29 14:50:06 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,22 @@ void	ft_free(void *ptr)
 		free(ptr);
 }
 
-void	clean_all(t_engine *cube)
+void	clean_all(t_engine *engine)
 {
-	if (cube)
+	if (engine)
 	{
-		destroy_textures(cube);
-		if (cube->mlx && cube->win)
-			mlx_destroy_window(cube->mlx, cube->win);
-		if (cube->mlx)
-			mlx_destroy_display(cube->mlx);
+		destroy_textures(engine);
+		if (engine->mlx && engine->win)
+		{
+			mlx_destroy_window(engine->mlx, engine->win);
+			engine->win = NULL;
+		}
+		if (engine->mlx)
+		{
+			mlx_destroy_display(engine->mlx);
+			free(engine->mlx);
+			engine->mlx = NULL;
+		}
 	}
 }
 
@@ -35,7 +42,7 @@ void	ft_display_usage(void)
 	ft_printf("Usage: ./cube3d <map.cub>\n");
 }
 
-void	print_err_exit(char *err_msg, char *arg, t_engine *cube)
+void	print_err_exit(char *err_msg, char *arg, t_engine *engine)
 {
 	if (err_msg)
 		while (*err_msg)
@@ -46,9 +53,9 @@ void	print_err_exit(char *err_msg, char *arg, t_engine *cube)
 		while (*arg)
 			write(2, arg++, 1);
 	write(2, "\n", 1);
-	if (cube)
+	if (engine)
 	{
-		clean_all(cube);
+		clean_all(engine);
 		exit(1);
 	}
 }
