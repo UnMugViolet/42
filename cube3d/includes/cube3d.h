@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/29 15:04:58 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/04 15:55:48 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,30 @@
 # define WIN_WIDTH 1080
 # define WIN_HEIGHT 790
 
+typedef struct s_check_map
+{
+	bool	n;
+	bool	s;
+	bool	e;
+	bool	w;
+	bool	f;
+	bool	c;
+}	t_check_map;
+
 typedef struct s_point
 {
 	int	x;
 	int	y;
 }		t_point;
 
+typedef struct s_queue
+{
+	t_point	*data;
+	int		head;
+	int		tail;
+	int		size;
+	int		capacity;
+}	t_queue;
 
 typedef struct s_img
 {
@@ -81,6 +99,9 @@ char	*get_surface_value(char **file, char const *orientation);
 void	ft_free(void *ptr);
 void	clean_all(t_engine *engine);
 bool	get_new_image(t_engine *engine, char *path, t_img *image);
+int		map_rows(char **map);
+bool	ft_is_charset(char c, char *charset);
+char	**map_borders(char **map);
 
 /* ----------------------------------CHECKS--------------------------------- */
 bool	check_map_file(char *map_filename);

@@ -6,47 +6,95 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 12:37:44 by yguinio           #+#    #+#             */
-/*   Updated: 2025/05/29 15:48:48 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/04 16:30:21 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
+static bool	ft_is_not_already(char *orientation, t_check_map *check)
+{
+	if (!ft_strncmp(orientation, "N", 1) && !check->n)
+		return (check->n = true, true);
+	if (!ft_strncmp(orientation, "S", 1) && !check->s)
+		return (check->s = true, true);
+	if (!ft_strncmp(orientation, "E", 1) && !check->e)
+		return (check->e = true, true);
+	if (!ft_strncmp(orientation, "W", 1) && !check->w)
+		return (check->w = true, true);
+	if (!ft_strncmp(orientation, "C", 1) && !check->c)
+		return (check->c = true, true);
+	if (!ft_strncmp(orientation, "F", 1) && !check->f)
+		return (check->f = true, true);
+	return (false);
+}
+
+static bool	check_map_chars(char **map)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	while (map[++i])
+	{
+		j = -1;
+		while (map[i][++j])
+			if (!ft_is_charset(map[i][++j], " NSEW01"))
+				return (false);
+	}
+	return (true);
+}
+
 char	**extract_map(char **map_file)
 {
-	t_point	p;
-	char	*temp;
+	t_point		p;
+	char		*temp;
+	t_check_map	check;
 
+	ft_memset(&check, 0, sizeof(t_check_map));
 	p.y = -1;
 	while (map_file[++p.y])
 	{
-		p.x = 0;
+		p.x = -1;
 		temp = map_file[p.y];
-		while (temp[p.x] && (temp[p.x] == ' ' || temp[p.x] == '1'))
+		if (ft_is_charset(temp[0], "NSEWCF"))
 		{
+			if (ft_is_not_already(temp, &check))
+				continue ;
+			else
+				return (printf("line : %i | %s\n", p.y, temp), NULL);
+		}
+		while (temp[++p.x])
+		{
+			if (!ft_is_charset(temp[p.x], "1 "))
+				return (print_err_exit(MAP_ERR, NULL, NULL), NULL);
 			if (temp[p.x] == '1')
 				return (ft_str_array_dup(&map_file[p.y]));
-			p.x++;
 		}
 	}
-	return (NULL);
+	return (print_err_exit(MAP_ERR, NULL, NULL), NULL);
 }
 
 bool	check_map(char **map_file)
 {
 	t_point	p;
 	char	**map;
+	char	**temp;
 
 	ft_memset(&p, 0, sizeof(t_point));
 	map = extract_map(map_file);
 	if (!map)
 		return (false);
+	ft_print_array_str_fd(map, 1);
+	if (!check_map_chars(map))
+		return (ft_free_array_str(map), false);
+	temp = map_borders(map);
 	return (ft_free_array_str(map), true);
 }
 
 bool	check_map_file(char *map_filename)
 {
-	char	**map_file;
+	char		**map_file;
 
 	map_file = get_map_file(map_filename);
 	if (!map_file || !check_textures(map_file) || !check_map(map_file))

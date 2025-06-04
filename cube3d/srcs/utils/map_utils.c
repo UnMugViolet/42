@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dictionnary.h                                      :+:      :+:    :+:   */
+/*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/26 13:59:05 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/04 15:01:08 by yguinio          ###   ########.fr       */
+/*   Created: 2025/06/02 16:14:23 by yguinio           #+#    #+#             */
+/*   Updated: 2025/06/03 13:42:15 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DICTIONNARY_H
-# define DICTIONNARY_H
+#include "cube3d.h"
 
-# define TEXT_ERR "Texture error"
-# define COLOR_ERR "Color error. RGB format : [<0-255>,<0-255>,<0-255>]"
-# define MAP_ERR "Map error"
-# define OPEN_MAP_ERR "Map error : Map not closed"
-# define START_ERR "Map error : No starting point"
-# define FILE_ERR "File error : "
-
-#endif
+bool	ft_is_charset(char c, char *charset)
+{
+	if (charset)
+	{
+		while (*charset)
+		{
+			if (*charset == c)
+				return (true);
+			charset++;
+		}
+	}
+	return (false);
+}
