@@ -6,41 +6,45 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 12:37:44 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/04 16:30:21 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/05 15:30:14 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
-static bool	ft_is_not_already(char *orientation, t_check_map *check)
+static bool	ft_is_not_already(char orientation, t_check_map *check)
 {
-	if (!ft_strncmp(orientation, "N", 1) && !check->n)
+	if (orientation == 'N' && !check->n)
 		return (check->n = true, true);
-	if (!ft_strncmp(orientation, "S", 1) && !check->s)
+	if (orientation == 'S' && !check->s)
 		return (check->s = true, true);
-	if (!ft_strncmp(orientation, "E", 1) && !check->e)
+	if (orientation == 'E' && !check->e)
 		return (check->e = true, true);
-	if (!ft_strncmp(orientation, "W", 1) && !check->w)
+	if (orientation == 'W' && !check->w)
 		return (check->w = true, true);
-	if (!ft_strncmp(orientation, "C", 1) && !check->c)
+	if (orientation == 'C' && !check->c)
 		return (check->c = true, true);
-	if (!ft_strncmp(orientation, "F", 1) && !check->f)
+	if (orientation == 'F' && !check->f)
 		return (check->f = true, true);
 	return (false);
 }
 
 static bool	check_map_chars(char **map)
 {
-	int	i;
-	int	j;
+	int			i;
+	int			j;
+	t_check_map	check;
 
+	ft_memset(&check, 0, sizeof(t_check_map));
 	i = -1;
 	while (map[++i])
 	{
 		j = -1;
 		while (map[i][++j])
-			if (!ft_is_charset(map[i][++j], " NSEW01"))
-				return (false);
+			if (!ft_is_charset(map[i][j], " 01NSEW") ||
+				(ft_is_charset(map[i][j], "NSEW") &&
+					!ft_is_not_already(map[i][j], &check)))
+				return (print_err_exit(MAP_CHAR_ERR, NULL, NULL), false);
 	}
 	return (true);
 }
@@ -59,7 +63,7 @@ char	**extract_map(char **map_file)
 		temp = map_file[p.y];
 		if (ft_is_charset(temp[0], "NSEWCF"))
 		{
-			if (ft_is_not_already(temp, &check))
+			if (ft_is_not_already(temp[0], &check))
 				continue ;
 			else
 				return (printf("line : %i | %s\n", p.y, temp), NULL);
@@ -67,7 +71,7 @@ char	**extract_map(char **map_file)
 		while (temp[++p.x])
 		{
 			if (!ft_is_charset(temp[p.x], "1 "))
-				return (print_err_exit(MAP_ERR, NULL, NULL), NULL);
+				return (print_err_exit(MAP_CHAR_ERR, NULL, NULL), NULL);
 			if (temp[p.x] == '1')
 				return (ft_str_array_dup(&map_file[p.y]));
 		}

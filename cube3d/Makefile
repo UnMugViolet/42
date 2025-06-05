@@ -6,7 +6,7 @@
 #    By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/06/03 14:07:06 by yguinio          ###   ########.fr        #
+#    Updated: 2025/06/05 15:09:58 by yguinio          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ FILES = 		main.c events.c
 INIT_FILES = 	init.c
 UTILS_FILES = 	utils.c map_utils.c
 PARSE_FILES = 	parsing.c
-CHECK_FILES = 	check_map.c check_textures.c reverse_flood_fill.c map_borders.c
+CHECK_FILES = 	check_map.c check_textures.c map_borders.c
 DISPLAY_FILES = display_utils.c
 
 SRC_FILES = 	$(FILES) \
