@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/09 12:02:44 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/09 12:52:22 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ int		map_rows(char **map);
 int		map_max_len(char **map);
 bool	ft_is_charset(char c, char *charset);
 char	**pad_map(char **map);
+char	**extract_map(char **map_file);
 
 /* ----------------------------------CHECKS--------------------------------- */
 bool	check_map_file(char *map_filename);

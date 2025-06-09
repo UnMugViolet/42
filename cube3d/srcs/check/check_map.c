@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 12:37:44 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/09 12:46:54 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/09 12:51:42 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,6 @@ static bool	only_one_orientation(char orientation, t_check_map *check)
 		return (check->e = !check->e, true);
 	if (orientation == 'W' && !check->n && !check->s && !check->e && !check->w)
 		return (check->w = !check->w, true);
-	return (false);
-}
-
-static bool	is_not_already_checked(char orientation, t_check_map *check)
-{
-	if (orientation == 'N' && !check->n)
-		return (check->n = true, true);
-	if (orientation == 'S' && !check->s)
-		return (check->s = true, true);
-	if (orientation == 'E' && !check->e)
-		return (check->e = true, true);
-	if (orientation == 'W' && !check->w)
-		return (check->w = true, true);
-	if (orientation == 'C' && !check->c)
-		return (check->c = true, true);
-	if (orientation == 'F' && !check->f)
-		return (check->f = true, true);
 	return (false);
 }
 

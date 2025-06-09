@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:14:23 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/09 12:47:01 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/09 12:52:06 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,23 @@ bool	ft_is_charset(char c, char *charset)
 			charset++;
 		}
 	}
+	return (false);
+}
+
+static bool	is_not_already_checked(char orientation, t_check_map *check)
+{
+	if (orientation == 'N' && !check->n)
+		return (check->n = true, true);
+	if (orientation == 'S' && !check->s)
+		return (check->s = true, true);
+	if (orientation == 'E' && !check->e)
+		return (check->e = true, true);
+	if (orientation == 'W' && !check->w)
+		return (check->w = true, true);
+	if (orientation == 'C' && !check->c)
+		return (check->c = true, true);
+	if (orientation == 'F' && !check->f)
+		return (check->f = true, true);
 	return (false);
 }
 
@@ -43,7 +60,7 @@ char	**extract_map(char **map_file)
 		p.x = -1;
 		if (ft_is_charset(map_file[p.y][0], "NSEWCF"))
 		{
-			if (is_not_already_check(map_file[p.y][0], &check))
+			if (is_not_already_checked(map_file[p.y][0], &check))
 				continue ;
 			else
 				return (printf("line : %i | %s\n", p.y, map_file[p.y]), NULL);
