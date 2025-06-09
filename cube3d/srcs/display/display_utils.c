@@ -6,12 +6,17 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 15:05:36 by yguinio           #+#    #+#             */
-/*   Updated: 2025/05/29 14:59:06 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/09 12:40:25 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
+/*
+* Destroy all textures in the `(t_img)engine.data.textures` array.
+* @param t_engine*engine
+* @return void
+*/
 void	destroy_textures(t_engine *engine)
 {
 	int	i;
@@ -32,6 +37,13 @@ void	destroy_textures(t_engine *engine)
 	}
 }
 
+/*
+* Stores the XPM file using its `path` into the given `t_img*image` struct
+* @param t_engine*engine
+* @param char*path
+* @param t_img*image
+* @return bool
+*/
 bool	get_new_image(t_engine *engine, char *path, t_img *image)
 {
 	if (!engine || !path || !image)
@@ -48,6 +60,12 @@ bool	get_new_image(t_engine *engine, char *path, t_img *image)
 	return (true);
 }
 
+/*
+* Returns the path linked to the given `orientation` in the `file`
+* @param char**file
+* @param char*orientation
+* @return char*
+*/
 char	*get_surface_value(char **file, char const *orientation)
 {
 	size_t			i;
@@ -76,14 +94,20 @@ char	*get_surface_value(char **file, char const *orientation)
 	return (NULL);
 }
 
-bool	get_textures(t_engine *engine, char *file)
+/*
+* Stores the textures into the `(t_img)engine.data.textures` array
+* @param t_engine*engine
+* @param char*file_path
+* @return bool
+*/
+bool	get_textures(t_engine *engine, char *file_path)
 {
 	char const	*orientations[] = {"NO", "SO", "EA", "WE"};
 	char		**temp;
 	char		*path;
 	int			i;
 
-	temp = get_map_file(file);
+	temp = get_map_file(file_path);
 	if (!temp)
 		return (false);
 	i = 0;

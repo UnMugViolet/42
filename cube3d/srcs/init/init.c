@@ -6,20 +6,18 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:57:13 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/29 14:49:30 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/09 12:41:37 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
-/* 
-void	ft_init_image(t_data *data, void *mlx)
-{
-	data->img = mlx_new_image(mlx, WIN_WIDTH, WIN_HEIGHT);
-	data->addr = mlx_get_data_addr(data->img, &data->bpp, &data->line_len,
-			&data->endian);
-}
- */
 
+/*
+* Initiate the MLX `engine` using the data in the `file`
+* @param t_engine*engine
+* @param char*file
+* @return (void)
+*/
 void	ft_init_window(t_engine *engine, char *file)
 {
 	engine->mlx = mlx_init();

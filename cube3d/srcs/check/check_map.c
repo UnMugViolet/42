@@ -6,13 +6,13 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 12:37:44 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/09 12:08:37 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/09 12:46:54 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
-static bool	ft_map_orientation(char orientation, t_check_map *check)
+static bool	only_one_orientation(char orientation, t_check_map *check)
 {
 	if (orientation == 'N' && !check->n && !check->s && !check->e && !check->w)
 		return (check->n = !check->n, true);
@@ -25,7 +25,7 @@ static bool	ft_map_orientation(char orientation, t_check_map *check)
 	return (false);
 }
 
-static bool	ft_is_not_already(char orientation, t_check_map *check)
+static bool	is_not_already_checked(char orientation, t_check_map *check)
 {
 	if (orientation == 'N' && !check->n)
 		return (check->n = true, true);
@@ -42,6 +42,11 @@ static bool	ft_is_not_already(char orientation, t_check_map *check)
 	return (false);
 }
 
+/*
+* Checks if the chars contained in the `map` array are valid and that there is
+* only one orientation for the player.
+
+*/
 static bool	check_map_chars(char **map)
 {
 	int			i;
@@ -58,46 +63,18 @@ static bool	check_map_chars(char **map)
 			if (!ft_is_charset(map[i][j], " 01NSEW"))
 				return (print_err_exit(MAP_CHAR_ERR, NULL, NULL), false);
 			if (ft_is_charset(map[i][j], "NSEW") &&
-				!ft_map_orientation(map[i][j], &check))
+				!only_one_orientation(map[i][j], &check))
 				return (print_err_exit(MAP_DOUBLE_ERR, NULL, NULL), false);
-		}		
+		}
 	}
 	return (true);
 }
 
 /*
-* Extracts the map from the file containing the textures and map.
+* Checks the map file, 4 textures, 2 RGB colors, and the validity of the map
 * @param char**map_file
-* @return char**extracted_map
+* @return bool
 */
-char	**extract_map(char **map_file)
-{
-	t_point		p;
-	t_check_map	check;
-
-	ft_memset(&check, 0, sizeof(t_check_map));
-	p.y = -1;
-	while (map_file[++p.y])
-	{
-		p.x = -1;
-		if (ft_is_charset(map_file[p.y][0], "NSEWCF"))
-		{
-			if (ft_is_not_already(map_file[p.y][0], &check))
-				continue ;
-			else
-				return (printf("line : %i | %s\n", p.y, map_file[p.y]), NULL);
-		}
-		while (map_file[p.y][++p.x])
-		{
-			if (!ft_is_charset(map_file[p.y][p.x], "1 "))
-				return (print_err_exit(MAP_CHAR_ERR, NULL, NULL), NULL);
-			if (map_file[p.y][p.x] == '1')
-				return (pad_map(&map_file[p.y]));
-		}
-	}
-	return (print_err_exit(MAP_ERR, NULL, NULL), NULL);
-}
-
 bool	check_map(char **map_file)
 {
 	char	**map;
