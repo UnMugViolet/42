@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/09 12:52:22 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/09 17:32:14 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,6 @@ typedef struct s_point
 	int	x;
 	int	y;
 }		t_point;
-
-typedef struct s_queue
-{
-	t_point	*data;
-	int		head;
-	int		tail;
-	int		size;
-	int		capacity;
-}	t_queue;
 
 typedef struct s_img
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:57:20 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/05/29 14:45:08 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/09 17:33:28 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,5 @@ char	**get_map_file(char *filename)
 	free(file);
 	if (!map)
 		print_err_exit("Fatal error : split error", NULL, NULL);
-	return (map);
+	return (close(fd), map);
 }

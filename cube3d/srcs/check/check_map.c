@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 12:37:44 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/09 12:51:42 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/09 17:45:54 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,15 @@ static bool	check_map_chars(char **map)
 	i = -1;
 	while (map[++i])
 	{
-		j = -1;
-		while (map[i][++j])
+		j = 0;
+		while (map[i][j])
 		{
 			if (!ft_is_charset(map[i][j], " 01NSEW"))
 				return (print_err_exit(MAP_CHAR_ERR, NULL, NULL), false);
 			if (ft_is_charset(map[i][j], "NSEW") &&
 				!only_one_orientation(map[i][j], &check))
 				return (print_err_exit(MAP_DOUBLE_ERR, NULL, NULL), false);
+			j++;
 		}
 	}
 	return (true);
@@ -65,7 +66,6 @@ bool	check_map(char **map_file)
 	map = extract_map(map_file);
 	if (!map)
 		return (false);
-	ft_print_array_str_fd(map, 1);
 	if (!check_map_chars(map))
 		return (ft_free_array_str(map), false);
 	if (!extern_flood_fill(map, (t_point){map_max_len(map), map_rows(map)},

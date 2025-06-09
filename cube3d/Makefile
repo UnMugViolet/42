@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+         #
+#    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/06/09 11:38:37 by yguinio          ###   ########.fr        #
+#    Updated: 2025/06/09 17:29:07 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 
 NAME = 			cube3d
 
-ARGS = 			map_test.cub
+ARGS = 			map.cub
 
 LIBFT_DIR = 	./libft
 MLX_DIR =		./minilibx-linux/

@@ -104,15 +104,13 @@ char	**pad_map(char **map)
 	ft_memset(&p, 0, sizeof(t_point));
 	while (p.y < max.y)
 	{
-		res[p.y] = ft_calloc(sizeof(char), max.x + 1);
+		res[p.y] = ft_calloc(sizeof(char), max.x + 2);
 		if (!res[p.y])
 			return (ft_free_array_str(res), NULL);
 		if (p.y == 0 || p.y == max.y)
 			ft_copy_with_spaces(NULL, res[p.y], max.x + 1);
 		else
 			ft_copy_with_spaces(map[p.y - 1], res[p.y], max.x + 1);
-		ft_printf("Pass [%i] : |%s", p.y, res[p.y]);
-		write(1, "|\n", 2);
 		p.y++;
 	}
 	return (res);
