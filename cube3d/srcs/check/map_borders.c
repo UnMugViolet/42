@@ -1,17 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_borders.c                                      :+:      :+:    :+:   */
+/*   pad_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 14:07:09 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/04 14:24:39 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/09 11:54:17 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
+/*
+* Returns the lenght of the longest string in the `map` array.
+* @param char**map
+* @return int
+*/
 int	map_max_len(char **map)
 {
 	int	i;
@@ -31,6 +36,11 @@ int	map_max_len(char **map)
 	return (max_len);
 }
 
+/*
+* Returns the lenght of the `map` array.
+* @param char**map
+* @return int
+*/
 int	map_rows(char **map)
 {
 	int	i;
@@ -43,6 +53,14 @@ int	map_rows(char **map)
 	return (i);
 }
 
+/*
+* Copy the `original` string to the `dest`, padding the first and the lasts
+* chars with spaces until `len`.
+* @param char*original
+* @param char*dest
+* @param size_t len
+* @return void
+*/
 static void	ft_copy_with_spaces(char *original, char *dest, size_t len)
 {
 	size_t	i;
@@ -65,7 +83,14 @@ static void	ft_copy_with_spaces(char *original, char *dest, size_t len)
 	dest[i] = 0;
 }
 
-char	**map_borders(char **map)
+/*
+* Pads the given `map` with spaces, adding a string at the beginning and the
+* end of the array and on each side of the strings to match the lenght of the
+* longest string.
+* @param char**map
+* @return char**padded_map
+*/
+char	**pad_map(char **map)
 {
 	t_point		max;
 	t_point		p;
@@ -91,4 +116,33 @@ char	**map_borders(char **map)
 		p.y++;
 	}
 	return (res);
+}
+
+/*
+* Checks if the given padded map is closed by trying to acces any char different
+* than `'1'` and `' '`.
+* @param char**map;
+* @param t_point size
+* @param t_point start
+* @return bool
+*/
+bool	extern_flood_fill(char **map, t_point size, t_point start)
+{
+	bool	left;
+	bool	right;
+	bool	up;
+	bool	down;
+
+	if (start.y < 0 || start.y >= size.y || start.x < 0 || start.x >= size.x)
+		return (true);
+	if (map[start.y][start.x] == '1' || map[start.y][start.x] == 'X')
+		return (true);
+	if (map[start.y][start.x] != ' ')
+		return (false);
+	map[start.y][start.x] = 'X';
+	left = extern_flood_fill(map, size, (t_point){start.x - 1, start.y});
+	right = extern_flood_fill(map, size, (t_point){start.x + 1, start.y});
+	up = extern_flood_fill(map, size, (t_point){start.x, start.y - 1});
+	down = extern_flood_fill(map, size, (t_point){start.x, start.y + 1});
+	return (left && right && up && down);
 }

@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:59:05 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/05 15:12:57 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/05 18:13:54 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # define COLOR_ERR "Color error. RGB format : [<0-255>,<0-255>,<0-255>]"
 # define MAP_ERR "Map error"
 # define MAP_CHAR_ERR "Map error : wrong map character"
+# define MAP_DOUBLE_ERR "Map error : too many orientation characters"
 # define OPEN_MAP_ERR "Map error : Map not closed"
 # define START_ERR "Map error : No starting point"
 # define FILE_ERR "File error : "

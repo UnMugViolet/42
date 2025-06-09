@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/04 15:55:48 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/09 12:02:44 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,12 +100,14 @@ void	ft_free(void *ptr);
 void	clean_all(t_engine *engine);
 bool	get_new_image(t_engine *engine, char *path, t_img *image);
 int		map_rows(char **map);
+int		map_max_len(char **map);
 bool	ft_is_charset(char c, char *charset);
-char	**map_borders(char **map);
+char	**pad_map(char **map);
 
 /* ----------------------------------CHECKS--------------------------------- */
 bool	check_map_file(char *map_filename);
 bool	check_textures(char **file);
 bool	check_color(char **file);
+bool	extern_flood_fill(char **map, t_point size, t_point start);
 
 #endif

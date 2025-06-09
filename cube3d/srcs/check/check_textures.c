@@ -6,12 +6,17 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 12:40:08 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/04 14:53:38 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/09 11:45:45 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
+/*
+* Checks if the given color respects the RGB format.
+* @param char*rgb_color
+* @return bool
+*/
 static bool	rgb_format(char *rgb_color)
 {
 	char	**temp;
@@ -38,6 +43,12 @@ static bool	rgb_format(char *rgb_color)
 	return (ft_free_array_str(temp), true);
 }
 
+/*
+* Checks it the file contains the two RGB format colors needed for the floor
+* and the ceiling.
+* @param char**file
+* @return bool
+*/
 bool	check_color(char **file)
 {	
 	int				i;
@@ -59,6 +70,12 @@ bool	check_color(char **file)
 	return (true);
 }
 
+/*
+* Checks if the map file contains all 4 needed textures for each orientation
+* and they are readable files.
+* @param char**file
+* @return bool
+*/
 bool	check_textures(char **file)
 {
 	int				i;

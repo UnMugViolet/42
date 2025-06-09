@@ -6,11 +6,24 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 12:37:44 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/05 15:30:14 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/09 12:08:37 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
+
+static bool	ft_map_orientation(char orientation, t_check_map *check)
+{
+	if (orientation == 'N' && !check->n && !check->s && !check->e && !check->w)
+		return (check->n = !check->n, true);
+	if (orientation == 'S' && !check->n && !check->s && !check->e && !check->w)
+		return (check->s = !check->s, true);
+	if (orientation == 'E' && !check->n && !check->s && !check->e && !check->w)
+		return (check->e = !check->e, true);
+	if (orientation == 'W' && !check->n && !check->s && !check->e && !check->w)
+		return (check->w = !check->w, true);
+	return (false);
+}
 
 static bool	ft_is_not_already(char orientation, t_check_map *check)
 {
@@ -41,18 +54,25 @@ static bool	check_map_chars(char **map)
 	{
 		j = -1;
 		while (map[i][++j])
-			if (!ft_is_charset(map[i][j], " 01NSEW") ||
-				(ft_is_charset(map[i][j], "NSEW") &&
-					!ft_is_not_already(map[i][j], &check)))
+		{
+			if (!ft_is_charset(map[i][j], " 01NSEW"))
 				return (print_err_exit(MAP_CHAR_ERR, NULL, NULL), false);
+			if (ft_is_charset(map[i][j], "NSEW") &&
+				!ft_map_orientation(map[i][j], &check))
+				return (print_err_exit(MAP_DOUBLE_ERR, NULL, NULL), false);
+		}		
 	}
 	return (true);
 }
 
+/*
+* Extracts the map from the file containing the textures and map.
+* @param char**map_file
+* @return char**extracted_map
+*/
 char	**extract_map(char **map_file)
 {
 	t_point		p;
-	char		*temp;
 	t_check_map	check;
 
 	ft_memset(&check, 0, sizeof(t_check_map));
@@ -60,20 +80,19 @@ char	**extract_map(char **map_file)
 	while (map_file[++p.y])
 	{
 		p.x = -1;
-		temp = map_file[p.y];
-		if (ft_is_charset(temp[0], "NSEWCF"))
+		if (ft_is_charset(map_file[p.y][0], "NSEWCF"))
 		{
-			if (ft_is_not_already(temp[0], &check))
+			if (ft_is_not_already(map_file[p.y][0], &check))
 				continue ;
 			else
-				return (printf("line : %i | %s\n", p.y, temp), NULL);
+				return (printf("line : %i | %s\n", p.y, map_file[p.y]), NULL);
 		}
-		while (temp[++p.x])
+		while (map_file[p.y][++p.x])
 		{
-			if (!ft_is_charset(temp[p.x], "1 "))
+			if (!ft_is_charset(map_file[p.y][p.x], "1 "))
 				return (print_err_exit(MAP_CHAR_ERR, NULL, NULL), NULL);
-			if (temp[p.x] == '1')
-				return (ft_str_array_dup(&map_file[p.y]));
+			if (map_file[p.y][p.x] == '1')
+				return (pad_map(&map_file[p.y]));
 		}
 	}
 	return (print_err_exit(MAP_ERR, NULL, NULL), NULL);
@@ -81,18 +100,18 @@ char	**extract_map(char **map_file)
 
 bool	check_map(char **map_file)
 {
-	t_point	p;
 	char	**map;
-	char	**temp;
 
-	ft_memset(&p, 0, sizeof(t_point));
 	map = extract_map(map_file);
 	if (!map)
 		return (false);
 	ft_print_array_str_fd(map, 1);
 	if (!check_map_chars(map))
 		return (ft_free_array_str(map), false);
-	temp = map_borders(map);
+	if (!extern_flood_fill(map, (t_point){map_max_len(map), map_rows(map)},
+		(t_point){0, 0}))
+		return (print_err_exit(OPEN_MAP_ERR, NULL, NULL),
+			ft_free_array_str(map), false);
 	return (ft_free_array_str(map), true);
 }
 
