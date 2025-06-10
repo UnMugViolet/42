@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player.c                                           :+:      :+:    :+:   */
+/*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/10 10:17:48 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/10 11:20:37 by pjaguin          ###   ########.fr       */
+/*   Created: 2025/06/10 11:27:53 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/06/10 11:32:28 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
-void	ft_init_game(t_engine *engine)
+int	ft_render(t_engine *engine)
 {
-	t_player *player;
-	
-	player = &engine->data.player;
-	player->pos.x = engine->data.screen_size.x/2;
-	player->pos.y = engine->data.screen_size.y/2;
+	mlx_clear_window(engine->mlx, engine->win);
+	ft_put_square(engine, engine->data.player.pos, 10, 0);
+	return (0);
 }

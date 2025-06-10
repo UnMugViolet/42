@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/10 10:56:58 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/10 11:32:06 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,12 @@ typedef struct s_point
 	int	y;
 }		t_point;
 
+typedef struct s_player
+{
+	t_point pos;
+	float	dir;
+}			t_player;
+
 typedef struct s_img
 {
 	void	*img_ptr;
@@ -55,8 +61,9 @@ typedef struct s_img
 
 typedef struct s_data
 {
-	t_img	textures[4];
-	t_point	screen_size;
+	t_img		textures[4];
+	t_point		screen_size;
+	t_player	player;
 }			t_data;
 
 typedef struct s_engine
@@ -108,6 +115,7 @@ bool	extern_flood_fill(char **map, t_point size, t_point start);
 int	encode_rgb(char red, char green, char blue);
 
 /* ----------------------------------DISPLAY---------------------------------- */
+int		ft_render(t_engine *engine);
 void	ft_put_square(t_engine *engine, t_point point, int wideness, int color);
 
 #endif
