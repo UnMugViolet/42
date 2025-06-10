@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:59:05 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/10 10:41:10 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/10 15:07:49 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,5 @@
 # define FILE_ERR "File error : "
 
 # define YELLOW 0xFFFF4C
+# define WHITE 0xFFFFFF
 #endif

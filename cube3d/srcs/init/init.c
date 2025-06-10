@@ -6,11 +6,42 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:57:13 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/10 14:34:05 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/10 15:22:30 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
+
+void	ft_init_player(t_engine *engine)
+{
+	t_player	*player;
+
+	player = &engine->data.player;
+	player->pos.x = engine->data.screen_size.x / 2;
+	player->pos.y = engine->data.screen_size.y / 2;
+	player->image = ft_draw_square(engine, engine->data.map.tile_size / 3,
+			YELLOW);
+}
+
+void	ft_init_map_2d(t_engine *engine, char *file)
+{
+	char	**map_file;
+
+	map_file = get_map_file(file);
+	engine->data.map.array = extract_map(map_file);
+	ft_print_array_str_fd(engine->data.map.array, 1);
+	ft_free_array_str(map_file);
+	engine->data.map.size.y = map_rows(engine->data.map.array);
+	engine->data.map.size.x = map_max_len(engine->data.map.array);
+	engine->data.map.tile_size = engine->data.screen_size.y
+		/ engine->data.map.size.y;
+	if (engine->data.map.tile_size > engine->data.screen_size.x
+		/ engine->data.map.size.x)
+		engine->data.map.tile_size = engine->data.screen_size.x
+			/ engine->data.map.size.x;
+	engine->data.map.wall = ft_draw_square(engine,
+			engine->data.map.tile_size, WHITE);
+}
 
 /*
  * Initiate the MLX `engine` using the data in the `file`
@@ -33,5 +64,6 @@ void	ft_init_window(t_engine *engine, char *file)
 		free(engine->mlx);
 		exit(EXIT_FAILURE);
 	}
+	ft_init_map_2d(engine, file);
 	get_textures(engine, file);
 }

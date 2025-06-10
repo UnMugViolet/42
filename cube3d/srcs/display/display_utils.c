@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 15:05:36 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/10 14:35:36 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/10 15:09:51 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ void	destroy_textures(t_engine *engine)
 	{
 		while (i < 4)
 		{
-			if (engine->data.textures[i].img_ptr)
+			if (engine->data.map.textures[i].img_ptr)
 			{
 				mlx_destroy_image(engine->mlx,
-					engine->data.textures[i].img_ptr);
-				engine->data.textures[i].img_ptr = NULL;
+					engine->data.map.textures[i].img_ptr);
+				engine->data.map.textures[i].img_ptr = NULL;
 			}
 			i++;
 		}
@@ -117,7 +117,7 @@ bool	get_textures(t_engine *engine, char *file_path)
 		if (!path || access(path, O_RDONLY) < 0)
 			return (ft_free(path), ft_free_array_str(temp),
 				print_err_exit(TEXT_ERR, NULL, NULL), false);
-		get_new_image(engine, path, &engine->data.textures[i]);
+		get_new_image(engine, path, &engine->data.map.textures[i]);
 		ft_free(path);
 		i++;
 	}

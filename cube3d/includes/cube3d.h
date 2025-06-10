@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/10 14:29:49 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/10 15:11:27 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,23 @@ typedef struct s_img
 
 typedef struct s_player
 {
-	t_point pos;
+	t_point	pos;
 	t_img	image;
 	float	dir;
 }			t_player;
 
+typedef struct s_map
+{
+	char	**array;
+	t_point	size;
+	int		tile_size;
+	t_img	textures[4];
+	t_img	wall;
+}			t_map;
+
 typedef struct s_data
 {
-	t_img		textures[4];
+	t_map		map;
 	t_point		screen_size;
 	t_player	player;
 }			t_data;
@@ -114,11 +123,12 @@ bool	extern_flood_fill(char **map, t_point size, t_point start);
 
 
 /* ----------------------------------COLORS---------------------------------- */
-int	encode_rgb(char red, char green, char blue);
+int		encode_rgb(char red, char green, char blue);
 
-/* ----------------------------------DISPLAY---------------------------------- */
+/* ----------------------------------DISPLAY--------------------------------- */
 int		ft_render(t_engine *engine);
 void	ft_put_square(t_engine *engine, t_point point, t_img image);
 t_img	ft_draw_square(t_engine *engine, int wideness, int color);
+void	ft_display_map_2d(t_engine *engine);
 
 #endif
