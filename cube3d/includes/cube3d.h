@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/10 10:32:24 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/10 10:56:58 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ typedef struct s_img
 typedef struct s_data
 {
 	t_img	textures[4];
-	t_img	test;	
+	t_point	screen_size;
 }			t_data;
 
 typedef struct s_engine
@@ -106,5 +106,8 @@ bool	extern_flood_fill(char **map, t_point size, t_point start);
 
 /* ----------------------------------COLORS---------------------------------- */
 int	encode_rgb(char red, char green, char blue);
+
+/* ----------------------------------DISPLAY---------------------------------- */
+void	ft_put_square(t_engine *engine, t_point point, int wideness, int color);
 
 #endif
