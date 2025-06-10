@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dictionnary.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:59:05 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/05 18:13:54 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/10 10:27:21 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,5 @@
 # define START_ERR "Map error : No starting point"
 # define FILE_ERR "File error : "
 
+# define YELLOW #FFFF4C
 #endif

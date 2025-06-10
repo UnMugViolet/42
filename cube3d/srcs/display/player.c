@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/23 18:02:14 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/10 10:17:27 by pjaguin          ###   ########.fr       */
+/*   Created: 2025/06/10 10:17:48 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/06/10 10:33:36 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
-int	main(int ac, char **av)
+void	ft_init_game(t_engine *engine)
 {
-	t_engine	engine;
-
-	ft_memset(&engine, 0, sizeof(t_engine));
-	if (!is_valid_input(ac, av, &engine))
-		return (ft_display_usage(), EXIT_FAILURE);
-	ft_init_window(&engine, av[1]);
-	ft_init_game(&engine);
-	mlx_hook(engine.win, KeyPress, KeyPressMask, &ft_key_press, &engine);
-	mlx_hook(engine.win, DestroyNotify, 0, &ft_destroy_event, &engine);
-	mlx_loop(engine.mlx);
-	return (EXIT_SUCCESS);
+	(void)engine;
 }

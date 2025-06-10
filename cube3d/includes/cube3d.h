@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/09 17:32:14 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/10 10:32:24 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int		ft_destroy_event(t_engine *engine);
 void	ft_init_image(t_data *data, void *mlx);
 void	ft_init_window(t_engine *engine, char *fractal);
 void	ft_init_engine(t_engine *engine, char *fractal);
+void	ft_init_game(t_engine *engine);
 bool	get_textures(t_engine *engine, char *file);
 
 /* ----------------------------------PARSING-------------------------------- */
@@ -101,5 +102,9 @@ bool	check_map_file(char *map_filename);
 bool	check_textures(char **file);
 bool	check_color(char **file);
 bool	extern_flood_fill(char **map, t_point size, t_point start);
+
+
+/* ----------------------------------COLORS---------------------------------- */
+int	encode_rgb(char red, char green, char blue);
 
 #endif
