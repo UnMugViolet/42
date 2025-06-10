@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/10 11:32:06 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/10 14:11:44 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include "dictionnary.h"
 # include <string.h>
 # include <errno.h>
+#include <math.h>
 
 # define WIN_WIDTH 1080
 # define WIN_HEIGHT 790
@@ -42,12 +43,6 @@ typedef struct s_point
 	int	y;
 }		t_point;
 
-typedef struct s_player
-{
-	t_point pos;
-	float	dir;
-}			t_player;
-
 typedef struct s_img
 {
 	void	*img_ptr;
@@ -58,6 +53,13 @@ typedef struct s_img
 	int		endian;
 	int		line_len;
 }		t_img;
+
+typedef struct s_player
+{
+	t_point pos;
+	t_img	image;
+	float	dir;
+}			t_player;
 
 typedef struct s_data
 {
@@ -83,7 +85,7 @@ int		ft_destroy_event(t_engine *engine);
 void	ft_init_image(t_data *data, void *mlx);
 void	ft_init_window(t_engine *engine, char *fractal);
 void	ft_init_engine(t_engine *engine, char *fractal);
-void	ft_init_game(t_engine *engine);
+void	ft_init_player(t_engine *engine);
 bool	get_textures(t_engine *engine, char *file);
 
 /* ----------------------------------PARSING-------------------------------- */
@@ -116,6 +118,8 @@ int	encode_rgb(char red, char green, char blue);
 
 /* ----------------------------------DISPLAY---------------------------------- */
 int		ft_render(t_engine *engine);
-void	ft_put_square(t_engine *engine, t_point point, int wideness, int color);
+void	ft_put_square(t_engine *engine, t_point point, t_img image);
+t_img	ft_draw_square(t_engine *engine, int wideness, int color);
+t_img	ft_put_circle(t_engine *engine, t_point point, int wideness, int color);
 
 #endif

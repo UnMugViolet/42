@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:02:14 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/10 11:32:15 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/10 14:10:56 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	main(int ac, char **av)
 	if (!is_valid_input(ac, av, &engine))
 		return (ft_display_usage(), EXIT_FAILURE);
 	ft_init_window(&engine, av[1]);
-	ft_init_game(&engine);
+	ft_init_player(&engine);
+	ft_render(&engine);
 	mlx_hook(engine.win, KeyPress, KeyPressMask, &ft_key_press, &engine);
-	mlx_loop_hook(engine.mlx, &ft_render, &engine);
 	mlx_hook(engine.win, DestroyNotify, 0, &ft_destroy_event, &engine);
 	mlx_loop(engine.mlx);
 	return (EXIT_SUCCESS);
