@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/10 14:11:44 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/10 14:29:49 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,5 @@ int	encode_rgb(char red, char green, char blue);
 int		ft_render(t_engine *engine);
 void	ft_put_square(t_engine *engine, t_point point, t_img image);
 t_img	ft_draw_square(t_engine *engine, int wideness, int color);
-t_img	ft_put_circle(t_engine *engine, t_point point, int wideness, int color);
 
 #endif

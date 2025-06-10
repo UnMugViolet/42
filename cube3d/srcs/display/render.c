@@ -15,12 +15,13 @@
 int	ft_render(t_engine *engine)
 {
 	t_player	*player;
-	t_point		pos;			
+	t_point		pos;
 
 	player = &engine->data.player;
 	pos.x = player->pos.x - (player->image.w / 2);
 	pos.y = player->pos.y - (player->image.h / 2);
 	mlx_clear_window(engine->mlx, engine->win);
-	mlx_put_image_to_window(engine->mlx, engine->win, player->image.img_ptr, pos.x, pos.y);
+	mlx_put_image_to_window(engine->mlx, engine->win, player->image.img_ptr,
+		pos.x, pos.y);
 	return (0);
 }

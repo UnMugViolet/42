@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:45:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/10 14:08:59 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/10 14:33:33 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,10 @@ t_img	ft_draw_square(t_engine *engine, int wideness, int color)
 		while (image.w < wideness)
 		{
 			pixel = (image.h * image.line_len) + (image.w * 4);
-			if (image.endian == 0)
-			{
-				image.addr[pixel + 0] = (color) &0xFF;
-				image.addr[pixel + 1] = (color >> 8) & 0xFF;
-				image.addr[pixel + 2] = (color >> 16) & 0xFF;
-				image.addr[pixel + 3] = (color >> 24) & 0xFF;
-			}
-			else if (image.endian == 1)
-			{
-				image.addr[pixel + 0] = (color >> 24) & 0xFF;
-				image.addr[pixel + 1] = (color >> 16) & 0xFF;
-				image.addr[pixel + 2] = (color >> 8) & 0xFF;
-				image.addr[pixel + 3] = (color) &0xFF;
-			}
+			image.addr[pixel + 0] = (color) & 0xFF;
+			image.addr[pixel + 1] = (color >> 8) & 0xFF;
+			image.addr[pixel + 2] = (color >> 16) & 0xFF;
+			image.addr[pixel + 3] = (color >> 24) & 0xFF;
 			image.w++;
 		}
 		image.h++;

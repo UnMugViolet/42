@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   display_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 15:05:36 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/09 12:40:25 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/10 14:35:36 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
 /*
-* Destroy all textures in the `(t_img)engine.data.textures` array.
-* @param t_engine*engine
-* @return void
-*/
+ * Destroy all textures in the `(t_img)engine.data.textures` array.
+ * @param t_engine*engine
+ * @return void
+ */
 void	destroy_textures(t_engine *engine)
 {
 	int	i;
@@ -38,18 +38,18 @@ void	destroy_textures(t_engine *engine)
 }
 
 /*
-* Stores the XPM file using its `path` into the given `t_img*image` struct
-* @param t_engine*engine
-* @param char*path
-* @param t_img*image
-* @return bool
-*/
+ * Stores the XPM file using its `path` into the given `t_img*image` struct
+ * @param t_engine*engine
+ * @param char*path
+ * @param t_img*image
+ * @return bool
+ */
 bool	get_new_image(t_engine *engine, char *path, t_img *image)
 {
 	if (!engine || !path || !image)
 		return (false);
-	image->img_ptr = mlx_xpm_file_to_image(engine->mlx, path,
-			&image->w, &image->h);
+	image->img_ptr = mlx_xpm_file_to_image(engine->mlx, path, &image->w,
+			&image->h);
 	if (!image->img_ptr)
 	{
 		printf("Failed to load texture: %s\n", path);
@@ -61,11 +61,11 @@ bool	get_new_image(t_engine *engine, char *path, t_img *image)
 }
 
 /*
-* Returns the path linked to the given `orientation` in the `file`
-* @param char**file
-* @param char*orientation
-* @return char*
-*/
+ * Returns the path linked to the given `orientation` in the `file`
+ * @param char**file
+ * @param char*orientation
+ * @return char*
+ */
 char	*get_surface_value(char **file, char const *orientation)
 {
 	size_t			i;
@@ -95,11 +95,11 @@ char	*get_surface_value(char **file, char const *orientation)
 }
 
 /*
-* Stores the textures into the `(t_img)engine.data.textures` array
-* @param t_engine*engine
-* @param char*file_path
-* @return bool
-*/
+ * Stores the textures into the `(t_img)engine.data.textures` array
+ * @param t_engine*engine
+ * @param char*file_path
+ * @return bool
+ */
 bool	get_textures(t_engine *engine, char *file_path)
 {
 	char const	*orientations[] = {"NO", "SO", "EA", "WE"};
