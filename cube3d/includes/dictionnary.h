@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:59:05 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/11 13:35:02 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/11 15:12:50 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 
 # define YELLOW 0xFFFF4C
 # define WHITE 0xFFFFFF
+
+# define SPEED 3.0
 
 # define PI 3.1415926535898
 #endif

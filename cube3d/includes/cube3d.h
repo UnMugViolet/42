@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/11 13:46:41 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/11 16:22:35 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@
 # include "dictionnary.h"
 # include <string.h>
 # include <errno.h>
-#include <math.h>
+# include <math.h>
+# include <sys/time.h>
 
 # define WIN_WIDTH 1080
 # define WIN_HEIGHT 790
@@ -66,6 +67,7 @@ typedef struct s_player
 	t_pos	pos;
 	t_pos	dir;
 	double	angle;
+	bool	wsad[4];
 }			t_player;
 
 typedef struct s_map
@@ -94,7 +96,9 @@ typedef struct s_engine
 /* ----------------------------------EVENTS--------------------------------- */
 
 int		ft_key_press(int keycode, t_engine *engine);
+int		ft_key_release(int keycode, t_engine *engine);
 int		ft_destroy_event(t_engine *engine);
+void	update_player_position(t_engine *engine);
 
 /* ----------------------------------INIT----------------------------------- */
 
@@ -121,6 +125,8 @@ int		map_max_len(char **map);
 bool	ft_is_charset(char c, char *charset);
 char	**pad_map(char **map);
 char	**extract_map(char **map_file);
+size_t	ft_get_time_in_ms(void);
+bool	is_wall(char **map, t_pos position, int tile_size);
 
 /* ----------------------------------CHECKS--------------------------------- */
 bool	check_map_file(char *map_filename);
@@ -133,6 +139,7 @@ bool	extern_flood_fill(char **map, t_point size, t_point start);
 int		encode_rgb(char red, char green, char blue);
 
 /* ----------------------------------DISPLAY--------------------------------- */
+int		game_loop(t_engine *engine);
 int		ft_render(t_engine *engine);
 void	ft_put_square(t_engine *engine, t_point point, t_img image);
 t_img	ft_draw_square(t_engine *engine, int wideness, int color);

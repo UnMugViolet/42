@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:17:48 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/11 13:46:55 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/11 15:43:11 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	set_player_position(t_player *player, char **map)
 	size_t	j;
 
 	i = -1;
-
 	while (map[++i])
 	{
 		j = -1;
@@ -39,4 +38,23 @@ void	set_player_position(t_player *player, char **map)
 			}
 		}
 	}
+}
+
+void	update_player_position(t_engine *engine)
+{
+	t_player	*player;
+
+	player = &engine->data.player;
+	if (player->wsad[0] && !is_wall(engine->data.map.array,
+			(t_pos){player->pos.x, player->pos.y - (1 * SPEED)}, engine->data.map.tile_size))
+		player->pos.y -= 1 * SPEED;
+	if (player->wsad[1] && !is_wall(engine->data.map.array,
+			(t_pos){player->pos.x, player->pos.y + (1 * SPEED)}, engine->data.map.tile_size))
+		player->pos.y += 1 * SPEED;
+	if (player->wsad[2] && !is_wall(engine->data.map.array,
+			(t_pos){player->pos.x + (1 * SPEED), player->pos.y}, engine->data.map.tile_size))
+		player->pos.x -= 1 * SPEED;
+	if (player->wsad[3] && !is_wall(engine->data.map.array,
+			(t_pos){player->pos.x + (1 * SPEED), player->pos.y}, engine->data.map.tile_size))
+		player->pos.x += 1 * SPEED;
 }

@@ -6,11 +6,20 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:45:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/10 15:27:10 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/11 15:47:21 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
+
+size_t	ft_get_time_in_ms(void)
+{
+	struct timeval	time;
+
+	if (gettimeofday(&time, NULL) == -1)
+		ft_putstr_fd("Error: gettimeofday()\n", 2);
+	return ((time.tv_sec * 1000 + time.tv_usec / 1000));
+}
 
 void	ft_put_square(t_engine *engine, t_point point, t_img image)
 {
@@ -27,10 +36,10 @@ t_img	ft_draw_square(t_engine *engine, int wideness, int color)
 	image.addr = mlx_get_data_addr(image.img_ptr, &image.bpp, &image.line_len,
 			&image.endian);
 	image.h = 0;
-	while (image.h < wideness)
+	while (image.h < wideness - 1)
 	{
 		image.w = 0;
-		while (image.w < wideness)
+		while (image.w + 1 < wideness)
 		{
 			pixel = (image.h * image.line_len) + (image.w * 4);
 			image.addr[pixel + 0] = (color) & 0xFF;
