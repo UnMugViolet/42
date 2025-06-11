@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:57:13 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/11 12:11:04 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/11 13:41:35 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	ft_init_player(t_engine *engine)
 
 	player = &engine->data.player;
 	set_player_position(player, engine->data.map.array);
-	player->x = player->x * engine->data.map.tile_size;
-	player->y = player->y * engine->data.map.tile_size;
+	player->pos.x = player->pos.x * engine->data.map.tile_size;
+	player->pos.y = player->pos.y * engine->data.map.tile_size;
 	player->image = ft_draw_square(engine, engine->data.map.tile_size / 3,
 			YELLOW);
 }

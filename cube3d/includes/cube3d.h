@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/11 12:31:00 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/11 13:46:41 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,12 @@ typedef struct s_point
 	int	y;
 }		t_point;
 
+typedef struct s_pos
+{
+	double	x;
+	double	y;
+}		t_pos;
+
 typedef struct s_img
 {
 	void	*img_ptr;
@@ -57,10 +63,8 @@ typedef struct s_img
 typedef struct s_player
 {
 	t_img	image;
-	double	x;
-	double	y;
-	double	dir_x;
-	double	dir_y;
+	t_pos	pos;
+	t_pos	dir;
 	double	angle;
 }			t_player;
 

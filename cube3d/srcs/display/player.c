@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:17:48 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/11 12:30:07 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/11 13:46:55 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	set_player_position(t_player *player, char **map)
 		{
 			if (ft_is_charset(map[i][j] , "NSEW"))
 			{
-				player->x = j + 0.5;
-				player->y = i + 0.5;
+				player->pos.x = j + 0.5;
+				player->pos.y = i + 0.5;
 				if (map[i][j] == 'N')
 					player->angle = 0;
 				else if (map[i][j] == 'S')
