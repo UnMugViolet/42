@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 12:37:44 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/09 17:45:54 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/11 11:09:23 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,29 +28,33 @@ static bool	only_one_orientation(char orientation, t_check_map *check)
 /*
 * Checks if the chars contained in the `map` array are valid and that there is
 * only one orientation for the player.
-
 */
 static bool	check_map_chars(char **map)
 {
 	int			i;
 	int			j;
+	size_t		has_spawn;
 	t_check_map	check;
 
 	ft_memset(&check, 0, sizeof(t_check_map));
 	i = -1;
+	has_spawn = 0;
 	while (map[++i])
 	{
 		j = 0;
-		while (map[i][j])
+		while (map[i][++j])
 		{
+			if (ft_is_charset(map[i][j], "NSEW"))
+				has_spawn = true;
 			if (!ft_is_charset(map[i][j], " 01NSEW"))
 				return (print_err_exit(MAP_CHAR_ERR, NULL, NULL), false);
 			if (ft_is_charset(map[i][j], "NSEW") &&
 				!only_one_orientation(map[i][j], &check))
 				return (print_err_exit(MAP_DOUBLE_ERR, NULL, NULL), false);
-			j++;
 		}
 	}
+	if (!has_spawn)
+		return (print_err_exit(MAP_SPAWN_ERROR, NULL, NULL), false);
 	return (true);
 }
 
