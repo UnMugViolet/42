@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/10 15:11:27 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/11 12:31:00 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,12 @@ typedef struct s_img
 
 typedef struct s_player
 {
-	t_point	pos;
 	t_img	image;
-	float	dir;
+	double	x;
+	double	y;
+	double	dir_x;
+	double	dir_y;
+	double	angle;
 }			t_player;
 
 typedef struct s_map
@@ -130,5 +133,7 @@ int		ft_render(t_engine *engine);
 void	ft_put_square(t_engine *engine, t_point point, t_img image);
 t_img	ft_draw_square(t_engine *engine, int wideness, int color);
 void	ft_display_map_2d(t_engine *engine);
+
+void	set_player_position(t_player *player, char **map);
 
 #endif

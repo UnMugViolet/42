@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:59:05 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/11 10:58:03 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/11 12:21:20 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,6 @@
 
 # define YELLOW 0xFFFF4C
 # define WHITE 0xFFFFFF
+
+# define PI 3.1415926535898
 #endif
