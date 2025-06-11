@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:17:48 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/11 15:43:11 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/11 17:58:19 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	set_player_position(t_player *player, char **map)
 		j = -1;
 		while (map[i][++j])
 		{
-			if (ft_is_charset(map[i][j] , "NSEW"))
+			if (ft_is_charset(map[i][j], "NSEW"))
 			{
 				player->pos.x = j + 0.5;
 				player->pos.y = i + 0.5;
@@ -43,18 +43,20 @@ void	set_player_position(t_player *player, char **map)
 void	update_player_position(t_engine *engine)
 {
 	t_player	*player;
+	char const	**map = (const char **)engine->data.map.array;
+	int const	size = engine->data.map.tile_size;
 
 	player = &engine->data.player;
-	if (player->wsad[0] && !is_wall(engine->data.map.array,
-			(t_pos){player->pos.x, player->pos.y - (1 * SPEED)}, engine->data.map.tile_size))
+	if (player->wsad[0] && !is_wall(map, (t_pos){player->pos.x,
+			player->pos.y - (1 * SPEED)}, size))
 		player->pos.y -= 1 * SPEED;
-	if (player->wsad[1] && !is_wall(engine->data.map.array,
-			(t_pos){player->pos.x, player->pos.y + (1 * SPEED)}, engine->data.map.tile_size))
+	if (player->wsad[1] && !is_wall(map, (t_pos){player->pos.x,
+			player->pos.y + (1 * SPEED)}, size))
 		player->pos.y += 1 * SPEED;
-	if (player->wsad[2] && !is_wall(engine->data.map.array,
-			(t_pos){player->pos.x + (1 * SPEED), player->pos.y}, engine->data.map.tile_size))
+	if (player->wsad[2] && !is_wall(map, (t_pos){player->pos.x - (1 * SPEED),
+			player->pos.y}, size))
 		player->pos.x -= 1 * SPEED;
-	if (player->wsad[3] && !is_wall(engine->data.map.array,
-			(t_pos){player->pos.x + (1 * SPEED), player->pos.y}, engine->data.map.tile_size))
+	if (player->wsad[3] && !is_wall(map, (t_pos){player->pos.x + (1 * SPEED),
+			player->pos.y}, size))
 		player->pos.x += 1 * SPEED;
 }

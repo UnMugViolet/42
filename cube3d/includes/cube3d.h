@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/11 16:22:35 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/11 17:59:05 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,14 +126,13 @@ bool	ft_is_charset(char c, char *charset);
 char	**pad_map(char **map);
 char	**extract_map(char **map_file);
 size_t	ft_get_time_in_ms(void);
-bool	is_wall(char **map, t_pos position, int tile_size);
+bool	is_wall(char const **map, t_pos position, int const tile_size);
 
 /* ----------------------------------CHECKS--------------------------------- */
 bool	check_map_file(char *map_filename);
 bool	check_textures(char **file);
 bool	check_color(char **file);
 bool	extern_flood_fill(char **map, t_point size, t_point start);
-
 
 /* ----------------------------------COLORS---------------------------------- */
 int		encode_rgb(char red, char green, char blue);

@@ -6,13 +6,13 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 15:18:09 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/11 16:29:59 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/11 17:51:39 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
-static bool	is_wall_at(char **map, float x, float y, int tile_size)
+static bool	is_wall_at(const char **map, float x, float y, int tile_size)
 {
 	int	map_x;
 	int	map_y;
@@ -26,7 +26,7 @@ static bool	is_wall_at(char **map, float x, float y, int tile_size)
 	return (false);
 }
 
-bool	is_wall(char **map, t_pos pos, int tile_size)
+bool	is_wall(const char **map, t_pos pos, const int tile_size)
 {
 	float	offset;
 

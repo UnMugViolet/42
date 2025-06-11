@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 11:27:53 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/11 15:38:15 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/11 17:50:30 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int	game_loop(t_engine *engine)
 
 int	ft_render(t_engine *engine)
 {
-	t_player		*player;
-	t_point			pos;
+	t_player	*player;
+	t_point		pos;
 
 	update_player_position(engine);
 	player = &engine->data.player;
