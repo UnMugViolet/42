@@ -3,28 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:14:23 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/09 12:52:06 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/12 11:27:57 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
-
-bool	ft_is_charset(char c, char *charset)
-{
-	if (charset)
-	{
-		while (*charset)
-		{
-			if (*charset == c)
-				return (true);
-			charset++;
-		}
-	}
-	return (false);
-}
 
 static bool	is_not_already_checked(char orientation, t_check_map *check)
 {
