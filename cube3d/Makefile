@@ -6,7 +6,7 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/06/11 15:18:25 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/06/12 11:40:29 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ FILES = 		main.c events.c
 INIT_FILES = 	init.c
 UTILS_FILES = 	utils.c map_utils.c utils_2.c
 PARSE_FILES = 	parsing.c
-CHECK_FILES = 	check_map.c check_textures.c map_borders.c
+CHECK_FILES = 	check_map_file.c check_textures.c map_borders.c check_map.c
 DISPLAY_FILES = display_utils.c colors_utils.c player.c render.c wall.c
 
 SRC_FILES = 	$(FILES) \

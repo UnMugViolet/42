@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/11 17:59:05 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/12 11:36:56 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,6 @@
 # include <errno.h>
 # include <math.h>
 # include <sys/time.h>
-
-# define WIN_WIDTH 1080
-# define WIN_HEIGHT 790
 
 typedef struct s_check_map
 {
@@ -126,13 +123,13 @@ bool	ft_is_charset(char c, char *charset);
 char	**pad_map(char **map);
 char	**extract_map(char **map_file);
 size_t	ft_get_time_in_ms(void);
-bool	is_wall(char const **map, t_pos position, int const tile_size);
 
 /* ----------------------------------CHECKS--------------------------------- */
 bool	check_map_file(char *map_filename);
 bool	check_textures(char **file);
 bool	check_color(char **file);
 bool	extern_flood_fill(char **map, t_point size, t_point start);
+bool	is_wall(char const **map, t_pos position, int const tile_size);
 
 /* ----------------------------------COLORS---------------------------------- */
 int		encode_rgb(char red, char green, char blue);

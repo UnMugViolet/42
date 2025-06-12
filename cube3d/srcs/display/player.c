@@ -6,12 +6,17 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:17:48 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/11 17:58:19 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/12 11:34:28 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
+/*
+*	Set the player on the map according to the spawn point.
+*	The direction is taken into account and the player `struct` stores the data
+*	@return(void)   
+*/
 void	set_player_position(t_player *player, char **map)
 {
 	size_t	i;
@@ -40,6 +45,11 @@ void	set_player_position(t_player *player, char **map)
 	}
 }
 
+/*
+*	Updates the player position using the `wsad` struct, it uses the `SPEED`
+*	and checks if there should be collision.
+*	@return(void)
+*/
 void	update_player_position(t_engine *engine)
 {
 	t_player	*player;
