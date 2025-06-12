@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:45:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/11 17:54:23 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/12 11:54:45 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,6 @@ size_t	ft_get_time_in_ms(void)
 	if (gettimeofday(&time, NULL) == -1)
 		ft_putstr_fd("Error: gettimeofday()\n", 2);
 	return ((time.tv_sec * 1000 + time.tv_usec / 1000));
-}
-
-void	ft_put_square(t_engine *engine, t_point point, t_img image)
-{
-	mlx_put_image_to_window(engine->mlx, engine->win, image.img_ptr, point.x,
-		point.y);
 }
 
 t_img	ft_draw_square(t_engine *engine, int wideness, int color)
@@ -79,4 +73,30 @@ void	ft_display_map_2d(t_engine *engine)
 		}
 		p.y++;
 	}
+}
+
+t_img	ft_draw_line(t_engine *engine, int lenght, int color)
+{
+	int		pixel;
+	t_img	image;
+
+	image.img_ptr = mlx_new_image(engine->mlx, 2, lenght);
+	image.addr = mlx_get_data_addr(image.img_ptr, &image.bpp, &image.line_len,
+			&image.endian);
+	image.h = 0;
+	while (image.h < lenght)
+	{
+		image.w = 0;
+		while (image.w < 2)
+		{
+			pixel = (image.h * image.line_len) + (image.w * 4);
+			image.addr[pixel + 0] = (color) & 0xFF;
+			image.addr[pixel + 1] = (color >> 8) & 0xFF;
+			image.addr[pixel + 2] = (color >> 16) & 0xFF;
+			image.addr[pixel + 3] = (color >> 24) & 0xFF;
+			image.w++;
+		}
+		image.h++;
+	}
+	return (image);
 }
