@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:57:13 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/12 13:56:25 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/13 10:23:13 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	ft_init_player(t_engine *engine)
 	set_player_position(player, engine->data.map.array);
 	player->pos.x = player->pos.x * engine->data.map.tile_size;
 	player->pos.y = player->pos.y * engine->data.map.tile_size;
-	player->image = ft_draw_square(engine, engine->data.map.tile_size / 3,
-			YELLOW);
+	set_player_image_dir(engine);
+
 }
 
 void	ft_init_map_2d(t_engine *engine, char *file)
@@ -32,10 +32,9 @@ void	ft_init_map_2d(t_engine *engine, char *file)
 	map_file = get_map_file(file);
 	map_size.x = engine->data.map.size.x;
 	engine->data.map.array = extract_map(map_file);
-	engine->data.map.size.y = map_rows(engine->data.map.array);
+	engine->data.map.size.y = map_rows(engine->data.map.array) / 2;
 	map_size.x = map_max_len(engine->data.map.array);
-	engine->data.map.tile_size = engine->data.screen_size.y
-		/ engine->data.map.size.y;
+	engine->data.map.tile_size = 32;
 	if (engine->data.map.tile_size > engine->data.screen_size.x / map_size.x)
 		engine->data.map.tile_size = engine->data.screen_size.x / map_size.x;
 	engine->data.map.wall = ft_draw_square(engine,

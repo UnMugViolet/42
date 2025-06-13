@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:45:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/12 11:54:45 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/13 10:23:39 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ void	ft_display_map_2d(t_engine *engine)
 
 	engine->data.map.size.y = map_rows(engine->data.map.array);
 	engine->data.map.size.x = map_max_len(engine->data.map.array);
-	tile_size = engine->data.screen_size.y / engine->data.map.size.y;
+	// tile_size = engine->data.screen_size.y / engine->data.map.size.y;
+	tile_size = 32;
 	if (tile_size > engine->data.screen_size.x / engine->data.map.size.x)
 		tile_size = engine->data.screen_size.x / engine->data.map.size.x;
 	p.y = 0;

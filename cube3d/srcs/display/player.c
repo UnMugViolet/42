@@ -6,11 +6,17 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:17:48 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/12 13:37:03 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/13 10:14:40 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
+
+void	set_player_image_dir(t_engine *engine)
+{
+	engine->data.player.image = ft_draw_square(engine,
+			engine->data.map.tile_size / 3, YELLOW);
+}
 
 /*
 *	Set the player on the map according to the spawn point.
