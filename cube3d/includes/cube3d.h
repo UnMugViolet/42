@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/13 10:14:55 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/13 18:26:43 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ typedef struct s_img
 
 typedef struct s_player
 {
-	t_img	image;
+	int		size;
 	t_pos	pos;
 	t_pos	dir;
 	double	angle;
@@ -81,6 +81,8 @@ typedef struct s_data
 	t_map		map;
 	t_point		screen_size;
 	t_player	player;
+	t_img		img;
+	t_img		img_tmp;
 }			t_data;
 
 typedef struct s_engine
@@ -137,10 +139,11 @@ int		encode_rgb(char red, char green, char blue);
 /* ----------------------------------DISPLAY--------------------------------- */
 int		game_loop(t_engine *engine);
 int		ft_render(t_engine *engine);
-t_img	ft_draw_square(t_engine *engine, int wideness, int color);
-t_img	ft_draw_line(t_engine *engine, int lenght, int color);
+void	ft_put_pixel(t_engine *engine, t_point init_point, int color);
+void	ft_draw_square(t_engine *engine, t_point point, int width, int color);
+void	ft_draw_line(t_engine *engine, int lenght, int color);
 void	ft_display_map_2d(t_engine *engine);
-void	set_player_image_dir(t_engine *engine);
+void	ft_draw_player(t_engine *engine);
 
 void	set_player_position(t_player *player, char **map);
 

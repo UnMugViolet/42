@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:57:30 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/10 15:31:56 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/13 16:33:20 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	clean_all(t_engine *engine)
 			ft_free_array_str(engine->data.map.array);
 		if (engine->data.map.wall.img_ptr)
 			mlx_destroy_image(engine->mlx, engine->data.map.wall.img_ptr);
-		if (engine->data.player.image.img_ptr)
-			mlx_destroy_image(engine->mlx, engine->data.player.image.img_ptr);
+		if (engine->data.img.img_ptr)
+			mlx_destroy_image(engine->mlx, engine->data.img.img_ptr);
 		if (engine->mlx && engine->win)
 		{
 			mlx_destroy_window(engine->mlx, engine->win);

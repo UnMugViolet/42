@@ -6,23 +6,34 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:17:48 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/13 10:14:40 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/13 18:27:45 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
-void	set_player_image_dir(t_engine *engine)
+void	ft_draw_player(t_engine *engine)
 {
-	engine->data.player.image = ft_draw_square(engine,
-			engine->data.map.tile_size / 3, YELLOW);
+	int		tile;
+	t_point	center;
+	t_point	end;
+	double	len;
+
+	tile = engine->data.map.tile_size;
+	len = tile / 2;
+	center.x = (int)(engine->data.player.pos.x * tile);
+	center.y = (int)(engine->data.player.pos.y * tile);
+	ft_draw_square(engine, (t_point){center.x - 2, center.y - 2}, engine->data.player.size, YELLOW);
+	end.x = center.x + cos(engine->data.player.angle) * len;
+	end.y = center.y - sin(engine->data.player.angle) * len;
+	// ft_draw_line(&engine->data.img, center, end, RED);
 }
 
 /*
-*	Set the player on the map according to the spawn point.
-*	The direction is taken into account and the player `struct` stores the data
-*	@return(void)   
-*/
+ *	Set the player on the map according to the spawn point.
+ *	The direction is taken into account and the player `struct` stores the data
+ *	@return(void)
+ */
 void	set_player_position(t_player *player, char **map)
 {
 	size_t	i;
@@ -52,10 +63,10 @@ void	set_player_position(t_player *player, char **map)
 }
 
 /*
-*	Updates the player position using the `wsad` struct, it uses the `SPEED`
-*	and checks if there should be collision.
-*	@return(void)
-*/
+ *	Updates the player position using the `wsad` struct, it uses the `SPEED`
+ *	and checks if there should be collision.
+ *	@return(void)
+ */
 void	update_player_position(t_engine *engine)
 {
 	t_player	*player;
@@ -63,11 +74,11 @@ void	update_player_position(t_engine *engine)
 	int const	size = engine->data.map.tile_size;
 
 	player = &engine->data.player;
-	if (player->wsad[0] && !is_wall(map, (t_pos){player->pos.x,
-			player->pos.y - (1 * SPEED)}, size))
-		player->pos.y -= 1 * SPEED;
-	if (player->wsad[1] && !is_wall(map, (t_pos){player->pos.x,
-			player->pos.y + (1 * SPEED)}, size))
+	if (player->wsad[0] && !is_wall(map, (t_pos){player->pos.x, player->pos.y
+			- (1 * SPEED)}, size))
+		player->pos.y -= 1 * SPEED;  
+	if (player->wsad[1] && !is_wall(map, (t_pos){player->pos.x, player->pos.y
+			+ (1 * SPEED)}, size))
 		player->pos.y += 1 * SPEED;
 	if (player->wsad[2] && !is_wall(map, (t_pos){player->pos.x - (1 * SPEED),
 			player->pos.y}, size))

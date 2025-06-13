@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:57:13 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/13 10:23:13 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/13 18:27:06 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@ void	ft_init_player(t_engine *engine)
 	t_player	*player;
 
 	player = &engine->data.player;
+	player->size = engine->data.map.tile_size / 3;
 	set_player_position(player, engine->data.map.array);
-	player->pos.x = player->pos.x * engine->data.map.tile_size;
-	player->pos.y = player->pos.y * engine->data.map.tile_size;
-	set_player_image_dir(engine);
-
+	ft_draw_player(engine);
 }
 
 void	ft_init_map_2d(t_engine *engine, char *file)
@@ -34,11 +32,10 @@ void	ft_init_map_2d(t_engine *engine, char *file)
 	engine->data.map.array = extract_map(map_file);
 	engine->data.map.size.y = map_rows(engine->data.map.array) / 2;
 	map_size.x = map_max_len(engine->data.map.array);
-	engine->data.map.tile_size = 32;
+	engine->data.map.tile_size = engine->data.screen_size.y
+		/ engine->data.map.size.y;
 	if (engine->data.map.tile_size > engine->data.screen_size.x / map_size.x)
 		engine->data.map.tile_size = engine->data.screen_size.x / map_size.x;
-	engine->data.map.wall = ft_draw_square(engine,
-			engine->data.map.tile_size, WHITE);
 	ft_free_array_str(map_file);
 }
 
@@ -63,6 +60,11 @@ void	ft_init_window(t_engine *engine, char *file)
 		free(engine->mlx);
 		exit(EXIT_FAILURE);
 	}
+	engine->data.img.img_ptr = mlx_new_image(engine->mlx, engine->data.screen_size.x,
+			engine->data.screen_size.y);
+	engine->data.img.addr = mlx_get_data_addr(engine->data.img.img_ptr,
+		&engine->data.img.bpp, &engine->data.img.line_len,
+		&engine->data.img.endian);
 	ft_init_map_2d(engine, file);
 	get_textures(engine, file);
 }
