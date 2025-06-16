@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 11:36:02 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/16 16:53:47 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/16 17:46:08 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static bool	is_wall_at(const char **map, float x, float y, int tile_size)
 	int	map_x;
 	int	map_y;
 
-    map_x = (int)(x / tile_size + 0.5);
-    map_y = (int)(y / tile_size + 0.5);
+    map_x = (int)(x / tile_size);
+    map_y = (int)(y / tile_size);
     if (map[map_y][map_x] == '1')
         return true;
     return false;

@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:59:05 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/16 16:39:48 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/16 17:36:13 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define WHITE 0xFFFFFF
 # define RED 0xFF0000
 # define BLACK 0x000000
+# define BLUE 0x0000FF
 
 # define WIN_W 4096
 # define WIN_H 2160

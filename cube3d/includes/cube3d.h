@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/16 16:42:16 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/16 17:32:01 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,7 @@ int		game_loop(t_engine *engine);
 int		ft_render(t_engine *engine);
 void	ft_put_pixel(t_engine *engine, t_point init_point, int color);
 void	ft_draw_square(t_engine *engine, t_point point, int width, int color);
-void	ft_draw_line(t_engine *engine, int lenght, int color);
+void    ft_draw_line(t_engine *engine, t_point start, t_point end, int color);
 void	ft_draw_map_2d(t_engine *engine);
 void	ft_draw_player(t_engine *engine);
 

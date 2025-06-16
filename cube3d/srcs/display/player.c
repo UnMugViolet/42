@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:17:48 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/16 16:38:34 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/16 17:46:47 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	ft_clear_player(t_engine *engine)
     t_point	center;
 
     tile = engine->data.map.tile_size;
-    center.x = (int)(engine->data.player.pos.x * tile + (tile / 3));
-    center.y = (int)(engine->data.player.pos.y * tile + (tile / 3));
+    center.x = (int)(engine->data.player.pos.x * tile);
+    center.y = (int)(engine->data.player.pos.y * tile);
     ft_draw_square(engine, (t_point){center.x, center.y}, engine->data.player.size, BLACK);
 }
 
@@ -31,12 +31,12 @@ void	ft_draw_player(t_engine *engine)
 
 	(void)end;
 	tile = engine->data.map.tile_size;
-    center.x = (int)(engine->data.player.pos.x * tile + (tile / 3));
-    center.y = (int)(engine->data.player.pos.y * tile + (tile / 3));
+    center.x = (int)(engine->data.player.pos.x * tile);
+    center.y = (int)(engine->data.player.pos.y * tile);
 	ft_draw_square(engine, (t_point){center.x, center.y}, engine->data.player.size, YELLOW);
 	end.x = center.x + cos(engine->data.player.angle) * (tile / 2);
 	end.y = center.y + sin(engine->data.player.angle) * (tile / 2);
-	// ft_draw_line(&engine->data.img, center, end, RED);
+	ft_draw_line(engine, center, end, BLACK);
 }
 
 /*
@@ -57,8 +57,8 @@ void	set_player_position(t_player *player, char **map)
 		{
 			if (ft_is_charset(map[i][j], "NSEW"))
 			{
-				player->pos.x = j;
-				player->pos.y = i;
+				player->pos.x = j + 0.5;
+				player->pos.y = i + 0.5;
 				if (map[i][j] == 'N')
 					player->angle = 0;
 				else if (map[i][j] == 'S')
