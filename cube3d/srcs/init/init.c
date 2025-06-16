@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:57:13 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/16 16:18:54 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/16 16:30:36 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_init_map_2d(t_engine *engine, char *file)
 	map_file = get_map_file(file);
 	map_size.x = engine->data.map.size.x;
 	engine->data.map.array = extract_map(map_file);
-	engine->data.map.size.y = map_rows(engine->data.map.array) / 2;
+	engine->data.map.size.y = map_rows(engine->data.map.array);
 	map_size.x = map_max_len(engine->data.map.array);
 	engine->data.map.tile_size = engine->data.screen_size.y
 		/ engine->data.map.size.y;
@@ -66,5 +66,5 @@ void	ft_init_window(t_engine *engine, char *file)
 		&engine->data.img.bpp, &engine->data.img.line_len,
 		&engine->data.img.endian);
 	ft_init_map_2d(engine, file);
-	get_textures(engine, file);
+	// get_textures(engine, file);
 }

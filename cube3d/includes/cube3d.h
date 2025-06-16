@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/16 16:22:14 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/16 16:42:16 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <X11/keysym.h>
 # include "dictionnary.h"
 # include <string.h>
+# include <stdbool.h>
 # include <errno.h>
 # include <math.h>
 # include <sys/time.h>

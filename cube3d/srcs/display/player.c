@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:17:48 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/16 15:36:26 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/16 16:38:34 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	ft_clear_player(t_engine *engine)
 {
-    int		tile_size;
+    int		tile;
     t_point	center;
 
-    tile_size = engine->data.map.tile_size;
-    center.x = (int)(engine->data.player.pos.x * tile_size);
-    center.y = (int)(engine->data.player.pos.y * tile_size);
+    tile = engine->data.map.tile_size;
+    center.x = (int)(engine->data.player.pos.x * tile + (tile / 3));
+    center.y = (int)(engine->data.player.pos.y * tile + (tile / 3));
     ft_draw_square(engine, (t_point){center.x, center.y}, engine->data.player.size, BLACK);
 }
 
@@ -31,9 +31,8 @@ void	ft_draw_player(t_engine *engine)
 
 	(void)end;
 	tile = engine->data.map.tile_size;
-	printf("Tile size: %d, Player size: %i\n", tile, engine->data.player.size);
-    center.x = (int)(engine->data.player.pos.x * 216);
-    center.y = (int)(engine->data.player.pos.y * 216);
+    center.x = (int)(engine->data.player.pos.x * tile + (tile / 3));
+    center.y = (int)(engine->data.player.pos.y * tile + (tile / 3));
 	ft_draw_square(engine, (t_point){center.x, center.y}, engine->data.player.size, YELLOW);
 	end.x = center.x + cos(engine->data.player.angle) * (tile / 2);
 	end.y = center.y + sin(engine->data.player.angle) * (tile / 2);
