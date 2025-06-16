@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:17:48 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/16 17:46:47 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/16 17:56:33 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,12 @@ void	ft_draw_player(t_engine *engine)
 	t_point	center;
 	t_point	end;
 
-	(void)end;
 	tile = engine->data.map.tile_size;
     center.x = (int)(engine->data.player.pos.x * tile);
     center.y = (int)(engine->data.player.pos.y * tile);
 	ft_draw_square(engine, (t_point){center.x, center.y}, engine->data.player.size, YELLOW);
 	end.x = center.x + cos(engine->data.player.angle) * (tile / 2);
-	end.y = center.y + sin(engine->data.player.angle) * (tile / 2);
+	end.y = center.y - sin(engine->data.player.angle) * (tile / 2);
 	ft_draw_line(engine, center, end, BLACK);
 }
 
@@ -60,13 +59,13 @@ void	set_player_position(t_player *player, char **map)
 				player->pos.x = j + 0.5;
 				player->pos.y = i + 0.5;
 				if (map[i][j] == 'N')
-					player->angle = 0;
-				else if (map[i][j] == 'S')
-					player->angle = PI;
-				else if (map[i][j] == 'W')
-					player->angle = (3 * PI) / 2;
-				else if (map[i][j] == 'E')
 					player->angle = PI / 2;
+				else if (map[i][j] == 'S')
+					player->angle = 3 * PI / 2;
+				else if (map[i][j] == 'E')
+					player->angle = 0;
+				else if (map[i][j] == 'W')
+					player->angle = PI;
 			}
 		}
 	}
