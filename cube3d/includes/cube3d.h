@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/16 14:55:01 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/16 16:22:14 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,7 @@ int		ft_render(t_engine *engine);
 void	ft_put_pixel(t_engine *engine, t_point init_point, int color);
 void	ft_draw_square(t_engine *engine, t_point point, int width, int color);
 void	ft_draw_line(t_engine *engine, int lenght, int color);
-void	ft_display_map_2d(t_engine *engine);
+void	ft_draw_map_2d(t_engine *engine);
 void	ft_draw_player(t_engine *engine);
 
 void	set_player_position(t_player *player, char **map);

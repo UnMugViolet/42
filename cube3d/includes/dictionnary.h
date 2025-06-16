@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:59:05 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/16 11:57:40 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/16 16:18:11 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@
 # define RED 0xFF0000
 # define BLACK 0x000000
 
+# define WIN_W 2048
+# define WIN_H 1080
 # define SPEED 0.2
 
 # define PI 3.1415926535898

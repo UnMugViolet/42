@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 11:27:53 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/16 15:01:20 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/16 16:22:30 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ int	game_loop(t_engine *engine)
 int	ft_render(t_engine *engine)
 {
 	update_player_position(engine);
+	ft_draw_map_2d(engine);
+	ft_draw_player(engine);
 	mlx_put_image_to_window(engine->mlx, engine->win, engine->data.img.img_ptr,
 		0, 0);
-	ft_display_map_2d(engine);
-	ft_draw_player(engine);
 	return (0);
 }

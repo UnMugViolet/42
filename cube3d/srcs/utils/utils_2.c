@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:45:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/16 15:13:16 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/16 16:22:14 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_draw_square(t_engine *engine, t_point pos, int width, int color)
 	}
 }
 
-void	ft_display_map_2d(t_engine *engine)
+void	ft_draw_map_2d(t_engine *engine)
 {
 	int		tile_size;
 	t_point	p;

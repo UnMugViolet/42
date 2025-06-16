@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:57:13 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/16 11:08:40 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/16 16:18:54 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ void	ft_init_window(t_engine *engine, char *file)
 	if (!engine->mlx)
 		exit(EXIT_FAILURE);
 	ft_memset(&engine->data.screen_size, 0, sizeof(t_point));
-	mlx_get_screen_size(engine->mlx, &engine->data.screen_size.x,
-		&engine->data.screen_size.y);
+	engine->data.screen_size.x = WIN_W;
+	engine->data.screen_size.y = WIN_H;
 	engine->win = mlx_new_window(engine->mlx, engine->data.screen_size.x,
 			engine->data.screen_size.y, file);
 	if (!engine->win)
