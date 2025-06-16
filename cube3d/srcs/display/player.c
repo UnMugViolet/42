@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:17:48 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/16 12:23:14 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/16 15:36:26 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_clear_player(t_engine *engine)
     tile_size = engine->data.map.tile_size;
     center.x = (int)(engine->data.player.pos.x * tile_size);
     center.y = (int)(engine->data.player.pos.y * tile_size);
-    ft_draw_square(engine, (t_point){center.x - 2, center.y - 2}, engine->data.player.size, BLACK);
+    ft_draw_square(engine, (t_point){center.x, center.y}, engine->data.player.size, BLACK);
 }
 
 void	ft_draw_player(t_engine *engine)
@@ -28,16 +28,15 @@ void	ft_draw_player(t_engine *engine)
 	int		tile;
 	t_point	center;
 	t_point	end;
-	double	len;
 
 	(void)end;
 	tile = engine->data.map.tile_size;
-	len = tile / 2;
-	center.x = (int)(engine->data.player.pos.x * tile);
-	center.y = (int)(engine->data.player.pos.y * tile);
-	ft_draw_square(engine, (t_point){center.x - 2, center.y - 2}, engine->data.player.size, YELLOW);
-	end.x = center.x + cos(engine->data.player.angle) * len;
-	end.y = center.y - sin(engine->data.player.angle) * len;
+	printf("Tile size: %d, Player size: %i\n", tile, engine->data.player.size);
+    center.x = (int)(engine->data.player.pos.x * 216);
+    center.y = (int)(engine->data.player.pos.y * 216);
+	ft_draw_square(engine, (t_point){center.x, center.y}, engine->data.player.size, YELLOW);
+	end.x = center.x + cos(engine->data.player.angle) * (tile / 2);
+	end.y = center.y + sin(engine->data.player.angle) * (tile / 2);
 	// ft_draw_line(&engine->data.img, center, end, RED);
 }
 
@@ -59,8 +58,8 @@ void	set_player_position(t_player *player, char **map)
 		{
 			if (ft_is_charset(map[i][j], "NSEW"))
 			{
-				player->pos.x = j + 0.5;
-				player->pos.y = i + 0.5;
+				player->pos.x = j;
+				player->pos.y = i;
 				if (map[i][j] == 'N')
 					player->angle = 0;
 				else if (map[i][j] == 'S')

@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/16 11:53:59 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/16 14:55:01 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ typedef struct s_data
 	t_point		screen_size;
 	t_player	player;
 	t_img		img;
-	t_img		img_tmp;
 }			t_data;
 
 typedef struct s_engine
