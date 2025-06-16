@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:57:13 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/16 16:30:36 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/16 18:21:34 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ void	ft_init_map_2d(t_engine *engine, char *file)
 	engine->data.map.array = extract_map(map_file);
 	engine->data.map.size.y = map_rows(engine->data.map.array);
 	map_size.x = map_max_len(engine->data.map.array);
-	engine->data.map.tile_size = engine->data.screen_size.y
-		/ engine->data.map.size.y;
-	if (engine->data.map.tile_size > engine->data.screen_size.x / map_size.x)
-		engine->data.map.tile_size = engine->data.screen_size.x / map_size.x;
+	engine->data.map.tile_size = (engine->data.screen_size.y
+		/ engine->data.map.size.y) / 2;
+	if (engine->data.map.tile_size > (engine->data.screen_size.x / map_size.x) / 2)
+		engine->data.map.tile_size = (engine->data.screen_size.x / map_size.x) / 2;
 	ft_free_array_str(map_file);
 }
 

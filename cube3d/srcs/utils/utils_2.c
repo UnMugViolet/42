@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:45:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/16 17:55:27 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/16 18:14:00 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ void	ft_draw_map_2d(t_engine *engine)
 
 	engine->data.map.size.y = map_rows(engine->data.map.array);
 	engine->data.map.size.x = map_max_len(engine->data.map.array);
-	tile_size = engine->data.screen_size.y / engine->data.map.size.y;
-	if (tile_size > engine->data.screen_size.x / engine->data.map.size.x)
-		tile_size = engine->data.screen_size.x / engine->data.map.size.x;
+	tile_size = (engine->data.screen_size.y / engine->data.map.size.y) / 2;
+	if (tile_size > (engine->data.screen_size.x / engine->data.map.size.x / 2))
+		tile_size = (engine->data.screen_size.x / engine->data.map.size.x) / 2;
 	p.y = 0;
 	while (p.y < engine->data.map.size.y)
 	{

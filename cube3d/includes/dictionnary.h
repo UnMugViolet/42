@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dictionnary.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:59:05 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/16 17:36:13 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/16 18:30:43 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,10 @@
 # define BLACK 0x000000
 # define BLUE 0x0000FF
 
-# define WIN_W 4096
-# define WIN_H 2160
-# define SPEED 0.2
+# define WIN_W 2048
+# define WIN_H 1080
+# define SPEED 0.05
+# define ROTATION 0.05
 
 # define PI 3.1415926535898
 #endif

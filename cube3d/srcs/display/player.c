@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:17:48 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/16 17:56:33 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/16 18:30:50 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,28 +72,51 @@ void	set_player_position(t_player *player, char **map)
 }
 
 /*
- *	Updates the player position using the `wsad` struct, it uses the `SPEED`
+ *	Updates the player position using the `k_pressed` struct, it uses the `SPEED`
  *	and checks if there should be collision.
  *	@return(void)
  */
-int	update_player_position(t_engine *engine)
+void	update_player_position(t_engine *engine)
 {
 	t_player	*player;
 	char const	**map = (const char **)engine->data.map.array;
 	int const	size = engine->data.map.tile_size;
 
 	player = &engine->data.player;
-	if (player->wsad[0] && !is_wall(map, (t_pos){player->pos.x, player->pos.y
+	if (player->k_pressed[0] && !is_wall(map, (t_pos){player->pos.x, player->pos.y
 			- (1 * SPEED)}, size))
-		return (ft_clear_player(engine), player->pos.y -= 1 * SPEED, 1);
-	if (player->wsad[1] && !is_wall(map, (t_pos){player->pos.x, player->pos.y
+	{
+		ft_clear_player(engine);
+		player->pos.y -= 1 * SPEED;
+	}
+	if (player->k_pressed[1] && !is_wall(map, (t_pos){player->pos.x, player->pos.y
 			+ (1 * SPEED)}, size))
-		return (ft_clear_player(engine), player->pos.y += 1 * SPEED, 1);
-	if (player->wsad[2] && !is_wall(map, (t_pos){player->pos.x - (1 * SPEED),
+	{
+		ft_clear_player(engine);
+		player->pos.y += 1 * SPEED;
+	}
+	if (player->k_pressed[2] && !is_wall(map, (t_pos){player->pos.x - (1 * SPEED),
 			player->pos.y}, size))
-		return (ft_clear_player(engine), player->pos.x -= 1 * SPEED, 1);
-	if (player->wsad[3] && !is_wall(map, (t_pos){player->pos.x + (1 * SPEED),
+	{
+		ft_clear_player(engine);
+		player->pos.x -= 1 * SPEED;
+	}
+	if (player->k_pressed[3] && !is_wall(map, (t_pos){player->pos.x + (1 * SPEED),
 			player->pos.y}, size))
-		return (ft_clear_player(engine), player->pos.x += 1 * SPEED, 1);
-	return (0);
+	{
+		ft_clear_player(engine);
+		player->pos.x += 1 * SPEED;
+	}
+	if (player->k_pressed[4])
+	{
+		player->angle += ROTATION;
+		if (player->angle > 2 * PI)
+			player->angle -= 2 * PI;
+	}
+	if (player->k_pressed[5])
+	{
+		player->angle -= ROTATION;
+		if (player->angle < 0)
+			player->angle += 2 * PI;
+	}
 }

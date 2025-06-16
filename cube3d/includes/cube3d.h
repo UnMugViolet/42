@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/16 17:32:01 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/16 18:23:13 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ typedef struct s_player
 	t_pos	pos;
 	t_pos	dir;
 	double	angle;
-	bool	wsad[4];
+	bool	k_pressed[6];
 }			t_player;
 
 typedef struct s_map
@@ -97,7 +97,7 @@ typedef struct s_engine
 int		ft_key_press(int keycode, t_engine *engine);
 int		ft_key_release(int keycode, t_engine *engine);
 int		ft_destroy_event(t_engine *engine);
-int		update_player_position(t_engine *engine);
+void	update_player_position(t_engine *engine);
 
 /* ----------------------------------INIT----------------------------------- */
 
