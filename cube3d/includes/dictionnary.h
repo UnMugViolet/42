@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dictionnary.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:59:05 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/13 18:30:31 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/16 11:57:40 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@
 # define YELLOW 0xFFFF4C
 # define WHITE 0xFFFFFF
 # define RED 0xFF0000
+# define BLACK 0x000000
 
-# define SPEED 0.05
+# define SPEED 0.2
 
 # define PI 3.1415926535898
 #endif

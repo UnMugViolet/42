@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 11:27:53 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/13 18:29:13 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/16 11:52:44 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,10 @@ int	game_loop(t_engine *engine)
 	return (0);
 }
 
+
 int	ft_render(t_engine *engine)
 {
-	t_player	*player;
-
 	update_player_position(engine);
-	player = &engine->data.player;
-	mlx_clear_window(engine->mlx, engine->win);
 	mlx_put_image_to_window(engine->mlx, engine->win, engine->data.img.img_ptr,
 		0, 0);
 	ft_draw_player(engine);

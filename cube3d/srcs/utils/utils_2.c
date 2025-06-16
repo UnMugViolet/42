@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:45:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/13 18:12:32 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/16 10:28:47 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,7 @@ size_t	ft_get_time_in_ms(void)
 void	ft_draw_square(t_engine *engine, t_point pos, int width, int color)
 {
 	t_point	pixel;
-	t_img	*img;
 
-	img = &engine->data.img;
 	pixel.y = 0;
 	while (pixel.y < width)
 	{

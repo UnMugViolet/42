@@ -3,14 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:17:48 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/13 18:27:45 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/16 12:00:05 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
+
+void	ft_clear_player(t_engine *engine)
+{
+    int		tile_size;
+    t_point	center;
+
+    tile_size = engine->data.map.tile_size;
+    center.x = (int)(engine->data.player.pos.x * tile_size);
+    center.y = (int)(engine->data.player.pos.y * tile_size);
+    ft_draw_square(engine, (t_point){center.x - 2, center.y - 2}, engine->data.player.size, BLACK);
+}
 
 void	ft_draw_player(t_engine *engine)
 {
@@ -19,6 +30,7 @@ void	ft_draw_player(t_engine *engine)
 	t_point	end;
 	double	len;
 
+	(void)end;
 	tile = engine->data.map.tile_size;
 	len = tile / 2;
 	center.x = (int)(engine->data.player.pos.x * tile);
@@ -67,7 +79,7 @@ void	set_player_position(t_player *player, char **map)
  *	and checks if there should be collision.
  *	@return(void)
  */
-void	update_player_position(t_engine *engine)
+int	update_player_position(t_engine *engine)
 {
 	t_player	*player;
 	char const	**map = (const char **)engine->data.map.array;
@@ -76,14 +88,15 @@ void	update_player_position(t_engine *engine)
 	player = &engine->data.player;
 	if (player->wsad[0] && !is_wall(map, (t_pos){player->pos.x, player->pos.y
 			- (1 * SPEED)}, size))
-		player->pos.y -= 1 * SPEED;  
+		return (ft_clear_player(engine), player->pos.y -= 1 * SPEED, 1);
 	if (player->wsad[1] && !is_wall(map, (t_pos){player->pos.x, player->pos.y
 			+ (1 * SPEED)}, size))
-		player->pos.y += 1 * SPEED;
+		return (ft_clear_player(engine), player->pos.y += 1 * SPEED, 1);
 	if (player->wsad[2] && !is_wall(map, (t_pos){player->pos.x - (1 * SPEED),
 			player->pos.y}, size))
-		player->pos.x -= 1 * SPEED;
+		return (ft_clear_player(engine), player->pos.x -= 1 * SPEED, 1);
 	if (player->wsad[3] && !is_wall(map, (t_pos){player->pos.x + (1 * SPEED),
 			player->pos.y}, size))
-		player->pos.x += 1 * SPEED;
+		return (ft_clear_player(engine), player->pos.x += 1 * SPEED, 1);
+	return (0);
 }

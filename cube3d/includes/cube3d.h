@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/13 18:26:43 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/16 11:53:59 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ typedef struct s_engine
 int		ft_key_press(int keycode, t_engine *engine);
 int		ft_key_release(int keycode, t_engine *engine);
 int		ft_destroy_event(t_engine *engine);
-void	update_player_position(t_engine *engine);
+int		update_player_position(t_engine *engine);
 
 /* ----------------------------------INIT----------------------------------- */
 
