@@ -3,53 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 11:11:03 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/06/17 12:25:22 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/17 14:32:25 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
-t_pos	ft_get_player_next_pos(t_player *player, char direction)
-{
-	t_pos	next_pos;
-
-	if (direction == 'W')
-	{
-		next_pos.x = player->pos.x + cos(player->angle) * (1 * SPEED);
-		next_pos.y = player->pos.y - sin(player->angle) * (1 * SPEED);
-	}
-	if (direction == 'S')
-	{
-		next_pos.x = player->pos.x - cos(player->angle) * (1 * SPEED);
-		next_pos.y = player->pos.y + sin(player->angle) * (1 * SPEED);
-	}
-	if (direction == 'A')
-	{
-		next_pos.x = player->pos.x - sin(player->angle) * (1 * SPEED);
-		next_pos.y = player->pos.y - cos(player->angle) * (1 * SPEED);
-	}
-	if (direction == 'D')
-	{
-		next_pos.x = player->pos.x + sin(player->angle) * (1 * SPEED);
-		next_pos.y = player->pos.y + cos(player->angle) * (1 * SPEED);
-	}
-	return (next_pos);
-}
-
-static void	ft_translate_player(t_engine *engine, char direction)
+/*
+* Changes the axis orientation of the player accordingly to the key pressed.
+* @param t_engine*engine
+* @param char_direction
+* @return void
+*/
+static void	ft_rotation(t_engine *engine, char direction)
 {
 	t_player	*player;
 
 	player = &engine->data.player;
-	if (ft_is_charset(direction, "WASD"))
-	{
-		ft_clear_player(engine);
-		player->pos = ft_get_player_next_pos(player, direction);
-	}
-	else if (direction == 'L')
+	if (direction == 'L')
 	{
 		player->angle += ROTATION;
 		if (player->angle > 2 * PI)
@@ -64,6 +38,37 @@ static void	ft_translate_player(t_engine *engine, char direction)
 }
 
 /*
+* Moves the player accordingly to its axis, checking beforehand if he can move in the `x` axis or `y` axis.
+* @param t_engine*engine
+* @param doubledisplacement_x
+* @param doubledisplacement_y
+* @return void
+*/
+void	ft_move_player_axis(t_engine *engine,
+		double displacement_x, double displacement_y)
+{
+	t_player	*player;
+	t_pos		next;
+	char const	**map = (const char **)engine->data.map.array;
+
+	player = &engine->data.player;
+	next.x = player->pos.x + displacement_x;
+	next.y = player->pos.y;
+	if (!is_wall(map, next, engine->data.map.tile_size))
+	{
+		ft_clear_player(engine);
+		player->pos.x = next.x;
+	}
+	next.x = player->pos.x;
+	next.y = player->pos.y + displacement_y;
+	if (!is_wall(map, next, engine->data.map.tile_size))
+	{
+		ft_clear_player(engine);
+		player->pos.y = next.y;
+	}
+}
+
+/*
  *	Updates the player position using the `k_pressed` struct,
  *	it uses the `SPEED`
  *	and checks if there should be collision.
@@ -72,24 +77,22 @@ static void	ft_translate_player(t_engine *engine, char direction)
 void	ft_handle_movement(t_engine *engine)
 {
 	t_player	*player;
-	char const	**map = (const char **)engine->data.map.array;
-	int const	size = engine->data.map.tile_size;
 
 	player = &engine->data.player;
-	if (player->k_pressed[0] && !is_wall(map, ft_get_player_next_pos(player,
-				'W'), size))
-		ft_translate_player(engine, 'W');
-	if (player->k_pressed[1] && !is_wall(map, ft_get_player_next_pos(player,
-				'S'), size))
-		ft_translate_player(engine, 'S');
-	if (player->k_pressed[2] && !is_wall(map, ft_get_player_next_pos(player,
-				'A'), size))
-		ft_translate_player(engine, 'A');
-	if (player->k_pressed[3] && !is_wall(map, ft_get_player_next_pos(player,
-				'D'), size))
-		ft_translate_player(engine, 'D');
+	if (player->k_pressed[0])
+		ft_move_player_axis(engine, cos(player->angle) * SPEED,
+			-sin(player->angle) * SPEED);
+	if (player->k_pressed[1])
+		ft_move_player_axis(engine, -cos(player->angle) * SPEED,
+			sin(player->angle) * SPEED);
+	if (player->k_pressed[2])
+		ft_move_player_axis(engine, -sin(player->angle) * SPEED,
+			-cos(player->angle) * SPEED);
+	if (player->k_pressed[3])
+		ft_move_player_axis(engine, sin(player->angle) * SPEED,
+			cos(player->angle) * SPEED);
 	if (player->k_pressed[4])
-		ft_translate_player(engine, 'L');
+		ft_rotation(engine, 'L');
 	if (player->k_pressed[5])
-		ft_translate_player(engine, 'R');
+		ft_rotation(engine, 'R');
 }
