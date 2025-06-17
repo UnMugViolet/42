@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 11:11:03 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/06/17 14:32:25 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/17 15:16:05 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 * @param char_direction
 * @return void
 */
-static void	ft_rotation(t_engine *engine, char direction)
+void	ft_rotation(t_engine *engine, char direction)
 {
 	t_player	*player;
 
@@ -38,7 +38,8 @@ static void	ft_rotation(t_engine *engine, char direction)
 }
 
 /*
-* Moves the player accordingly to its axis, checking beforehand if he can move in the `x` axis or `y` axis.
+* Moves the player accordingly to its axis, checking 
+* beforehand if he can move in the `x` axis or `y` axis.
 * @param t_engine*engine
 * @param doubledisplacement_x
 * @param doubledisplacement_y
@@ -95,4 +96,20 @@ void	ft_handle_movement(t_engine *engine)
 		ft_rotation(engine, 'L');
 	if (player->k_pressed[5])
 		ft_rotation(engine, 'R');
+}
+
+int	ft_mouse_move(int x, int y, t_engine *engine)
+{
+	int const	center_x = engine->data.screen_size.x * 3 / 4;
+	int const	delta_x = x - center_x;
+
+	(void)y;
+	if (delta_x != 0)
+	{
+		engine->data.player.angle -= delta_x * SENSITIVITY;
+		mlx_mouse_move(engine->mlx, engine->win, center_x,
+			engine->data.screen_size.y / 2);
+		engine->data.player.last_x_mouse = center_x;
+	}
+	return (0);
 }

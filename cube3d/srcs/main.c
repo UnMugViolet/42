@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:02:14 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/11 15:05:24 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/17 15:13:58 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(int ac, char **av)
 	ft_init_player(&engine);
 	mlx_hook(engine.win, KeyPress, KeyPressMask, &ft_key_press, &engine);
 	mlx_hook(engine.win, KeyRelease, KeyReleaseMask, &ft_key_release, &engine);
+	mlx_hook(engine.win, MotionNotify, PointerMotionMask, &ft_mouse_move, &engine);
 	mlx_loop_hook(engine.mlx, &game_loop, &engine);
 	mlx_hook(engine.win, DestroyNotify, 0, &ft_destroy_event, &engine);
 	mlx_loop(engine.mlx);

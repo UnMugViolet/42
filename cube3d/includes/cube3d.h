@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/17 11:28:01 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/17 15:12:28 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef struct s_player
 	t_pos	pos;
 	double	angle;
 	bool	k_pressed[6];
+	int		last_x_mouse;
 }			t_player;
 
 typedef struct s_map
@@ -96,6 +97,7 @@ typedef struct s_engine
 int		ft_key_press(int keycode, t_engine *engine);
 int		ft_key_release(int keycode, t_engine *engine);
 int		ft_destroy_event(t_engine *engine);
+int		ft_mouse_move(int x, int y, t_engine *engine);
 
 /* ----------------------------------INIT----------------------------------- */
 
@@ -104,6 +106,7 @@ void	ft_init_window(t_engine *engine, char *fractal);
 void	ft_init_engine(t_engine *engine, char *fractal);
 void	ft_init_player(t_engine *engine);
 bool	get_textures(t_engine *engine, char *file);
+void	ft_center_mouse(t_engine *engine);
 
 /* ----------------------------------PARSING-------------------------------- */
 
@@ -144,7 +147,7 @@ int		game_loop(t_engine *engine);
 int		ft_render(t_engine *engine);
 void	ft_put_pixel(t_engine *engine, t_point init_point, int color);
 void	ft_draw_square(t_engine *engine, t_point point, int width, int color);
-void    ft_draw_line(t_engine *engine, t_point start, t_point end, int color);
+void	ft_draw_line(t_engine *engine, t_point start, t_point end, int color);
 void	ft_draw_map_2d(t_engine *engine);
 void	ft_draw_player(t_engine *engine);
 void	ft_clear_player(t_engine *engine);
@@ -152,5 +155,7 @@ void	ft_clear_player(t_engine *engine);
 /* ---------------------------------MOVEMENTS-------------------------------- */
 
 void	ft_handle_movement(t_engine *engine);
+void	ft_rotation(t_engine *engine, char direction);
+
 
 #endif

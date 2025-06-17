@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:57:13 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/17 12:02:08 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/17 15:12:49 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
+
+void	ft_center_mouse(t_engine *engine)
+{
+	int const	center_x = engine->data.screen_size.x / 2;
+	int const	center_y = engine->data.screen_size.y / 2;
+
+	mlx_mouse_move(engine->mlx, engine->win, center_x, center_y);
+}
 
 /*
  *	Set the player on the map according to the spawn point.

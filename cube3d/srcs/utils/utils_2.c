@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:45:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/17 12:02:15 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/17 14:36:52 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,49 +62,50 @@ void	ft_draw_map_2d(t_engine *engine)
 			p_tile.x = p.x * tile_size + tile_size / 2;
 			p_tile.y = p.y * tile_size + tile_size / 2;
 			if (engine->data.map.array[p.y][p.x] == '1')
-				ft_draw_square(engine, p_tile, tile_size - 2 , WHITE);
-			else if (engine->data.map.array[p.y][p.x] == '0' || ft_is_charset(engine->data.map.array[p.y][p.x], "SNWE"))
-				ft_draw_square(engine, p_tile, tile_size - 2 , RED);
+				ft_draw_square(engine, p_tile, tile_size - 2, WHITE);
+			else if (engine->data.map.array[p.y][p.x] == '0' ||
+					ft_is_charset(engine->data.map.array[p.y][p.x], "SNWE"))
+				ft_draw_square(engine, p_tile, tile_size - 2, RED);
 			p.x++;
 		}
 		p.y++;
 	}
 }
 
-static int    ft_get_err(int dx, int dy)
+static int	ft_get_err(int dx, int dy)
 {
-    int    err;
+	int	err;
 
-    if (abs(dx) < abs(dy))
-        err = -abs(dy) / 2;
-    else
-        err = abs(dx) / 2;
-    return (err);
+	if (abs(dx) < abs(dy))
+		err = -abs(dy) / 2;
+	else
+		err = abs(dx) / 2;
+	return (err);
 }
 
-void    ft_draw_line(t_engine *engine, t_point start, t_point end, int color)
+void	ft_draw_line(t_engine *engine, t_point start, t_point end, int color)
 {
-    const int		dx = end.x - start.x;
-    const int   	dy = end.y - start.y;
-    int				err;
-    int				e2;
+	const int		dx = end.x - start.x;
+	const int		dy = end.y - start.y;
+	int				err;
+	int				e2;
 
-    err = ft_get_err(dx, dy);
-    while (true)
-    {
-        ft_put_pixel(engine, start, color);
-        if (start.x == end.x && start.y == end.y)
-            break ;
-        e2 = err;
-        if (e2 > -abs(dx))
-        {
-            err -= abs(dy);
-            start.x += dx / abs(dx);
-        }
-        if (e2 < abs(dy))
-        {
-            err += abs(dx);
-            start.y += dy / abs(dy);
-        }
-    }
+	err = ft_get_err(dx, dy);
+	while (true)
+	{
+		ft_put_pixel(engine, start, color);
+		if (start.x == end.x && start.y == end.y)
+			break ;
+		e2 = err;
+		if (e2 > -abs(dx))
+		{
+			err -= abs(dy);
+			start.x += dx / abs(dx);
+		}
+		if (e2 < abs(dy))
+		{
+			err += abs(dx);
+			start.y += dy / abs(dy);
+		}
+	}
 }
