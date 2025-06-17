@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:45:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/17 09:36:20 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/17 12:02:15 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	ft_draw_map_2d(t_engine *engine)
 			p_tile.y = p.y * tile_size + tile_size / 2;
 			if (engine->data.map.array[p.y][p.x] == '1')
 				ft_draw_square(engine, p_tile, tile_size - 2 , WHITE);
-			else if (engine->data.map.array[p.y][p.x] == '0' || ft_ischarset(engine->data.map.array[p.y][p.x], "SNWE"))
+			else if (engine->data.map.array[p.y][p.x] == '0' || ft_is_charset(engine->data.map.array[p.y][p.x], "SNWE"))
 				ft_draw_square(engine, p_tile, tile_size - 2 , RED);
 			p.x++;
 		}

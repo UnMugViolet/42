@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:57:13 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/17 09:44:07 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/17 12:02:08 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	set_player_position(t_player *player, char **map)
 		j = -1;
 		while (map[i][++j])
 		{
-			if (ft_ischarset(map[i][j], "NSEW"))
+			if (ft_is_charset(map[i][j], "NSEW"))
 			{
 				player->pos.x = j + 0.5;
 				player->pos.y = i + 0.5;

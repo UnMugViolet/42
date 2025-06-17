@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 12:37:44 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/17 09:36:20 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/17 12:02:05 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ static bool	check_map_chars(char **map)
 		j = 0;
 		while (map[i][++j])
 		{
-			if (ft_ischarset(map[i][j], "NSEW"))
+			if (ft_is_charset(map[i][j], "NSEW"))
 				has_spawn = true;
-			if (!ft_ischarset(map[i][j], " 01NSEW"))
+			if (!ft_is_charset(map[i][j], " 01NSEW"))
 				return (print_err_exit(MAP_CHAR_ERR, NULL, NULL), false);
-			if (ft_ischarset(map[i][j], "NSEW")
+			if (ft_is_charset(map[i][j], "NSEW")
 				&& !only_one_orientation(map[i][j], &check))
 				return (print_err_exit(MAP_DOUBLE_ERR, NULL, NULL), false);
 		}
