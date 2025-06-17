@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:59:05 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/17 15:14:29 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/17 18:08:48 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 # define WIN_H 1080
 # define SPEED 0.05
 # define ROTATION 0.025
-# define SENSITIVITY 0.0025
+# define SENSITIVITY 0.00125
 
 # define PI 3.1415926535898
 #endif

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+         #
+#    By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/06/17 11:11:24 by unmugviolet      ###   ########.fr        #
+#    Updated: 2025/06/17 18:11:23 by yguinio          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ DIRS = 			utils init parsing check display
 # Source files for each directory
 FILES = 		main.c events.c movements.c
 INIT_FILES = 	init.c
-UTILS_FILES = 	utils.c map_utils.c utils_2.c
+UTILS_FILES = 	utils.c map_utils.c utils_2.c utils_3.c
 PARSE_FILES = 	parsing.c
 CHECK_FILES = 	check_map_file.c check_textures.c map_borders.c check_map.c
 DISPLAY_FILES = display_utils.c colors_utils.c player.c render.c wall.c

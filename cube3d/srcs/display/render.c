@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 11:27:53 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/17 11:55:53 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/17 18:10:57 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	ft_render(t_engine *engine)
 	ft_handle_movement(engine);
 	ft_draw_map_2d(engine);
 	ft_draw_player(engine);
+	ft_draw_map_3d(engine);
 	mlx_put_image_to_window(engine->mlx, engine->win, engine->data.img.img_ptr,
 		0, 0);
 	return (0);

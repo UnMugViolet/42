@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/17 15:12:28 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/17 18:30:46 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ typedef struct s_map
 	t_point	size;
 	int		tile_size;
 	t_img	textures[4];
+	int		colors[2];
 	t_img	wall;
 }			t_map;
 
@@ -139,7 +140,7 @@ bool	is_wall(char const **map, t_pos position, int const tile_size);
 
 /* ----------------------------------COLORS---------------------------------- */
 
-int		encode_rgb(char red, char green, char blue);
+int		encode_rgb(char *red, char *green, char *blue);
 
 /* ----------------------------------DISPLAY--------------------------------- */
 
@@ -151,6 +152,8 @@ void	ft_draw_line(t_engine *engine, t_point start, t_point end, int color);
 void	ft_draw_map_2d(t_engine *engine);
 void	ft_draw_player(t_engine *engine);
 void	ft_clear_player(t_engine *engine);
+void	ft_draw_map_3d(t_engine *engine);
+
 
 /* ---------------------------------MOVEMENTS-------------------------------- */
 
