@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/17 09:28:57 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/17 11:28:01 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ typedef struct s_player
 {
 	int		size;
 	t_pos	pos;
-	t_pos	dir;
 	double	angle;
 	bool	k_pressed[6];
 }			t_player;
@@ -97,7 +96,6 @@ typedef struct s_engine
 int		ft_key_press(int keycode, t_engine *engine);
 int		ft_key_release(int keycode, t_engine *engine);
 int		ft_destroy_event(t_engine *engine);
-void	update_player_position(t_engine *engine);
 
 /* ----------------------------------INIT----------------------------------- */
 
@@ -149,5 +147,10 @@ void	ft_draw_square(t_engine *engine, t_point point, int width, int color);
 void    ft_draw_line(t_engine *engine, t_point start, t_point end, int color);
 void	ft_draw_map_2d(t_engine *engine);
 void	ft_draw_player(t_engine *engine);
+void	ft_clear_player(t_engine *engine);
+
+/* ---------------------------------MOVEMENTS-------------------------------- */
+
+void	ft_handle_movement(t_engine *engine);
 
 #endif

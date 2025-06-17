@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
+#    By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/06/12 11:40:29 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/06/17 11:11:24 by unmugviolet      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ INC_DIR = 		./includes/
 DIRS = 			utils init parsing check display
 
 # Source files for each directory
-FILES = 		main.c events.c
+FILES = 		main.c events.c movements.c
 INIT_FILES = 	init.c
 UTILS_FILES = 	utils.c map_utils.c utils_2.c
 PARSE_FILES = 	parsing.c

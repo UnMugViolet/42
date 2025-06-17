@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:57:13 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/17 09:36:20 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/17 09:44:07 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,11 @@ void	ft_init_map_2d(t_engine *engine, char *file)
 	engine->data.map.size.y = map_rows(engine->data.map.array);
 	map_size.x = map_max_len(engine->data.map.array);
 	engine->data.map.tile_size = (engine->data.screen_size.y
-		/ engine->data.map.size.y) / 2;
-	if (engine->data.map.tile_size > (engine->data.screen_size.x / map_size.x) / 2)
-		engine->data.map.tile_size = (engine->data.screen_size.x / map_size.x) / 2;
+			/ engine->data.map.size.y) / 2;
+	if (engine->data.map.tile_size > (engine->data.screen_size.x / map_size.x)
+		/ 2)
+		engine->data.map.tile_size = (engine->data.screen_size.x / map_size.x)
+			/ 2;
 	ft_free_array_str(map_file);
 }
 
@@ -93,11 +95,11 @@ void	ft_init_window(t_engine *engine, char *file)
 		free(engine->mlx);
 		exit(EXIT_FAILURE);
 	}
-	engine->data.img.img_ptr = mlx_new_image(engine->mlx, engine->data.screen_size.x,
-			engine->data.screen_size.y);
+	engine->data.img.img_ptr = mlx_new_image(engine->mlx,
+			engine->data.screen_size.x, engine->data.screen_size.y);
 	engine->data.img.addr = mlx_get_data_addr(engine->data.img.img_ptr,
-		&engine->data.img.bpp, &engine->data.img.line_len,
-		&engine->data.img.endian);
+			&engine->data.img.bpp, &engine->data.img.line_len,
+			&engine->data.img.endian);
 	ft_init_map_2d(engine, file);
-	// get_textures(engine, file);
+	get_textures(engine, file);
 }
