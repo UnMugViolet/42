@@ -13,10 +13,10 @@
 #include "cube3d.h"
 
 /*
-* Returns the lenght of the longest string in the `map` array.
-* @param char**map
-* @return int
-*/
+ * Returns the lenght of the longest string in the `map` array.
+ * @param char**map
+ * @return int
+ */
 int	map_max_len(char **map)
 {
 	int	i;
@@ -37,10 +37,10 @@ int	map_max_len(char **map)
 }
 
 /*
-* Returns the lenght of the `map` array.
-* @param char**map
-* @return int
-*/
+ * Returns the lenght of the `map` array.
+ * @param char**map
+ * @return int
+ */
 int	map_rows(char **map)
 {
 	int	i;
@@ -54,13 +54,13 @@ int	map_rows(char **map)
 }
 
 /*
-* Copy the `original` string to the `dest`, padding the first and the lasts
-* chars with spaces until `len`.
-* @param char*original
-* @param char*dest
-* @param size_t len
-* @return void
-*/
+ * Copy the `original` string to the `dest`, padding the first and the lasts
+ * chars with spaces until `len`.
+ * @param char*original
+ * @param char*dest
+ * @param size_t len
+ * @return void
+ */
 static void	ft_copy_with_spaces(char *original, char *dest, size_t len)
 {
 	size_t	i;
@@ -84,17 +84,17 @@ static void	ft_copy_with_spaces(char *original, char *dest, size_t len)
 }
 
 /*
-* Pads the given `map` with spaces, adding a string at the beginning and the
-* end of the array and on each side of the strings to match the lenght of the
-* longest string.
-* @param char**map
-* @return char**padded_map
-*/
+ * Pads the given `map` with spaces, adding a string at the beginning and the
+ * end of the array and on each side of the strings to match the lenght of the
+ * longest string.
+ * @param char**map
+ * @return char**padded_map
+ */
 char	**pad_map(char **map)
 {
-	t_point		max;
-	t_point		p;
-	char		**res;
+	t_point	max;
+	t_point	p;
+	char	**res;
 
 	max.y = map_rows(map) + 2;
 	max.x = map_max_len(map) + 2;
@@ -117,13 +117,14 @@ char	**pad_map(char **map)
 }
 
 /*
-* Checks if the given padded map is closed by trying to acces any char different
-* than `'1'` and `' '`.
-* @param char**map;
-* @param t_point size
-* @param t_point start
-* @return bool
-*/
+
+	* Checks if the given padded map is closed by trying to acces any char different
+ * than `'1'` and `' '`.
+ * @param char**map;
+ * @param t_point size
+ * @param t_point start
+ * @return bool
+ */
 bool	extern_flood_fill(char **map, t_point size, t_point start)
 {
 	bool	left;

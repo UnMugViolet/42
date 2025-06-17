@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:45:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/16 18:14:00 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/17 09:36:20 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,6 @@ void	ft_put_pixel(t_engine *engine, t_point init_point, int color)
 	img.addr[pixel + 1] = (color >> 8) & 0xFF;
 	img.addr[pixel + 2] = (color >> 16) & 0xFF;
 	img.addr[pixel + 3] = (color >> 24) & 0xFF;
-}
-
-size_t	ft_get_time_in_ms(void)
-{
-	struct timeval	time;
-
-	if (gettimeofday(&time, NULL) == -1)
-		ft_putstr_fd("Error: gettimeofday()\n", 2);
-	return ((time.tv_sec * 1000 + time.tv_usec / 1000));
 }
 
 void	ft_draw_square(t_engine *engine, t_point pos, int width, int color)
@@ -72,7 +63,7 @@ void	ft_draw_map_2d(t_engine *engine)
 			p_tile.y = p.y * tile_size + tile_size / 2;
 			if (engine->data.map.array[p.y][p.x] == '1')
 				ft_draw_square(engine, p_tile, tile_size - 2 , WHITE);
-			else if (engine->data.map.array[p.y][p.x] == '0' || ft_is_charset(engine->data.map.array[p.y][p.x], "SNWE"))
+			else if (engine->data.map.array[p.y][p.x] == '0' || ft_ischarset(engine->data.map.array[p.y][p.x], "SNWE"))
 				ft_draw_square(engine, p_tile, tile_size - 2 , RED);
 			p.x++;
 		}
@@ -80,7 +71,7 @@ void	ft_draw_map_2d(t_engine *engine)
 	}
 }
 
-int    ft_get_err(int dx, int dy)
+static int    ft_get_err(int dx, int dy)
 {
     int    err;
 

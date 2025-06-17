@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:17:48 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/16 18:30:50 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/17 09:24:56 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,39 +36,6 @@ void	ft_draw_player(t_engine *engine)
 	end.x = center.x + cos(engine->data.player.angle) * (tile / 2);
 	end.y = center.y - sin(engine->data.player.angle) * (tile / 2);
 	ft_draw_line(engine, center, end, BLACK);
-}
-
-/*
- *	Set the player on the map according to the spawn point.
- *	The direction is taken into account and the player `struct` stores the data
- *	@return(void)
- */
-void	set_player_position(t_player *player, char **map)
-{
-	size_t	i;
-	size_t	j;
-
-	i = -1;
-	while (map[++i])
-	{
-		j = -1;
-		while (map[i][++j])
-		{
-			if (ft_is_charset(map[i][j], "NSEW"))
-			{
-				player->pos.x = j + 0.5;
-				player->pos.y = i + 0.5;
-				if (map[i][j] == 'N')
-					player->angle = PI / 2;
-				else if (map[i][j] == 'S')
-					player->angle = 3 * PI / 2;
-				else if (map[i][j] == 'E')
-					player->angle = 0;
-				else if (map[i][j] == 'W')
-					player->angle = PI;
-			}
-		}
-	}
 }
 
 /*

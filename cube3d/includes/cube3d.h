@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/16 18:23:13 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/17 09:28:57 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,25 +108,28 @@ void	ft_init_player(t_engine *engine);
 bool	get_textures(t_engine *engine, char *file);
 
 /* ----------------------------------PARSING-------------------------------- */
+
 bool	is_valid_input(int ac, char **av, t_engine *engine);
 char	**get_map_file(char *filename);
 
 /* ----------------------------------UTILS---------------------------------- */
-void	ft_display_usage(void);
-void	print_err_exit(char *err_msg, char *arg, t_engine *engine);
+
 void	destroy_textures(t_engine *engine);
 char	*get_surface_value(char **file, char const *orientation);
-void	ft_free(void *ptr);
-void	clean_all(t_engine *engine);
 bool	get_new_image(t_engine *engine, char *path, t_img *image);
 int		map_rows(char **map);
 int		map_max_len(char **map);
-bool	ft_is_charset(char c, char *charset);
 char	**pad_map(char **map);
 char	**extract_map(char **map_file);
+
+void	ft_free(void *ptr);
+void	ft_display_usage(void);
 size_t	ft_get_time_in_ms(void);
+void	clean_all(t_engine *engine);
+void	print_err_exit(char *err_msg, char *arg, t_engine *engine);
 
 /* ----------------------------------CHECKS--------------------------------- */
+
 bool	check_map_file(char *map_filename);
 bool	check_textures(char **file);
 bool	check_color(char **file);
@@ -134,9 +137,11 @@ bool	extern_flood_fill(char **map, t_point size, t_point start);
 bool	is_wall(char const **map, t_pos position, int const tile_size);
 
 /* ----------------------------------COLORS---------------------------------- */
+
 int		encode_rgb(char red, char green, char blue);
 
 /* ----------------------------------DISPLAY--------------------------------- */
+
 int		game_loop(t_engine *engine);
 int		ft_render(t_engine *engine);
 void	ft_put_pixel(t_engine *engine, t_point init_point, int color);
@@ -144,7 +149,5 @@ void	ft_draw_square(t_engine *engine, t_point point, int width, int color);
 void    ft_draw_line(t_engine *engine, t_point start, t_point end, int color);
 void	ft_draw_map_2d(t_engine *engine);
 void	ft_draw_player(t_engine *engine);
-
-void	set_player_position(t_player *player, char **map);
 
 #endif

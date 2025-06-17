@@ -3,14 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:57:13 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/16 18:21:34 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/17 09:36:20 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
+
+/*
+ *	Set the player on the map according to the spawn point.
+ *	The direction is taken into account and the player `struct` stores the data
+ *	@return(void)
+ */
+static void	set_player_position(t_player *player, char **map)
+{
+	size_t	i;
+	size_t	j;
+
+	i = -1;
+	while (map[++i])
+	{
+		j = -1;
+		while (map[i][++j])
+		{
+			if (ft_ischarset(map[i][j], "NSEW"))
+			{
+				player->pos.x = j + 0.5;
+				player->pos.y = i + 0.5;
+				if (map[i][j] == 'N')
+					player->angle = PI / 2;
+				else if (map[i][j] == 'S')
+					player->angle = 3 * PI / 2;
+				else if (map[i][j] == 'E')
+					player->angle = 0;
+				else if (map[i][j] == 'W')
+					player->angle = PI;
+			}
+		}
+	}
+}
 
 void	ft_init_player(t_engine *engine)
 {

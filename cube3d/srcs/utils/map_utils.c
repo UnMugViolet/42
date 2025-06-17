@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:14:23 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/12 11:27:57 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/17 09:36:20 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	**extract_map(char **map_file)
 	while (map_file[++p.y])
 	{
 		p.x = -1;
-		if (ft_is_charset(map_file[p.y][0], "NSEWCF"))
+		if (ft_ischarset(map_file[p.y][0], "NSEWCF"))
 		{
 			if (is_not_already_checked(map_file[p.y][0], &check))
 				continue ;
@@ -53,7 +53,7 @@ char	**extract_map(char **map_file)
 		}
 		while (map_file[p.y][++p.x])
 		{
-			if (!ft_is_charset(map_file[p.y][p.x], "1 "))
+			if (!ft_ischarset(map_file[p.y][p.x], "1 "))
 				return (print_err_exit(MAP_CHAR_ERR, NULL, NULL), NULL);
 			if (map_file[p.y][p.x] == '1')
 				return (pad_map(&map_file[p.y]));

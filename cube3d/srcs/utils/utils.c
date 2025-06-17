@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:57:30 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/13 16:33:20 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/17 09:24:14 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,15 @@ void	ft_free(void *ptr)
 {
 	if (ptr)
 		free(ptr);
+}
+
+size_t	ft_get_time_in_ms(void)
+{
+	struct timeval	time;
+
+	if (gettimeofday(&time, NULL) == -1)
+		ft_putstr_fd("Error: gettimeofday()\n", 2);
+	return ((time.tv_sec * 1000 + time.tv_usec / 1000));
 }
 
 void	clean_all(t_engine *engine)

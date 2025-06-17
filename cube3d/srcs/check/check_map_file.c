@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   check_map_file.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 12:37:44 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/11 11:09:23 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/17 09:36:20 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ static bool	only_one_orientation(char orientation, t_check_map *check)
 }
 
 /*
-* Checks if the chars contained in the `map` array are valid and that there is
-* only one orientation for the player.
-*/
+ * Checks if the chars contained in the `map` array are valid and that there is
+ * only one orientation for the player.
+ */
 static bool	check_map_chars(char **map)
 {
 	int			i;
@@ -44,12 +44,12 @@ static bool	check_map_chars(char **map)
 		j = 0;
 		while (map[i][++j])
 		{
-			if (ft_is_charset(map[i][j], "NSEW"))
+			if (ft_ischarset(map[i][j], "NSEW"))
 				has_spawn = true;
-			if (!ft_is_charset(map[i][j], " 01NSEW"))
+			if (!ft_ischarset(map[i][j], " 01NSEW"))
 				return (print_err_exit(MAP_CHAR_ERR, NULL, NULL), false);
-			if (ft_is_charset(map[i][j], "NSEW") &&
-				!only_one_orientation(map[i][j], &check))
+			if (ft_ischarset(map[i][j], "NSEW")
+				&& !only_one_orientation(map[i][j], &check))
 				return (print_err_exit(MAP_DOUBLE_ERR, NULL, NULL), false);
 		}
 	}
@@ -59,10 +59,10 @@ static bool	check_map_chars(char **map)
 }
 
 /*
-* Checks the map file, 4 textures, 2 RGB colors, and the validity of the map
-* @param char**map_file
-* @return bool
-*/
+ * Checks the map file, 4 textures, 2 RGB colors, and the validity of the map
+ * @param char**map_file
+ * @return bool
+ */
 bool	check_map(char **map_file)
 {
 	char	**map;
@@ -73,7 +73,7 @@ bool	check_map(char **map_file)
 	if (!check_map_chars(map))
 		return (ft_free_array_str(map), false);
 	if (!extern_flood_fill(map, (t_point){map_max_len(map), map_rows(map)},
-		(t_point){0, 0}))
+			(t_point){0, 0}))
 		return (print_err_exit(OPEN_MAP_ERR, NULL, NULL),
 			ft_free_array_str(map), false);
 	return (ft_free_array_str(map), true);
@@ -81,7 +81,7 @@ bool	check_map(char **map_file)
 
 bool	check_map_file(char *map_filename)
 {
-	char		**map_file;
+	char	**map_file;
 
 	map_file = get_map_file(map_filename);
 	if (!map_file || !check_textures(map_file) || !check_map(map_file))
