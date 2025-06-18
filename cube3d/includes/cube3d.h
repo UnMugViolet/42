@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/18 14:41:54 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/18 15:42:19 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,6 +159,7 @@ void	ft_draw_player(t_engine *engine);
 void	ft_clear_player(t_engine *engine);
 void	ft_draw_map_3d(t_engine *engine);
 void	draw_centered_triangle(t_engine *engine, t_pos pos, t_point dimension, int color);
+void	ft_raycast(t_engine *engine);
 
 /* ---------------------------------MOVEMENTS-------------------------------- */
 

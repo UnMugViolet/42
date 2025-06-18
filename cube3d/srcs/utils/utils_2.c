@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:45:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/18 14:43:14 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/18 15:43:41 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,7 @@ void	ft_draw_line(t_engine *engine, t_point start, t_point end, int color)
 	err = ft_get_err(dx, dy);
 	while (true)
 	{
+		ft_put_pixel(engine, start, color);
 		ft_put_pixel(engine, start, color);
 		if (start.x == end.x && start.y == end.y)
 			break ;
