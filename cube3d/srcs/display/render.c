@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 11:27:53 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/18 15:44:40 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/18 17:34:06 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,14 @@ int	game_loop(t_engine *engine)
 int	ft_render(t_engine *engine)
 {
 	ft_handle_movement(engine);
+	mlx_destroy_image(engine->mlx, engine->data.img.img_ptr);
+		engine->data.img.img_ptr = mlx_new_image(engine->mlx,
+			engine->data.screen_size.x, engine->data.screen_size.y);
+	engine->data.img.addr = mlx_get_data_addr(engine->data.img.img_ptr,
+			&engine->data.img.bpp, &engine->data.img.line_len,
+			&engine->data.img.endian);
+	engine->data.img.h = engine->data.screen_size.y;
+	engine->data.img.w = engine->data.screen_size.x;
 	ft_draw_map_2d(engine);
 	// ft_draw_player(engine);
 	ft_draw_map_3d(engine);

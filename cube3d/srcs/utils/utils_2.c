@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:45:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/18 15:43:41 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/18 17:31:46 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ void	ft_draw_map_2d(t_engine *engine)
 		p.y++;
 	}
 	draw_centered_triangle(engine, (t_pos){center_x, center_y}, (t_point){10, 10}, YELLOW);
+	ft_raycast(engine);
 }
 
 static int	ft_get_err(int dx, int dy)
