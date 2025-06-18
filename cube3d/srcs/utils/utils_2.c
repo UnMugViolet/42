@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:45:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/18 14:32:39 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/18 14:43:14 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,16 +71,12 @@ void	ft_draw_map_2d(t_engine *engine)
 		{
 			double cx = p.x + 0.5;
 			double cy = p.y + 0.5;
-
 			double rel_x = (cx - player_x) * tile_size;
 			double rel_y = (cy - player_y) * tile_size;
-
 			double rot_x = rel_x * cos(angle - PI / 2) - rel_y * sin(angle - PI / 2);
 			double rot_y = rel_x * sin(angle - PI / 2) + rel_y * cos(angle - PI / 2);
-
 			p_tile.x = center_x + (int)rot_x;
 			p_tile.y = center_y + (int)rot_y;
-
 			if (engine->data.map.array[p.y][p.x] == '1')
 				ft_draw_square(engine, p_tile, tile_size - 2, WHITE);
 			else if (engine->data.map.array[p.y][p.x] == '0' ||
