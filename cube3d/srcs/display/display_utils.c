@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 15:05:36 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/11 17:38:34 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/18 10:21:20 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,4 +122,26 @@ bool	get_textures(t_engine *engine, char *file_path)
 		i++;
 	}
 	return (ft_free_array_str(temp), true);
+}
+
+bool	get_colors(t_engine *engine, char *file_path)
+{
+	char const	*surface[] = {"C", "F"};
+	char		**temp;
+	char		**rgb;
+	int			i;
+
+	temp = get_map_file(file_path);
+	if (!temp)
+		return (false);
+	i = 0;
+	while (i < 2)
+	{
+		rgb = ft_split(get_surface_value(temp, surface[i]), ',');
+		engine->data.map.colors[i] = encode_rgb(rgb[0], rgb[1], rgb[2]);
+		i++;
+	}
+	ft_free_array_str(temp);
+	ft_free_array_str(rgb);
+	return (true);
 }

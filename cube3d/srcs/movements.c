@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 11:11:03 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/06/17 15:16:05 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/18 14:03:08 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	ft_rotation(t_engine *engine, char direction)
 		if (player->angle < 0)
 			player->angle += 2 * PI;
 	}
+	ft_angle_to_dir(player->angle, &player->dir);
 }
 
 /*
@@ -56,17 +57,11 @@ void	ft_move_player_axis(t_engine *engine,
 	next.x = player->pos.x + displacement_x;
 	next.y = player->pos.y;
 	if (!is_wall(map, next, engine->data.map.tile_size))
-	{
-		ft_clear_player(engine);
 		player->pos.x = next.x;
-	}
 	next.x = player->pos.x;
 	next.y = player->pos.y + displacement_y;
 	if (!is_wall(map, next, engine->data.map.tile_size))
-	{
-		ft_clear_player(engine);
 		player->pos.y = next.y;
-	}
 }
 
 /*
@@ -107,6 +102,7 @@ int	ft_mouse_move(int x, int y, t_engine *engine)
 	if (delta_x != 0)
 	{
 		engine->data.player.angle -= delta_x * SENSITIVITY;
+		ft_angle_to_dir(engine->data.player.angle, &engine->data.player.dir);
 		mlx_mouse_move(engine->mlx, engine->win, center_x,
 			engine->data.screen_size.y / 2);
 		engine->data.player.last_x_mouse = center_x;

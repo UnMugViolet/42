@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/17 18:30:46 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/18 14:38:16 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ typedef struct s_player
 {
 	int		size;
 	t_pos	pos;
+	t_pos	dir;
+	t_pos	plan;
 	double	angle;
 	bool	k_pressed[6];
 	int		last_x_mouse;
@@ -107,6 +109,7 @@ void	ft_init_window(t_engine *engine, char *fractal);
 void	ft_init_engine(t_engine *engine, char *fractal);
 void	ft_init_player(t_engine *engine);
 bool	get_textures(t_engine *engine, char *file);
+bool	get_colors(t_engine *engine, char *file_path);
 void	ft_center_mouse(t_engine *engine);
 
 /* ----------------------------------PARSING-------------------------------- */
@@ -129,6 +132,8 @@ void	ft_display_usage(void);
 size_t	ft_get_time_in_ms(void);
 void	clean_all(t_engine *engine);
 void	print_err_exit(char *err_msg, char *arg, t_engine *engine);
+
+void	ft_angle_to_dir(double angle, t_pos *dir);
 
 /* ----------------------------------CHECKS--------------------------------- */
 
@@ -153,7 +158,7 @@ void	ft_draw_map_2d(t_engine *engine);
 void	ft_draw_player(t_engine *engine);
 void	ft_clear_player(t_engine *engine);
 void	ft_draw_map_3d(t_engine *engine);
-
+void	draw_centered_triangle(t_engine *engine, t_pos pos, t_point dimension, int color);
 
 /* ---------------------------------MOVEMENTS-------------------------------- */
 

@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:57:13 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/17 15:12:49 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/18 14:38:16 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,10 @@ void	ft_init_player(t_engine *engine)
 	player = &engine->data.player;
 	player->size = engine->data.map.tile_size / 3;
 	set_player_position(player, engine->data.map.array);
-	ft_draw_player(engine);
+	player->dir.x = cos(player->angle);
+	player->dir.y = sin(player->angle);
+	player->plan.x = -player->dir.y * 0.66f;
+	player->plan.y = player->dir.x * 0.66f;
 }
 
 void	ft_init_map_2d(t_engine *engine, char *file)
@@ -108,6 +111,9 @@ void	ft_init_window(t_engine *engine, char *file)
 	engine->data.img.addr = mlx_get_data_addr(engine->data.img.img_ptr,
 			&engine->data.img.bpp, &engine->data.img.line_len,
 			&engine->data.img.endian);
+	engine->data.img.h = engine->data.screen_size.y;
+	engine->data.img.w = engine->data.screen_size.x;
 	ft_init_map_2d(engine, file);
 	get_textures(engine, file);
+	get_colors(engine, file);
 }

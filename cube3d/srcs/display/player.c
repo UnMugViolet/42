@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:17:48 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/17 11:34:39 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/18 12:54:54 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void	ft_clear_player(t_engine *engine)
 
 void	ft_draw_player(t_engine *engine)
 {
-	int		tile;
-	t_point	center;
-	t_point	end;
+	int				tile;
+	t_point			center;
+	t_point			end;
 
 	tile = engine->data.map.tile_size;
 	center.x = (int)(engine->data.player.pos.x * tile);
@@ -38,4 +38,28 @@ void	ft_draw_player(t_engine *engine)
 	end.x = center.x + cos(engine->data.player.angle) * (tile / 2);
 	end.y = center.y - sin(engine->data.player.angle) * (tile / 2);
 	ft_draw_line(engine, center, end, BLACK);
+}
+
+void	draw_centered_triangle(t_engine *engine, t_pos pos, t_point dimension, int color)
+{
+	t_point		p;
+	int			x_min;
+	int			x_max;
+	float const	half_w = dimension.y / 2.0f;
+	float		ratio;
+
+	p.y = 0;
+	while (p.y < dimension.x)
+	{
+		ratio = 1.0f - (float)p.y / (float)dimension.x;
+		x_min = (int)(-half_w * ratio);
+		x_max = (int)(half_w * ratio);
+		p.x = x_min;
+		while (p.x <= x_max)
+		{
+			ft_put_pixel(engine, (t_point){pos.x + p.x, pos.y + dimension.x / 2 - p.y}, color);
+			p.x++;
+		}
+		p.y++;
+	}
 }
