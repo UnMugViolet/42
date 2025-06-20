@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 11:11:03 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/06/18 14:03:08 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/20 11:11:57 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,15 +97,25 @@ int	ft_mouse_move(int x, int y, t_engine *engine)
 {
 	int const	center_x = engine->data.screen_size.x * 3 / 4;
 	int const	delta_x = x - center_x;
-
+	t_player	*player;
+	double		tmp;
+	
+	player = &engine->data.player;
 	(void)y;
 	if (delta_x != 0)
 	{
-		engine->data.player.angle -= delta_x * SENSITIVITY;
-		ft_angle_to_dir(engine->data.player.angle, &engine->data.player.dir);
+		tmp = player->angle;
+		player->angle -= delta_x * SENSITIVITY;
+		if (player->angle - tmp > 0)
+			if (player->angle > 2 * PI)
+				player->angle -= 2 * PI;
+		if (player->angle - tmp < 0)
+			if (player->angle < 0)
+				player->angle += 2 * PI;
+		ft_angle_to_dir(player->angle, &player->dir);
 		mlx_mouse_move(engine->mlx, engine->win, center_x,
 			engine->data.screen_size.y / 2);
-		engine->data.player.last_x_mouse = center_x;
+		player->last_x_mouse = center_x;
 	}
 	return (0);
 }

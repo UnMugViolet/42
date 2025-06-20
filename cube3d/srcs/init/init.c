@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:57:13 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/18 14:38:16 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/20 16:05:50 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ static void	set_player_position(t_player *player, char **map)
 			}
 		}
 	}
+	player->angle = 1.58;
 }
 
 void	ft_init_player(t_engine *engine)

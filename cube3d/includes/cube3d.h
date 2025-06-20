@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/18 15:42:19 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/20 13:37:44 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,5 +166,8 @@ void	ft_raycast(t_engine *engine);
 void	ft_handle_movement(t_engine *engine);
 void	ft_rotation(t_engine *engine, char direction);
 
+t_pos	ft_next_wall(t_engine *engine, t_pos pos, double angle);
+t_pos	ft_hit_wall(t_engine *engine, t_player player);
+bool	is_wall_at(const char **map, float x, float y, int tile_size);
 
 #endif

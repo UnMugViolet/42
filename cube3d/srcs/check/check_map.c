@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 11:36:02 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/17 09:30:48 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/20 13:37:36 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
-static bool	is_wall_at(const char **map, float x, float y, int tile_size)
+bool	is_wall_at(const char **map, float x, float y, int tile_size)
 {
 	int	map_x;
 	int	map_y;

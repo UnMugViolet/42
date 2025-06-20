@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:17:48 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/18 17:18:51 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/20 16:09:43 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,18 @@ void	ft_draw_player(t_engine *engine)
 	t_point	end;
 
 	tile = engine->data.map.tile_size;
-	center.x = (int)(engine->data.player.pos.x * tile);
-	center.y = (int)(engine->data.player.pos.y * tile);
+	center.x = (int)(engine->data.player.pos.x * tile) - tile / 2;
+	center.y = (int)(engine->data.player.pos.y * tile) - tile / 2;
 	ft_draw_square(engine, (t_point){center.x, center.y},
 		engine->data.player.size, YELLOW);
-	end.x = center.x + cos(engine->data.player.angle) * (tile / 2);
-	end.y = center.y - sin(engine->data.player.angle) * (tile / 2);
+	end.x = center.x + cos(engine->data.player.angle) * (tile);
+	end.y = center.y - sin(engine->data.player.angle) * (tile);
+	// ft_draw_line(engine, center, end, BLACK);
+	t_pos temp = ft_hit_wall(engine, engine->data.player);
+	end.x = temp.x * tile - tile / 2;
+	end.y = temp.y * tile - tile / 2;
+	ft_draw_line(engine, center, end, BLUE);
+	printf("\rAngle : %f | Player pos x :%f y :%f Next hit at x :%f y:%f", engine->data.player.angle, engine->data.player.pos.x, engine->data.player.pos.y, temp.x, temp.y);
 }
 
 void	draw_centered_triangle(t_engine *engine, t_pos pos, t_point dimension,
