@@ -1,0 +1,13 @@
+NO ./grass.xpm
+SO ./grass.xpm
+EA ./grass.xpm
+WE ./grass.xpm
+
+C 255,255,255
+F 50,50,50
+       
+      111
+111111101
+10000N001
+100000001
+111111111

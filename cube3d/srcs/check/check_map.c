@@ -3,22 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 11:36:02 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/17 09:30:48 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/23 18:48:59 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
-static bool	is_wall_at(const char **map, float x, float y, int tile_size)
+static bool	is_wall_at(char **map, float x, float y, int tile_size)
 {
 	int	map_x;
 	int	map_y;
 
 	map_x = (int)(x / tile_size);
 	map_y = (int)(y / tile_size);
+
+	if (map_x <= 0 || map_x >= map_max_len(map) || map_y <= 0 || map_y >= map_rows(map))
+		return (true);
 	if (map[map_y][map_x] == '1')
 		return (true);
 	return (false);
@@ -30,21 +33,24 @@ static bool	is_wall_at(const char **map, float x, float y, int tile_size)
  *	If there is a wall then the player cannot move further.
  *	@return bool
  */
-bool	is_wall(const char **map, t_pos pos, const int tile_size)
+bool	is_wall(t_engine *engine, t_pos pos, int offset)
 {
 	float		px;
 	float		py;
-	float const	offset = tile_size / 3.0 / 2.0;
+	char		**map = engine->data.map.array;
 
-	px = pos.x * tile_size;
-	py = pos.y * tile_size;
-	if (is_wall_at(map, px - offset, py - offset, tile_size))
+	px = pos.x * engine->data.tile;
+	py = pos.y * engine->data.tile;
+	if (pos.x < 0 || pos.x > map_max_len(map) || pos.y < 0
+		|| pos.y > map_rows(map))
 		return (true);
-	if (is_wall_at(map, px + offset, py - offset, tile_size))
+	if (is_wall_at(map, px - offset, py - offset, engine->data.tile))
 		return (true);
-	if (is_wall_at(map, px - offset, py + offset, tile_size))
+	if (is_wall_at(map, px + offset, py - offset, engine->data.tile))
 		return (true);
-	if (is_wall_at(map, px + offset, py + offset, tile_size))
+	if (is_wall_at(map, px - offset, py + offset, engine->data.tile))
+		return (true);
+	if (is_wall_at(map, px + offset, py + offset, engine->data.tile))
 		return (true);
 	return (false);
 }

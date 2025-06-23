@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/18 15:42:19 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/23 18:00:22 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ typedef struct s_map
 {
 	char	**array;
 	t_point	size;
-	int		tile_size;
 	t_img	textures[4];
 	int		colors[2];
 	t_img	wall;
@@ -86,6 +85,7 @@ typedef struct s_data
 	t_point		screen_size;
 	t_player	player;
 	t_img		img;
+	int			tile;
 }			t_data;
 
 typedef struct s_engine
@@ -141,7 +141,8 @@ bool	check_map_file(char *map_filename);
 bool	check_textures(char **file);
 bool	check_color(char **file);
 bool	extern_flood_fill(char **map, t_point size, t_point start);
-bool	is_wall(char const **map, t_pos position, int const tile_size);
+bool	is_wall(t_engine *engine, t_pos position, int offset);
+bool	is_equal(double a, double b);
 
 /* ----------------------------------COLORS---------------------------------- */
 

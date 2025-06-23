@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:17:48 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/23 15:19:38 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/23 17:30:52 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_clear_player(t_engine *engine)
 	int		tile;
 	t_point	center;
 
-	tile = engine->data.map.tile_size;
+	tile = engine->data.tile;
 	center.x = (int)(engine->data.player.pos.x * tile);
 	center.y = (int)(engine->data.player.pos.y * tile);
 	ft_draw_square(engine, (t_point){center.x, center.y},
@@ -30,7 +30,7 @@ void	ft_draw_player(t_engine *engine)
 	t_point	center;
 	t_point	end;
 
-	tile = engine->data.map.tile_size;
+	tile = engine->data.tile;
 	center.x = (int)(engine->data.player.pos.x * tile);
 	center.y = (int)(engine->data.player.pos.y * tile);
 	ft_draw_square(engine, (t_point){center.x, center.y},
