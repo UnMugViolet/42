@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:40:57 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/18 17:40:57 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/23 16:21:19 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,47 +15,30 @@
 void	ft_raycast(t_engine *engine)
 {
     int const		tile = engine->data.map.tile_size;
-    double const	start_angle = engine->data.player.angle - (FOV / 2) + M_PI_2;
-    double const	angle_step = FOV / NUM_RAYS;
     int				ray_i;
-    t_pos			ray;
     t_point			start;
-    t_point			end;
-
-    int center_x = engine->data.screen_size.x / 4;
-    int center_y = engine->data.screen_size.y / 2;
-    double player_x = engine->data.player.pos.x;
-    double player_y = engine->data.player.pos.y;
+    t_pos			end;
+    t_point         end_point;
+    
     double angle = engine->data.player.angle;
 
     ray_i = 0;
     while (ray_i < NUM_RAYS)
     {
-        double ray_angle = start_angle + ray_i * angle_step;
-        ray.x = player_x;
-        ray.y = player_y;
-        t_pos ray_pos;
-        while (1)
+        
+        start.x = engine->data.screen_size.x / 4;
+        start.y = engine->data.screen_size.y / 2;
+        end.y = engine->data.player.pos.y;
+        end.x = engine->data.player.pos.x;
+        while (!is_wall((const char **)engine->data.map.array, end, tile))
         {
-            ray_pos.x = ray.x;
-            ray_pos.y = ray.y;
-            if (is_wall((const char **)engine->data.map.array, ray_pos, tile))
-                break ;
-            ray.x += cos(ray_angle) * 0.05;
-            ray.y += sin(ray_angle) * 0.05;
+            end.x += cos(angle) * 0.5;
+            end.y += sin(angle) * 0.5;
         }
-
-        double rel_x = (ray.x - player_x) * tile;
-        double rel_y = (ray.y - player_y) * tile;
-        double rot_x = rel_x * cos(angle - M_PI_2) - rel_y * sin(angle - M_PI_2);
-		double rot_y = rel_x * sin(angle - M_PI_2) + rel_y * cos(angle - M_PI_2);
-
-        start.x = center_x;
-        start.y = center_y;
-        end.x = center_x + (int)rot_x;
-        end.y = center_y + (int)rot_y;
-        ft_draw_line(engine, start, end, BLUE);
-
+        end_point.x = start.x;
+        end_point.y = start.y - sqrt(pow(engine->data.player.pos.x end.x + , 2) + pow(end.y + engine->data.player.pos.y, 2));
+        ft_draw_line(engine, start, end_point, BLUE);
+        printf("\rangle: %f, end.y: %f", angle, sqrt(pow(end.x + engine->data.player.pos.x, 2) + pow(end.y + engine->data.player.pos.y, 2)));
         ray_i++;
     }
 }

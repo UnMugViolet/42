@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 11:11:03 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/06/18 14:03:08 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/23 16:17:09 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,10 @@ int	ft_mouse_move(int x, int y, t_engine *engine)
 	if (delta_x != 0)
 	{
 		engine->data.player.angle -= delta_x * SENSITIVITY;
+		if (engine->data.player.angle > 2 * PI)
+			engine->data.player.angle -= 2 * PI;
+		if (engine->data.player.angle < 0)
+			engine->data.player.angle += 2 * PI;
 		ft_angle_to_dir(engine->data.player.angle, &engine->data.player.dir);
 		mlx_mouse_move(engine->mlx, engine->win, center_x,
 			engine->data.screen_size.y / 2);

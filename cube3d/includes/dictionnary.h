@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dictionnary.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:59:05 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/18 15:46:35 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/23 15:36:36 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@
 # define ROTATION 0.025
 # define SENSITIVITY 0.00125
 # define FOV (PI / 3.0)
-# define NUM_RAYS 120
+# define NUM_RAYS 1
+# define M_PI_2 (PI / 2.0)
 
 # define PI 3.1415926535898
 #endif
