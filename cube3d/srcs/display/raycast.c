@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:40:57 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/20 16:17:19 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/23 10:23:22 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,12 @@ static t_pos	ft_cast_horizontal(t_engine *e, t_player p)
 {
 	t_pos		ray;
 	t_pos		step;
-	int			tile;
 	double		angle;
 	int			i;
 	t_pos		*player;
 	
 	player = &p.pos;
 	angle = e->data.player.angle;
-	tile = e->data.map.tile_size;
 	i = 0;
 	if (is_equal(angle, PI / 2) || is_equal(angle, 3 * PI / 2))
 		return (*player);
@@ -94,14 +92,12 @@ static t_pos	ft_cast_vertical(t_engine *e, t_player p)
 {
 	t_pos		ray;
 	t_pos		step;
-	int			tile;
 	double		angle;
 	int			i;
 	t_pos		*player;
 	
 	player = &p.pos;
 	angle = e->data.player.angle;
-	tile = e->data.map.tile_size;
 	i = 0;
 	if (is_equal(angle, 0) || is_equal(angle, PI))
 		return (*player);
