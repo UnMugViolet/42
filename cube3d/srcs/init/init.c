@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:57:13 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/20 16:05:50 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/24 16:57:40 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	ft_init_player(t_engine *engine)
 	t_player	*player;
 
 	player = &engine->data.player;
-	player->size = engine->data.map.tile_size / 3;
+	player->size = engine->data.tile / 3;
 	set_player_position(player, engine->data.map.array);
 	player->dir.x = cos(player->angle);
 	player->dir.y = sin(player->angle);
@@ -77,11 +77,11 @@ void	ft_init_map_2d(t_engine *engine, char *file)
 	engine->data.map.array = extract_map(map_file);
 	engine->data.map.size.y = map_rows(engine->data.map.array);
 	map_size.x = map_max_len(engine->data.map.array);
-	engine->data.map.tile_size = (engine->data.screen_size.y
+	engine->data.tile = (engine->data.screen_size.y
 			/ engine->data.map.size.y) / 2;
-	if (engine->data.map.tile_size > (engine->data.screen_size.x / map_size.x)
+	if (engine->data.tile > (engine->data.screen_size.x / map_size.x)
 		/ 2)
-		engine->data.map.tile_size = (engine->data.screen_size.x / map_size.x)
+		engine->data.tile = (engine->data.screen_size.x / map_size.x)
 			/ 2;
 	ft_free_array_str(map_file);
 }

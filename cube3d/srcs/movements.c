@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 11:11:03 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/06/24 16:53:47 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/24 16:56:01 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,15 @@ void	ft_move_player_axis(t_engine *engine,
 {
 	t_player	*player;
 	t_pos		next;
-	char const	**map = (const char **)engine->data.map.array;
 
 	player = &engine->data.player;
 	next.x = player->pos.x + displacement_x;
 	next.y = player->pos.y;
-	if (!is_wall(map, next, engine->data.map.tile_size))
+	if (!is_wall(engine, next, engine->data.tile / 6))
 		player->pos.x = next.x;
 	next.x = player->pos.x;
 	next.y = player->pos.y + displacement_y;
-	if (!is_wall(map, next, engine->data.map.tile_size))
+	if (!is_wall(engine, next, engine->data.tile / 6))
 		player->pos.y = next.y;
 }
 

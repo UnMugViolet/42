@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 18:11:26 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/18 14:01:38 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/23 17:59:10 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,9 @@ void	ft_angle_to_dir(double angle, t_pos *dir)
 {
 	dir->x = cos(angle);
 	dir->y = sin(angle);
+}
+
+bool	is_equal(double a, double b)
+{
+	return (fabs(a - b) < EPSILON);
 }
