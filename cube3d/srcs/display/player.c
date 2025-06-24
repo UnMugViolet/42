@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:17:48 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/23 17:30:52 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/24 15:15:15 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	ft_draw_player(t_engine *engine)
 		engine->data.player.size, YELLOW);
 	end.x = center.x + cos(engine->data.player.angle) * (tile / 2);
 	end.y = center.y - sin(engine->data.player.angle) * (tile / 2);
-	ft_draw_line(engine, center, end, YELLOW);
 }
 
 void	draw_centered_triangle(t_engine *engine, t_pos pos, t_point dimension,

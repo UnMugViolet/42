@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:45:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/18 17:31:46 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/24 15:10:53 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ft_draw_square(t_engine *engine, t_point pos, int width, int color)
 	}
 }
 
-void	ft_draw_map_2d(t_engine *engine)
+/* void	ft_draw_map_2d(t_engine *engine)
 {
 	int		tile_size;
 	t_point	p;
@@ -88,7 +88,7 @@ void	ft_draw_map_2d(t_engine *engine)
 	}
 	draw_centered_triangle(engine, (t_pos){center_x, center_y}, (t_point){10, 10}, YELLOW);
 	ft_raycast(engine);
-}
+} */
 
 static int	ft_get_err(int dx, int dy)
 {

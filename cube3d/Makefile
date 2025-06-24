@@ -6,7 +6,7 @@
 #    By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/06/23 18:46:21 by yguinio          ###   ########.fr        #
+#    Updated: 2025/06/24 15:11:21 by yguinio          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 
 NAME = 			cube3d
 
-ARGS = 			map.cub
+ARGS = 			simplemap.cub
 
 LIBFT_DIR = 	./libft
 MLX_DIR =		./minilibx-linux/
@@ -32,7 +32,7 @@ INIT_FILES = 	init.c
 UTILS_FILES = 	utils.c map_utils.c utils_2.c utils_3.c
 PARSE_FILES = 	parsing.c
 CHECK_FILES = 	check_map_file.c check_textures.c map_borders.c check_map.c
-DISPLAY_FILES = display_utils.c colors_utils.c player.c render.c wall.c raycast.c
+DISPLAY_FILES = display_utils.c colors_utils.c player.c render.c wall.c raycast.c display_all.c
 
 SRC_FILES = 	$(FILES) \
                 $(addprefix utils/, $(UTILS_FILES)) \
