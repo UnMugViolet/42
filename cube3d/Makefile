@@ -6,7 +6,7 @@
 #    By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/06/23 15:21:18 by unmugviolet      ###   ########.fr        #
+#    Updated: 2025/06/24 16:53:34 by unmugviolet      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ INIT_FILES = 	init.c
 UTILS_FILES = 	utils.c map_utils.c utils_2.c utils_3.c
 PARSE_FILES = 	parsing.c
 CHECK_FILES = 	check_map_file.c check_textures.c map_borders.c check_map.c
-DISPLAY_FILES = display_utils.c colors_utils.c player.c render.c wall.c raycast.c
+DISPLAY_FILES = display_utils.c colors_utils.c player.c render.c wall.c raycast.c display_all.c
 
 SRC_FILES = 	$(FILES) \
                 $(addprefix utils/, $(UTILS_FILES)) \

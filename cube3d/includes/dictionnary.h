@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:59:05 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/23 15:36:36 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/24 16:53:22 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@
 # define NUM_RAYS 1
 # define M_PI_2 (PI / 2.0)
 
-# define PI 3.1415926535898
+# define PI 3.14159265358979323846
+# define EPSILON 0.0000000001
 #endif
