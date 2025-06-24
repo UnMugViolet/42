@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:40:57 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/23 16:21:19 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/24 16:50:42 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_raycast(t_engine *engine)
             end.y += sin(angle) * 0.5;
         }
         end_point.x = start.x;
-        end_point.y = start.y - sqrt(pow(engine->data.player.pos.x end.x + , 2) + pow(end.y + engine->data.player.pos.y, 2));
+        end_point.y = start.y - sqrt(pow(end.x + engine->data.player.pos.x, 2) + pow(end.y + engine->data.player.pos.y, 2));
         ft_draw_line(engine, start, end_point, BLUE);
         printf("\rangle: %f, end.y: %f", angle, sqrt(pow(end.x + engine->data.player.pos.x, 2) + pow(end.y + engine->data.player.pos.y, 2)));
         ray_i++;
