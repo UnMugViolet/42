@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 11:11:03 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/06/24 16:56:01 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/25 16:52:08 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,6 @@ int	ft_mouse_move(int x, int y, t_engine *engine)
 	int const	center_x = engine->data.screen_size.x * 3 / 4;
 	int const	delta_x = x - center_x;
 	t_player	*player;
-	double		tmp;
 	
 	player = &engine->data.player;
 	(void)y;

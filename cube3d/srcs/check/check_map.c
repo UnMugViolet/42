@@ -6,13 +6,13 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 11:36:02 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/24 16:56:09 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/25 16:52:51 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
-static bool	is_wall_at(char **map, float x, float y, int tile_size)
+bool	is_wall_at(char **map, float x, float y, int tile_size)
 {
 	int	map_x;
 	int	map_y;

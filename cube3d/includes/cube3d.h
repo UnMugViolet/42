@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/24 16:55:39 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/25 16:52:41 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,6 +169,6 @@ void	ft_rotation(t_engine *engine, char direction);
 
 t_pos	ft_next_wall(t_engine *engine, t_pos pos, double angle);
 t_pos	ft_hit_wall(t_engine *engine, t_player player);
-bool	is_wall_at(const char **map, float x, float y, int tile_size);
+bool	is_wall_at(char **map, float x, float y, int tile_size);
 
 #endif

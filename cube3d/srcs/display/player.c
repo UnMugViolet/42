@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:17:48 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/24 16:57:02 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/25 16:53:13 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,12 @@ void	ft_draw_player(t_engine *engine)
 {
 	int		tile;
 	t_point	center;
-	t_point	end;
 
 	tile = engine->data.tile;
 	center.x = (int)(engine->data.player.pos.x * tile);
 	center.y = (int)(engine->data.player.pos.y * tile);
 	ft_draw_square(engine, (t_point){center.x, center.y},
 		engine->data.player.size, YELLOW);
-	end.x = center.x + cos(engine->data.player.angle) * (tile / 2);
-	end.y = center.y - sin(engine->data.player.angle) * (tile / 2);
 }
 
 void	draw_centered_triangle(t_engine *engine, t_pos pos, t_point dimension,

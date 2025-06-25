@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_all.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 10:26:32 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/06/25 16:48:24 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/25 16:57:29 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_draw_map_2d(t_engine *engine)
 {
-/* 	int	i;
+	int	i;
 	int	j;
 
 	i = -1;
@@ -24,11 +24,12 @@ void	ft_draw_map_2d(t_engine *engine)
 		while (++j < map_max_len(engine->data.map.array))
 		{
 			if (engine->data.map.array[i][j] == '1')
-				ft_draw_square(engine, (t_point){j * engine->data.map.tile_size,  i * engine->data.map.tile_size}, engine->data.map.tile_size, WHITE);
+				ft_draw_square(engine, (t_point){(j + 0.5) * engine->data.tile,  (i + 0.5) * engine->data.tile}, engine->data.tile - 1, WHITE);
 			else if (engine->data.map.array[i][j] != ' ')
-				ft_draw_square(engine, (t_point){j * engine->data.map.tile_size,  i * engine->data.map.tile_size}, engine->data.map.tile_size, RED);
+				ft_draw_square(engine, (t_point){(j + 0.5) * engine->data.tile,  (i + 0.5) * engine->data.tile}, engine->data.tile  - 1, RED);
 		}
-	} */
+	}
+	ft_raycast(engine);
 /* 	t_point tmp;
 
 	tmp.x = engine->data.player.pos.x * engine->data.map.tile_size;
@@ -44,7 +45,7 @@ void	ft_draw_map_2d(t_engine *engine)
 	pos_next.y = pos.y + 15 * engine->data.player.dir.y;
 	
 	ft_draw_line(engine, pos, pos_next, YELLOW); */
-	int		tile_size;
+/* 	int		tile_size;
 	t_point	p;
 	t_point	p_tile;
 	double	angle = engine->data.player.angle;
@@ -80,5 +81,5 @@ void	ft_draw_map_2d(t_engine *engine)
 			p.x++;
 		}
 		p.y++;
-	}
+	} */
 }
