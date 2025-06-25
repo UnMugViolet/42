@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 11:27:53 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/24 15:10:25 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/25 16:32:31 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	ft_render(t_engine *engine)
 	ft_draw_map_2d(engine);
 	ft_draw_player(engine);
 	ft_draw_map_3d(engine);
+	ft_raycast(engine);
 	mlx_put_image_to_window(engine->mlx, engine->win, engine->data.img.img_ptr,
 		0, 0);
 	return (0);
