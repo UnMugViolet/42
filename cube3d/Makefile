@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+         #
+#    By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/06/24 16:55:26 by unmugviolet      ###   ########.fr        #
+#    Updated: 2025/06/25 18:06:23 by yguinio          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 			cube3d
 
-ARGS = 			simplemap.cub
+ARGS = 			map.cub
 
 LIBFT_DIR = 	./libft
 MLX_DIR =		./minilibx-linux/
@@ -89,6 +89,8 @@ fclean: clean ## Delete all the objects and libraries
 	@echo "$(CYAN)mlx executables and objects removed succesfully!$(DEFAULT)"
 	
 re: fclean all
+
+rego : re go
 
 ## —— Production ——————————————————————————————————————————————————————————————
 go: all ## Launch the projects

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dictionnary.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:59:05 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/24 16:55:53 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/25 18:07:13 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@
 
 # define WIN_W 2048
 # define WIN_H 1080
-# define SPEED 0.05
-# define ROTATION 0.025
+# define SPEED 0.1
+# define ROTATION 0.1
 # define SENSITIVITY 0.00125
 # define FOV (PI / 3.0)
 # define NUM_RAYS 1
