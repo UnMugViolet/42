@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 11:27:53 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/25 16:49:00 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/25 19:37:56 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ int	ft_render(t_engine *engine)
 	engine->data.img.h = engine->data.screen_size.y;
 	engine->data.img.w = engine->data.screen_size.x;
 	ft_draw_map_2d(engine);
-	ft_draw_player(engine);
 	ft_draw_map_3d(engine);
 	ft_raycast(engine);
+	ft_draw_player(engine);
 	mlx_put_image_to_window(engine->mlx, engine->win, engine->data.img.img_ptr,
 		0, 0);
 	return (0);

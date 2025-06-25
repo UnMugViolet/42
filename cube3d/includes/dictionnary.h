@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:59:05 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/25 18:07:13 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/25 20:09:23 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@
 
 # define WIN_W 2048
 # define WIN_H 1080
-# define SPEED 0.1
+# define SPEED 1
 # define ROTATION 0.1
 # define SENSITIVITY 0.00125
-# define FOV (PI / 3.0)
+# define FOV (PI / 3)
 # define NUM_RAYS 1
 # define M_PI_2 (PI / 2.0)
 

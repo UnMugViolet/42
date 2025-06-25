@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:40:57 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/25 18:02:52 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/25 20:09:04 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,6 @@ void	ft_raycast(t_engine *engine)
 		end.x = ray_v.x * engine->data.tile;
 		end.y = ray_v.y * engine->data.tile;
 		ft_draw_line(engine, start, end, BLUE);
-		angle += PI / 360;
+		angle += PI / 10;
 	}
 }

@@ -6,13 +6,13 @@
 #    By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/06/25 18:06:23 by yguinio          ###   ########.fr        #
+#    Updated: 2025/06/25 19:50:11 by yguinio          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 			cube3d
 
-ARGS = 			map.cub
+ARGS = 			zizi.cub
 
 LIBFT_DIR = 	./libft
 MLX_DIR =		./minilibx-linux/
