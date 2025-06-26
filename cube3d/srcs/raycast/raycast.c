@@ -3,49 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:40:57 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/25 20:09:04 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/26 10:30:41 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3d.h"
-
-double	ray_distance(t_engine *engine, t_pos ray)
-{
-	t_pos	p;
-	float	res;
-	
-	p = engine->data.player.pos;
-	res = sqrt(pow(ray.x - p.x, 2) + pow(ray.y - p.y, 2));
-	return (res);
-}
+#include "cub3d.h"
 
 bool	is_wall_ray_v(t_engine *engine, t_pos pos, double angle)
 {
-	char **map;
+	char	**map;
 
 	if (cos(angle) < 0)
 		pos.x -= 1;
 	map = engine->data.map.array;
-	if ((int)pos.x < 0 || (int)pos.y < 0 || (int)pos.x > map_max_len(map) || (int)pos.y >= map_rows(map))
+	if ((int)pos.x < 0 || (int)pos.y < 0 || (int)pos.x > map_max_len(map)
+		|| (int)pos.y >= map_rows(map))
 		return (true);
-	if (map[(int)pos.y][(int)pos.x] == '1' || map[(int)pos.y][(int)pos.x] == ' ')
+	if (map[(int)pos.y][(int)pos.x] == '1'
+		|| map[(int)pos.y][(int)pos.x] == ' ')
 		return (true);
 	return (false);
 }
 
 bool	is_wall_ray_h(t_engine *engine, t_pos pos, double angle)
 {
-	char **map;
+	char	**map;
 
 	if (sin(angle) > 0)
 		pos.y -= 1;
 	map = engine->data.map.array;
-	if ((int)pos.x < 0 || (int)pos.y < 0 || (int)pos.x > map_max_len(map) || (int)pos.y >= map_rows(map))
+	if ((int)pos.x < 0 || (int)pos.y < 0 || (int)pos.x > map_max_len(map)
+		|| (int)pos.y >= map_rows(map))
 		return (true);
-	if (map[(int)pos.y][(int)pos.x] == '1' || map[(int)pos.y][(int)pos.x] == ' ')
+	if (map[(int)pos.y][(int)pos.x] == '1'
+		|| map[(int)pos.y][(int)pos.x] == ' ')
 		return (true);
 	return (false);
 }
@@ -55,30 +49,12 @@ t_pos	horizontal_wall_hit(t_engine *engine, double angle)
 	t_pos	ray;
 	t_pos	player;
 	t_pos	step;
-	
+
 	player = engine->data.player.pos;
 	ft_memset(&ray, 0, sizeof(t_pos));
 	if (is_equal(angle, M_PI_2) || is_equal(angle, 3 * M_PI_2))
 		return (player);
-	if (sin(angle) < 0)
-	{
-		step.y = 1;
-		ray.y = ceil(player.y);
-		step.x = step.y / -tan(angle);
-		ray.x = player.x + (ray.y - player.y) * step.x;
-	}
-	if (sin(angle) > 0)
-	{
-		step.y = -1;
-		ray.y = floor(player.y);
-		step.x = step.y / -tan(angle);
-		ray.x = player.x + (ray.y - player.y) * -step.x;
-	}
-	if (is_equal(angle, 0) || is_equal(angle, PI))
-	{
-		step.x = 0;
-		ray.x = player.x;
-	}
+	ft_check_horizontal_angle(angle, player, &ray, &step);
 	while (!is_wall_ray_h(engine, ray, angle))
 	{
 		ray.y += step.y;
@@ -92,30 +68,12 @@ t_pos	vertical_wall_hit(t_engine *engine, double angle)
 	t_pos	ray;
 	t_pos	player;
 	t_pos	step;
-	
+
 	player = engine->data.player.pos;
 	ft_memset(&ray, 0, sizeof(t_pos));
 	if (is_equal(angle, M_PI_2) || is_equal(angle, 3 * M_PI_2))
 		return (player);
-	if (cos(angle) > 0)
-	{
-		step.x = 1;
-		ray.x = ceil(player.x);
-		step.y = step.x * -tan(angle);
-		ray.y = player.y + (ray.x - player.x) * step.y;
-	}
-	if (cos(angle) < 0)
-	{
-		step.x = -1;
-		ray.x = floor(player.x);
-		step.y = step.x * -tan(angle);
-		ray.y = player.y + (ray.x - player.x) * -step.y;
-	}
-	if (is_equal(angle, 0) || is_equal(angle, PI))
-	{
-		step.y = 0;
-		ray.y = player.y;
-	}
+	ft_check_vertical_angle(angle, player, &ray, &step);
 	while (!is_wall_ray_v(engine, ray, angle))
 	{
 		ray.x += step.x;
@@ -131,7 +89,7 @@ void	ft_raycast(t_engine *engine)
 	t_point	start;
 	t_point	end;
 	double	angle;
-	
+
 	angle = engine->data.player.angle - (FOV / 2);
 	start.x = engine->data.player.pos.x * engine->data.tile;
 	start.y = engine->data.player.pos.y * engine->data.tile;
@@ -139,8 +97,10 @@ void	ft_raycast(t_engine *engine)
 	{
 		ray_v = vertical_wall_hit(engine, angle);
 		ray_h = horizontal_wall_hit(engine, angle);
-		if (ray_distance(engine, ray_h) < ray_distance(engine, ray_v) && ray_h.x != engine->data.player.pos.x && ray_h.y != engine->data.player.pos.y)
-			ray_v = ray_h ;
+		if (ray_distance(engine, ray_h) < ray_distance(engine, ray_v)
+			&& ray_h.x != engine->data.player.pos.x
+			&& ray_h.y != engine->data.player.pos.y)
+			ray_v = ray_h;
 		end.x = ray_v.x * engine->data.tile;
 		end.y = ray_v.y * engine->data.tile;
 		ft_draw_line(engine, start, end, BLUE);

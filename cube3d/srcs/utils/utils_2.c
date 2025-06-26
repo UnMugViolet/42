@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   utils_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:45:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/24 16:57:51 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/26 10:25:23 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3d.h"
+#include "cub3d.h"
 
 void	ft_put_pixel(t_engine *engine, t_point init_point, int color)
 {
 	int			pixel;
 	t_img const	img = engine->data.img;
 
- 	if (init_point.x < 0 || init_point.x >= img.w
+	if (init_point.x < 0 || init_point.x >= img.w
 		|| init_point.y < 0 || init_point.y >= img.h)
 		return ;
 	pixel = (init_point.y * img.line_len) + (init_point.x * 4);

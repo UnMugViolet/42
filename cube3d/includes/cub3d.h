@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cube3d.h                                           :+:      :+:    :+:   */
+/*   cub3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:14:10 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/25 16:52:41 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/26 10:12:46 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUBE3D_H
-# define CUBE3D_H
+#ifndef CUB3D_H
+# define CUB3D_H
 
 # include "ft_printf.h"
 # include "libft.h"
@@ -148,6 +148,14 @@ bool	is_equal(double a, double b);
 
 int		encode_rgb(char *red, char *green, char *blue);
 
+/* ----------------------------------RAYCAST--------------------------------- */
+void	ft_check_vertical_angle(double angle, t_pos player, t_pos *ray, \
+		t_pos *step);
+void	ft_check_horizontal_angle(double angle, t_pos player, t_pos *ray, \
+		t_pos *step);
+double	ray_distance(t_engine *engine, t_pos ray);
+void	ft_raycast(t_engine *engine);
+
 /* ----------------------------------DISPLAY--------------------------------- */
 
 int		game_loop(t_engine *engine);
@@ -160,7 +168,6 @@ void	ft_draw_player(t_engine *engine);
 void	ft_clear_player(t_engine *engine);
 void	ft_draw_map_3d(t_engine *engine);
 void	draw_centered_triangle(t_engine *engine, t_pos pos, t_point dimension, int color);
-void	ft_raycast(t_engine *engine);
 
 /* ---------------------------------MOVEMENTS-------------------------------- */
 

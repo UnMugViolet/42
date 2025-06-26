@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:57:30 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/17 09:24:14 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/26 10:20:24 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3d.h"
+#include "cub3d.h"
 
 void	ft_free(void *ptr)
 {
@@ -54,7 +54,7 @@ void	clean_all(t_engine *engine)
 
 void	ft_display_usage(void)
 {
-	ft_printf("Usage: ./cube3d <map.cub>\n");
+	ft_printf("Usage: ./cub3d <map.cub>\n");
 }
 
 void	print_err_exit(char *err_msg, char *arg, t_engine *engine)

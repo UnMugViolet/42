@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 11:11:03 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/06/25 16:52:08 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/26 10:22:20 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3d.h"
+#include "cub3d.h"
 
 /*
 * Changes the axis orientation of the player accordingly to the key pressed.
@@ -97,7 +97,7 @@ int	ft_mouse_move(int x, int y, t_engine *engine)
 	int const	center_x = engine->data.screen_size.x * 3 / 4;
 	int const	delta_x = x - center_x;
 	t_player	*player;
-	
+
 	player = &engine->data.player;
 	(void)y;
 	if (delta_x != 0)

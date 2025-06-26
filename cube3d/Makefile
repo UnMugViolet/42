@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+         #
+#    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/06/25 19:50:11 by yguinio          ###   ########.fr        #
+#    Updated: 2025/06/26 10:20:24 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = 			cube3d
+NAME = 			cub3D
 
-ARGS = 			zizi.cub
+ARGS = 			map.cub
 
 LIBFT_DIR = 	./libft
 MLX_DIR =		./minilibx-linux/
@@ -22,7 +22,7 @@ OBJ_DIR = 		./objects/
 INC_DIR = 		./includes/
 
 # Directories for categorized source files
-DIRS = 			utils init parsing check display
+DIRS = 			utils init parsing check display raycast
 
 # Source files for each directory
 FILES = 		main.c events.c movements.c
@@ -30,14 +30,16 @@ INIT_FILES = 	init.c
 UTILS_FILES = 	utils.c map_utils.c utils_2.c utils_3.c
 PARSE_FILES = 	parsing.c
 CHECK_FILES = 	check_map_file.c check_textures.c map_borders.c check_map.c
-DISPLAY_FILES = display_utils.c colors_utils.c player.c render.c wall.c raycast.c display_all.c
+DISPLAY_FILES = display_utils.c colors_utils.c player.c render.c wall.c display_all.c
+RAYCAST_FILES = raycast.c raycast_utils.c 
 
 SRC_FILES = 	$(FILES) \
                 $(addprefix utils/, $(UTILS_FILES)) \
                 $(addprefix init/, $(INIT_FILES)) \
                 $(addprefix parsing/, $(PARSE_FILES)) \
 				$(addprefix check/, $(CHECK_FILES)) \
-				$(addprefix display/, $(DISPLAY_FILES)) 
+				$(addprefix display/, $(DISPLAY_FILES)) \
+				$(addprefix raycast/, $(RAYCAST_FILES)) 
 				
 OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.c=.o))
 
@@ -76,7 +78,7 @@ $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR) $(addprefix $(OBJ_DIR), $(DIRS))
 
 ## —— Cleaning ——————————————————————————————————————————————————————————————
-clean: ## Delete the objects files only for cube3d
+clean: ## Delete the objects files only for cub3d
 	@rm -rf $(OBJ_DIR)
 	@echo "$(GREEN)$(NAME) object files cleaned!$(DEFAULT)"
 

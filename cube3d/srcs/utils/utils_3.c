@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   utils_3.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 18:11:26 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/23 17:59:10 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/26 10:36:21 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3d.h"
+#include "cub3d.h"
 
-void	ft_draw_rectangle(t_engine *engine, t_point start, t_point end, int color)
+void	ft_draw_rectangle(t_engine *engine, t_point start, t_point end, \
+			int color)
 {
 	int	temp;
 
@@ -31,8 +32,13 @@ void	ft_draw_rectangle(t_engine *engine, t_point start, t_point end, int color)
 
 void	ft_draw_map_3d(t_engine *engine)
 {
-	ft_draw_rectangle(engine, (t_point){engine->data.screen_size.x / 2, 0}, (t_point){engine->data.screen_size.x, engine->data.screen_size.y / 2}, engine->data.map.colors[0]);
-	ft_draw_rectangle(engine, (t_point){engine->data.screen_size.x / 2, engine->data.screen_size.y / 2}, (t_point){engine->data.screen_size.x, engine->data.screen_size.y}, engine->data.map.colors[1]);
+	t_point	screen;
+
+	screen = engine->data.screen_size;
+	ft_draw_rectangle(engine, (t_point){screen.x / 2, 0}, \
+			(t_point){screen.x, screen.y / 2}, engine->data.map.colors[0]);
+	ft_draw_rectangle(engine, (t_point){screen.x / 2, screen.y / 2}, \
+			(t_point){screen.x, screen.y}, engine->data.map.colors[1]);
 }
 
 void	ft_angle_to_dir(double angle, t_pos *dir)

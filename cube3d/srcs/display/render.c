@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 11:27:53 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/25 19:37:56 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/06/26 10:29:32 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3d.h"
+#include "cub3d.h"
 
 int	game_loop(t_engine *engine)
 {
@@ -30,12 +30,11 @@ int	game_loop(t_engine *engine)
 	return (0);
 }
 
-
 int	ft_render(t_engine *engine)
 {
 	ft_handle_movement(engine);
 	mlx_destroy_image(engine->mlx, engine->data.img.img_ptr);
-		engine->data.img.img_ptr = mlx_new_image(engine->mlx,
+	engine->data.img.img_ptr = mlx_new_image(engine->mlx,
 			engine->data.screen_size.x, engine->data.screen_size.y);
 	engine->data.img.addr = mlx_get_data_addr(engine->data.img.img_ptr,
 			&engine->data.img.bpp, &engine->data.img.line_len,

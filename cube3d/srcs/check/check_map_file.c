@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_map_file.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 12:37:44 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/17 12:02:05 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/26 10:33:00 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3d.h"
+#include "cub3d.h"
 
 static bool	only_one_orientation(char orientation, t_check_map *check)
 {
@@ -72,7 +72,7 @@ bool	check_map(char **map_file)
 		return (false);
 	if (!check_map_chars(map))
 		return (ft_free_array_str(map), false);
-	if (!extern_flood_fill(map, (t_point){map_max_len(map), map_rows(map)},
+	if (!extern_flood_fill(map, (t_point){map_max_len(map), map_rows(map)}, \
 			(t_point){0, 0}))
 		return (print_err_exit(OPEN_MAP_ERR, NULL, NULL),
 			ft_free_array_str(map), false);

@@ -6,11 +6,11 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:57:20 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/09 17:33:28 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/26 10:20:24 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3d.h"
+#include "cub3d.h"
 
 bool	is_valid_input(int ac, char **av, t_engine *engine)
 {
