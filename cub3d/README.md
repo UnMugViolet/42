@@ -1,4 +1,4 @@
-# Cube3d
+# Cub3d
 
 ## Installation
 
