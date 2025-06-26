@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:20:00 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/26 10:20:24 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/26 15:02:16 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	ft_key_press(int keycode, t_engine *engine)
 		engine->data.player.k_pressed[4] = 1;
 	if (keycode == XK_Right)
 		engine->data.player.k_pressed[5] = 1;
+	if (keycode == XK_Shift_L)
+		engine->data.player.k_pressed[6] = 1;
 	return (EXIT_SUCCESS);
 }
 
@@ -45,6 +47,8 @@ int	ft_key_release(int keycode, t_engine *engine)
 		engine->data.player.k_pressed[4] = 0;
 	if (keycode == XK_Right)
 		engine->data.player.k_pressed[5] = 0;
+	if (keycode == XK_Shift_L)
+		engine->data.player.k_pressed[6] = 0;
 	return (EXIT_SUCCESS);
 }
 

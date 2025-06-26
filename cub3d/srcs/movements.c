@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 11:11:03 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/06/26 14:04:50 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/26 15:01:20 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,20 +72,24 @@ void	ft_move_player_axis(t_engine *engine,
 void	ft_handle_movement(t_engine *engine)
 {
 	t_player	*player;
+	double		speed;
 
 	player = &engine->data.player;
+	speed = SPEED;
+	if (player->k_pressed[6])
+		speed *= 2;
 	if (player->k_pressed[0])
-		ft_move_player_axis(engine, cos(player->angle) * SPEED,
-			-sin(player->angle) * SPEED);
+		ft_move_player_axis(engine, cos(player->angle) * speed,
+			-sin(player->angle) * speed);
 	if (player->k_pressed[1])
-		ft_move_player_axis(engine, -cos(player->angle) * SPEED,
-			sin(player->angle) * SPEED);
+		ft_move_player_axis(engine, -cos(player->angle) * speed,
+			sin(player->angle) * speed);
 	if (player->k_pressed[2])
-		ft_move_player_axis(engine, -sin(player->angle) * SPEED,
-			-cos(player->angle) * SPEED);
+		ft_move_player_axis(engine, -sin(player->angle) * speed,
+			-cos(player->angle) * speed);
 	if (player->k_pressed[3])
-		ft_move_player_axis(engine, sin(player->angle) * SPEED,
-			cos(player->angle) * SPEED);
+		ft_move_player_axis(engine, sin(player->angle) * speed,
+			cos(player->angle) * speed);
 	if (player->k_pressed[4])
 		ft_rotation(engine, 'L');
 	if (player->k_pressed[5])

@@ -66,7 +66,7 @@ typedef struct s_player
 	t_pos	dir;
 	t_pos	plan;
 	double	angle;
-	bool	k_pressed[6];
+	bool	k_pressed[7];
 	int		last_x_mouse;
 }			t_player;
 
@@ -168,7 +168,7 @@ void	ft_draw_player(t_engine *engine);
 void	ft_clear_player(t_engine *engine);
 void	ft_draw_map_3d(t_engine *engine);
 void	draw_centered_triangle(t_engine *engine, t_pos pos, t_point dimension, int color);
-void	ft_display_wall(t_engine *engine, int v_pxl, double ray_len);
+void	ft_display_wall(t_engine *engine, int v_pxl, double ray_len, double angle);
 
 /* ---------------------------------MOVEMENTS-------------------------------- */
 

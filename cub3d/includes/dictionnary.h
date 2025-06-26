@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:59:05 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/26 13:48:58 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/26 15:04:17 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 # define WIN_H 1080
 # define SPEED 0.1
 # define ROTATION 0.05
-# define SENSITIVITY 0.00125
+# define SENSITIVITY 0.0005
 # define PI 3.14159265358979323846
 # define FOV (PI / 3)
 # define NUM_RAYS 2048

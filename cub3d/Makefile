@@ -6,13 +6,13 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/06/26 14:27:13 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/06/26 14:53:57 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 			cub3D
 
-ARGS = 			shrek.cub
+ARGS = 			map.cub
 
 LIBFT_DIR = 	./libft
 MLX_DIR =		./minilibx-linux/
