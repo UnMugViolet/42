@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:59:05 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/26 10:16:08 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/26 13:48:58 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 # define SENSITIVITY 0.00125
 # define PI 3.14159265358979323846
 # define FOV (PI / 3)
-# define NUM_RAYS 1
+# define NUM_RAYS 2048
 # define M_PI_2 (PI / 2.0)
 
 # define EPSILON 0.0000000001

@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:40:57 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/26 10:30:41 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/26 14:35:20 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,22 +88,36 @@ void	ft_raycast(t_engine *engine)
 	t_pos	ray_h;
 	t_point	start;
 	t_point	end;
-	double	angle;
+	t_pos	util;
+	t_pos	ray_len;
 
-	angle = engine->data.player.angle - (FOV / 2);
+	util.y = 0;
+	util.x = engine->data.player.angle - (FOV / 2);
 	start.x = engine->data.player.pos.x * engine->data.tile;
 	start.y = engine->data.player.pos.y * engine->data.tile;
-	while (angle < engine->data.player.angle + FOV / 2)
+	while (util.y < NUM_RAYS)
 	{
-		ray_v = vertical_wall_hit(engine, angle);
-		ray_h = horizontal_wall_hit(engine, angle);
-		if (ray_distance(engine, ray_h) < ray_distance(engine, ray_v)
-			&& ray_h.x != engine->data.player.pos.x
+		ray_v = vertical_wall_hit(engine, util.x);
+		ray_h = horizontal_wall_hit(engine, util.x);
+		double correction_factor = cos(util.x - engine->data.player.angle);
+		ray_len.x = ray_distance(engine, ray_h) * correction_factor;
+		ray_len.y = ray_distance(engine, ray_v) * correction_factor;
+		if (ray_len.x < ray_len.y && ray_h.x != engine->data.player.pos.x
 			&& ray_h.y != engine->data.player.pos.y)
-			ray_v = ray_h;
-		end.x = ray_v.x * engine->data.tile;
-		end.y = ray_v.y * engine->data.tile;
-		ft_draw_line(engine, start, end, BLUE);
-		angle += PI / 10;
+		{
+			ft_display_wall(engine, util.y, ray_len.x);
+			end.x = ray_h.x * engine->data.tile;
+			end.y = ray_h.y * engine->data.tile;
+		}
+		else
+		{
+			ft_display_wall(engine, util.y, ray_len.y);
+			end.x = ray_v.x * engine->data.tile;
+			end.y = ray_v.y * engine->data.tile;
+		}
+		/* if ((int)util.y % 50 == 0)
+			ft_draw_line(engine, start, end, BLUE); */
+		util.x += FOV / NUM_RAYS;
+		util.y++;
 	}
 }

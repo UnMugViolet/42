@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 18:11:26 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/26 10:36:21 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/26 11:56:11 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ void	ft_draw_map_3d(t_engine *engine)
 	t_point	screen;
 
 	screen = engine->data.screen_size;
-	ft_draw_rectangle(engine, (t_point){screen.x / 2, 0}, \
+	ft_draw_rectangle(engine, (t_point){0, 0}, \
 			(t_point){screen.x, screen.y / 2}, engine->data.map.colors[0]);
-	ft_draw_rectangle(engine, (t_point){screen.x / 2, screen.y / 2}, \
+	ft_draw_rectangle(engine, (t_point){0, screen.y / 2}, \
 			(t_point){screen.x, screen.y}, engine->data.map.colors[1]);
 }
 

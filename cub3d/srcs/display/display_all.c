@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 10:26:32 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/06/26 10:36:47 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/26 14:09:03 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,29 +28,17 @@ void	ft_draw_map_2d(t_engine *engine)
 		{
 			if (engine->data.map.array[i][j] == '1')
 				ft_draw_square(engine, (t_point){(j + 0.5) * tile, (i + 0.5) \
-					* tile}, tile - 1, WHITE);
+					* tile}, tile, BLACK);
 			else if (engine->data.map.array[i][j] != ' ')
 				ft_draw_square(engine, (t_point){(j + 0.5) * tile, (i + 0.5) \
-					* tile}, tile - 1, RED);
+					* tile}, tile, RED);
 		}
 	}
-	ft_raycast(engine);
-/* 	t_point tmp;
+}
 
-	tmp.x = engine->data.player.pos.x * engine->data.map.tile_size;
-	tmp.y = engine->data.player.pos.y * engine->data.map.tile_size;
-	
-	ft_draw_square(engine, tmp, 10, RED);
-	t_point pos, pos_next;
-	
-	pos.x = tmp.x;
-	pos.y = tmp.y;
-
-	pos_next.x = pos.x + 15 * engine->data.player.dir.x;
-	pos_next.y = pos.y + 15 * engine->data.player.dir.y;
-	
-	ft_draw_line(engine, pos, pos_next, YELLOW); */
-/* 	int		tile_size;
+void	ft_draw_map_2d_move(t_engine *engine)
+{
+	int		tile_size;
 	t_point	p;
 	t_point	p_tile;
 	double	angle = engine->data.player.angle;
@@ -86,5 +74,5 @@ void	ft_draw_map_2d(t_engine *engine)
 			p.x++;
 		}
 		p.y++;
-	} */
+	}
 }

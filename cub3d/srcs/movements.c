@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 11:11:03 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/06/26 10:22:20 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/26 14:04:50 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	ft_handle_movement(t_engine *engine)
 
 int	ft_mouse_move(int x, int y, t_engine *engine)
 {
-	int const	center_x = engine->data.screen_size.x * 3 / 4;
+	int const	center_x = engine->data.screen_size.x / 2;
 	int const	delta_x = x - center_x;
 	t_player	*player;
 
