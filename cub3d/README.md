@@ -4,7 +4,7 @@
 
 1. Add the repositories needed by the project
 ```bash
-git clone https://github.com/42paris/minilibx-linux.git minilibix-linux && git clone https://github.com/UnMugViolet/libft.git libft
+git clone https://github.com/42paris/minilibx-linux.git minilibx-linux && git clone https://github.com/UnMugViolet/libft.git libft
 ```
 2. Install dependencies if not already installed to run the mlx
 ```bash
