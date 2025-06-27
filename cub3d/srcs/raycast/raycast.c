@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:40:57 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/26 15:15:24 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/27 15:27:21 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,13 +104,13 @@ void	ft_raycast(t_engine *engine)
 		if (ray_len.x < ray_len.y && ray_h.x != engine->data.player.pos.x
 			&& ray_h.y != engine->data.player.pos.y)
 		{
-			ft_display_wall(engine, util.y, ray_len.x, util.x);
+			ft_display_wall(engine, util.y, ray_len.x, util.x, ray_h, false);
 			end.x = ray_h.x * engine->data.tile;
 			end.y = ray_h.y * engine->data.tile;
 		}
 		else
 		{
-			ft_display_wall(engine, util.y, ray_len.y, util.x);
+			ft_display_wall(engine, util.y, ray_len.y, util.x, ray_v, true);
 			end.x = ray_v.x * engine->data.tile;
 			end.y = ray_v.y * engine->data.tile;
 		}

@@ -168,7 +168,7 @@ void	ft_draw_player(t_engine *engine);
 void	ft_clear_player(t_engine *engine);
 void	ft_draw_map_3d(t_engine *engine);
 void	draw_centered_triangle(t_engine *engine, t_pos pos, t_point dimension, int color);
-void	ft_display_wall(t_engine *engine, int v_pxl, double ray_len, double angle);
+void	ft_display_wall(t_engine *engine, int v_pxl, double ray_len, double angle, t_pos wall_hit, bool is_vertical);
 
 /* ---------------------------------MOVEMENTS-------------------------------- */
 

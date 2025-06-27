@@ -1,7 +1,7 @@
-NO ./grass.xpm
-SO ./grass.xpm
-EA ./grass.xpm
-WE ./grass.xpm
+NO ./textures/grass.xpm
+SO ./textures/grass.xpm
+EA ./textures/grass.xpm
+WE ./textures/grass.xpm
 
 C 255,255,255
 F 50,50,50
