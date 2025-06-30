@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:57:13 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/30 14:54:06 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/30 15:17:31 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,16 @@ static void	set_player_position(t_player *player, char **map)
 				player->pos.x = j + 0.5;
 				player->pos.y = i + 0.5;
 				if (map[i][j] == 'N')
-					player->angle = PI / 2;
+					player->angle = (PI / 2) + EPSILON * 10;
 				else if (map[i][j] == 'S')
-					player->angle = 3 * PI / 2;
+					player->angle = (3 * PI / 2) + EPSILON * 10;
 				else if (map[i][j] == 'E')
-					player->angle = 0;
+					player->angle = 0 + EPSILON * 10;
 				else if (map[i][j] == 'W')
-					player->angle = PI;
+					player->angle = PI + EPSILON * 10;
 			}
 		}
 	}
-	player->angle = 1.58;
 }
 
 void	ft_init_player(t_engine *engine)

@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 10:06:13 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/30 14:46:07 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/30 15:27:38 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,22 @@ double	ray_distance(t_engine *engine, t_pos ray)
 	p = engine->data.player.pos;
 	res = sqrt(pow(ray.x - p.x, 2) + pow(ray.y - p.y, 2));
 	return (res);
+}
+
+void	ft_select_shortest_ray(t_player *p, t_ray *ray, t_ray *temp)
+{
+	if (ray->len < temp->len && ray->hit.x != p->pos.x
+		&& ray->hit.y != p->pos.y)
+	{
+		ray->end.x = ray->hit.x * tile(NULL);
+		ray->end.y = ray->hit.y * tile(NULL);
+		ray->is_vertical = false;
+	}
+	else
+	{
+		ft_copy_ray(ray, temp);
+		ray->end.x = temp->hit.x * tile(NULL);
+		ray->end.y = temp->hit.y * tile(NULL);
+		ray->is_vertical = true;
+	}
 }

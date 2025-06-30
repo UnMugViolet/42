@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wall.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 15:18:09 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/27 15:57:58 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/30 15:21:07 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int	get_texture_pixel(t_img *texture, int x, int y)
 }
 
 /*
- * Determine the texture index based on the angle and whether the wall is vertical.
+ * Determine the texture index based on the angle and whether 
+ * the wall is vertical.
  * Vertical walls (East/West) are determined by the cos of the angle,
  * while horizontal walls (North/South) are determined by the sine of the angle.
 */
@@ -52,47 +53,44 @@ int	get_wall_texture_index(double angle, bool is_vertical)
 	}
 }
 
-void	ft_add_texture(t_engine *engine, double angle, bool is_vertical, t_pos wall_hit, int height, t_point start, t_point end)
+void	ft_add_texture(t_engine *engine, double angle, int height, t_ray ray)
 {
 	int				texture_index;
 	t_img			*texture;
 	t_point			tex;
 	double			tex_pos;
 	double			step;
-	int				color;
 
-	texture_index = get_wall_texture_index(angle, is_vertical);
+	texture_index = get_wall_texture_index(angle, ray.is_vertical);
 	texture = &engine->data.map.textures[texture_index];
 	step = (double)texture->h / height;
-	tex_pos = (start.y - WIN_H / 2 + height / 2) * step;
-	if (is_vertical)
-		tex.x = (int)(wall_hit.y * texture->w) % texture->w;
+	tex_pos = (ray.start.y - WIN_H / 2 + height / 2) * step;
+	if (ray.is_vertical)
+		tex.x = (int)(ray.hit.y * texture->w) % texture->w;
 	else
-		tex.x = (int)(wall_hit.x * texture->w) % texture->w;
-	while (start.y < end.y)
+		tex.x = (int)(ray.hit.x * texture->w) % texture->w;
+	while (ray.start.y < ray.end.y)
 	{
 		tex.y = (int)tex_pos % texture->h;
 		tex_pos += step;
-		color = get_texture_pixel(texture, tex.x, tex.y);
-		ft_put_pixel(engine, (t_point){start.x, start.y}, color);
-		start.y++;
+		ft_put_pixel(engine, (t_point){ray.start.x, ray.start.y},
+			get_texture_pixel(texture, tex.x, tex.y));
+		ray.start.y++;
 	}
 }
 
-void	ft_display_wall(t_engine *engine, int v_pxl, double ray_len, double angle, t_pos wall_hit, bool is_vertical)
+void	ft_display_wall(t_engine *engine, int v_pxl, double angle, t_ray ray)
 {
 	int				height;
 	double const	correction_factor = cos(angle - engine->data.player.angle);
-	t_point			start;
-	t_point			end;
 
-	height = WIN_H / ((ray_len * correction_factor) * 0.5);
-	start.x = WIN_W - v_pxl;
-	start.y = WIN_H / 2 - height / 2;
-	if (start.y < 0)
-		start.y = 0;
-	end.y = WIN_H / 2 + height / 2;
-	if (end.y > WIN_H)
-		end.y = WIN_H;
-	ft_add_texture(engine, angle, is_vertical, wall_hit, height, start, end);
+	height = WIN_H / ((ray.len * correction_factor) * 0.5);
+	ray.start.x = WIN_W - v_pxl;
+	ray.start.y = WIN_H / 2 - height / 2;
+	if (ray.start.y < 0)
+		ray.start.y = 0;
+	ray.end.y = WIN_H / 2 + height / 2;
+	if (ray.end.y > WIN_H)
+		ray.end.y = WIN_H;
+	ft_add_texture(engine, angle, height, ray);
 }

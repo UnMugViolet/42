@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 11:11:03 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/06/26 15:01:20 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/30 15:19:25 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	ft_handle_movement(t_engine *engine)
 	player = &engine->data.player;
 	speed = SPEED;
 	if (player->k_pressed[6])
-		speed *= 2;
+		speed *= 4;
 	if (player->k_pressed[0])
 		ft_move_player_axis(engine, cos(player->angle) * speed,
 			-sin(player->angle) * speed);

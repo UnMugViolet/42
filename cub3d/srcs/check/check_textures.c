@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 12:40:08 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/30 14:42:07 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/30 15:19:54 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static bool	is_rgb_format(char *rgb)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (rgb[++i])

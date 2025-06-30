@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 10:26:32 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/06/30 14:52:12 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/30 15:20:07 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	ft_draw_map_2d(t_engine *engine)
 	int	i;
 	int	j;
 	int	tile;
-
 
 	i = -1;
 	tile = engine->data.tile;
