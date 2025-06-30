@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:57:20 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/30 17:37:13 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/30 19:12:22 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ char	**get_map_file(char *filename)
 	map = ft_split(file, '\n');
 	free(file);
 	if (!map)
-		print_err_exit("Fatal error : split error", NULL, NULL);
+		print_err_exit("Could not use map", NULL, NULL);
 	return (close(fd), map);
 }
