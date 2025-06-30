@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 15:18:09 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/30 15:51:54 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/30 18:48:03 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ void	ft_add_texture(t_engine *engine, double angle, int height, t_ray ray)
 		tex.x = (int)(ray.hit.y * texture->w) % texture->w;
 	else
 		tex.x = (int)(ray.hit.x * texture->w) % texture->w;
+	if (texture_index == 1 || texture_index == 3)
+		tex.x = texture->w - 1 - tex.x;
 	while (ray.start.y < ray.end.y)
 	{
 		tex.y = (int)tex_pos % texture->h;

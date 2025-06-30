@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:57:30 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/30 14:32:33 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/30 17:41:31 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	ft_display_usage(void)
 
 void	print_err_exit(char *err_msg, char *arg, t_engine *engine)
 {
+	write(2, "Error\n", 6);
 	if (err_msg)
 		while (*err_msg)
 			write(2, err_msg++, 1);

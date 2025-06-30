@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 15:05:36 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/26 10:20:24 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/30 18:16:46 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,7 @@ bool	get_new_image(t_engine *engine, char *path, t_img *image)
 	image->img_ptr = mlx_xpm_file_to_image(engine->mlx, path, &image->w,
 			&image->h);
 	if (!image->img_ptr)
-	{
-		printf("Failed to load texture: %s\n", path);
-		return (print_err_exit("Cannot read file : ", path, 0), false);
-	}
+		return (print_err_exit("Cannot read file : ", path, engine), false);
 	image->addr = mlx_get_data_addr(image->img_ptr, &(image->bpp),
 			&(image->line_len), &(image->endian));
 	return (true);
@@ -91,7 +88,7 @@ char	*get_surface_value(char **file, char const *orientation)
 		}
 		file++;
 	}
-	return (NULL);
+	return (print_err_exit(TEXTURE_MISS, NULL, NULL), exit(EXIT_FAILURE), NULL);
 }
 
 /*
@@ -116,7 +113,7 @@ bool	get_textures(t_engine *engine, char *file_path)
 		path = get_surface_value(temp, orientations[i]);
 		if (!path || access(path, O_RDONLY) < 0)
 			return (ft_free(path), ft_free_array_str(temp),
-				print_err_exit(TEXT_ERR, NULL, NULL), false);
+				print_err_exit(ERR_FILE, NULL, NULL), false);
 		get_new_image(engine, path, &engine->data.map.textures[i]);
 		ft_free(path);
 		i++;
@@ -129,6 +126,7 @@ bool	get_colors(t_engine *engine, char *file_path)
 	char const	*surface[] = {"C", "F"};
 	char		**temp;
 	char		**rgb;
+	char		*surface_value;
 	int			i;
 
 	temp = get_map_file(file_path);
@@ -137,11 +135,13 @@ bool	get_colors(t_engine *engine, char *file_path)
 	i = 0;
 	while (i < 2)
 	{
-		rgb = ft_split(get_surface_value(temp, surface[i]), ',');
+		surface_value = get_surface_value(temp, surface[i]);
+		rgb = ft_split(surface_value, ',');
 		engine->data.map.colors[i] = encode_rgb(rgb[0], rgb[1], rgb[2]);
 		i++;
+		ft_free_array_str(rgb);
+		ft_free(surface_value);
 	}
 	ft_free_array_str(temp);
-	ft_free_array_str(rgb);
 	return (true);
 }

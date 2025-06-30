@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 12:40:08 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/30 15:19:54 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/30 18:32:25 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,11 +100,11 @@ bool	check_textures(char **file)
 	while (i < 4)
 	{
 		path = get_surface_value(file, orientations[i]);
-		if (!path || access(path, O_RDONLY) < 0)
-		{
-			ft_free(path);
+		if (!path)
 			return (print_err_exit(TEXT_ERR, NULL, NULL), false);
-		}
+		if (access(path, R_OK) < 0)
+			return (print_err_exit(TEXT_FILE, NULL, NULL), ft_free(path),
+				false);
 		ft_free(path);
 		i++;
 	}

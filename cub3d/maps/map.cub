@@ -1,10 +1,12 @@
-NO ./textures/brick_wall.xpm
-SO ./textures/rocky_road.xpm
-EA ./textures/brick_wall_cracked.xpm
-WE ./textures/green_wall.xpm
-
 C 255,255,255
+
+NO ./textures/arrow.xpm
+SO ./textures/arrow.xpm
+EA ./textures/arrow.xpm
+WE ./textures/arrow.xpm
+
 F 50,50,50
+
 
        11111111111111
        10000000000001

@@ -1,0 +1,20 @@
+C 255,255,255
+NO ./textures/brick_wall.xpm
+EA ./textures/brick_wall_cracked.xpm
+
+
+
+WE ./textures/brick_wall_cracked.xpm
+
+F 50,50,50
+
+SO ./textures/rocky_road.xpm
+
+11111111111111
+10000000000001
+10010000000001
+10000000000001
+100N0000100001
+10000000100001
+10000000000001
+11111111111111

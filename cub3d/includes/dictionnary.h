@@ -6,14 +6,14 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:59:05 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/30 15:32:26 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/30 18:18:11 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DICTIONNARY_H
 # define DICTIONNARY_H
 
-# define TEXT_ERR "Texture error"
+# define ERR_FILE "Failed to open the map file"
 # define COLOR_ERR "Color error. RGB format: [<0-255>,<0-255>,<0-255>]"
 # define MAP_ERR "Map error"
 # define MAP_CHAR_ERR "Map error: wrong map character"
@@ -21,7 +21,10 @@
 # define MAP_DOUBLE_ERR "Map error: too many orientation characters"
 # define OPEN_MAP_ERR "Map error: Map not closed"
 # define START_ERR "Map error: No starting point"
-# define FILE_ERR "File error: "
+# define TEXT_FILE "Failed to open the texture file"
+# define TEXT_ERR "Texture error"
+# define TEXTURE_MAP "Orientation issue in map file"
+# define TEXTURE_MISS "Missing textures in map file"
 
 # define YELLOW 0xFFFF4C
 # define WHITE 0xFFFFFF
