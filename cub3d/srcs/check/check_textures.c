@@ -6,11 +6,22 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 12:40:08 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/26 10:20:24 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/30 14:42:07 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+static bool	is_rgb_format(char *rgb)
+{
+	int i;
+
+	i = -1;
+	while (rgb[++i])
+		if (rgb[i] == ',' && !ft_isdigit(rgb[i + 1]))
+			return (false);
+	return (true);
+}
 
 /*
  * Checks if the given color respects the RGB format.
@@ -24,10 +35,13 @@ static bool	rgb_format(char *rgb_color)
 	int		j;
 
 	i = 0;
+	if (!is_rgb_format(rgb_color))
+		return (false);
 	temp = ft_split(rgb_color, ',');
 	while (temp[i])
 	{
-		if (!(0 <= ft_atoi(temp[i]) && ft_atoi(temp[i]) <= 255))
+		if (!(0 <= ft_atoi(temp[i]) && ft_atoi(temp[i]) <= 255)
+			|| (temp[i][0] != '0' && !ft_atoi(temp[i])))
 			return (ft_free_array_str(temp), false);
 		j = 0;
 		while (temp[i][j])

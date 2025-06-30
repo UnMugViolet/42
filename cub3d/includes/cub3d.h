@@ -48,6 +48,17 @@ typedef struct s_pos
 	double	y;
 }		t_pos;
 
+typedef struct s_ray
+{
+	t_point	end;
+	t_point	start;
+	t_pos	hit;
+	bool	is_vertical;
+	double	len;
+	double	angle;
+}			t_ray;
+
+
 typedef struct s_img
 {
 	void	*img_ptr;
@@ -85,6 +96,7 @@ typedef struct s_data
 	t_point		screen_size;
 	t_player	player;
 	t_img		img;
+	t_ray		ray[WIN_W];
 	int			tile;
 }			t_data;
 
@@ -135,6 +147,11 @@ void	print_err_exit(char *err_msg, char *arg, t_engine *engine);
 
 void	ft_angle_to_dir(double angle, t_pos *dir);
 
+void	ft_set_t_point(t_point *p, int x, int y);
+void	ft_set_t_pos(t_pos *p, double x, double y);
+
+int		tile(int *tile_set);
+
 /* ----------------------------------CHECKS--------------------------------- */
 
 bool	check_map_file(char *map_filename);
@@ -155,6 +172,12 @@ void	ft_check_horizontal_angle(double angle, t_pos player, t_pos *ray, \
 		t_pos *step);
 double	ray_distance(t_engine *engine, t_pos ray);
 void	ft_raycast(t_engine *engine);
+
+t_pos	vertical_wall_hit(t_engine *engine, double angle);
+t_pos	horizontal_wall_hit(t_engine *engine, double angle);
+void	ft_set_rays(t_engine *engine, t_ray *ray, t_ray *ray_temp, double angle);
+void	ft_copy_ray(t_ray *paste, t_ray *copy);
+
 
 /* ----------------------------------DISPLAY--------------------------------- */
 

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+         #
+#    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/06/27 15:41:53 by unmugviolet      ###   ########.fr        #
+#    Updated: 2025/06/30 12:00:46 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ DIRS = 			utils init parsing check display raycast
 # Source files for each directory
 FILES = 		main.c events.c movements.c
 INIT_FILES = 	init.c
-UTILS_FILES = 	utils.c map_utils.c utils_2.c utils_3.c
+UTILS_FILES = 	utils.c map_utils.c utils_2.c utils_3.c set_struct.c getters.c
 PARSE_FILES = 	parsing.c
 CHECK_FILES = 	check_map_file.c check_textures.c map_borders.c check_map.c
 DISPLAY_FILES = display_utils.c colors_utils.c player.c render.c wall.c display_all.c

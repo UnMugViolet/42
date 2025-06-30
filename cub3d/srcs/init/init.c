@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:57:13 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/26 10:20:24 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/30 14:54:06 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,11 @@ void	ft_init_map_2d(t_engine *engine, char *file)
 	engine->data.map.size.y = map_rows(engine->data.map.array);
 	map_size.x = map_max_len(engine->data.map.array);
 	engine->data.tile = (engine->data.screen_size.y
-			/ engine->data.map.size.y) / 2;
+			/ engine->data.map.size.y) / 4;
 	if (engine->data.tile > (engine->data.screen_size.x / map_size.x)
-		/ 2)
+		/ 4)
 		engine->data.tile = (engine->data.screen_size.x / map_size.x)
-			/ 2;
+			/ 4;
 	ft_free_array_str(map_file);
 }
 
@@ -117,4 +117,5 @@ void	ft_init_window(t_engine *engine, char *file)
 	ft_init_map_2d(engine, file);
 	get_textures(engine, file);
 	get_colors(engine, file);
+	tile(&engine->data.tile);
 }

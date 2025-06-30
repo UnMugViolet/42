@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 10:26:32 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/06/26 14:09:03 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/30 14:52:12 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,13 @@ void	ft_draw_map_2d(t_engine *engine)
 					* tile}, tile, RED);
 		}
 	}
+	i = -1;
+	while (++i < WIN_W)
+		ft_draw_line(engine, engine->data.ray[i].start,
+			engine->data.ray[i].end, BLUE);
 }
 
-void	ft_draw_map_2d_move(t_engine *engine)
+/* void	ft_draw_map_2d_move(t_engine *engine)
 {
 	int		tile_size;
 	t_point	p;
@@ -76,3 +80,4 @@ void	ft_draw_map_2d_move(t_engine *engine)
 		p.y++;
 	}
 }
+ */

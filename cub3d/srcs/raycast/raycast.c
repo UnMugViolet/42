@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:40:57 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/27 15:27:21 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/06/30 14:47:01 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-bool	is_wall_ray_v(t_engine *engine, t_pos pos, double angle)
+static bool	is_wall_ray_v(t_engine *engine, t_pos pos, double angle)
 {
 	char	**map;
 
@@ -28,7 +28,7 @@ bool	is_wall_ray_v(t_engine *engine, t_pos pos, double angle)
 	return (false);
 }
 
-bool	is_wall_ray_h(t_engine *engine, t_pos pos, double angle)
+static bool	is_wall_ray_h(t_engine *engine, t_pos pos, double angle)
 {
 	char	**map;
 
@@ -84,38 +84,32 @@ t_pos	vertical_wall_hit(t_engine *engine, double angle)
 
 void	ft_raycast(t_engine *engine)
 {
-	t_pos	ray_v;
-	t_pos	ray_h;
-	t_point	start;
-	t_point	end;
-	t_pos	util;
-	t_pos	ray_len;
+	t_ray			ray;
+	t_ray			ray_temp;
+	t_pos			util;
+	t_player const	p = engine->data.player;
 
-	util.y = 0;
-	util.x = engine->data.player.angle - (FOV / 2);
-	start.x = engine->data.player.pos.x * engine->data.tile;
-	start.y = engine->data.player.pos.y * engine->data.tile;
+	ft_set_t_pos(&util, p.angle - (FOV / 2), 0);
+	ft_set_t_point(&ray.start, p.pos.x * tile(NULL), p.pos.y * tile(NULL));
 	while (util.y < NUM_RAYS)
 	{
-		ray_v = vertical_wall_hit(engine, util.x);
-		ray_h = horizontal_wall_hit(engine, util.x);
-		ray_len.x = ray_distance(engine, ray_h);
-		ray_len.y = ray_distance(engine, ray_v);
-		if (ray_len.x < ray_len.y && ray_h.x != engine->data.player.pos.x
-			&& ray_h.y != engine->data.player.pos.y)
+		ft_set_rays(engine, &ray, &ray_temp, util.x);
+		if (ray.len < ray_temp.len && ray.hit.x != p.pos.x
+			&& ray.hit.y != p.pos.y)
 		{
-			ft_display_wall(engine, util.y, ray_len.x, util.x, ray_h, false);
-			end.x = ray_h.x * engine->data.tile;
-			end.y = ray_h.y * engine->data.tile;
+			ray.end.x = ray.hit.x * tile(NULL);
+			ray.end.y = ray.hit.y * tile(NULL);
+			ray.is_vertical = false;
 		}
 		else
 		{
-			ft_display_wall(engine, util.y, ray_len.y, util.x, ray_v, true);
-			end.x = ray_v.x * engine->data.tile;
-			end.y = ray_v.y * engine->data.tile;
+			ft_copy_ray(&ray, &ray_temp);
+			ray.end.x = ray_temp.hit.x * tile(NULL);
+			ray.end.y = ray_temp.hit.y * tile(NULL);
+			ray.is_vertical = true;
 		}
-		if ((int)util.y % 50 == 0)
-			ft_draw_line(engine, start, end, BLUE);
+		ft_display_wall(engine, util.y, ray.len, util.x, ray.hit, ray.is_vertical);
+		engine->data.ray[(int)util.y] = ray;
 		util.x += FOV / NUM_RAYS;
 		util.y++;
 	}
