@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 15:18:09 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/06/30 15:21:07 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/06/30 15:51:54 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,30 @@
  * Get the pixel color from the texture image at the specified coordinates.
  * The texture is assumed to be a valid image with width and height.
  * Returns 0 if the coordinates are out of bounds.
-*/
-int	get_texture_pixel(t_img *texture, int x, int y)
+ */
+int	get_texture_pixel(t_img *texture, int x, int y, double ray_len)
 {
-	char	*pixel;
-	int		offset;
+	int		color;
+	double	shadow;
+	int		rgb[3];
 
 	if (x < 0 || x >= texture->w || y < 0 || y >= texture->h)
 		return (0);
-	offset = y * texture->line_len + x * (texture->bpp / 8);
-	pixel = texture->addr + offset;
-	return (*(int *)pixel);
+	color = *(int *)(texture->addr + y * texture->line_len + x * (texture->bpp
+				/ 8));
+	shadow = fmax(0.3, fmin(1.0, 1.0 - ray_len / 20.0));
+	rgb[0] = ((color >> 16) & 0xFF) * shadow;
+	rgb[1] = ((color >> 8) & 0xFF) * shadow;
+	rgb[2] = (color & 0xFF) * shadow;
+	return ((rgb[0] << 16) | (rgb[1] << 8) | rgb[2]);
 }
 
 /*
- * Determine the texture index based on the angle and whether 
+ * Determine the texture index based on the angle and whether
  * the wall is vertical.
  * Vertical walls (East/West) are determined by the cos of the angle,
  * while horizontal walls (North/South) are determined by the sine of the angle.
-*/
+ */
 int	get_wall_texture_index(double angle, bool is_vertical)
 {
 	if (is_vertical)
@@ -55,11 +60,11 @@ int	get_wall_texture_index(double angle, bool is_vertical)
 
 void	ft_add_texture(t_engine *engine, double angle, int height, t_ray ray)
 {
-	int				texture_index;
-	t_img			*texture;
-	t_point			tex;
-	double			tex_pos;
-	double			step;
+	int		texture_index;
+	t_img	*texture;
+	t_point	tex;
+	double	tex_pos;
+	double	step;
 
 	texture_index = get_wall_texture_index(angle, ray.is_vertical);
 	texture = &engine->data.map.textures[texture_index];
@@ -74,7 +79,7 @@ void	ft_add_texture(t_engine *engine, double angle, int height, t_ray ray)
 		tex.y = (int)tex_pos % texture->h;
 		tex_pos += step;
 		ft_put_pixel(engine, (t_point){ray.start.x, ray.start.y},
-			get_texture_pixel(texture, tex.x, tex.y));
+			get_texture_pixel(texture, tex.x, tex.y, ray.len));
 		ray.start.y++;
 	}
 }
