@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  mariadb:
+    image: mariadb
+    container_name: mariadb
+    env_file:
+      - .env
+    restart: unless-stopped
+    networks:
+      - inception_network
+    volumes:
+      -
+
+networks:
+  - inception_network
+
+volumes:
+
