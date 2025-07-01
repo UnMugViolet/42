@@ -145,10 +145,8 @@ void			clean_all(t_engine *engine);
 void			print_err_exit(char *err_msg, char *arg, t_engine *engine);
 
 void			ft_angle_to_dir(double angle, t_pos *dir);
-
 void			ft_set_t_point(t_point *p, int x, int y);
 void			ft_set_t_pos(t_pos *p, double x, double y);
-
 int				tile(int *tile_set);
 
 /* ----------------------------------CHECKS--------------------------------- */

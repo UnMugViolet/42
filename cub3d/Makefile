@@ -6,13 +6,13 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
-#    Updated: 2025/06/30 15:39:12 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/07/01 10:19:31 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 			cub3D
 
-ARGS = 			./maps/map.cub
+ARGS = 			./maps/surprisesurpise.cub
 
 LIBFT_DIR = 	./libft
 MLX_DIR =		./minilibx-linux/

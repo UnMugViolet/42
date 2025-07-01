@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 12:40:08 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/30 18:32:25 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/07/01 14:00:50 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ bool	check_color(char **file)
 		if (!rgb_color || !rgb_format(rgb_color))
 		{
 			ft_free(rgb_color);
-			return (false);
+			return (print_err_exit(COLOR_ERR, NULL, NULL),
+				ft_free_array_str(file), exit(EXIT_FAILURE), false);
 		}
 		ft_free(rgb_color);
 		i++;
@@ -101,14 +102,16 @@ bool	check_textures(char **file)
 	{
 		path = get_surface_value(file, orientations[i]);
 		if (!path)
-			return (print_err_exit(TEXT_ERR, NULL, NULL), false);
+			return (print_err_exit(TEXT_ERR, NULL, NULL),
+				ft_free_array_str(file), exit(EXIT_FAILURE), false);
 		if (access(path, R_OK) < 0)
-			return (print_err_exit(TEXT_FILE, NULL, NULL), ft_free(path),
+			return (print_err_exit(TEXT_FILE, NULL, NULL),
+				ft_free_array_str(file), ft_free(path), exit(EXIT_FAILURE),
 				false);
 		ft_free(path);
 		i++;
 	}
 	if (!check_color(file))
-		return (print_err_exit(COLOR_ERR, NULL, NULL), false);
+		return (false);
 	return (true);
 }

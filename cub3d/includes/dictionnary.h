@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:59:05 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/30 19:14:09 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/07/01 14:02:30 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,13 @@
 # define MAP_DOUBLE_ERR "Map error: too many orientation characters"
 # define OPEN_MAP_ERR "Map error: Map not closed"
 # define START_ERR "Map error: No starting point"
-# define TEXT_FILE "Something wrong with texture, don't be a child format well"
+# define MAP_SPLT_ERR "Could not get the map"
+# define TEXT_FILE "Failed to open the texture file"
 # define TEXT_ERR "Texture error"
 # define TEXTURE_MAP "Orientation issue in map file"
 # define TEXTURE_MISS "Missing textures in map file"
+# define TEXTURE_DBL "Texture specified twice"
+
 
 # define YELLOW 0xFFFF4C
 # define WHITE 0xFFFFFF

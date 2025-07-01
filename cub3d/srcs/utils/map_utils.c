@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:14:23 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/26 10:20:24 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/07/01 13:53:58 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	**extract_map(char **map_file)
 			if (is_not_already_checked(map_file[p.y][0], &check))
 				continue ;
 			else
-				return (printf("line : %i | %s\n", p.y, map_file[p.y]), NULL);
+				return (print_err_exit(TEXTURE_DBL, NULL, NULL), NULL);
 		}
 		while (map_file[p.y][++p.x])
 		{

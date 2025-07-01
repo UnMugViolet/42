@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 15:05:36 by yguinio           #+#    #+#             */
-/*   Updated: 2025/06/30 18:16:46 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/07/01 13:42:01 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ char	*get_surface_value(char **file, char const *orientation)
 		}
 		file++;
 	}
-	return (print_err_exit(TEXTURE_MISS, NULL, NULL), exit(EXIT_FAILURE), NULL);
+	return (NULL);
 }
 
 /*
