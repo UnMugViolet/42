@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   portainer:
-    build: ${BUILD_PATH_BONUS:-./requirements/bonus}/portainer
+    build: ${BUILD_PATH_BONUS}/portainer
     container_name: portainer
     restart: always
     networks:

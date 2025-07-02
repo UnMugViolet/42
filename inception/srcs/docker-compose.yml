@@ -13,8 +13,8 @@ services:
       - mariadb_data
 
 networks:
-  driver
-  - docker-network
+  docker-network:
+    driver: bridge
 
 volumes:
   mariadb_data:

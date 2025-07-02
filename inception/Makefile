@@ -19,7 +19,8 @@ up: ## Start the Docker containers
 
 bonus: ## Start the Docker containers with bonus features
 	@cd srcs && \
-	@docker-compose -f docker-compose-bonus.yml up -d
+	# @docker-compose -f docker-compose-bonus.yml up -d
+	@docker-compose-bonus.yml up -d
 	echo $(GREEN)"Bonus containers started successfully."$(DEFAULT)
 
 ## —— Cleaning —————————————————————————————————————————————————————————————————
