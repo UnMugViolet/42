@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  mariadb:
+    image: mariadb
+    container_name: mariadb
+    env_file:
+      - .env
+    restart: always
+    networks:
+      - docker-network
+    volumes:
+      - mariadb_data
+
+networks:
+  driver
+  - docker-network
+
+volumes:
+  mariadb_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/pjaguin/data/mariadb
+      o: bind
+  wordpress_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/pjaguin/data/wordpress
+      o: bind
+  nginx_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/pjaguin/data/nginx
+      o: bind

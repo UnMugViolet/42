@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  portainer:
+    build: ${BUILD_PATH_BONUS:-./requirements/bonus}/portainer
+    container_name: portainer
+    restart: always
+    networks:
+      - docker-network
+    ports:
+      - "1312:1312"
+    volumes:
+
+volumes:
+  portainer_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/pjaguin/data/portainer
+      o: bind
