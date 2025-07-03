@@ -12,14 +12,37 @@ services:
       - mariadb_data:/var/lib/mysql
     ports:
       - "3306:3306"
+
   wordpress:
+    depends_on:
+      - mariadb
     build: ${BUILD_PATH}/wordpress
     container_name: wordpress
     env_file:
       - .env
     restart: always
+    ports:
+      - "9000:9000"
+    networks:
+      - docker-network
     volumes:
       - wordpress_data:/var/www/html
+
+  nginx:
+    depends_on:
+      - wordpress
+    build: ${BUILD_PATH}/nginx
+    container_name: nginx
+    env_file:
+      - .env
+    restart: always
+    networks:
+      - docker-network
+    volumes:
+      - wordpress_data:/var/www/html
+    ports:
+      - "443:443"
+
   portainer:
     build: ${BUILD_PATH_BONUS}/portainer
     container_name: portainer
@@ -50,12 +73,6 @@ volumes:
     driver_opts:
       type: none
       device: /home/pjaguin/data/wordpress
-      o: bind
-  nginx_data:
-    driver: local
-    driver_opts:
-      type: none
-      device: /home/pjaguin/data/nginx
       o: bind
   portainer_data:
     driver: local

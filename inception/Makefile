@@ -1,4 +1,6 @@
 
+MAKE = make
+
 DEFAULT = \033[0m
 DEF_COLOR = \033[0;90m
 WHITE = \033[1;37m
@@ -28,10 +30,11 @@ down: ## Stop the Docker containers
 
 nuke: ## Stop and remove all Docker containers, networks, and volumes
 	@cd ./srcs && docker compose down --volumes --remove-orphans
+	@docker rmi $(shell docker images -q) --force || true
 	@echo "$(YELLOW)$(BOLD) ✓ All containers, networks, and volumes removed successfully.$(DEFAULT)"
 
 re: ## Restart the Docker containers
-	@cd ./srcs && docker compose down && docker compose up -d
+	@$(MAKE) nuke && $(MAKE) up
 	@echo "$(YELLOW)$(BOLD) ✓ Containers restarted successfully.$(DEFAULT)"
 
 .PHONY: help up bonus down restart

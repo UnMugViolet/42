@@ -1,18 +1,16 @@
 FROM debian:bullseye
 
 RUN apt update && \
-	apt install -y mariadb-server mariadb-client && \
+	apt install -y mariadb-server netcat && \
 	apt upgrade -y && \
 	apt clean && \
-	rm -rf /var/lib/apt/lists/*
+	rm -rf /var/lib/apt/lists/* && \
+	mkdir -p /run/mysqld && \
+	chown mysql:mysql /run/mysqld
 
-# Copy initialization script
-COPY conf/init.sh /usr/local/bin/init.sh
-RUN chmod +x /usr/local/bin/init.sh
-
-# Configure MariaDB
-RUN sed -i 's/bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/' /etc/mysql/mariadb.conf.d/50-server.cnf
+COPY ./init_mariadb.sh /init_mariadb.sh
+RUN chmod +x /init_mariadb.sh
 
 EXPOSE 3306
 
-CMD ["/usr/local/bin/init.sh"]
+ENTRYPOINT ["/init_mariadb.sh"]
