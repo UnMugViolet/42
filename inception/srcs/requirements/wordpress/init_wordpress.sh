@@ -39,5 +39,10 @@ if [ ! -f /var/www/html/wp-config.php ]; then
                         --skip-email --allow-root
 fi
 
+# Configure PHP-FPM to listen on port 9000 instead of socket
+sed -i 's/listen = \/run\/php\/php7.4-fpm.sock/listen = 9000/' /etc/php/7.4/fpm/pool.d/www.conf
+sed -i 's/;listen.owner = www-data/listen.owner = www-data/' /etc/php/7.4/fpm/pool.d/www.conf
+sed -i 's/;listen.group = www-data/listen.group = www-data/' /etc/php/7.4/fpm/pool.d/www.conf
+
 # Start PHP-FPM in the foreground
 exec php-fpm7.4 -F
