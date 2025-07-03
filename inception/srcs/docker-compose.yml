@@ -1,7 +1,6 @@
+
 services:
-  mariadb:/data/pjaguin/
-/data/pjaguin/
-/data/pjaguin/
+  mariadb:
     build: ${BUILD_PATH}/mariadb
     container_name: mariadb
     env_file:
