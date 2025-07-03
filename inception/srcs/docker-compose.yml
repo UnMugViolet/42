@@ -10,6 +10,8 @@ services:
       - docker-network
     volumes:
       - mariadb_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
   wordpress:
     build: ${BUILD_PATH}/wordpress
     container_name: wordpress

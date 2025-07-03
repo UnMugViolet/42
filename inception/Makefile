@@ -19,23 +19,19 @@ up: ## Start the Docker containers
 	@mkdir -p /home/pjaguin/data/mariadb
 	@mkdir -p /home/pjaguin/data/portainer
 	@cd ./srcs && docker compose up -d
-	@echo "$(GREEN)Containers started successfully.$(DEFAULT)"
+	@echo "$(YELLOW)$(BOLD) ✓ Containers started successfully.$(DEFAULT)"
 
 ## —— Cleaning —————————————————————————————————————————————————————————————————
 
 down: ## Stop the Docker containers
-	@cd srcs &&
-	@docker-compose down
+	@cd ./srcs && docker compose down
 
 nuke: ## Stop and remove all Docker containers, networks, and volumes
-	@cd srcs && \
-	@docker compose down --volumes --remove-orphans
-	echo $(GREEN)"All containers, networks, and volumes removed successfully.$(DEFAULT)"
+	@cd ./srcs && docker compose down --volumes --remove-orphans
+	@echo "$(YELLOW)$(BOLD) ✓ All containers, networks, and volumes removed successfully.$(DEFAULT)"
 
-restart: ## Restart the Docker containers
-	@cd srcs && \
-	@docker compose down && \
-	@docker compose up -d
-	echo $(GREEN)"Containers restarted successfully.$(DEFAULT)"
+re: ## Restart the Docker containers
+	@cd ./srcs && docker compose down && docker compose up -d
+	@echo "$(YELLOW)$(BOLD) ✓ Containers restarted successfully.$(DEFAULT)"
 
 .PHONY: help up bonus down restart
