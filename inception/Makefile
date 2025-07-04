@@ -33,6 +33,13 @@ nuke: ## Stop and remove all Docker containers, networks, and volumes
 	@docker rmi $(shell docker images -q) --force || true
 	@echo "$(YELLOW)$(BOLD) ✓ All containers, networks, and volumes removed successfully.$(DEFAULT)"
 
+delete: ## Delete the directories
+	@rm -rf /home/pjaguin/data/nginx
+	@rm -rf /home/pjaguin/data/wordpress
+	@rm -rf /home/pjaguin/data/mariadb
+	@rm -rf /home/pjaguin/data/portainer
+	@echo "$(YELLOW)$(BOLD) ✓ Data directories deleted successfully.$(DEFAULT)"
+
 re: ## Restart the Docker containers
 	@$(MAKE) nuke && $(MAKE) up
 	@echo "$(YELLOW)$(BOLD) ✓ Containers restarted successfully.$(DEFAULT)"

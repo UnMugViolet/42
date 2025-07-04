@@ -1,3 +1,4 @@
+# NGINX
 FROM debian:bullseye
 
 RUN apt update && \
@@ -21,4 +22,4 @@ RUN mkdir -p /var/run/nginx
 
 EXPOSE 443
 
-CMD ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["nginx", "-g", "daemon off;"]

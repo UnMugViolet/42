@@ -1,6 +1,6 @@
+# PORTAINER
 FROM debian:bullseye
 
-# Portainer Dockerfile
 RUN apt-get update && apt-get install -y \
 	curl \
 	&& rm -rf /var/lib/apt/lists/* \
@@ -11,4 +11,4 @@ RUN apt-get update && apt-get install -y \
 	
 EXPOSE 1312
 
-CMD ["/opt/portainer/portainer"]
+ENTRYPOINT ["/opt/portainer/portainer"]
