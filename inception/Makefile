@@ -20,6 +20,7 @@ up: ## Start the Docker containers
 	@mkdir -p /home/pjaguin/data/wordpress
 	@mkdir -p /home/pjaguin/data/mariadb
 	@mkdir -p /home/pjaguin/data/portainer
+	@mkdir -p /home/pjaguin/data/ftp
 	@cd ./srcs && docker compose up -d
 	@echo "$(YELLOW)$(BOLD) ✓ Containers started successfully.$(DEFAULT)"
 
@@ -39,6 +40,7 @@ delete: ## Delete the directories
 	@sudo rm -rf /home/pjaguin/data/wordpress
 	@sudo rm -rf /home/pjaguin/data/mariadb
 	@sudo rm -rf /home/pjaguin/data/portainer
+	@sudo rm -rf /home/pjaguin/data/ftp
 	@echo "$(YELLOW)$(BOLD) ✓ Data directories deleted successfully.$(DEFAULT)"
 
 re: ## Restart the Docker containers

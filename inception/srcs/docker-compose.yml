@@ -5,13 +5,13 @@ services:
     container_name: mariadb
     env_file:
       - .env
-    restart: always
     networks:
       - docker-network
     volumes:
       - mariadb_data:/var/lib/mysql
     ports:
       - "3306:3306"
+    restart: always
 
   wordpress:
     depends_on:
@@ -20,13 +20,15 @@ services:
     container_name: wordpress
     env_file:
       - .env
-    restart: always
     ports:
       - "9000:9000"
+    expose:
+      - "9000"
     networks:
       - docker-network
     volumes:
       - wordpress_data:/var/www/html
+    restart: always
 
   nginx:
     depends_on:
@@ -35,20 +37,19 @@ services:
     container_name: nginx
     env_file:
       - .env
-    restart: always
     networks:
       - docker-network
     volumes:
       - wordpress_data:/var/www/html
     ports:
       - "443:443"
+    restart: always
 
   portainer:
     build: ${BUILD_PATH_BONUS}/portainer
     container_name: portainer
     env_file:
       - .env
-    restart: always
     networks:
       - docker-network
     volumes:
@@ -56,6 +57,22 @@ services:
       - portainer_data:/data
     ports:
       - "1312:9000"
+    restart: always
+
+  ftp:
+    build: ${BUILD_PATH_BONUS}/ftp
+    container_name: ftp
+    env_file:
+      - .env
+    networks:
+      - docker-network
+    volumes:
+      - wordpress_data:/var/www/html
+    ports:
+      - "21:21"
+      - "20:20"
+      - 40000-40010:40000-40010
+    restart: always
 
 networks:
   docker-network:
