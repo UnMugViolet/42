@@ -1,4 +1,3 @@
-
 MAKE = make
 
 DEFAULT = \033[0m
@@ -16,13 +15,18 @@ help: ## Outputs this help screen
 ## —— Deployement ——————————————————————————————————————————————————————————————
 
 up: ## Start the Docker containers
-	@mkdir -p /home/pjaguin/data/nginx
 	@mkdir -p /home/pjaguin/data/wordpress
 	@mkdir -p /home/pjaguin/data/mariadb
 	@mkdir -p /home/pjaguin/data/portainer
-	@mkdir -p /home/pjaguin/data/ftp
+	@mkdir -p /home/pjaguin/data/hannah_montana
 	@cd ./srcs && docker compose up -d
 	@echo "$(YELLOW)$(BOLD) ✓ Containers started successfully.$(DEFAULT)"
+
+hannah: ## Rebuild and restart the Hannah Montana container
+	@cd ./srcs && docker compose down hannah_montana
+	@cd ./srcs && docker compose build --no-cache hannah_montana
+	@cd ./srcs && docker compose up -d hannah_montana
+	@echo "$(YELLOW)$(BOLD) ✓ Hannah Montana container rebuilt and started successfully.$(DEFAULT)"
 
 ## —— Cleaning —————————————————————————————————————————————————————————————————
 
@@ -39,6 +43,7 @@ delete: ## Delete the directories
 	@sudo rm -rf /home/pjaguin/data/wordpress
 	@sudo rm -rf /home/pjaguin/data/mariadb
 	@sudo rm -rf /home/pjaguin/data/portainer
+	@sudo rm -rf /home/pjaguin/data/hannah_montana
 	@echo "$(YELLOW)$(BOLD) ✓ Data directories deleted successfully.$(DEFAULT)"
 
 re: ## Restart the Docker containers

@@ -76,6 +76,19 @@ services:
       - 40000-40010:40000-40010
     restart: always
 
+  hannah_montana:
+    build: ${BUILD_PATH_BONUS}/hannah_montana
+    container_name: hannah_montana
+    env_file:
+      - .env
+    networks:
+      - docker-network 
+    ports:
+      - "8080:8080"
+    volumes:
+      - hannah_montana_data:/var/www/html
+    restart: always
+
 networks:
   docker-network:
     driver: bridge
@@ -98,4 +111,10 @@ volumes:
     driver_opts:
       type: none
       device: /home/pjaguin/data/portainer
+      o: bind
+  hannah_montana_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/pjaguin/data/hannah_montana
       o: bind
