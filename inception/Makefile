@@ -36,11 +36,9 @@ nuke: ## Stop and remove all Docker containers, networks, and volumes
 
 delete: ## Delete the directories
 	@sudo -v
-	@sudo rm -rf /home/pjaguin/data/nginx
 	@sudo rm -rf /home/pjaguin/data/wordpress
 	@sudo rm -rf /home/pjaguin/data/mariadb
 	@sudo rm -rf /home/pjaguin/data/portainer
-	@sudo rm -rf /home/pjaguin/data/ftp
 	@echo "$(YELLOW)$(BOLD) ✓ Data directories deleted successfully.$(DEFAULT)"
 
 re: ## Restart the Docker containers

@@ -66,8 +66,10 @@ services:
       - .env
     networks:
       - docker-network
+    depends_on:
+      - wordpress
     volumes:
-      - wordpress_data:/var/www/html
+      - wordpress_data:/home/$FTP_USER/ftp/wordpress
     ports:
       - "21:21"
       - "20:20"
