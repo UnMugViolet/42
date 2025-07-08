@@ -41,11 +41,31 @@ p {
 	margin: 0 20px;
 }
 
-.dual-image-container-left p {
+.dual-image-container-left :hover {
+	transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+	transform: scale(1.5) rotate(920deg);
+	height: auto;
+	margin: 0 20px;
+}
+
+.dual-image-container-left div {
 	width: 45%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: auto;
 	margin: 0 20px;
+	flex-direction: column;
+}
+
+button.play-button {
+	background-color: #EBDC7D;
+	color: #7807ff;
+	font-family: "Damion", cursive;
+	font-size: 1.2em;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-top: 20px;
 }

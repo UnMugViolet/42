@@ -73,7 +73,7 @@ services:
     ports:
       - "21:21"
       - "20:20"
-      - 40000-40010:40000-40010
+      - 40000-40001:40000-40001
     restart: always
 
   hannah_montana:
