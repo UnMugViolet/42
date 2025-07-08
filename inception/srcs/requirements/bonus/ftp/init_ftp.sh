@@ -29,8 +29,8 @@ local_enable=YES
 allow_writeable_chroot=YES
 pasv_enable=YES
 local_root=/home/$FTP_USER/ftp
-pasv_min_port=40000
-pasv_max_port=40001
+pasv_min_port=$FTP_PORT_MIN
+pasv_max_port=$FTP_PORT_MAX
 userlist_file=/etc/vsftpd.userlist
 " >> /etc/vsftpd.conf
 

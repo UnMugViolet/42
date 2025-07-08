@@ -44,12 +44,26 @@ if [ ! -f /var/www/html/wp-config.php ]; then
                         --admin_email="$WP_ADMIN_EMAIL" \
                         --allow-root
 
+    wp plugin install --path=/var/www/html \
+                redis-cache \
+                --activate \
+                --allow-root
+
+    # Configure Redis settings in wp-config.php
+    wp config set --path=/var/www/html WP_REDIS_HOST redis --allow-root
+    wp config set --path=/var/www/html WP_REDIS_PORT 6379 --allow-root
+    wp config set --path=/var/www/html WP_REDIS_TIMEOUT 1 --allow-root
+    wp config set --path=/var/www/html WP_REDIS_READ_TIMEOUT 1 --allow-root
+    wp config set --path=/var/www/html WP_REDIS_DATABASE 0 --allow-root
+
     wp user create      --path=/var/www/html \
                         "$WP_USER_NAME" \
                         "$WP_USER_EMAIL" \
                         --role=editor \
                         --user_pass="$WP_USER_PASSWORD" \
                         --allow-root
+
+    wp redis enable --path=/var/www/html --allow-root
     
     echo "WordPress setup completed!"
 else

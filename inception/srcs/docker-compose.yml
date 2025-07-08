@@ -89,6 +89,19 @@ services:
       - hannah_montana_data:/var/www/html
     restart: always
 
+  redis:
+    build: ${BUILD_PATH_BONUS}/redis
+    container_name: redis
+    depends_on:
+      - wordpress
+    networks:
+      - docker-network
+    volumes:
+      - wordpress_data:/var/www/html/
+    ports:
+      - "6379:6379"
+    restart: always
+
 networks:
   docker-network:
     driver: bridge
