@@ -9,12 +9,12 @@ COPY ./srcs/ /tmp/web-files/
 
 RUN chmod +x /init_hannah.sh
 
-RUN echo "Listen 8080" >> /etc/apache2/ports.conf
-RUN sed -i 's/<VirtualHost \*:80>/<VirtualHost *:8080>/' /etc/apache2/sites-available/000-default.conf
+RUN echo "Listen 1311" >> /etc/apache2/ports.conf
+RUN sed -i 's/<VirtualHost \*:80>/<VirtualHost *:1311>/' /etc/apache2/sites-available/000-default.conf
 
 # Warning occurs if the ServerName directive is not set
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
-EXPOSE 8080
+EXPOSE 1311
 
 ENTRYPOINT ["/init_hannah.sh"]

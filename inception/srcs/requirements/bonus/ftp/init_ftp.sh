@@ -39,6 +39,7 @@ pasv_max_port=$FTP_PORT_MAX
 userlist_file=/etc/vsftpd.userlist
 userlist_enable=YES
 userlist_deny=NO
+local_umask=022
 " >> /etc/vsftpd.conf
 
 # Restart vsftpd to apply configuration changes

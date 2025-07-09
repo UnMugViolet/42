@@ -82,7 +82,7 @@ services:
     networks:
       - docker-network 
     ports:
-      - "8080:8080"
+      - "1311:1311"
     volumes:
       - hannah_montana_data:/var/www/html
     restart: always
@@ -98,6 +98,19 @@ services:
       - wordpress_data:/var/www/html/
     ports:
       - "6379:6379"
+    restart: always
+
+  adminer:
+    build: ${BUILD_PATH_BONUS}/adminer
+    container_name: adminer
+    depends_on:
+      - mariadb
+    env_file:
+      - .env
+    networks:
+      - docker-network
+    ports:
+      - "1313:1313"
     restart: always
 
 networks:
