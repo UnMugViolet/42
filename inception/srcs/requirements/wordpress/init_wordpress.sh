@@ -11,9 +11,6 @@ fi
 mkdir -p /run/php
 chown www-data:www-data /run/php
 
-# Additional wait to ensure MariaDB is fully ready to accept connections
-sleep 5
-
 # Test database connection
 echo "Testing database connection..."
 while ! mysqladmin ping -h"mariadb" -u"$WP_DATABASE_USER" -p"$WP_DATABASE_PASSWORD" --silent; do
@@ -71,6 +68,10 @@ else
 fi
 
 sed -i 's/listen = \/run\/php\/php7.4-fpm.sock/listen = 0.0.0.0:9000/' /etc/php/7.4/fpm/pool.d/www.conf
+
+# Set permissions Redis friendly
+chown -R 1000:1000 /var/www/html
+chmod -R 775 /var/www/html
 
 # Start PHP-FPM in the foreground
 exec php-fpm7.4 -F

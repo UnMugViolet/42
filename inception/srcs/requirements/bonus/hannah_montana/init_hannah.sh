@@ -9,5 +9,4 @@ chmod -R 755 /var/www/html
 
 rm -rf /tmp/web-files
 
-# Start Apache2 in foreground to keep container running
 exec apache2ctl -D FOREGROUND

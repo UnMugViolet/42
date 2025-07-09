@@ -44,6 +44,7 @@ delete: ## Delete the directories
 	@sudo rm -rf /home/pjaguin/data/mariadb
 	@sudo rm -rf /home/pjaguin/data/portainer
 	@sudo rm -rf /home/pjaguin/data/hannah_montana
+	@$(MAKE) nuke
 	@echo "$(YELLOW)$(BOLD) ✓ Data directories deleted successfully.$(DEFAULT)"
 
 re: ## Restart the Docker containers

@@ -22,8 +22,6 @@ services:
       - .env
     ports:
       - "9000:9000"
-    expose:
-      - "9000"
     networks:
       - docker-network
     volumes:
@@ -73,7 +71,7 @@ services:
     ports:
       - "21:21"
       - "20:20"
-      - 40000-40001:40000-40001
+      - "40000-40001:40000-40001"
     restart: always
 
   hannah_montana:

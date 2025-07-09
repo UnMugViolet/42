@@ -27,11 +27,18 @@ sed -i "s/#chroot_local_user=YES/chroot_local_user=YES/" /etc/vsftpd.conf
 echo "
 local_enable=YES
 allow_writeable_chroot=YES
+anonymous_enable=YES
+anon_upload_enable=YES
+anon_mkdir_write_enable=YES
+anon_world_readable_only=NO
+anon_other_write_enable=YES
 pasv_enable=YES
 local_root=/home/$FTP_USER/ftp
 pasv_min_port=$FTP_PORT_MIN
 pasv_max_port=$FTP_PORT_MAX
 userlist_file=/etc/vsftpd.userlist
+userlist_enable=YES
+userlist_deny=NO
 " >> /etc/vsftpd.conf
 
 # Restart vsftpd to apply configuration changes

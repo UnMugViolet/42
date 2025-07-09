@@ -3,10 +3,9 @@ FROM debian:bullseye
 
 RUN apt-get update && apt-get install -y \
 	redis-server \
-	redis-tools \
 	&& rm -rf /var/lib/apt/lists/*
 
-# Create config file with proper settings
+# Create redis.conf file with custom configuration
 RUN mkdir -p /etc/redis \
     && echo "maxmemory 256mb" >> /etc/redis/redis.conf \
     && echo "protected-mode no" >> /etc/redis/redis.conf \
