@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 14:51:29 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/07/15 17:17:14 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/07/15 17:36:30 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ Form::Form(): _name("Default name"), _is_signed(false), _grade_to_sign(150), _gr
 
 Form::Form(std::string const name, int const grade_to_sign, int const grade_to_exec): _name(name), _grade_to_sign(grade_to_sign), _grade_to_exec(grade_to_exec)
 {
+	if (grade_to_sign < 1 || grade_to_exec < 1)
+		throw GradeTooHighException();
+	else if (grade_to_sign > 150 || grade_to_exec > 150)
+		throw GradeTooLowException();
 }
 
 Form::Form(Form const &other): _name(other._name), _is_signed(other._is_signed), _grade_to_sign(other._grade_to_sign), _grade_to_exec(other._grade_to_exec)
@@ -61,17 +65,24 @@ int	Form::getGradeToExec() const
 	return this->_grade_to_exec;
 }
 
+bool Form::isSigned() const
+{
+	return this->_is_signed;
+}
+
 const char *Form::GradeTooHighException::what() const throw()
 {
-	return "Grade is too high!";
+	return "Grade is too high, form cannot be created";
 }
+
 const char *Form::GradeTooLowException::what() const throw()
 {
-	return "Grade is too low!";
+	return "Grade is too low, form cannot be created";
 }
 
 std::ostream &operator<<(std::ostream &os, Form const &form)
 {
-	os << "Name: " << form.getName() << " isSigned: " << form.getGradeToSign() << " ExecuteGrade: " << form.getGradeToExec() << std::endl;
+	os << "Name: " << form.getName() << " is_signed : " << form.isSigned() << " grade_to_sign: " << form.getGradeToSign() << " grade_to_exec: " << form.getGradeToExec() << std::endl;
 	return os;
 }
+

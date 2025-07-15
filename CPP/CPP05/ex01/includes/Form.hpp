@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 14:02:25 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/07/15 17:16:02 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/07/15 17:35:40 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ class Form
 		std::string getName() const;
 		int 		getGradeToSign() const;
 		int 		getGradeToExec() const;
+		bool		isSigned() const;
 		
 		void		beSigned(const Bureaucrat &bureaucrat);
 
