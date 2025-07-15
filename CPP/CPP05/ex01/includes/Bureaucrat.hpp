@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 12:29:33 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/07/15 14:20:37 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/07/15 17:16:55 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,12 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
+# include "Form.hpp"
 # include <iostream>
 # include <string>
 # include "dict.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -35,6 +38,7 @@ class Bureaucrat
 		int			getGrade() const;
 		void		incrementGrade();
 		void		decrementGrade();
+		void		signForm(Form &form);
 
 		class	GradeTooHighException : public std::exception
 		{

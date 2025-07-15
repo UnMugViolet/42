@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 12:29:35 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/07/15 17:18:18 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/07/15 17:18:31 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,20 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat const &other)
 	}
 	std::cout << YELLOW << "Bureaucrat assignement operator called" << NEUTRAL << std::endl;
 	return *this;
+}
+
+void Bureaucrat::signForm(Form &form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << GREEN << this->_name << " signs " << form.getName() << NEUTRAL << std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << RED << this->_name << " cannot sign " << form.getName() 
+				  << " because: " << e.what() << NEUTRAL << std::endl;
+	}
 }
 
 Bureaucrat::~Bureaucrat()
@@ -85,6 +99,6 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
 
 std::ostream &operator<<(std::ostream &os, Bureaucrat const &bureaucrat)
 {
-	os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << ".";
+	os << "Bureaucrat Name: " << bureaucrat.getName() << ", Grade: " << bureaucrat.getGrade();
 	return os;
 }
