@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 12:29:38 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/07/16 13:17:34 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/07/16 13:26:46 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int main(void)
 	AForm *form3 = intern.makeForm("PresidentialPardonForm", "STEEEEEEEEEEEEEEEVEN");
 	intern.makeForm("UnknownForm", "Target");
 
-
 	try 
 	{
 		bur2.signForm(*form1);
@@ -44,5 +43,7 @@ int main(void)
 	{
 		std::cerr << RED  << "Exception: " << e.what() << NEUTRAL << std::endl;
 	}
-	
+	delete form1;
+	delete form2;
+	delete form3;
 }
