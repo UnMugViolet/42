@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 12:29:38 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/07/16 12:08:20 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/07/16 12:11:49 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main(void)
 
 	ShrubberyCreationForm form1("Yvelon");
 	RobotomyRequestForm form2("Robotomy");
-	PresidentialPardonForm form3("STEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEVEN");
+	PresidentialPardonForm form3("STEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEVEN");
 	std::cout << YELLOW << "-----------------------------CREATION NORMAL-----------------------------" << NEUTRAL << std::endl;
 	try
 	{
