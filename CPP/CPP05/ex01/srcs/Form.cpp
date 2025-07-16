@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 14:51:29 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/07/15 17:36:30 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/07/16 11:10:11 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ const char *Form::GradeTooLowException::what() const throw()
 
 std::ostream &operator<<(std::ostream &os, Form const &form)
 {
-	os << "Name: " << form.getName() << " is_signed : " << form.isSigned() << " grade_to_sign: " << form.getGradeToSign() << " grade_to_exec: " << form.getGradeToExec() << std::endl;
+	os << form.getName() << " is_signed : " << form.isSigned() << " grade_to_sign: " << form.getGradeToSign() << " grade_to_exec: " << form.getGradeToExec() << std::endl;
 	return os;
 }
 
