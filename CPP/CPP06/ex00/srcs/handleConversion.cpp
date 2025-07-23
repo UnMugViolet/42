@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 12:27:07 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/07/23 14:43:18 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/07/23 16:31:07 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,16 @@ void	printIntConversion(const std::string &input)
 		std::cout << "'" << static_cast<char>(l) << "'" << std::endl;
 	else
 		std::cout << "Non displayable" << std::endl;
-	std::cout << "int: " << l << std::endl;
+	std::cout << "int: ";
+	if (l < MIN_INT || l > MAX_INT)
+		std::cout << "impossible" << std::endl;
+	else
+		std::cout << static_cast<int>(l) << std::endl;
+	std::cout << "float: ";
 	if (l < MIN_FLOAT || l > MAX_FLOAT)
 		std::cout << "impossible" << std::endl;
 	else
-		std::cout <<  static_cast<float>(l) << ".0f" << std::endl;
-	std::cout << "float: " << static_cast<float>(l) << ".0f" << std::endl;
+		std::cout << static_cast<float>(l) << ".0f" << std::endl;
 	std::cout << "double: " << static_cast<double>(l) << ".0" << std::endl;
 }
 
