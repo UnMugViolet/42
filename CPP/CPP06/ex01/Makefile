@@ -6,15 +6,13 @@
 #    By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 11:06:17 by unmugviolet       #+#    #+#              #
-#    Updated: 2025/07/23 16:08:15 by unmugviolet      ###   ########.fr        #
+#    Updated: 2025/07/23 16:43:32 by unmugviolet      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = 			convert
+NAME = 			a.out
 
-ARGS = 			42
-
-SRC_FILES = 	main.cpp
+SRC_FILES = 	main.cpp Serializer.cpp
 
 SRC_DIR =		./srcs/
 OBJ_DIR =		./objects/
@@ -55,11 +53,11 @@ fclean: clean
 	@echo "$(CYAN)$(NAME) executables and objects removed succesfully!$(DEFAULT)"
 
 go: all
-	@./$(NAME) $(ARGS)
+	@./$(NAME)
 	@rm -rf $(NAME)
 
 gov: all
-	@ valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) $(ARGS)
+	@ valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
 	@rm -rf $(NAME)
 	
 re: fclean all
