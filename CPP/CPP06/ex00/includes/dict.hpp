@@ -16,6 +16,9 @@
 #ifndef DICT_HPP
 # define DICT_HPP
 
+#include <iostream>
+#include <limits>
+
 #define GREEN "\033[0;92m"
 #define YELLOW "\033[0;33m"
 #define RED "\033[0;31m"
@@ -24,5 +27,23 @@
 #define BOLD "\033[1m"
 #define UNDERLINE "\033[4m"
 #define ITALIC "\033[3m"
+
+enum e_type 
+{
+    SPECIAL = 0,
+    CHAR = 1,
+    INT = 2,
+    FLOAT = 3,
+    DOUBLE = 4,
+    INVALID = -1
+};
+
+
+#define MAX_INT std::numeric_limits<int>::max()
+#define MIN_INT std::numeric_limits<int>::min()
+#define MAX_FLOAT std::numeric_limits<float>::max()
+#define MIN_FLOAT std::numeric_limits<float>::min()
+#define MAX_DOUBLE std::numeric_limits<double>::max()
+#define MIN_DOUBLE std::numeric_limits<double>::min()
 
 #endif

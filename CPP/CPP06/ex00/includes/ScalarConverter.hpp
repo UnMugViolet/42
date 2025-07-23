@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 13:51:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/07/16 16:47:51 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/07/23 16:01:45 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,11 @@
 #define SCALARCONVERTER_HPP
 
 #include "dict.hpp"
-#include <iostream>
+# include <iostream>
+# include <iomanip>
+# include <cstdlib>
+# include <limits>
+# include <cmath>
 
 class ScalarConverter
 {
@@ -27,9 +31,13 @@ class ScalarConverter
 		~ScalarConverter();
 	public:
 		static void convert(const std::string &input);
-		static void handleConversion(std::string const &input);
-		static void displayConversion(const std::string &input, char c, int i, float f, double d);
 };
 
+e_type	getType(std::string const &input, size_t len);
+void 	printSpecial(const std::string &input); 
+void 	printCharConversion(const std::string &input, size_t len);
+void 	printIntConversion(const std::string &input);
+void 	printFloatConversion(const std::string &input);
+void 	printDoubleConversion(const std::string &input);
 
 #endif

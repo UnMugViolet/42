@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 15:05:36 by yguinio           #+#    #+#             */
-/*   Updated: 2025/07/01 13:42:01 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/07/07 10:57:53 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,9 @@ bool	get_textures(t_engine *engine, char *file_path)
 		if (!path || access(path, O_RDONLY) < 0)
 			return (ft_free(path), ft_free_array_str(temp),
 				print_err_exit(ERR_FILE, NULL, NULL), false);
-		get_new_image(engine, path, &engine->data.map.textures[i]);
+		if (!get_new_image(engine, path, &engine->data.map.textures[i]))
+			return (ft_free(path), ft_free_array_str(temp),
+				clean_all(engine), exit(EXIT_FAILURE), false);
 		ft_free(path);
 		i++;
 	}

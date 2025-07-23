@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
+#    By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 11:06:17 by unmugviolet       #+#    #+#              #
-#    Updated: 2025/07/16 15:38:52 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/07/23 14:44:11 by unmugviolet      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = 			convert
 
 ARGS = 			42
 
-SRC_FILES = 	main.cpp ScalarConverter.cpp
+SRC_FILES = 	main.cpp ScalarConverter.cpp getType.cpp handleConversion.cpp
 
 SRC_DIR =		./srcs/
 OBJ_DIR =		./objects/
