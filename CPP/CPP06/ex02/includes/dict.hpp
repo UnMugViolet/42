@@ -28,17 +28,6 @@
 #define UNDERLINE "\033[4m"
 #define ITALIC "\033[3m"
 
-enum e_type 
-{
-    SPECIAL = 0,
-    CHAR = 1,
-    INT = 2,
-    FLOAT = 3,
-    DOUBLE = 4,
-    INVALID = -1
-};
-
-
 #define MAX_INT std::numeric_limits<int>::max()
 #define MIN_INT std::numeric_limits<int>::min()
 #define MAX_FLOAT std::numeric_limits<float>::max()
