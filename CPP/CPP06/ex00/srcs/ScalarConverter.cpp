@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 13:51:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/07/23 16:01:59 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/07/25 17:08:11 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ void ScalarConverter::convert(std::string const &input)
 {
 	size_t len = input.length();
 	e_type type = getType(input, len);
-
+	std::cout << std::fixed << std::setprecision(1);
+	
 	switch (type)
 	{
         case INVALID:

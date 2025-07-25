@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 13:51:52 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/07/23 16:01:45 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/07/25 15:13:18 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # include <cstdlib>
 # include <limits>
 # include <cmath>
-
 class ScalarConverter
 {
 	private:

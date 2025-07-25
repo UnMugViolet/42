@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 12:03:27 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/07/23 14:49:04 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/07/25 17:04:58 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static bool isSpecial(const std::string &input)
 {
-	return (input == "nan" || input == "nanf" || input == "+inf" || input == "+inff" || input == "-inf" || input == "-inff");
+	return (input == "nan" || input == "nanf" || input == "+inf" || input == "inf" || input == "+inff" || input == "inff" || input == "-inf" || input == "-inff");
 }
 
 static bool isChar(const std::string &input, size_t len)
@@ -36,7 +36,6 @@ static bool isInt(const std::string &input, size_t len)
 	if (len > 1)
 	{
 		size_t start = 0;
-		// Check for optional sign
 		if (input[0] == '-' || input[0] == '+')
 		{
 			if (!std::isdigit(input[1]))
@@ -44,11 +43,7 @@ static bool isInt(const std::string &input, size_t len)
 			start = 1;
 		}
 		else if (!std::isdigit(input[0]))
-		{
 			return false;
-		}
-		
-		// Check all remaining characters are digits
 		for (size_t i = start; i < len; ++i)
 		{
 			if (!std::isdigit(input[i]))
@@ -97,7 +92,8 @@ e_type	getType(std::string const &input, size_t len)
 	{
 		if (isFloat(input, len, dot))
 			return FLOAT;
-	} else if (f == std::string::npos && dot != std::string::npos)
+	} 
+	else if (dot != std::string::npos && f == std::string::npos)
 	{
 		if (isFloat(input, len, dot))
 			return DOUBLE;

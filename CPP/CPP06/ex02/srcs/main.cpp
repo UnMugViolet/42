@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 16:37:12 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/07/25 10:58:30 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/07/25 16:47:25 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ Base	*generate()
 
 void identify(Base *p)
 {
+	if (!p)
+	{
+		std::cerr << RED << BOLD << "Null pointer passed to identify function." << NEUTRAL << std::endl;
+		return;
+	}
 	if (dynamic_cast<A*>(p))
 		std::cout << "A" << std::endl;
 	else if (dynamic_cast<B*>(p))
@@ -61,7 +66,6 @@ void identify(Base &p)
 		std::cout << "C" << std::endl;
 	} catch (std::exception &e) {}
 }
-
 
 int main()
 {

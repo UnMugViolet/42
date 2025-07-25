@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 16:37:50 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/07/23 16:38:44 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/07/25 17:11:36 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 # include <stdint.h>
 # include "Data.hpp"
+# include "dict.hpp"
 # include <iostream>
 
 class Serializer

@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 12:27:07 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/07/23 16:31:07 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/07/25 17:05:27 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ void printSpecial(const std::string &input)
 		std::cout << "float: " << "nan" << "f" << std::endl;
 		std::cout << "double: " << "nan" << std::endl;
 	}
-	else if (input == "+inf" || input == "+inff")
+	else if (input == "+inf" || input == "+inff" || input == "inff" || input == "inf")
 	{
 		std::cout << "char: impossible" << std::endl;
 		std::cout << "int: impossible" << std::endl;
-		std::cout << "float: " << "+inf" << "f" << std::endl;
-		std::cout << "double: " << "+inf" << std::endl;
+		std::cout << "float: " << "inf" << "f" << std::endl;
+		std::cout << "double: " << "inf" << std::endl;
 	}
 	else if (input == "-inf" || input == "-inff")
 	{
@@ -63,31 +63,35 @@ void printCharConversion(const std::string &input, size_t len)
 
 void	printIntConversion(const std::string &input)
 {
-	long l = std::atol(input.c_str());
+	double nbr = std::atof(input.c_str());
+
 	std::cout << "char: ";
-	if (l < 0 || l > 127)
+	if (nbr < 0 || nbr > 127)
 		std::cout << "impossible" << std::endl;
-	else if (isprint(static_cast<int>(l)))
-		std::cout << "'" << static_cast<char>(l) << "'" << std::endl;
+	else if (isprint(static_cast<int>(nbr)))
+		std::cout << "'" << static_cast<char>(nbr) << "'" << std::endl;
 	else
 		std::cout << "Non displayable" << std::endl;
 	std::cout << "int: ";
-	if (l < MIN_INT || l > MAX_INT)
+	if (nbr < MIN_INT || nbr > MAX_INT)
 		std::cout << "impossible" << std::endl;
 	else
-		std::cout << static_cast<int>(l) << std::endl;
+		std::cout << static_cast<int>(nbr) << std::endl;
 	std::cout << "float: ";
-	if (l < MIN_FLOAT || l > MAX_FLOAT)
+	if (nbr < MIN_FLOAT || nbr > MAX_FLOAT)
 		std::cout << "impossible" << std::endl;
 	else
-		std::cout << static_cast<float>(l) << ".0f" << std::endl;
-	std::cout << "double: " << static_cast<double>(l) << ".0" << std::endl;
+		std::cout << static_cast<float>(nbr) << "f" << std::endl;
+	std::cout << "double: ";
+	if (nbr < MIN_DOUBLE || nbr > MAX_DOUBLE)
+		std::cout << "impossible" << std::endl;
+	else
+		std::cout << static_cast<double>(nbr) << std::endl;
 }
 
 void	printFloatConversion(const std::string &input)
 {
 	float f = std::atof(input.c_str());
-	bool tolerance = std::fabs(f) < std::numeric_limits<float>::epsilon();
 
 	std::cout << "char: ";
 	if (f < 0 || f > 127)
@@ -100,14 +104,17 @@ void	printFloatConversion(const std::string &input)
 	if (static_cast<long>(f) < MIN_INT || static_cast<long>(f) > MAX_INT)
 		std::cout << "impossible" << std::endl;
 	else
-		std::cout << f << (tolerance ? ".0f" : "f") << std::endl;
-	std::cout << "double: " << static_cast<double>(f) << (tolerance ? ".0" : "") << std::endl;
+		std::cout << static_cast<int>(f) << std::endl;
+	std::cout << "float: ";
+	if (f < MIN_FLOAT || f > MAX_FLOAT)
+		std::cout << "impossible" << std::endl;
+	else
+		std::cout << "double: " << static_cast<double>(f) << "f" << std::endl;
 }
 
 void	printDoubleConversion(const std::string &input)
 {
-		double		d = std::atof(input.c_str());
-	bool		tolerance = std::fabs(d - static_cast<int>(d)) < 0.0000000000001;
+	double		d = std::atof(input.c_str());
 
 	std::cout << "char: ";
 	if (d < 0 || d > 127)
@@ -128,7 +135,7 @@ void	printDoubleConversion(const std::string &input)
 	if (d < MIN_FLOAT || d > MAX_FLOAT)
 		std::cout << "impossible" << std::endl;
 	else
-		std::cout << static_cast<float>(d) << (tolerance ? ".0f" : "f") << std::endl;
+		std::cout << static_cast<float>(d) << "f" << std::endl;
 	std::cout << "double: ";
 	if (d < MIN_DOUBLE || d > MAX_DOUBLE)
 		std::cout << "impossible" << std::endl;

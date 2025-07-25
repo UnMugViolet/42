@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 16:41:20 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/07/23 16:42:09 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/07/25 11:06:47 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ Serializer &Serializer::operator=(Serializer const &other)
 Serializer::~Serializer()
 {
 }
-
 
 uintptr_t Serializer::serialize(Data* ptr)
 {
