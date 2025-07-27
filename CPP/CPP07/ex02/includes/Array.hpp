@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.tpp                                     :+:      :+:    :+:   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/25 17:36:39 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/07/27 09:15:51 by unmugviolet      ###   ########.fr       */
+/*   Created: 2025/07/27 08:59:45 by unmugviolet       #+#    #+#             */
+/*   Updated: 2025/07/27 09:55:43 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-template <typename T>
-void	swap(T &a, T &b)
-{
-	T	tmp;
+#ifndef ARRAY_HPP
+#define ARRAY_HPP
 
-	tmp = a;
-	a = b;
-	b = tmp;
-};
+#include <iostream>
+#include <stdexcept>
 
 template <typename T>
-T	min(const T &a, const T &b)
+class Array
 {
-	return (a < b ? a : b);
+	private:
+		T*				_elements;
+		unsigned int	_size;
+	public:
+		Array();
+		Array(unsigned int n);
+		Array(Array const &other);
+		Array			&operator=(Array const &other);
+		T				&operator[](unsigned int index);
+		const T			&operator[](unsigned int index) const;
+		unsigned int	size() const;
+		~Array();
 };
 
-template <typename T>
-T	max(const T &a, const T &b)
-{
-	return (a > b ? a : b);
-};
+#include "Array.tpp"
 
 #endif
