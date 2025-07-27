@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 14:16:34 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/07/27 08:55:10 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/07/27 08:56:57 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	print(const T &x, size_t len) {
 	std::cout << std::endl;
 }
 
-int main( void ) 
+int main() 
 {	
 	size_t		arraysSize = 5;
 	int			arrInt[] = {1, 2, 3, MAX_INT, MIN_INT};
