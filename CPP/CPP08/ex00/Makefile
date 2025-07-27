@@ -6,11 +6,13 @@
 #    By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 11:06:17 by unmugviolet       #+#    #+#              #
-#    Updated: 2025/07/27 10:05:48 by unmugviolet      ###   ########.fr        #
+#    Updated: 2025/07/27 08:59:09 by unmugviolet      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 			a.out
+
+ARGS = 			42
 
 SRC_FILES = 	main.cpp
 
@@ -53,11 +55,11 @@ fclean: clean
 	@echo "$(CYAN)$(NAME) executables and objects removed succesfully!$(DEFAULT)"
 
 go: all
-	@./$(NAME)
+	@./$(NAME) $(ARGS)
 	@rm -rf $(NAME)
 
 gov: all
-	@ valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
+	@ valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) $(ARGS)
 	@rm -rf $(NAME)
 	
 re: fclean all
