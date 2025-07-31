@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 14:16:34 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/07/27 10:35:27 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/07/31 11:09:57 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main()
 	try {
 		std::cout << "Found: " << *easyfind(vec, 5) << std::endl;
 		std::cout << "Found: " << *easyfind(vec, 10) << std::endl; // Exception expected
-	} catch (const NotFoundException &e) {
+	} catch (std::exception &e) {
 		std::cerr << RED << e.what() << NEUTRAL << std::endl;
 	}
 
