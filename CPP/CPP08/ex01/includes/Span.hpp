@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 11:12:19 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/07/31 12:17:52 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/07/31 13:04:59 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include "dict.hpp"
 
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <exception>
