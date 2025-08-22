@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 17:36:39 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/07/27 09:15:51 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/08/01 10:39:04 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,3 @@ T	max(const T &a, const T &b)
 {
 	return (a > b ? a : b);
 };
-
-#endif
