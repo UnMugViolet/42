@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 12:27:07 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/07/25 17:05:27 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/08/22 12:12:54 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ void printCharConversion(const std::string &input, size_t len)
 	{
 		std::cout << "char: '" << c << "'" << std::endl;
 		std::cout << "int: " << static_cast<int>(c) << std::endl;
-		std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl;
-		std::cout << "double: " << static_cast<double>(c) << ".0" << std::endl;
+		std::cout << "float: " << static_cast<float>(c) << "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(c) << std::endl;
 	}
 	else
 		std::cout << "char: Non displayable" << std::endl;

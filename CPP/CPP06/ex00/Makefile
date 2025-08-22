@@ -6,13 +6,13 @@
 #    By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 11:06:17 by unmugviolet       #+#    #+#              #
-#    Updated: 2025/07/23 14:44:11 by unmugviolet      ###   ########.fr        #
+#    Updated: 2025/08/22 12:11:44 by unmugviolet      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 			convert
 
-ARGS = 			42
+ARGS = 			a
 
 SRC_FILES = 	main.cpp ScalarConverter.cpp getType.cpp handleConversion.cpp
 
