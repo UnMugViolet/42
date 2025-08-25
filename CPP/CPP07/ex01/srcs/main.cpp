@@ -3,38 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 14:16:34 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/07/27 08:56:57 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/08/25 10:45:47 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
 #include "dict.hpp"
-
-template <typename T>
-void	increment(T &x) {
-	x += 1;
-}
-
-template <typename T>
-void	display(T &x) {
-	std::cout << x << std::endl;
-}
-
-template <typename T>
-void	display(T const &x) {
-	std::cout << x << std::endl;
-}
-
-template <typename T>
-void	print(const T &x, size_t len) {
-	for (size_t i = 0; i < len; ++i) {
-		std::cout << x[i] << " ";
-	}
-	std::cout << std::endl;
-}
 
 int main() 
 {	
