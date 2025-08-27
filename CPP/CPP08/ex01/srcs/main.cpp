@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 14:16:34 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/07/31 13:17:53 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/08/26 08:34:48 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
-#include "dict.hpp"
+
 
 #include <cstdlib>
 
@@ -71,7 +71,7 @@ int main()
 	
 	std::cout << BOLD YELLOW << "---------------3. ALL IS WELL--------------" << NEUTRAL << std::endl;
 
-	int sp3_storage = 10;
+	int sp3_storage = 3;
 	Span sp3 = Span(sp3_storage);
 	std::vector<int> vec;
 	std::srand(time(NULL));

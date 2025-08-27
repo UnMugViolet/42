@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 14:16:34 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/07/31 11:09:57 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/08/25 12:26:52 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int main()
 		
 	try {
 		std::cout  << "Found: " << *easyfind(lst, 0) << std::endl;
-		std::cout  << "Found: " << *easyfind(lst, 10) << std::endl; // Expect error
+		std::cout  << "Found: " << *easyfind(lst, 10) << std::endl; // Exception expected
 	} catch (std::exception &e) {
 		std::cerr << RED << e.what() << NEUTRAL << std::endl;
 	}
@@ -53,7 +53,7 @@ int main()
 
 	try {
 		std::cout << "Found: " << *easyfind(deq, 3) << std::endl;
-		std::cout << "Found: " << *easyfind(deq, 1500) << std::endl; // Expect error
+		std::cout << "Found: " << *easyfind(deq, 1500) << std::endl; // Exception expected
 	} catch (std::exception &e) {
 		std::cerr << RED << e.what() << NEUTRAL << std::endl;
 	}
