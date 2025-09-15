@@ -6,15 +6,13 @@
 #    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 11:06:17 by unmugviolet       #+#    #+#              #
-#    Updated: 2025/08/27 09:38:30 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/08/28 12:07:57 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 			btc
 
-ARGS =			input.txt
-
-SRC_FILES = 	main.cpp
+SRC_FILES = 	main.cpp BitcoinExchange.cpp
 
 INPUT_FILE =	input.txt
 
@@ -59,11 +57,11 @@ fclean: clean
 	@echo "$(CYAN)$(NAME) executables and objects removed succesfully!$(DEFAULT)"
 
 go: all
-	@./$(NAME) $(ARGS)
+	@./$(NAME) $(DATA_DIR)$(INPUT_FILE)
 	@rm -rf $(NAME)
 
 gov: all
-	@ valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) $(ARGS)
+	@ valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) $(DATA_DIR)$(INPUT_FILE)
 	@rm -rf $(NAME)
 
 setup:
