@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 12:35:29 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/08/28 12:06:26 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/09/15 10:40:51 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(int ac, char **av)
 			std::cerr << RED BOLD << "Error: too many arguments." << NEUTRAL << std::endl;
 		else if (ac < 2)
 			std::cerr << RED BOLD << "Error: too few arguments." << NEUTRAL << std::endl;
-		else if (isInputFileWellFormatted(av[1]))
+		else if (isInputFileAccessible(av[1]))
 			std::cerr << RED BOLD << "Error: file not well formatted." << NEUTRAL << std::endl;
 		return 1;
 	}

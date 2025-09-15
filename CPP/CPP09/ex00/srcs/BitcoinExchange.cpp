@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 12:38:46 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/08/28 12:04:45 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/09/15 11:44:18 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,16 +76,17 @@ std::string	BitcoinExchange::getCSVPath() const
 
 float	BitcoinExchange::getRate(std::string date)
 {
-	if (this->_rateByDate.empty())
-		return 0;
-	std::map<std::string, float>::const_iterator it = this->_rateByDate.lower_bound(date);
-	if (it != this->_rateByDate.end() || it->first != date)
-	{
-		if (it == this->_rateByDate.begin())
-			return 0;
-		--it;
-	}
-	return it->second;
+    if (this->_rateByDate.empty())
+        return 0;
+    std::map<std::string, float>::const_iterator it = this->_rateByDate.lower_bound(date);
+	// Exact match found
+    if (it != this->_rateByDate.end() && it->first == date)
+        return it->second;
+    // No exact match, find the closest earlier date
+    if (it == this->_rateByDate.begin())
+        return 0;
+    --it;
+    return it->second;
 }
 
 
@@ -118,7 +119,7 @@ bool	isValidDate(const std::string& date)
 	return true;
 }
 
-bool	isInputFileWellFormatted(char *file)
+bool	isInputFileAccessible(char *file)
 {
 	std::string file_content;
 	std::ifstream file_stream(file);
@@ -140,7 +141,7 @@ bool	isValidValue(std::string const &value)
 	std::stringstream ss(value);
 	float val;
 
-	if (!(ss >> val) || !ss.eof())
+	if (!(ss >> val) || !ss.eof() || val < 0)
 		return false;
 	return true;
 }

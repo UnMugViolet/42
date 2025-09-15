@@ -6,7 +6,7 @@
 /*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 12:38:49 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/08/28 11:56:38 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/09/15 10:45:39 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ class BitcoinExchange
 
 bool	isValidDate(const std::string& date);
 bool	isValidValue(const std::string& value);
-bool	isInputFileWellFormatted(char *file);
+bool	isInputFileAccessible(char *file);
 void	processInputFile(std::string const &file, BitcoinExchange &btc_data);
 float	strToFloat(const std::string& str);
 
