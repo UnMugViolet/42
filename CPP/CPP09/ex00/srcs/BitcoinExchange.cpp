@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 12:38:46 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/09/15 11:44:18 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/09/16 10:18:51 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,17 @@ void	BitcoinExchange::loadingDatabase()
 
 		if (!std::getline(lineStream, date, ',') || !std::getline(lineStream, value))
 		{
-			std::cerr << RED BOLD << "Error: Line not well formatted => " << NEUTRAL << line << std::endl;
+			std::cout << RED BOLD << "Error: Line not well formatted => " << NEUTRAL << line << std::endl;
 			continue ;
 		}
 		if (!isValidDate(date))
 		{
-			std::cerr << RED BOLD << "Error: bad date format in database => " << NEUTRAL << date << std::endl;
+			std::cout << RED BOLD << "Error: bad date format in database => " << NEUTRAL << date << std::endl;
 			continue ;
 		}
 		else if (!isValidValue(value))
 		{
-			std::cerr << RED BOLD << "Error: invalid value in database => " << NEUTRAL << value << std::endl;
+			std::cout << RED BOLD << "Error: invalid value in database => " << NEUTRAL << value << std::endl;
 			continue;
 		}
 		this->_rateByDate[date] = strToFloat(value);
@@ -141,7 +141,7 @@ bool	isValidValue(std::string const &value)
 	std::stringstream ss(value);
 	float val;
 
-	if (!(ss >> val) || !ss.eof() || val < 0)
+	if (!(ss >> val) || !ss.eof())
 		return false;
 	return true;
 }
@@ -163,64 +163,58 @@ void	processInputFile(std::string const &file, BitcoinExchange &btc_data)
 	std::string		line;
 	bool			first_line = true;
 
-	if (!input_file.is_open())
-	{
+	if (!input_file.is_open()) {
 		std::cerr << RED BOLD << "Error: could not open file." << NEUTRAL << std::endl;
 		return ;
 	}
 	while (std::getline(input_file, line))
 	{
-		if (first_line)
-		{
+		if (first_line) {
 			first_line = false;
 			continue ;
 		}
 		size_t		pipe_pos = line.find('|');
-		if ((pipe_pos == std::string::npos) || (line.find('|', pipe_pos + 1) != std::string::npos))
-		{
-			std::cerr << RED BOLD << "Error: bad input => " << NEUTRAL << line << std::endl;
+		if ((pipe_pos == std::string::npos) || (line.find('|', pipe_pos + 1) != std::string::npos)) {
+			std::cout << RED BOLD << "Error: bad input => " << NEUTRAL << line << std::endl;
 			continue ;
 		}
 		std::string	datePart = line.substr(0, pipe_pos);
 		std::string	value = line.substr(pipe_pos + 1);
 		size_t		dateStart = datePart.find_first_not_of(" \t");
 		size_t		dateEnd = datePart.find_last_not_of(" \t");
-		if (dateStart == std::string::npos)
-		{
-			std::cerr << RED BOLD << "Error: bad input => " << NEUTRAL << line << std::endl;
+		if (dateStart == std::string::npos) {
+			std::cout << RED BOLD << "Error: bad input => " << NEUTRAL << line << std::endl;
 			continue ;
 		}
 		std::string	date = datePart.substr(dateStart, dateEnd - dateStart + 1);
-		if (date.find(' ') != std::string::npos || date.find('\t') != std::string::npos)
-		{
-			std::cerr << RED BOLD << "Error: bad input => " << NEUTRAL << line << std::endl;
+		if (date.find(' ') != std::string::npos || date.find('\t') != std::string::npos) {
+			std::cout << RED BOLD << "Error: bad input => " << NEUTRAL << line << std::endl;
 			continue ;
 		}
 		size_t		valueStart = value.find_first_not_of(" \t");
 		size_t		valueEnd = value.find_last_not_of(" \t");
-		if (valueStart == std::string::npos)
-		{
-			std::cerr << RED BOLD << "Error: bad input => " << line << std::endl;
+		if (valueStart == std::string::npos) {
+			std::cout << RED BOLD << "Error: bad input => " << line << std::endl;
 			continue ;
 		}
 		std::string	valueStr = value.substr(valueStart, valueEnd - valueStart + 1);
-		if (valueStr.find('\t') != std::string::npos && !isValidValue(valueStr))
-		{
-			std::cerr << RED BOLD << "Error: bad input => " << NEUTRAL << line << std::endl;
+		if (valueStr.find('\t') != std::string::npos && !isValidValue(valueStr)) {
+			std::cout << RED BOLD << "Error: bad input => " << NEUTRAL << line << std::endl;
 			continue ;
 		}
-		if (!isValidDate(date) || !isValidValue(valueStr))
-		{
+		if (!isValidDate(date) || !isValidValue(valueStr)) {
 			if (!isValidDate(date))
-				std::cerr << RED BOLD << "Error: bad date format => " << NEUTRAL << date << std::endl;
+				std::cout << RED BOLD << "Error: bad date format => " << NEUTRAL << date << std::endl;
 			else if (!isValidValue(valueStr))
-				std::cerr << RED BOLD << "Error: invalid value => " << NEUTRAL << valueStr << std::endl;
+				std::cout << RED BOLD << "Error: invalid value => " << NEUTRAL << valueStr << std::endl;
 			continue ;
 		}
 		float	floatValue = strToFloat(valueStr);
-		if (floatValue > 1000)
-		{
-			std::cerr << RED BOLD << "Error: Number too large: " << NEUTRAL << floatValue << "." << std::endl;
+		if (floatValue > 1000) {
+			std::cout << RED BOLD << "Error: Number too large => " << NEUTRAL << valueStr << std::endl;
+			continue ;
+		} else if (floatValue < 0) {
+			std::cout << RED BOLD << "Error: Not a positive number => " << NEUTRAL << valueStr << std::endl;
 			continue ;
 		}
 		float	rate = btc_data.getRate(date);

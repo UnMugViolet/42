@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 12:38:49 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/09/15 10:45:39 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/09/16 09:58:42 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,14 @@
 #include <sstream>
 #include <cstdlib>
 #include <ctime>
+#include <limits>
+
+#define MAX_INT std::numeric_limits<int>::max()
+#define MIN_INT std::numeric_limits<int>::min()
+#define MAX_FLOAT std::numeric_limits<float>::max()
+#define MIN_FLOAT -std::numeric_limits<float>::max()
+#define MAX_DOUBLE std::numeric_limits<double>::max()
+#define MIN_DOUBLE -std::numeric_limits<double>::max()
 
 #define GREEN "\033[0;92m"
 #define YELLOW "\033[0;33m"
@@ -28,7 +36,6 @@
 #define BOLD "\033[1m"
 #define UNDERLINE "\033[4m"
 #define ITALIC "\033[3m"
-
 
 class BitcoinExchange
 {

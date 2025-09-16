@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
+#    By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 11:06:17 by unmugviolet       #+#    #+#              #
-#    Updated: 2025/08/28 12:07:57 by pjaguin          ###   ########.fr        #
+#    Updated: 2025/09/16 10:17:53 by unmugviolet      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ clean:
 
 fclean: clean
 	@rm -rf $(NAME)
-	@rm -rf $(DATA_DIR)
+	@rm -rf $(DATA_DIR)$(INPUT_FILE)
 	@echo "$(CYAN)$(NAME) executables and objects removed succesfully!$(DEFAULT)"
 
 go: all
@@ -108,6 +108,8 @@ setup:
 	@echo '2001-42-42' >> $(DATA_DIR)$(INPUT_FILE)
 	@echo '2012-01-11 | 1' >> $(DATA_DIR)$(INPUT_FILE)
 	@echo '2012-01-11 | 2147483648' >> $(DATA_DIR)$(INPUT_FILE)
+	@echo '2021-09-28 | 1000' >> $(DATA_DIR)$(INPUT_FILE)
+	@echo '200-01-11 | 1001' >> $(DATA_DIR)$(INPUT_FILE)
 	
 	
 re: fclean all
