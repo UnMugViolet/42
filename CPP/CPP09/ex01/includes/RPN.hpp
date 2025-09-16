@@ -1,0 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/16 10:26:19 by unmugviolet       #+#    #+#             */
+/*   Updated: 2025/09/16 10:26:40 by unmugviolet      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#pragma once 
+
+#include <iostream>
+
+#define MAX_INT std::numeric_limits<int>::max()
+#define MIN_INT std::numeric_limits<int>::min()
+#define MAX_FLOAT std::numeric_limits<float>::max()
+#define MIN_FLOAT -std::numeric_limits<float>::max()
+#define MAX_DOUBLE std::numeric_limits<double>::max()
+#define MIN_DOUBLE -std::numeric_limits<double>::max()
+
+#define GREEN "\033[0;92m"
+#define YELLOW "\033[0;33m"
+#define RED "\033[0;31m"
+#define NEUTRAL "\033[0m"
+
+#define BOLD "\033[1m"
+#define UNDERLINE "\033[4m"
+#define ITALIC "\033[3m"
