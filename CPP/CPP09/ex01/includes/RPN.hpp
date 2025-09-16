@@ -6,13 +6,16 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 10:26:19 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/09/16 10:26:40 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/09/16 11:44:26 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once 
 
 #include <iostream>
+#include <string>
+#include <list>
+#include <sstream>
 
 #define MAX_INT std::numeric_limits<int>::max()
 #define MIN_INT std::numeric_limits<int>::min()
@@ -29,3 +32,16 @@
 #define BOLD "\033[1m"
 #define UNDERLINE "\033[4m"
 #define ITALIC "\033[3m"
+
+class RPN
+{
+	private:
+		std::list<float> list;
+	public:
+		RPN();
+		~RPN();
+		RPN(RPN const &other);
+		RPN &operator=(RPN const &other);
+		float calculate(std::string str);
+};
+
