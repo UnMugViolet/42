@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/21 12:38:49 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/09/16 09:58:42 by unmugviolet      ###   ########.fr       */
+/*   Created: 2025/09/16 10:26:19 by unmugviolet       #+#    #+#             */
+/*   Updated: 2025/09/16 11:44:26 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#pragma once 
 
 #include <iostream>
-#include <map>
 #include <string>
-#include <fstream>
+#include <list>
 #include <sstream>
-#include <cstdlib>
-#include <ctime>
-#include <limits>
 
 #define MAX_INT std::numeric_limits<int>::max()
 #define MIN_INT std::numeric_limits<int>::min()
@@ -37,33 +33,15 @@
 #define UNDERLINE "\033[4m"
 #define ITALIC "\033[3m"
 
-class BitcoinExchange
+class RPN
 {
 	private:
-		std::string						_csvPath;
-		std::map<std::string, float>	_rateByDate;
+		std::list<float> list;
 	public:
-		BitcoinExchange();
-		BitcoinExchange(std::string const database_path);
-		BitcoinExchange(BitcoinExchange const &other);
-		BitcoinExchange &operator=(BitcoinExchange const &other);
-		~BitcoinExchange();
-
-		void		loadingDatabase();
-		std::string	getCSVPath() const;
-		float		getRate(std::string date);
-
-		class OpenCSVException: public std::exception
-		{
-			public:
-				virtual const char *what() const throw();
-		};
+		RPN();
+		~RPN();
+		RPN(RPN const &other);
+		RPN &operator=(RPN const &other);
+		float calculate(std::string str);
 };
-
-
-bool	isValidDate(const std::string& date);
-bool	isValidValue(const std::string& value);
-bool	isInputFileAccessible(char *file);
-void	processInputFile(std::string const &file, BitcoinExchange &btc_data);
-float	strToFloat(const std::string& str);
 

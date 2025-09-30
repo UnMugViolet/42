@@ -3,35 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 12:35:29 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/09/15 10:40:51 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/09/16 16:58:16 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+#include "RPN.hpp"
 
 
 int main(int ac, char **av)
 { 
-	if (ac != 2)
-	{
-		if (ac > 2)
-			std::cerr << RED BOLD << "Error: too many arguments." << NEUTRAL << std::endl;
-		else if (ac < 2)
-			std::cerr << RED BOLD << "Error: too few arguments." << NEUTRAL << std::endl;
-		else if (isInputFileAccessible(av[1]))
-			std::cerr << RED BOLD << "Error: file not well formatted." << NEUTRAL << std::endl;
+	if (ac != 2) {
+		std::cerr << RED << "Error: Invalid number of arguments" << NEUTRAL << std::endl;
 		return 1;
 	}
-	BitcoinExchange btc_data("data/data.csv");
+	RPN rpn;
+
 	try {
-		btc_data.loadingDatabase();
-	} catch (BitcoinExchange::OpenCSVException &e) {
-		std::cerr << RED BOLD << e.what() << NEUTRAL << std::endl;
+		float result = rpn.calculate(av[1]);
+		std::cout << GREEN << "Result: " << result << NEUTRAL << std::endl;
+	} catch (const std::exception &e) {
+		std::cerr << RED << e.what() << NEUTRAL << std::endl;
 		return 1;
 	}
-	processInputFile(av[1], btc_data);
 	return 0;
 }
