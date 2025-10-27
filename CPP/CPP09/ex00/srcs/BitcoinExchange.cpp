@@ -6,7 +6,7 @@
 /*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 12:38:46 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/09/16 10:18:51 by unmugviolet      ###   ########.fr       */
+/*   Updated: 2025/10/27 17:18:22 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,10 +125,6 @@ bool	isInputFileAccessible(char *file)
 	std::ifstream file_stream(file);
 
 	if (!file_stream.is_open())
-		return true;
-	else if (std::string(file).find(".txt") == std::string::npos)
-		return true;
-	else if (std::string(file).find(".txt") != std::string(file).length() - 4)
 		return true;
 	return false;
 }
