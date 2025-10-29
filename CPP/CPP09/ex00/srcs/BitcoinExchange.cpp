@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/21 12:38:46 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/10/27 17:18:22 by unmugviolet      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "BitcoinExchange.hpp"
 
 BitcoinExchange::BitcoinExchange(): _csvPath("./data/data.csv") {}
@@ -101,7 +89,7 @@ bool	isValidDate(const std::string& date)
 	int	month = std::atoi(date.substr(5, 2).c_str());
 	int	day = std::atoi(date.substr(8, 2).c_str());
 
-	if (year < 2009)
+	if (year < 2009 && day > 2)
 		return false;
 	if (month < 1 || month > 12)
 		return false;
@@ -165,7 +153,7 @@ void	processInputFile(std::string const &file, BitcoinExchange &btc_data)
 	}
 	while (std::getline(input_file, line))
 	{
-		if (first_line) {
+		if (first_line && line == "date | value") {
 			first_line = false;
 			continue ;
 		}
@@ -200,7 +188,7 @@ void	processInputFile(std::string const &file, BitcoinExchange &btc_data)
 		}
 		if (!isValidDate(date) || !isValidValue(valueStr)) {
 			if (!isValidDate(date))
-				std::cout << RED BOLD << "Error: bad date format => " << NEUTRAL << date << std::endl;
+				std::cout << RED BOLD << "Error: bad date => " << NEUTRAL << date << std::endl;
 			else if (!isValidValue(valueStr))
 				std::cout << RED BOLD << "Error: invalid value => " << NEUTRAL << valueStr << std::endl;
 			continue ;

@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/16 16:22:15 by unmugviolet       #+#    #+#             */
-/*   Updated: 2025/09/16 17:10:59 by unmugviolet      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #pragma once
 
 #include <iostream>
@@ -41,6 +29,7 @@
 #define UNDERLINE "\033[4m"
 #define ITALIC "\033[3m"
 
+extern size_t g_compares;
 
 class PmergeMe
 {
@@ -71,7 +60,7 @@ class PmergeMe
 		void	parseInput(int ac, char** av);
 		void	sortWithVector();
 		void	sortWithDeque();
-		void	displayResults(double vectorTime, double dequeTime);
+		void	displayResults(double vectorTime, double dequeTime, size_t compares_vector, size_t compares_deque);
 		double	getTime();
 		
 		// Getters
