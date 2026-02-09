@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 14:16:34 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/08/26 08:34:48 by pjaguin          ###   ########.fr       */
+/*   Updated: 2025/11/17 16:08:15 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ int main()
 
 	std::cout << BOLD << "4. addNumbers overflow: " << NEUTRAL << std::endl;
 	try {
-		Span sp2 = Span(100);
+		Span sp2 = Span(15001);
 		std::vector<int> vec;
-		for (int i = 0; i < 101; ++i) // Fill it too much
+		for (int i = 0; i < 15000; ++i) // Fill it too much
 			vec.push_back(i);
 		sp2.addNumbers(vec.begin(), vec.end());
 	} catch (const std::exception &e) {
