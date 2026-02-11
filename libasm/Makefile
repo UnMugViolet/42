@@ -1,13 +1,12 @@
 
 NAME = libasm.a
 PROG_NAME = libasm
-ARGS = $(filter-out $@,$(MAKECMDGOALS))
 
 NASM = nasm
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -g 
 
-SRCS = ft_strlen.s 
+SRCS = ft_strlen.s ft_strcpy.s
 BONUS_SRCS =
 PROG_SRC = main.c
 
@@ -40,8 +39,6 @@ $(OBJS_DIR):
 
 prog: all
 	@$(CC) $(CFLAGS) -I $(INC_DIR) $(PROG_SRC) -o $(PROG_NAME) $(NAME)
-	@./$(PROG_NAME) $(ARGS)
-	@rm -rf $(PROG_NAME)
 
 bonus: $(OBJS) $(OBJS_BONUS)
 	@echo "$(YELLOW)$(BOLD)Compiling bonuses $(NAME)...$(RESET)"
@@ -56,9 +53,5 @@ fclean: clean
 	@rm -rf $(NAME)
 
 re: fclean all
-
-# Catch-all target to handle arguments passed to make (return nothing)
-%:
-	@:
 
 .PHONY: all re clean fclean bonus 
