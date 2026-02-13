@@ -2,11 +2,11 @@ section .text
 	global ft_strlen
 
 ft_strlen:
-	xor rax, rax          ; Initialize length counter to 0
+	xor rax, rax          		; Initialize length counter to 0
 
 _loop:
 	cmp BYTE [rdi + rax], 0     ; Check if the current byte is the null terminator
-	je _return           		; If it is, go to the return label
+	je _return           		; If it is, go to the return label (je checks if above statement is true)
 	inc rax              		; Increment the length counter
 	jmp _loop            		; Jump back to loop 
 

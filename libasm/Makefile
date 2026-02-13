@@ -6,7 +6,7 @@ NASM = nasm
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -g 
 
-SRCS = ft_strlen.s ft_strcpy.s
+SRCS = ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s
 BONUS_SRCS =
 PROG_SRC = main.c
 
