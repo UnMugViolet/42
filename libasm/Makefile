@@ -4,9 +4,9 @@ PROG_NAME = libasm
 
 NASM = nasm
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g 
+CFLAGS = -Wall -Werror -Wextra -g
 
-SRCS = ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s
+SRCS = ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s ft_read.s
 BONUS_SRCS =
 PROG_SRC = main.c
 
