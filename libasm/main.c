@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <errno.h>
 #include <fcntl.h>
+#include <stdlib.h>
 
 void test_ft_write()
 {
@@ -66,6 +67,35 @@ void test_ft_read()
 }
 
 
+void test_ft_strdup()
+{
+	char str_to_duplicate[50] = "That is a good string to duplicate in my opinion\n";
+	char *null_str = NULL;
+
+	char *ft_duplicate = ft_strdup(str_to_duplicate);
+	char *duplicate = strdup(str_to_duplicate);
+
+	printf("Original function: %s", duplicate);
+	printf("Custom function: %s", ft_duplicate);
+
+
+	printf("Testing empty string:\n");
+	char *ft_dup_null = ft_strdup(null_str);
+	// char *dup_null = strdup(null_str);
+
+	// printf("Null string printing: %s", dup_null);
+	printf("Null string printing ft: %s", ft_dup_null);
+
+	if (ft_duplicate)
+		free(ft_duplicate);
+	if (duplicate)
+		free(duplicate);
+	if (ft_dup_null)
+		free(ft_dup_null);
+	// if (dup_null)
+	// 	free(dup_null);
+}
+
 int main(int ac, char **av)
 {
 	if (ac != 2) {
@@ -104,6 +134,9 @@ int main(int ac, char **av)
 
 		printf("=========READ===========\n");
 		test_ft_read();
+
+		printf("=========STRDUP===========\n");
+		test_ft_strdup();
 
 	}
 	return 0;
